@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Environment, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Lucy } from './lucy';
+import { Kevin } from './Kevin.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +19,7 @@ const Scene = ({ progress }) => {
     useEffect(() => {
 
         const updateCamPos = () => {
-            const position = [[-2.6, 0.2, 2.3],[2.8, 0.2, 2.3], [0, 3, 0.2], [0.4, -2.2, 0], [0, 2.5, 3.6]];
+            const position = [[2.6, 0.6, 2.1],[-2.8, 0.2, 2.3], [0, 3, 0.2], [-2, -0.4, -1],[0, 3, 0.2], [0.4, -2.2, 0], [0, 2.5, 3.6]];
 
             if (progress >= 1) {
 
@@ -31,7 +31,7 @@ const Scene = ({ progress }) => {
                     ease: 'power1.out',
                 });
             } else {
-                const segmentProgress = 1 / 4;
+                const segmentProgress = 1 / 6;
 
                 const segmentIndex = Math.floor(progress / segmentProgress);
                 console.log("Segment Index:", segmentIndex);
@@ -70,8 +70,8 @@ const Scene = ({ progress }) => {
 
             />
             <Environment preset="city" />
-            <Lucy />
-            <axesHelper args={[500]} />
+            <Kevin />
+            {/* <axesHelper args={[500]} /> */}
 
         </>
     )
