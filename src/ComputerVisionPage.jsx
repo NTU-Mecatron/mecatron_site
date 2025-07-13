@@ -19,7 +19,7 @@ export default function ComputerVisionPage() {
               alt="Photo"
               caption="100% focused on powering the robot"
               rotate="-rotate-6"
-              photocolour='#EA580C'
+              photocolour='#ffffffff'
             />
           </div>
 
@@ -47,7 +47,7 @@ export default function ComputerVisionPage() {
               alt="Photo 3"
               caption="Another fully-focused team!"
               rotate="rotate-3"
-              photocolour='#EA580C'
+              photocolour='#ffffffff'
             />
           </div>
 
@@ -135,7 +135,7 @@ function PolaroidPhoto({ src, alt, caption, rotate = '-rotate-3', photocolour = 
         className="w-96 aspect-[5/3] object-cover mx-auto rounded-md"
       />
       {caption && (
-        <p className="text-white mt-2 text-sm italic font-bold">{caption}</p>
+        <p className="text-orange-600 mt-2 text-sm italic font-bold">{caption}</p>
       )}
     </div>
   );
