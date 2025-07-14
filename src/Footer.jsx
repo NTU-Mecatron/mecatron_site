@@ -4,7 +4,7 @@ import mecatronLogo from './assets/logos/mecatronWheelLogo.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#222] text-gray-300 pt-10 pb-4 px-4 mt-16">
+    <footer className="bg-[#222] text-gray-300 pt-10 pb-4 px-4">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         {/* Logo */}
         <div className="flex items-center justify-center mb-6">
