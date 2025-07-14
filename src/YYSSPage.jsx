@@ -70,7 +70,7 @@ export default function YYSSPage() {
             <p>Beyond technical skills, this workshop emphasised the real-world impact of marine engineering. Through interactive underwater simulations and design thinking exercises, students discovered how innovation in marine tech contributes to ocean sustainability and responsible design.</p>
           </div>
         </div>
-        <h2 className="text-4xl font-extrabold text-orange-500 mt-12">Photos & Video Montage [COMING SOON]</h2>
+        <h2 className="text-4xl font-extrabold text-orange-500 mt-12">Photos & Video Montage</h2>
 
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8 py-12">
             {/* Left: Image Carousel */}
@@ -83,21 +83,21 @@ export default function YYSSPage() {
             {/* Right: Video */}
             <div className="flex-1 flex justify-center">
               <div className="w-full max-w-xl h-[400px] aspect-video">
-                <video
-                  src="/images/comingsoon.mp4"
-                  controls
-                  className="w-full h-full rounded-xl object-cover"
-                >
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                    src="https://www.youtube.com/embed/4Mz1h7-QVyU"
+                    title="Video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-xl"
+                  />
               </div>
             </div>
         </div>
 
-      </div>
-
-      
     </div>
+
+  </div>
+      
   );
 }
 
