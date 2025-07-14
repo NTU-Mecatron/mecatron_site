@@ -135,7 +135,7 @@ function PolaroidPhoto({ src, alt, caption, rotate = '-rotate-3', photocolour = 
         className="w-96 aspect-[5/3] object-cover mx-auto rounded-md"
       />
       {caption && (
-        <p className="text-orange-600 mt-2 text-sm italic font-bold">{caption}</p>
+        <p className="text-black mt-2 text-sm italic font-bold">{caption}</p>
       )}
     </div>
   );
