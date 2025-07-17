@@ -46,6 +46,12 @@ export default function Home() {
                 Meet Kevin
               </Link>
               <Link
+                to="/lucy"
+                className="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+              >
+                Meet Lucy
+              </Link>
+              <Link
                 to="/robosub2025"
                 className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200 hover:bg-gray-700"
               >
