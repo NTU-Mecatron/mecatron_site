@@ -33,110 +33,116 @@ export default function Home() {
       <Navbar scrollToSection={scrollToSection} />
       {/* Hero Section */}
       <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-16 px-8 md:px-20 min-h-screen bg-[#181818]">
-        <div className="flex-1 flex flex-col items-start justify-center space-y-6">
-          <div className="text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
-          <div className="text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between w-full">
+          <div className="flex-1 flex flex-col items-start justify-center space-y-6">
+            <div className="text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
+            <div className="text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
 
-
-          <div className="flex space-x-4 mt-6">
-            <Link
-              to="/kevin"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
-            >
-              Meet Kevin
-            </Link>
-            <button className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200">
-              Robosub 2025
-            </button>
+            <div className="flex space-x-4 mt-6">
+              <Link
+                to="/kevin"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+              >
+                Meet Kevin
+              </Link>
+              <Link
+                to="/robosub2025"
+                className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200 hover:bg-gray-700"
+              >
+                Robosub 2025
+              </Link>
+            </div>
           </div>
-          {/* <div className="mt-10 w-full max-w-md bg-[#232323] rounded-xl flex flex-row justify-between items-center px-6 py-4 space-x-4">
-            <div className="flex flex-col items-center"><span className="text-orange-500 text-xl font-bold">5+</span><span className="text-gray-300 text-sm">Experiences</span></div>
-            <div className="w-px h-8 bg-gray-700"></div>
-            <div className="flex flex-col items-center"><span className="text-orange-500 text-xl font-bold">20+</span><span className="text-gray-300 text-sm">Project done</span></div>
-            <div className="w-px h-8 bg-gray-700"></div>
-            <div className="flex flex-col items-center"><span className="text-orange-500 text-xl font-bold">80+</span><span className="text-gray-300 text-sm">Happy Clients</span></div>
-          </div> */}
-        </div>
-        <div className="flex-1 flex items-center justify-center mt-12 md:mt-0">
-          {/* 3D Kevin model in a circular container */}
-          <div className="w-[36rem] h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-            <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: 'transparent' }}>
-              <ambientLight intensity={0.7} />
-              <Kevin scale={[5, 5, 5]} />
-              <OrbitControls enableZoom={false} enablePan={true} />
-            </Canvas>
+          <div className="flex-1 flex items-center justify-center mt-12 md:mt-0">
+            {/* 3D Kevin model in a circular container */}
+            <div className="w-[36rem] h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
+              <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: 'transparent' }}>
+                <ambientLight intensity={0.7} />
+                <Kevin scale={[5, 5, 5]} />
+                <OrbitControls enableZoom={false} enablePan={true} />
+              </Canvas>
+            </div>
           </div>
         </div>
       </section>
       {/* Placeholder sections for navigation */}
-      <section ref={sectionRefs.services} className="min-h-[500px] flex flex-col md:flex-row items-stretch justify-center bg-[#1a1a1a] px-8 md:px-20 p-12">
-        {/* Left: Text */}
-        <div className="flex-1 flex flex-col justify-center items-start max-w-2xl py-12 h-full">
-          <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
-          <p className="text-lg text-white mb-6">
-            Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
-          </p>
-          <p className="text-lg text-white mb-8">
-            As a student-led club, we provide a hands-on learning environment where members gain practical experience in design, programming, and engineering. Beyond innovation, we actively engage in outreach initiatives to inspire interest in marine science and technology.
-          </p>
-          <Link to="/team" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-            Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-          </Link>
-        </div>
-        {/* Right: Carousel */}
-        <div className="flex-1 flex justify-center items-center w-full py-12 h-full">
-          <TeamCarousel />
-        </div>
-      </section>
-      <section ref={sectionRefs.competitions} className="min-h-[500px] flex flex-col md:flex-row items-stretch justify-center bg-[#181818] px-8 md:px-20 p-12">
-        {/* Left: Text */}
-        <div className="flex-1 flex flex-col justify-center items-start max-w-2xl py-12 h-full">
-          <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Competitions</h2>
-          <p className="text-lg text-white mb-6">
-            As a young and ambitious team, Mecatron competes annually in the Singapore AUV Challenge (SAUVC) and has participated in the MATE ROV competition.
-          </p>
-          <p className="text-lg text-white mb-8">
-            This year, we are preparing to make our debut at RoboSub in August. These events push us to innovate, refine our underwater vehicle designs, and collaborate on cutting-edge robotics solutions.
-          </p>
-          <Link to="/competitions" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-            Learn more about our participated competitions <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-          </Link>
-        </div>
-        {/* Right: Carousel */}
-        <div className="flex-1 flex justify-center items-center w-full py-12 h-full">
-          <CompetitionsCarousel />
+      <section ref={sectionRefs.services} className="min-h-[500px] bg-[#1a1a1a] py-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+          {/* Left: Text */}
+          <div className="flex-1 flex flex-col justify-center items-start py-8">
+            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
+            <p className="text-lg text-white mb-6">
+              Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
+            </p>
+            <p className="text-lg text-white mb-8">
+              As a student-led club, we provide a hands-on learning environment where members gain practical experience in design, programming, and engineering. Beyond innovation, we actively engage in outreach initiatives to inspire interest in marine science and technology.
+            </p>
+            <Link to="/team" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+              Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+            </Link>
+          </div>
+          {/* Right: Carousel */}
+          <div className="flex-1 flex justify-center items-center py-8">
+            <TeamCarousel />
+          </div>
         </div>
       </section>
-      <section ref={sectionRefs.about} className="min-h-[500px] flex flex-col md:flex-row items-stretch justify-center bg-[#181818] px-8 md:px-20 p-12">
-        {/* Left: Carousel */}
-        <div className="flex-1 flex justify-center items-center w-full py-12 h-full">
-          <InitiativesCarousel />
-        </div>
-        {/* Right: Text */}
-        <div className="flex-1 flex flex-col justify-center items-center max-w-2xl py-12 h-full">
-          <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
-          <p className="text-lg text-white mb-8">
-            We are always eager to share our work and our knowledge with the community through outreach workshops, to inspire a spirit of innovation in students. Through these workshops, we hope to spark students’ interest in Marine Science & Tech; to evoke curiosity and inspire students to innovate new solutions as they explore the world beyond the school curriculum.
-          </p>
-          <Link to="/outreach" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-            Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-          </Link>
+      <section ref={sectionRefs.competitions} className="min-h-[500px] bg-[#181818] py-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+          {/* Right: Carousel */}
+          <div className="flex-1 flex justify-center items-center py-8">
+            <CompetitionsCarousel />
+          </div>
+          {/* Left: Text */}
+          <div className="flex-1 flex flex-col justify-center items-start py-8">
+            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Competitions</h2>
+            <p className="text-lg text-white mb-6">
+              As a young and ambitious team, Mecatron competes annually in the Singapore AUV Challenge (SAUVC) and has participated in the MATE ROV competition.
+            </p>
+            <p className="text-lg text-white mb-8">
+              This year, we are preparing to make our debut at RoboSub in August. These events push us to innovate, refine our underwater vehicle designs, and collaborate on cutting-edge robotics solutions.
+            </p>
+            <Link to="/competitions" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+              Learn more about our participated competitions <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+            </Link>
+          </div>
+
         </div>
       </section>
-      <section ref={sectionRefs.portfolio} className="min-h-[400px] flex flex-col md:flex-row items-stretch justify-center bg-white px-8 md:px-20 p-12">
-        {/* Left: Text */}
-        <div className="flex-1 flex flex-col justify-center items-center max-w-2xl py-12 h-full text-black">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
-          <p className="text-base md:text-lg mb-4">
-            We are grateful to our sponsors for their invaluable support in shaping Mecatron’s journey. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
-          </p>
-          <Link to="/sponsors" className="text-base font-semibold hover:text-orange-500 transition flex items-center group">
-            To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </Link>
+      <section ref={sectionRefs.about} className="min-h-[500px] bg-[#181818] py-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+          {/* Right: Text */}
+          <div className="flex-1 flex flex-col justify-center items-start py-8">
+            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
+            <p className="text-lg text-white mb-8">
+              We are always eager to share our work and our knowledge with the community through outreach workshops, to inspire a spirit of innovation in students. Through these workshops, we hope to spark students' interest in Marine Science & Tech; to evoke curiosity and inspire students to innovate new solutions as they explore the world beyond the school curriculum.
+            </p>
+            <Link to="/outreach" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+              Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+            </Link>
+          </div>
+          {/* Left: Carousel */}
+          <div className="flex-1 flex justify-center items-center py-8">
+            <InitiativesCarousel />
+          </div>
         </div>
-        {/* Right: Carousel */}
-        <div className="flex-1 flex justify-center items-center w-full py-12 h-full">
-          <SponsorsCarousel />
+      </section>
+      <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-white py-16">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+          {/* Left: Text */}
+          <div className="flex-1 flex flex-col justify-center items-start py-8 text-black">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
+            <p className="text-base md:text-lg mb-4">
+              We are grateful to our sponsors for their invaluable support in shaping Mecatron's journey. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
+            </p>
+            <Link to="/sponsors" className="text-base font-semibold hover:text-orange-500 transition flex items-center group">
+              To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </Link>
+          </div>
+          {/* Right: Carousel */}
+          <div className="flex-1 flex justify-center items-center py-8">
+            <SponsorsCarousel />
+          </div>
         </div>
       </section>
     </div>
@@ -177,25 +183,25 @@ function TeamCarousel() {
 function CompetitionsCarousel() {
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80',
+      image: '/images/sauvc2025.jpeg',
       title: '1st Place',
       subtitle: 'SAUVC 2025',
       desc: 'Following our successful debut last year, Mecatron proudly clinched 1st place at the Singapore AUV Challenge 2025!',
-      link: '/competitions',
+      link: '/sauvc2025',
     },
     {
-      image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80',
+      image: '/images/materov2024.webp',
       title: 'Finalist',
       subtitle: 'MATE ROV 2024',
-      desc: 'We reached the finals at the MATE ROV Competition, showcasing our underwater robotics expertise.',
-      link: '/competitions',
+      desc: 'Find out about how we conquered the MATE ROV World Championship with "Guts and Glory"!',
+      link: '/materov2024',
     },
     {
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-      title: 'Upcoming',
-      subtitle: 'RoboSub 2024',
-      desc: 'We are preparing for our debut at RoboSub in August. Stay tuned for updates!',
-      link: '/competitions',
+      image: '/images/sauvc2024.jpg',
+      title: '3rd Place',
+      subtitle: 'SAUVC 2024',
+      desc: 'Witness the debut of our first autonomous underwater vehicle (AUV) at the Singapore AUV Challenge.',
+      link: '/sauvc2024',
     },
   ];
   const [idx, setIdx] = useState(0);
@@ -236,22 +242,22 @@ function CompetitionsCarousel() {
 function InitiativesCarousel() {
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      image: '/images/computervision_2.jpg',
       date: 'September 2024',
       title: 'Computer Vision Workshop',
       desc: 'Mecatron organised and held a computer vision workshop for NTU students, delivering engaging sessions on image processing, neural networks, and real-world AI applications. This workshop introduced Roboflow, guiding attendees through data collection, labeling, and training a YOLO (You Only Look Once) model for object detection.',
     },
     {
-      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80',
-      date: 'June 2024',
-      title: 'Marine Robotics Outreach',
-      desc: 'We conducted a marine robotics outreach event, inspiring students to explore underwater robotics and hands-on engineering.',
+      image: '/images/marinevehicle_1.jpg',
+      date: 'April 2025',
+      title: 'Marine Vehicle Workshop',
+      desc: 'Held in the iconic Sands Expo & Convention Center, the heart of Singapore\'s celebration of skills, creativity, and innovation, Mecatron was proud to host a hands-on Marine Engineering Workshop aimed to introduce students to the exciting world of marine engineering, highlighting its real-world relevance in fields such as Ocean waste retrieval, Underwater inspection and repair, Marine biodiversity sampling',
     },
     {
-      image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80',
-      date: 'March 2024',
-      title: 'STEM Innovation Day',
-      desc: 'Our team participated in STEM Innovation Day, sharing our projects and encouraging innovation in marine science and technology.',
+      image: '/images/blender3d_7.jpg',
+      date: 'October 2024',
+      title: 'Blender 3D Workshop',
+      desc: 'Mecatron organized a 2 day Blender 3D workshop, providing NTU students with hands-on training in Blender basics, product design fundamentals, Materials and Texturing, Rendering etc. Whether it is for marketing, game asset creation, or simply converting an image from your head to something others can see, creating 3D content is an extremely valuable skill.',
     },
   ];
   const [idx, setIdx] = useState(0);
