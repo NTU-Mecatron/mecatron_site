@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import mecatronLogo from './assets/logos/mecatronLogo.png';
 
 const sections = [
-  { id: 'home', label: 'Home', path: '/' },
   { id: 'team', label: 'Our Team', path: '/team',
     submenu: [
       { id: 'team-main', label: 'Our Team', path: '/team' },
@@ -124,7 +123,9 @@ export default function Navbar({ scrollToSection }) {
       style={{ willChange: 'transform, opacity' }}
     >
       <div className="flex items-center h-8">
-        <img src={mecatronLogo} alt="Mecatron Logo" className="h-8 w-auto object-contain" />
+        <Link to="/" className="cursor-pointer hover:opacity-80 transition-opacity duration-200">
+          <img src={mecatronLogo} alt="Mecatron Logo" className="h-8 w-auto object-contain" />
+        </Link>
       </div>
 
       {/* Desktop Menu */}
@@ -158,26 +159,13 @@ export default function Navbar({ scrollToSection }) {
               </div>
             </div>
           ) : (
-            location.pathname === '/' && scrollToSection ? (
-              <button
-                key={s.id}
-                onClick={() => scrollToSection && scrollToSection(s.id)}
-                className={
-                  'text-base font-medium hover:text-orange-400 transition-colors duration-200' +
-                  (s.id === 'home' ? ' text-orange-400' : ' text-white')
-                }
-              >
-                {s.label}
-              </button>
-            ) : (
-              <Link
-                key={s.id}
-                to={s.path}
-                className="text-base font-medium text-white hover:text-orange-400 transition-colors duration-200"
-              >
-                {s.label}
-              </Link>
-            )
+            <Link
+              key={s.id}
+              to={s.path}
+              className="text-base font-medium text-white hover:text-orange-400 transition-colors duration-200"
+            >
+              {s.label}
+            </Link>
           )
         ))}
       </div>
@@ -243,27 +231,13 @@ export default function Navbar({ scrollToSection }) {
                     </div>
                   </div>
                 ) : (
-                  location.pathname === '/' && scrollToSection ? (
-                    <button
-                      onClick={() => {
-                        scrollToSection && scrollToSection(s.id);
-                        setMobileMenuOpen(false);
-                      }}
-                      className={`w-full text-left px-4 py-3 rounded-lg transition ${
-                        s.id === 'home' ? 'text-orange-400' : 'text-white hover:bg-orange-500 hover:text-white'
-                      }`}
-                    >
-                      {s.label}
-                    </button>
-                  ) : (
-                    <Link
-                      to={s.path}
-                      onClick={() => handleSelect(s.path)}
-                      className="block w-full text-left px-4 py-3 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
-                    >
-                      {s.label}
-                    </Link>
-                  )
+                  <Link
+                    to={s.path}
+                    onClick={() => handleSelect(s.path)}
+                    className="block w-full text-left px-4 py-3 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
+                  >
+                    {s.label}
+                  </Link>
                 )}
               </div>
             ))}
