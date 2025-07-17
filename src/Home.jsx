@@ -17,12 +17,12 @@ export default function Home() {
   // Refs for scrolling
   const sectionRefs = {
     home: useRef(null),
-    services: useRef(null),
+    services: useRef(null), 
     about: useRef(null),
     portfolio: useRef(null),
     contact: useRef(null),
     competitions: useRef(null),
-  };
+  };    
 
   const scrollToSection = (id) => {
     sectionRefs[id]?.current?.scrollIntoView({ behavior: 'smooth' });
