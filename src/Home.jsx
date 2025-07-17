@@ -29,39 +29,33 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#181818] text-white font-sans">
+    <div className="min-h-screen bg-[#181818] text-white font-sans overflow-x-hidden">
       <Navbar scrollToSection={scrollToSection} />
       {/* Hero Section */}
-      <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-16 px-8 md:px-20 min-h-screen bg-[#181818]">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between w-full">
-          <div className="flex-1 flex flex-col items-start justify-center space-y-6">
-            <div className="text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
-            <div className="text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
+      <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-16 px-4 sm:px-8 md:px-20 min-h-screen bg-[#181818]">
+        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
+          <div className="flex-1 flex flex-col items-start justify-center space-y-6 w-full">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
+            <div className="text-2xl sm:text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
 
-            <div className="flex space-x-4 mt-6">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 w-full">
               <Link
                 to="/kevin"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 text-center"
               >
                 Meet Kevin
               </Link>
               <Link
-                to="/lucy"
-                className="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
-              >
-                Meet Lucy
-              </Link>
-              <Link
                 to="/robosub2025"
-                className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200 hover:bg-gray-700"
+                className="border border-gray-400 text-gray-200 font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 hover:bg-gray-700 text-center"
               >
                 Robosub 2025
               </Link>
             </div>
           </div>
-          <div className="flex-1 flex items-center justify-center mt-12 md:mt-0">
+          <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
             {/* 3D Kevin model in a circular container */}
-            <div className="w-[36rem] h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
+            <div className="w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
               <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: 'transparent' }}>
                 <ambientLight intensity={0.7} />
                 <Kevin scale={[5, 5, 5]} />
@@ -73,42 +67,42 @@ export default function Home() {
       </section>
       {/* Placeholder sections for navigation */}
       <section ref={sectionRefs.services} className="min-h-[500px] bg-[#1a1a1a] py-16">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
           {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start py-8">
-            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
-            <p className="text-lg text-white mb-6">
+          <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
+            <p className="text-base sm:text-lg text-white mb-6">
               Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
             </p>
-            <p className="text-lg text-white mb-8">
+            <p className="text-base sm:text-lg text-white mb-8">
               As a student-led club, we provide a hands-on learning environment where members gain practical experience in design, programming, and engineering. Beyond innovation, we actively engage in outreach initiatives to inspire interest in marine science and technology.
             </p>
-            <Link to="/team" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+            <Link to="/team" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
               Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
             </Link>
           </div>
           {/* Right: Carousel */}
-          <div className="flex-1 flex justify-center items-center py-8">
+          <div className="flex-1 flex justify-center items-center py-8 w-full">
             <TeamCarousel />
           </div>
         </div>
       </section>
       <section ref={sectionRefs.competitions} className="min-h-[500px] bg-[#181818] py-16">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
           {/* Right: Carousel */}
-          <div className="flex-1 flex justify-center items-center py-8">
+          <div className="flex-1 flex justify-center items-center py-8 w-full">
             <CompetitionsCarousel />
           </div>
           {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start py-8">
-            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Competitions</h2>
-            <p className="text-lg text-white mb-6">
+          <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Competitions</h2>
+            <p className="text-base sm:text-lg text-white mb-6">
               As a young and ambitious team, Mecatron competes annually in the Singapore AUV Challenge (SAUVC) and has participated in the MATE ROV competition.
             </p>
-            <p className="text-lg text-white mb-8">
+            <p className="text-base sm:text-lg text-white mb-8">
               This year, we are preparing to make our debut at RoboSub in August. These events push us to innovate, refine our underwater vehicle designs, and collaborate on cutting-edge robotics solutions.
             </p>
-            <Link to="/competitions" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+            <Link to="/competitions" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
               Learn more about our participated competitions <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
             </Link>
           </div>
@@ -116,37 +110,37 @@ export default function Home() {
         </div>
       </section>
       <section ref={sectionRefs.about} className="min-h-[500px] bg-[#181818] py-16">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
           {/* Right: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start py-8">
-            <h2 className="text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
-            <p className="text-lg text-white mb-8">
+          <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
+            <p className="text-base sm:text-lg text-white mb-8">
               We are always eager to share our work and our knowledge with the community through outreach workshops, to inspire a spirit of innovation in students. Through these workshops, we hope to spark students' interest in Marine Science & Tech; to evoke curiosity and inspire students to innovate new solutions as they explore the world beyond the school curriculum.
             </p>
-            <Link to="/outreach" className="text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+            <Link to="/outreach" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
               Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
             </Link>
           </div>
           {/* Left: Carousel */}
-          <div className="flex-1 flex justify-center items-center py-8">
+          <div className="flex-1 flex justify-center items-center py-8 w-full">
             <InitiativesCarousel />
           </div>
         </div>
       </section>
       <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-white py-16">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
           {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start py-8 text-black">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
-            <p className="text-base md:text-lg mb-4">
+          <div className="flex-1 flex flex-col justify-center items-start py-8 text-black w-full">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
+            <p className="text-sm sm:text-base md:text-lg mb-4">
               We are grateful to our sponsors for their invaluable support in shaping Mecatron's journey. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
             </p>
-            <Link to="/sponsors" className="text-base font-semibold hover:text-orange-500 transition flex items-center group">
+            <Link to="/sponsors" className="text-sm sm:text-base font-semibold hover:text-orange-500 transition flex items-center group">
               To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
           </div>
           {/* Right: Carousel */}
-          <div className="flex-1 flex justify-center items-center py-8">
+          <div className="flex-1 flex justify-center items-center py-8 w-full">
             <SponsorsCarousel />
           </div>
         </div>
@@ -165,7 +159,7 @@ function TeamCarousel() {
   const prev = () => setIdx((idx - 1 + images.length) % images.length);
   const next = () => setIdx((idx + 1) % images.length);
   return (
-    <div className="relative w-full max-w-xl h-full flex items-center justify-center">
+    <div className="relative w-full max-w-lg h-full flex items-center justify-center">
       <img src={images[idx]} alt="Team" className="rounded-xl object-cover w-full h-full" />
       <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
         <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -214,7 +208,7 @@ function CompetitionsCarousel() {
   const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
   const next = () => setIdx((idx + 1) % slides.length);
   return (
-    <div className="relative w-full max-w-xl h-full flex flex-col items-center justify-center">
+    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
       <div className="relative w-full h-2/3 flex items-center justify-center">
         <img src={slides[idx].image} alt={slides[idx].subtitle} className="rounded-xl object-cover w-full h-full" />
         <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
@@ -224,11 +218,11 @@ function CompetitionsCarousel() {
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
-      <div className="w-full bg-[#232323] rounded-xl mt-4 p-6">
+      <div className="w-full bg-[#232323] rounded-xl mt-4 p-4 sm:p-6">
         <div className="text-sm font-bold text-white mb-1">{slides[idx].title}</div>
-        <div className="text-2xl font-extrabold text-white mb-2">{slides[idx].subtitle}</div>
-        <div className="text-base text-white mb-2">{slides[idx].desc}</div>
-        <Link to={slides[idx].link} className="text-base font-semibold text-white hover:text-orange-500 transition flex items-center group">
+        <div className="text-xl sm:text-2xl font-extrabold text-white mb-2">{slides[idx].subtitle}</div>
+        <div className="text-sm sm:text-base text-white mb-2">{slides[idx].desc}</div>
+        <Link to={slides[idx].link} className="text-sm sm:text-base font-semibold text-white hover:text-orange-500 transition flex items-center group">
           Read More Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
         </Link>
       </div>
@@ -270,7 +264,7 @@ function InitiativesCarousel() {
   const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
   const next = () => setIdx((idx + 1) % slides.length);
   return (
-    <div className="relative w-full max-w-xl h-full flex flex-col items-center justify-center">
+    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
       <div className="relative w-full h-2/3 flex items-center justify-center">
         <img src={slides[idx].image} alt={slides[idx].title} className="rounded-xl object-cover w-full h-full" />
         <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
@@ -280,10 +274,10 @@ function InitiativesCarousel() {
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>
-      <div className="w-full bg-[#232323] rounded-xl mt-4 p-6">
+      <div className="w-full bg-[#232323] rounded-xl mt-4 p-4 sm:p-6">
         <div className="text-sm font-bold text-white mb-1">{slides[idx].date}</div>
-        <div className="text-2xl font-extrabold text-white mb-2">{slides[idx].title}</div>
-        <div className="text-base text-white mb-2">{slides[idx].desc}</div>
+        <div className="text-xl sm:text-2xl font-extrabold text-white mb-2">{slides[idx].title}</div>
+        <div className="text-sm sm:text-base text-white mb-2">{slides[idx].desc}</div>
       </div>
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {slides.map((_, i) => (
@@ -335,22 +329,22 @@ function SponsorsCarousel() {
   while (visible.length < groupSize) visible.push(null);
 
   return (
-    <div className="relative w-full max-w-xl h-full flex flex-col items-center justify-center">
-      <div className="relative w-full h-64 flex items-center justify-center">
+    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
+      <div className="relative w-full h-48 sm:h-64 flex items-center justify-center">
         <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
         </button>
-        <div className="flex flex-row gap-8 w-full justify-center items-center">
+        <div className="flex flex-row gap-4 sm:gap-8 w-full justify-center items-center">
           {visible.map((s, i) =>
             s ? (
               <img
                 key={s.alt}
                 src={s.logo}
                 alt={s.alt}
-                className="object-contain h-40 max-h-40 w-40 max-w-xs mx-auto bg-white rounded-lg shadow"
+                className="object-contain h-24 sm:h-32 md:h-40 max-h-40 w-24 sm:w-32 md:w-40 max-w-xs mx-auto bg-white rounded-lg shadow"
               />
             ) : (
-              <div key={i} className="h-40 w-40" />
+              <div key={i} className="h-24 sm:h-32 md:h-40 w-24 sm:w-32 md:w-40" />
             )
           )}
         </div>

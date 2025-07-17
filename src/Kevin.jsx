@@ -6,9 +6,19 @@ export function Kevin(props) {
 
   useEffect(() => {
     function handleResize() {
+      const isMobile = window.innerWidth < 768;
       const base = Math.min(window.innerWidth, window.innerHeight);
-      const s = Math.max(0.7, Math.min(3.5, base / 350));
-      setScale([s, s, s]);
+      
+      // Make Kevin bigger on mobile devices
+      if (isMobile) {
+        // For mobile: use a larger scale factor and higher minimum
+        const s = Math.max(2.5, Math.min(5.0, base / 200));
+        setScale([s, s, s]);
+      } else {
+        // For desktop: keep original logic
+        const s = Math.max(0.7, Math.min(3.5, base / 350));
+        setScale([s, s, s]);
+      }
     }
     window.addEventListener('resize', handleResize);
     handleResize(); // Call once on mount
