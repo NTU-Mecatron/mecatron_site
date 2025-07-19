@@ -5,10 +5,10 @@ export default function Sauvc2024Page() {
 
   function Carousel() {
     const images = [
-      'src/assets/sauvc_2024/images/sauvc_2024_carousel_1.jpeg',
-      'src/assets/sauvc_2024/images/sauvc_2024_carousel_2.jpeg',
-      'src/assets/sauvc_2024/images/sauvc_2024_carousel_3.jpeg',
-      'src/assets/sauvc_2024/images/sauvc_2024_carousel_4.jpg',
+      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_1.jpeg',
+      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_2.jpeg',
+      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_3.jpeg',
+      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_4.jpg',
     ];
     const [idx, setIdx] = useState(0);
     const prev = () => setIdx((idx - 1 + images.length) % images.length);
@@ -125,12 +125,12 @@ export default function Sauvc2024Page() {
         </div>
         <div className="flex flex-col items-center space-y-5">
           <p  className="font-bold">Day 2</p>
-          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID4.mov" controls></video> 
+          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID4.mp4" controls></video> 
         </div>
         
         <div className="flex flex-col items-center space-y-5">
           <p  className="font-bold">Day 3</p>
-          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID5.mov" controls></video> 
+          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID5.mp4" controls></video> 
         </div>
         
       </div>
