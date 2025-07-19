@@ -15,10 +15,14 @@ export default function Robosub2025Page() {
   return(
 
     <div className="min-h-screen bg-[#181818] text-white font-sans">
-      <div className="flex pt-32 justify-evenly">
+      {/* <div className="flex pt-32 justify-evenly">
         <h1 className="flex text-lg">October 2025</h1>
         <h1 className="flex text-5xl text-orange-600">RoboSub 2025</h1>
-      </div>   
+      </div>    */}
+      <div className="flex flex-col md:flex-row pt-32 items-center md:justify-around text-center">
+        <h1 className="flex text-lg">October 2025</h1>
+        <h1 className="flex text-4xl md:text-5xl text-[#d73a1a] font-bold">RoboSub 2025</h1>
+      </div>
       <section className="flex flex-col md:flex-row items-center justify-between pb-5 md:pb-20 px-8 md:px-20 bg-[#181818]">
           <div className="flex flex-1 justify-center mt-12 md:mt-0">
             {/* 3D Kevin model in a circular container */}
@@ -34,21 +38,23 @@ export default function Robosub2025Page() {
       <div className="flex flex-col gap-4 pr-5 pl-5 md:flex-row md:gap-16  justify-center pb-10">
         <Link
           to="/kevin"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+          className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
         > 
           Click Here To View Kevin
         </Link>
 
-        <Link
-          to="/kevin"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+        <a 
+          href="/src/assets/robosub_2025/Technical-Documentation.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
         >
           Kevin's Technical Paper
-        </Link>
+        </a>
 
         <Link
-          to="/kevin"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
+          to="https://mecatron.notion.site/Robosub-2025-Blog-20c6978f818e80aebb1ec2d603b2cc69"
+          className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
         >
           Team's Blog
         </Link>
@@ -58,7 +64,7 @@ export default function Robosub2025Page() {
       </div>   
        <section className="flex flex-col md:flex-row items-center justify-between pt-10 pb-10 px-8 md:px-20 bg-[#303030] md:min-h-30">
           <div className="flex flex-1 justify-center mt-12 md:mt-0">
-            <iframe
+            {/* <iframe
               src='https://www.youtube.com/embed/E7wJTI-1dvQ'
               frameborder='0'
               allow='autoplay; encrypted-media'
@@ -66,7 +72,8 @@ export default function Robosub2025Page() {
               title='video'
               width="100%"
               height="600"
-            />
+            /> */}
+            <iframe width="100%" height="600" src="https://www.youtube.com/embed/stvEZ86dvd4" title="Team Mecatron RoboSub Introduction Video | RoboSub 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
       </section>
 
@@ -78,14 +85,14 @@ export default function Robosub2025Page() {
             className="w-full h-auto brightness-50"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <p className="text-white text-center md:text-4xl text-sm px-4 pb-10">
+            <p className="text-white text-center md:text-4xl text-sm px-4 pb-10 font-bold">
               Click here to view our team members behind Mecatron
             </p>
             <Link
-              to="/kevin"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200 md:scale-100 scale-x-75"
+              to="/team"
+              className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200 md:scale-100 scale-x-75"
             >
-              Team's Blog
+              Members Page
             </Link>
           </div>
         </div>
