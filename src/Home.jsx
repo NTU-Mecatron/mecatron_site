@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
@@ -55,9 +55,25 @@ export default function Home() {
           </div>
           <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
             {/* 3D Kevin model in a circular container */}
-            <div className="w-[16rem] h-[16rem] sm:w-[20rem] sm:h-[20rem] md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: 'transparent' }}>
-                <ambientLight intensity={0.7} />
+            <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
+              <Canvas 
+                camera={{ position: [0, 0, 5], fov: 50 }} 
+                style={{ background: 'transparent' }}
+                gl={{
+                  antialias: true,
+                  alpha: true,
+                  powerPreference: "high-performance",
+                  precision: "highp",
+                  outputColorSpace: "srgb"
+                }}
+                dpr={[1, 2]}
+                shadows
+              >
+                <ambientLight intensity={0.1} />
+                <directionalLight position={[10, 10, 5]} intensity={0.4} castShadow />
+                <directionalLight position={[-5, 5, 10]} intensity={0.3} />
+                <pointLight position={[-10, -10, -10]} intensity={0.2} />
+                <Environment preset="studio" background={false} />
                 <Kevin scale={[5, 5, 5]} />
                 <OrbitControls enableZoom={false} enablePan={true} />
               </Canvas>
@@ -127,7 +143,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-white py-16">
+      <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-[#AAAAAA] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
           {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 text-black w-full">
@@ -151,11 +167,23 @@ export default function Home() {
 
 function TeamCarousel() {
   const images = [
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
-    'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80',
+    '/images/team_1.jpg',
+    '/images/team_2.webp',
+    '/images/team_3.jpg',
+    '/images/team_4.webp',
+    '/images/team_5.jpg',
+
+    
   ];
   const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIdx(prev => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const prev = () => setIdx((idx - 1 + images.length) % images.length);
   const next = () => setIdx((idx + 1) % images.length);
   return (
@@ -205,6 +233,14 @@ function CompetitionsCarousel() {
     },
   ];
   const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIdx(prev => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
   const next = () => setIdx((idx + 1) % slides.length);
   return (
@@ -261,6 +297,14 @@ function InitiativesCarousel() {
     },
   ];
   const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIdx(prev => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
   const next = () => setIdx((idx + 1) % slides.length);
   return (
@@ -294,70 +338,54 @@ function InitiativesCarousel() {
 
 function SponsorsCarousel() {
   const sponsors = [
-    {
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/James_Dyson_Foundation_logo.png',
-      alt: 'James Dyson Foundation',
-    },
-    {
-      logo: 'https://zen4blue.com/wp-content/uploads/2022/09/zen4blue-logo.png',
-      alt: 'Zen4Blue',
-    },
-    {
-      logo: 'https://rovmaker.com/wp-content/uploads/2020/10/ROVMAKER-LOGO-1.png',
-      alt: 'ROV Maker',
-    },
-    {
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2021_NTU.png',
-      alt: 'NTU',
-    },
-    {
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-      alt: 'Google',
-    },
-    {
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png',
-      alt: 'Apple',
-    },
+    { logo: '/images/fstd_logo.png', alt: 'FSTD' },
+    { logo: '/images/smf_transparent.png', alt: 'Singapore Maritime Foundation' },
+    { logo: '/images/jdf_transparent.webp', alt: 'James Dyson Foundation' },
+    { logo: '/images/waterlinked_transparent.svg', alt: 'Waterlinked' },
+    { logo: '/images/sonardyne_transparent.svg', alt: 'Sonardyne' },
+    { logo: '/images/zen4blue_logo.png', alt: 'Zen4Blue' },
+    { logo: '/images/rovmaker_round.png', alt: 'ROV Maker' },
   ];
+
   const groupSize = 3;
   const maxStart = sponsors.length - groupSize;
   const [startIdx, setStartIdx] = useState(0);
-  const prev = () => setStartIdx((startIdx - 1 + sponsors.length) % (maxStart + 1));
-  const next = () => setStartIdx((startIdx + 1) % (maxStart + 1));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIdx(prev => (prev + 1) % (maxStart + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [maxStart]);
+
   const visible = sponsors.slice(startIdx, startIdx + groupSize);
-  // If at the end and not enough sponsors, fill with empty slots
   while (visible.length < groupSize) visible.push(null);
 
   return (
-    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
-      <div className="relative w-full h-48 sm:h-64 flex items-center justify-center">
-        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <div className="flex flex-row gap-4 sm:gap-8 w-full justify-center items-center">
-          {visible.map((s, i) =>
-            s ? (
-              <img
-                key={s.alt}
-                src={s.logo}
-                alt={s.alt}
-                className="object-contain h-24 sm:h-32 md:h-40 max-h-40 w-24 sm:w-32 md:w-40 max-w-xs mx-auto bg-white rounded-lg shadow"
-              />
-            ) : (
-              <div key={i} className="h-24 sm:h-32 md:h-40 w-24 sm:w-32 md:w-40" />
-            )
-          )}
-        </div>
-        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-        </button>
+    <div className="relative w-full max-w-5xl mx-auto px-4 py-6">
+      <div className="w-full flex flex-wrap justify-center items-center gap-6">
+        {visible.map((s, i) =>
+          s ? (
+            <img
+              key={s.alt}
+              src={s.logo}
+              alt={s.alt}
+              className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem] object-contain"
+            />
+          ) : (
+            <div key={i} className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem]" />
+          )
+        )}
       </div>
-      <div className="mt-4 flex space-x-2">
+
+      <div className="mt-4 flex justify-center space-x-2">
         {Array.from({ length: maxStart + 1 }).map((_, i) => (
           <button
             key={i}
             onClick={() => setStartIdx(i)}
-            className={`w-3 h-3 rounded-full ${i === startIdx ? 'bg-orange-500' : 'bg-gray-300'} border border-white`}
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${
+              i === startIdx ? 'bg-orange-500' : 'bg-gray-300'
+            }`}
           />
         ))}
       </div>

@@ -24,11 +24,27 @@ export default function Robosub2025Page() {
         <h1 className="flex text-4xl md:text-5xl text-[#d73a1a] font-bold">RoboSub 2025</h1>
       </div>
       <section className="flex flex-col md:flex-row items-center justify-between pb-5 md:pb-20 px-8 md:px-20 bg-[#181818]">
-          <div className="flex flex-1 justify-center mt-12 md:mt-0">
+      <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
             {/* 3D Kevin model in a circular container */}
-            <div className="w-[36rem] h-[36rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: 'transparent' }}>
-                <ambientLight intensity={0.7} />
+            <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
+              <Canvas 
+                camera={{ position: [0, 0, 5], fov: 50 }} 
+                style={{ background: 'transparent' }}
+                gl={{
+                  antialias: true,
+                  alpha: true,
+                  powerPreference: "high-performance",
+                  precision: "highp",
+                  outputColorSpace: "srgb"
+                }}
+                dpr={[1, 2]}
+                shadows
+              >
+                <ambientLight intensity={0.1} />
+                <directionalLight position={[10, 10, 5]} intensity={0.4} castShadow />
+                <directionalLight position={[-5, 5, 10]} intensity={0.3} />
+                <pointLight position={[-10, -10, -10]} intensity={0.2} />
+                <Environment preset="studio" background={false} />
                 <Kevin scale={[5, 5, 5]} />
                 <OrbitControls enableZoom={false} enablePan={true} />
               </Canvas>

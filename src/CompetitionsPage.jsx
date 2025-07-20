@@ -44,12 +44,18 @@ export default function CompetitionsPage() {
   return (
     <div className="min-h-screen bg-[#181818]  text-white">
       {/* Header */}
-      <div className="text-center py-12 pt-20 mt-2">
-        <h1 className="text-5xl font-bold text-red-500 mb-4">Competitions</h1>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto px-4">
+
+      <section
+        className="relative w-full min-h-[70vh] flex flex-col justify-center items-center text-center px-4 sm:px-8 py-24 bg-[#181818] text-white"
+      >
+        <div className="relative z-10">
+          <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 mb-8">Competitions</h1>
+          <p className="max-w-4xl text-lg sm:text-xl leading-relaxed">
           These are the competitions that we are preparing or have participated in.
-        </p>
-      </div>
+
+          </p>
+        </div>
+      </section>
       
       {/* Timeline Container */}
       <div className="relative max-w-6xl mx-auto px-4 pb-12">
