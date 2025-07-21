@@ -5,13 +5,13 @@ export default function Blender3DPage() {
   return (
     <div className="bg-[#1a1a1a] text-white">
       <div className="max-w-6xl mx-auto pt-28 px-6 pb-10">
-        <div className="flex justify-between items-center flex-wrap gap-4">
-          <p className="text-white text-lg">October 2024</p>
-          <h1 className="text-5xl text-orange-600 font-bold text-right leading-[0.9]">Blender 3D<br />Workshop</h1>
+      <div className="flex items-start justify-between w-full">
+      <p className="text-white text-lg">October 2024</p>
+          <h1 className="text-5xl text-orange-600 font-bold text-right leading-[0.9]">Blender <br />3D<br />Workshop</h1>
         </div>
 
         {/* Section 1 */}
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           {/* Photo */}
           <div className="flex-1 flex justify-center items-center py-8 max-w-xl w-full">
             <PolaroidPhoto

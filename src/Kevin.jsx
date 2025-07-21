@@ -16,8 +16,8 @@ export function Kevin(props) {
         setScale([s, s, s]);
       } else {
         // For desktop: keep original logic
-        const s = Math.max(0.7, Math.min(3.5, base / 350));
-        setScale([s, s, s]);
+      const s = Math.max(0.7, Math.min(3.5, base / 350));
+      setScale([s, s, s]);
       }
     }
     window.addEventListener('resize', handleResize);

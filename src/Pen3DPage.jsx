@@ -13,14 +13,14 @@ export default function Pen3DPage() {
   return (
     <div className="bg-[#1a1a1a] text-white px-6 py-16 space-y-16">
       <div className="max-w-6xl mx-auto pt-12">
-        <div className="flex justify-between items-center flex-wrap gap-4">
-          <p className="text-white text-lg">June 2025</p>
+      <div className="flex items-start justify-between w-full">
+      <p className="text-white text-lg">June 2025</p>
           <h1 className="text-5xl text-orange-600 font-bold text-right leading-[0.9]">3D Pen Series<br />Workshop</h1>
         </div>
       </div>
 
         {/* Showcase */}
-        <div className="text-white mt-16 p-10">
+        <div className="text-white mt-16">
           <h2 className="text-center text-4xl font-bold mb-4">Design Showcase</h2>
           <p className="text-center mb-8">Our participants did an awesome job!</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
@@ -44,7 +44,7 @@ export default function Pen3DPage() {
         </div>
 
       {/* Section 1 */}
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="flex-1 flex justify-center items-center py-8 max-w-xl w-full">
             <img
               src="/images/3dpen_1.jpg"
@@ -60,7 +60,7 @@ export default function Pen3DPage() {
         </div>
 
     {/* Section 2 */}
-    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
     
       <div className="flex-1 flex flex-col justify-center items-start">
             <h3 className="text-2xl font-extrabold pb-8">First-Time Wonders with 3D</h3>
@@ -73,7 +73,7 @@ export default function Pen3DPage() {
     </div>  
 
     {/* Section 3 */}
-    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
 
       <div className="flex-1 flex justify-center items-center">
         <ImageCarousel2 />

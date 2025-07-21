@@ -124,7 +124,7 @@ export default function Navbar({ scrollToSection }) {
     >
       <div className="flex items-center h-8">
         <Link to="/" className="cursor-pointer hover:opacity-80 transition-opacity duration-200">
-          <img src={mecatronLogo} alt="Mecatron Logo" className="h-8 w-auto object-contain" />
+        <img src={mecatronLogo} alt="Mecatron Logo" className="h-8 w-auto object-contain" />
         </Link>
       </div>
 
@@ -158,14 +158,14 @@ export default function Navbar({ scrollToSection }) {
                 ))}
               </div>
             </div>
-          ) : (
-            <Link
-              key={s.id}
-              to={s.path}
-              className="text-base font-medium text-white hover:text-orange-400 transition-colors duration-200"
-            >
-              {s.label}
-            </Link>
+            ) : (
+              <Link
+                key={s.id}
+                to={s.path}
+                className="text-base font-medium text-white hover:text-orange-400 transition-colors duration-200"
+              >
+                {s.label}
+              </Link>
           )
         ))}
       </div>
@@ -247,65 +247,65 @@ export default function Navbar({ scrollToSection }) {
 
       {/* Desktop Search */}
       <div className="hidden md:block">
-        <div
-          className={`relative ml-8 flex items-center transition-all duration-300 ${expanded ? 'w-56' : 'w-10'}`}
-          onMouseEnter={handleExpand}
-          onMouseLeave={handleCollapse}
+      <div
+        className={`relative ml-8 flex items-center transition-all duration-300 ${expanded ? 'w-56' : 'w-10'}`}
+        onMouseEnter={handleExpand}
+        onMouseLeave={handleCollapse}
+      >
+        <button
+          className={`absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-[#181818] text-white border border-gray-600 transition-all duration-300 ${expanded ? 'bg-orange-500 text-white' : 'hover:bg-orange-500 hover:text-white'}`}
+          style={{ zIndex: 2 }}
+          tabIndex={0}
+          onFocus={handleExpand}
+          onBlur={handleCollapse}
+          aria-label="Search"
         >
-          <button
-            className={`absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-[#181818] text-white border border-gray-600 transition-all duration-300 ${expanded ? 'bg-orange-500 text-white' : 'hover:bg-orange-500 hover:text-white'}`}
-            style={{ zIndex: 2 }}
-            tabIndex={0}
-            onFocus={handleExpand}
-            onBlur={handleCollapse}
-            aria-label="Search"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button>
-          <input
-            ref={inputRef}
-            type="text"
-            value={search}
-            onChange={e => { setSearch(e.target.value); setShowDropdown(true); }}
-            onFocus={handleExpand}
-            onBlur={handleCollapse}
-            placeholder="Search pages..."
-            className={`pl-12 pr-4 py-2 rounded-lg bg-[#181818] text-white border border-gray-600 focus:outline-none focus:border-orange-500 w-full transition-all duration-300 ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            style={{ zIndex: 10 }}
-          />
-          {showDropdown && filtered.length > 0 && expanded && (
-            <div className="absolute left-0 right-0 top-full pt-2 w-full bg-[#232323] border border-gray-700 rounded-lg shadow-lg z-40">
-              {filtered.map(s => (
-                s.submenu ? (
-                  <div key={s.id} className="block w-full text-left px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition">
-                    {s.label}
-                    <div className="ml-4 mt-1 bg-[#181818] border border-gray-600 rounded-lg shadow-inner">
-                      {(s.submenu.filter(sub => sub.path !== s.path)).map(sub => (
-                        <Link
-                          key={sub.id}
-                          to={sub.path}
-                          className="block px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
-                    </div>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <input
+          ref={inputRef}
+          type="text"
+          value={search}
+          onChange={e => { setSearch(e.target.value); setShowDropdown(true); }}
+          onFocus={handleExpand}
+          onBlur={handleCollapse}
+          placeholder="Search pages..."
+          className={`pl-12 pr-4 py-2 rounded-lg bg-[#181818] text-white border border-gray-600 focus:outline-none focus:border-orange-500 w-full transition-all duration-300 ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          style={{ zIndex: 10 }}
+        />
+        {showDropdown && filtered.length > 0 && expanded && (
+          <div className="absolute left-0 right-0 top-full pt-2 w-full bg-[#232323] border border-gray-700 rounded-lg shadow-lg z-40">
+            {filtered.map(s => (
+              s.submenu ? (
+                <div key={s.id} className="block w-full text-left px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition">
+                  {s.label}
+                  <div className="ml-4 mt-1 bg-[#181818] border border-gray-600 rounded-lg shadow-inner">
+                    {(s.submenu.filter(sub => sub.path !== s.path)).map(sub => (
+                      <Link
+                        key={sub.id}
+                        to={sub.path}
+                        className="block px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
                   </div>
-                ) : (
-                  <button
-                    key={s.id}
-                    onMouseDown={() => handleSelect(s.path)}
-                    className="block w-full text-left px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
-                  >
-                    {s.label}
-                  </button>
-                )
-              ))}
-            </div>
-          )}
+                </div>
+              ) : (
+                <button
+                  key={s.id}
+                  onMouseDown={() => handleSelect(s.path)}
+                  className="block w-full text-left px-4 py-2 text-white hover:bg-orange-500 hover:text-white rounded-lg transition"
+                >
+                  {s.label}
+                </button>
+              )
+            ))}
+          </div>
+        )}
         </div>
       </div>
     </nav>

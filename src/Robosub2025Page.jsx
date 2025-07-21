@@ -79,18 +79,17 @@ export default function Robosub2025Page() {
         <h1 className="flex text-4xl">Team Video</h1>
       </div>   
        <section className="flex flex-col md:flex-row items-center justify-between pt-10 pb-10 px-8 md:px-20 bg-[#303030] md:min-h-30">
-          <div className="flex flex-1 justify-center mt-12 md:mt-0">
-            {/* <iframe
-              src='https://www.youtube.com/embed/E7wJTI-1dvQ'
-              frameborder='0'
-              allow='autoplay; encrypted-media'
-              allowfullscreen
-              title='video'
-              width="100%"
-              height="600"
-            /> */}
-            <iframe width="100%" height="600" src="https://www.youtube.com/embed/stvEZ86dvd4" title="Team Mecatron RoboSub Introduction Video | RoboSub 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
+       <div className="w-full aspect-video">
+  <iframe
+    className="w-full h-full"
+    src="https://www.youtube.com/embed/stvEZ86dvd4"
+    title="Team Mecatron RoboSub Introduction Video | RoboSub 2025"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  ></iframe>
+</div>
       </section>
 
       <section className="flex flex-col md:flex-row pt-10 pb-15 px-8 md:px-20 bg-[#181818] min-h-30">

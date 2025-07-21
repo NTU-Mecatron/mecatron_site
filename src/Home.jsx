@@ -17,12 +17,12 @@ export default function Home() {
   // Refs for scrolling
   const sectionRefs = {
     home: useRef(null),
-    services: useRef(null), 
+    services: useRef(null),
     about: useRef(null),
     portfolio: useRef(null),
     contact: useRef(null),
     competitions: useRef(null),
-  };    
+  };
 
   const scrollToSection = (id) => {
     sectionRefs[id]?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -39,22 +39,22 @@ export default function Home() {
             <div className="text-2xl sm:text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
 
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 w-full">
-              <Link
-                to="/kevin"
+            <Link
+              to="/kevin"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 text-center"
-              >
-                Meet Kevin
-              </Link>
+            >
+              Meet Kevin
+            </Link>
               <Link
                 to="/robosub2025"
                 className="border border-gray-400 text-gray-200 font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 hover:bg-gray-700 text-center"
               >
-                Robosub 2025
+              Robosub 2025
               </Link>
             </div>
           </div>
           <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
-            {/* 3D Kevin model in a circular container */}
+          {/* 3D Kevin model in a circular container */}
             <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
               <Canvas 
                 camera={{ position: [0, 0, 5], fov: 50 }} 
@@ -74,9 +74,9 @@ export default function Home() {
                 <directionalLight position={[-5, 5, 10]} intensity={0.3} />
                 <pointLight position={[-10, -10, -10]} intensity={0.2} />
                 <Environment preset="studio" background={false} />
-                <Kevin scale={[5, 5, 5]} />
-                <OrbitControls enableZoom={false} enablePan={true} />
-              </Canvas>
+              <Kevin scale={[5, 5, 5]} />
+              <OrbitControls enableZoom={false} enablePan={true} />
+            </Canvas>
             </div>
           </div>
         </div>
@@ -84,22 +84,22 @@ export default function Home() {
       {/* Placeholder sections for navigation */}
       <section ref={sectionRefs.services} className="min-h-[500px] bg-[#1a1a1a] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-          {/* Left: Text */}
+        {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
             <p className="text-base sm:text-lg text-white mb-6">
-              Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
-            </p>
+            Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
+          </p>
             <p className="text-base sm:text-lg text-white mb-8">
-              As a student-led club, we provide a hands-on learning environment where members gain practical experience in design, programming, and engineering. Beyond innovation, we actively engage in outreach initiatives to inspire interest in marine science and technology.
-            </p>
+            As a student-led club, we provide a hands-on learning environment where members gain practical experience in design, programming, and engineering. Beyond innovation, we actively engage in outreach initiatives to inspire interest in marine science and technology.
+          </p>
             <Link to="/team" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-              Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-            </Link>
-          </div>
-          {/* Right: Carousel */}
+            Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+          </Link>
+        </div>
+        {/* Right: Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
-            <TeamCarousel />
+          <TeamCarousel />
           </div>
         </div>
       </section>
@@ -109,33 +109,33 @@ export default function Home() {
           <div className="flex-1 flex justify-center items-center py-8 w-full">
             <CompetitionsCarousel />
           </div>
-          {/* Left: Text */}
+        {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Competitions</h2>
             <p className="text-base sm:text-lg text-white mb-6">
-              As a young and ambitious team, Mecatron competes annually in the Singapore AUV Challenge (SAUVC) and has participated in the MATE ROV competition.
-            </p>
+            As a young and ambitious team, Mecatron competes annually in the Singapore AUV Challenge (SAUVC) and has participated in the MATE ROV competition.
+          </p>
             <p className="text-base sm:text-lg text-white mb-8">
-              This year, we are preparing to make our debut at RoboSub in August. These events push us to innovate, refine our underwater vehicle designs, and collaborate on cutting-edge robotics solutions.
-            </p>
+            This year, we are preparing to make our debut at RoboSub in August. These events push us to innovate, refine our underwater vehicle designs, and collaborate on cutting-edge robotics solutions.
+          </p>
             <Link to="/competitions" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-              Learn more about our participated competitions <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-            </Link>
-          </div>
+            Learn more about our participated competitions <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+          </Link>
+        </div>
 
         </div>
       </section>
       <section ref={sectionRefs.about} className="min-h-[500px] bg-[#181818] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-          {/* Right: Text */}
+        {/* Right: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
             <p className="text-base sm:text-lg text-white mb-8">
               We are always eager to share our work and our knowledge with the community through outreach workshops, to inspire a spirit of innovation in students. Through these workshops, we hope to spark students' interest in Marine Science & Tech; to evoke curiosity and inspire students to innovate new solutions as they explore the world beyond the school curriculum.
-            </p>
+          </p>
             <Link to="/outreach" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
-              Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
-            </Link>
+            Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+          </Link>
           </div>
           {/* Left: Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
@@ -145,19 +145,19 @@ export default function Home() {
       </section>
       <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-[#AAAAAA] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-          {/* Left: Text */}
+        {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 text-black w-full">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
             <p className="text-sm sm:text-base md:text-lg mb-4">
               We are grateful to our sponsors for their invaluable support in shaping Mecatron's journey. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
-            </p>
+          </p>
             <Link to="/sponsors" className="text-sm sm:text-base font-semibold hover:text-orange-500 transition flex items-center group">
-              To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </Link>
-          </div>
-          {/* Right: Carousel */}
+            To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </Link>
+        </div>
+        {/* Right: Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
-            <SponsorsCarousel />
+          <SponsorsCarousel />
           </div>
         </div>
       </section>
@@ -364,18 +364,18 @@ function SponsorsCarousel() {
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4 py-6">
       <div className="w-full flex flex-wrap justify-center items-center gap-6">
-        {visible.map((s, i) =>
-          s ? (
-            <img
-              key={s.alt}
-              src={s.logo}
-              alt={s.alt}
+          {visible.map((s, i) =>
+            s ? (
+              <img
+                key={s.alt}
+                src={s.logo}
+                alt={s.alt}
               className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem] object-contain"
-            />
-          ) : (
+              />
+            ) : (
             <div key={i} className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem]" />
-          )
-        )}
+            )
+          )}
       </div>
 
       <div className="mt-4 flex justify-center space-x-2">

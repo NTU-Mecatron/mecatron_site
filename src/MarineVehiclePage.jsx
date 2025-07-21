@@ -5,13 +5,13 @@ export default function MarineVehiclePage() {
   return (
     <div className="bg-[#1a1a1a] text-white">
       <div className="max-w-6xl mx-auto pt-28 px-6">
-        <div className="flex justify-between items-center flex-wrap gap-4">
-          <p className="text-white text-lg">April 2025</p>
+      <div className="flex items-start justify-between w-full">
+      <p className="text-white text-lg">April 2025</p>
           <h1 className="text-5xl text-orange-600 font-bold text-right leading-[0.9]">Marine Vehicle<br />Workshop for WSS</h1>
         </div>
 
         { /*Title description*/}
-        <div className="flex-1 flex flex-col justify-center items-start py-8">
+        <div className="flex-1 flex flex-col justify-center items-start py-16">
             <h3 className="text-2xl font-extrabold pb-8">Mecatron’s Marine Engineering Workshop for WorldSkills Singapore</h3>
             <p>Held in the iconic Sands Expo & Convention Center, the heart of Singapore’s celebration of skills, creativity, and innovation, Mecatron was proud to host a hands-on Marine Engineering Workshop on 5th April 2025, in collaboration with Nanyang Technological University, to Secondary school students and STEM enthusiasts</p>
         </div>
@@ -38,7 +38,7 @@ export default function MarineVehiclePage() {
 </div>
 
         {/* Section 1 */}
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           {/* Photo */}
           <div className="flex-1 flex justify-center items-center py-8 max-w-xl w-full">
             <PolaroidPhoto
@@ -63,7 +63,7 @@ export default function MarineVehiclePage() {
         </div>
 
         {/* Section 2 */}
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
 
           {/* Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8">
@@ -89,12 +89,12 @@ export default function MarineVehiclePage() {
         <div className="max-w-screen-xl mx-auto px-8">
           <h2 className="text-4xl font-extrabold text-orange-500 pt-12 text-center">An Immersive Dive into Simulation</h2>
 
-          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">
+          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
 
-                <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8 py-12">
-            {/* Left: Image Carousel */}
-            <div className="flex-1 flex justify-center">
-                <div className="w-full max-w-xl h-[400px] aspect-video">
+          <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center sm:px-8 gap-8 py-12">
+  {/* Left: Image Carousel */}
+  <div className="flex-1 flex justify-center">
+    <div className="w-full max-w-full md:max-w-xl aspect-video">
                 <ImageCarousel images={['/images/marinevehicle_6.jpg','/images/marinevehicle_7.jpg','/images/marinevehicle_8.jpg','/images/marinevehicle_3.jpg','/images/marinevehicle_9.jpg','/images/marinevehicle_10.jpg',]} />
                       </div>
                     </div>
@@ -114,7 +114,7 @@ export default function MarineVehiclePage() {
 
 
       <section className="w-full bg-[#1a1a1a] py-16">
-        <div className="max-w-screen-xl mx-auto px-8">
+        <div className="max-w-screen-xl mx-auto">
           <h2 className="text-4xl font-extrabold text-orange-500 mb-8 text-center">Igniting Curiosity and Future Innovation</h2>
 
           <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-8 gap-8">

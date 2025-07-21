@@ -12,7 +12,7 @@ export default function OutreachPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#181818] text-white flex flex-col items-center">
+    <div className="min-h-screen bg-[#181818] text-white flex flex-col items-center pt-8 sm:pt-0">
       {/* Outreach Hero Banner */}
       <section
         className="relative w-full min-h-[70vh] flex flex-col justify-center items-center text-center px-4 sm:px-8 py-24 bg-cover bg-center text-white"
