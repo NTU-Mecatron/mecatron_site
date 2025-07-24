@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 gsap.registerPlugin(ScrollTrigger);
 
 // Tab Navigation Component (self-contained)
-function TabNavigation({ sections, onTabClick, visible, onExited }) {
+function TabNavigation({ sections, onTabClick, visible, onExited, onInteraction }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -23,11 +23,11 @@ function TabNavigation({ sections, onTabClick, visible, onExited }) {
   }, [visible, onExited]);
 
   return (
-    <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none w-auto px-2 sm:bottom-6 sm:px-0">
+    <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none w-[90vw] max-w-md sm:w-auto sm:max-w-none px-2 sm:bottom-6 sm:px-0">
       <div
         className={`
-          bg-black/90 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl w-auto px-4 sm:px-8 py-3
-          flex space-x-2 sm:space-x-4 flex-nowrap
+          bg-black/90 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl w-full px-4 sm:px-8 py-3
+          flex space-x-2 sm:space-x-4 flex-nowrap overflow-x-auto scrollbar-hide
           transition-all duration-500 ease-out
           ${show ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}
           pointer-events-auto
@@ -36,8 +36,14 @@ function TabNavigation({ sections, onTabClick, visible, onExited }) {
         {sections.map((section, index) => (
           <button
             key={index}
-            onClick={() => onTabClick(section.id)}
-            className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 text-white bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 text-xs sm:text-sm md:text-base font-medium border border-white/20 hover:border-white/40 hover:scale-105 active:scale-95 whitespace-nowrap"
+            onClick={() => {
+              onTabClick(section.id);
+              if (onInteraction) onInteraction();
+            }}
+            onTouchStart={() => {
+              if (onInteraction) onInteraction();
+            }}
+            className="px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 text-white bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300 text-xs sm:text-sm md:text-base font-medium border border-white/20 hover:border-white/40 hover:scale-105 active:scale-95 whitespace-nowrap flex-shrink-0"
           >
             {section.title}
           </button>
@@ -55,22 +61,7 @@ function KevinPage() {
   const [tabsMounted, setTabsMounted] = useState(false);
   const timeoutRef = useRef(null);
 
-  // --- Landscape orientation enforcement for mobile ---
-  const [isPortrait, setIsPortrait] = useState(false);
-  useEffect(() => {
-    function checkOrientation() {
-      const isMobile = window.innerWidth < 640;
-      const isPortraitNow = isMobile && window.innerHeight > window.innerWidth;
-      setIsPortrait(isPortraitNow);
-    }
-    checkOrientation();
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', checkOrientation);
-    return () => {
-      window.removeEventListener('resize', checkOrientation);
-      window.removeEventListener('orientationchange', checkOrientation);
-    };
-  }, []);
+  // Landscape orientation check removed - allowing all orientations
 
   // Define sections for navigation
   const sections = [
@@ -101,7 +92,7 @@ function KevinPage() {
     });
   };
 
-  // Handle mouse enter/leave for bottom area
+  // Handle mouse/touch enter/leave for bottom area
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -115,6 +106,28 @@ function KevinPage() {
 
   const handleMouseLeave = () => {
     // Don't immediately hide tabs - let the 4-second timer handle it
+  };
+
+  // Handle touch events for mobile
+  const handleTouchStart = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setTabsMounted(true);
+    setTabsVisible(true);
+    timeoutRef.current = setTimeout(() => {
+      setTabsVisible(false);
+    }, 4000);
+  };
+
+  // Handle tab interaction to prevent auto-hide
+  const handleTabInteraction = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setTabsVisible(false);
+    }, 4000);
   };
 
   // Cleanup timeout on unmount
@@ -178,16 +191,13 @@ function KevinPage() {
   return (
     <main ref={mainRef} className="overflow-x-hidden bg-black min-h-screen">
       <Navbar />
-      {/* Landscape orientation overlay for mobile */}
-      {isPortrait && (
-        <div className="fixed inset-0 z-[9999] bg-black/90 flex flex-col items-center justify-center text-center text-white text-lg sm:text-xl md:text-2xl font-bold select-none px-4">
-          <svg className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 sm:mb-6 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M16 3l3 4-3 4"/></svg>
-          Please rotate your device to landscape<br/>for the best experience.
-        </div>
-      )}
-      {/* Static down arrow indicator for tab */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
-        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-70 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      {/* Clickable down arrow indicator for tab */}
+      <div 
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-auto cursor-pointer"
+        onClick={handleTouchStart}
+        onTouchStart={handleTouchStart}
+      >
+        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-70 animate-bounce hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
@@ -196,6 +206,7 @@ function KevinPage() {
         className="fixed bottom-0 left-0 right-0 h-20 z-40"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
       />
       <Suspense
         fallback={
@@ -204,13 +215,14 @@ function KevinPage() {
           </div>
         }
       >
-        {/* Tab Navigation - appears on hover at bottom for 4 seconds, with smooth slide in/out */}
+        {/* Tab Navigation - appears on hover/click at bottom for 4 seconds, with smooth slide in/out */}
         {tabsMounted && (
           <TabNavigation
             sections={sections}
             onTabClick={scrollToSection}
             visible={tabsVisible}
             onExited={handleTabExited}
+            onInteraction={handleTabInteraction}
           />
         )}
         {/* 3D Scene */}
@@ -266,16 +278,16 @@ function KevinPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6">Manoeuvrability</h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Manoeuvrability</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               Using only 6 thrusters, we are able to achieve 6-DOF control and stable depth hold for any missions.
             </p>
           </div>
         </section>
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6">Energy Efficiency</h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Energy Efficiency</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               From fully optimised 3D-printed body to computationally-cheap software approach, we focus on maximising the runtime on any given battery payload.
             </p>
           </div>
@@ -284,16 +296,16 @@ function KevinPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6">Unity simulation</h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Unity simulation</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               Full-fledged digital twin of Kevin enables fast software iterations and testing.
             </p>
           </div>
         </section>
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6">BT-based mission planner</h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">BT-based mission planner</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               Fully reusable and customisable behavior trees to make mission planning a breeze.
             </p>
           </div>
@@ -302,8 +314,8 @@ function KevinPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-6">Ardusub Controller Stack</h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Ardusub Controller Stack</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               An extension of the traditional quadcopter controller, Ardusub allows us to control our custom thruster design and integrate additional sensors with ease and reliability.
             </p>
           </div>

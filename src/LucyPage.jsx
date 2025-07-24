@@ -42,8 +42,18 @@ export default function LucyPage() {
       })
       .to(sceneRef.current, {
         ease: "none",
-        x: '-25vw',
+        x: '25vw',
         y: '400vh',
+      })
+      .to(sceneRef.current, {
+        ease: "none",
+        x: '25vw',
+        y: '500vh',
+      })
+      .to(sceneRef.current, {
+        ease: "none",
+        x: '-25vw',
+        y: '600vh',
       })
   }, []
   )
@@ -111,14 +121,27 @@ export default function LucyPage() {
           <p className="w-[50%] border-0 border-red-700"></p>
 
           <p className="text-white w-[50%] text-center px-2 sm:px-4 text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
-            With 5 thrusters and impeccable design, Lucy is the ultimate
-            companion for your adventures, whether on land or in the air.
+          With 5-DOF motion and streamlined design, Lucy is the ultimate companion for your adventures. Easy to operate and control, Lucy can glide effortlessly to wherever you want.
           </p>
         </section>
 
         <section className=" relative flex items-center justify-evenly h-[100vh]">
           <p className="text-white order-1 w-[50%] text-center px-2 sm:px-4 text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
-            Fitted with slay~ pink accents and a sleek design, Lucy can last for more than 3 hours on a single charge, making it the perfect ROV for underwater challenges.
+            Fitted with slay~ pink accents and a sleek design, Lucy can last for more than 3 hours on a single charge, making it the perfect ROV/AUV for underwater challenges.
+          </p>
+          <p className="w-[50%] order-2"></p>
+        </section>
+
+        <section className=" relative flex items-center justify-evenly h-[100vh]">
+          <p className="text-white order-1 w-[50%] text-center px-2 sm:px-4 text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+          Lucy is equipped with a magnetic-actuated dropper to accomplish dropping-related tasks with pinpoint accuracy.
+          </p>
+          <p className="w-[50%] order-2"></p>
+        </section>
+
+        <section className=" relative flex items-center justify-evenly h-[100vh]">
+          <p className="text-white order-1 w-[50%] text-center px-2 sm:px-4 text-sm sm:text-lg md:text-2xl lg:text-4xl font-semibold">
+          Lightweight computer vision and behaviortree-based mission planning system allow Lucy to carry out autonomous tasks with great reliability.
           </p>
           <p className="w-[50%] order-2"></p>
         </section>

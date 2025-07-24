@@ -1,10 +1,33 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useGLTF, PerspectiveCamera, OrthographicCamera } from '@react-three/drei'
 
 export function Lucy(props) {
+  const [scale, setScale] = useState([4, 4, 4]);
+
+  useEffect(() => {
+    function handleResize() {
+      const isMobile = window.innerWidth < 768;
+      const base = Math.min(window.innerWidth, window.innerHeight);
+      
+      // Make Lucy smaller on mobile devices
+      if (isMobile) {
+        // For mobile: use a smaller scale factor
+        const s = Math.max(1.5, Math.min(2.8, base / 300));
+        setScale([s, s, s]);
+      } else {
+        // For desktop: keep original scale
+        const s = Math.max(2.5, Math.min(4.0, base / 350));
+        setScale([s, s, s]);
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call once on mount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const { nodes, materials } = useGLTF('/LucyRobot.glb')
   return (
-    <group scale = {[ 4,4,4 ]}{...props} dispose={null}>
+    <group scale={scale} {...props} dispose={null}>
       <group position={[0.018, 0.139, 0.275]} rotation={[-Math.PI, 0, 0]}>
         <group position={[0.071, 0.021, 0.317]} rotation={[Math.PI / 2, -0.65, -0.013]}>
           <group position={[0.028, 0.004, 0.02]}>

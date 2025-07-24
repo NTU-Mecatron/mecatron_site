@@ -9,10 +9,10 @@ export function Kevin(props) {
       const isMobile = window.innerWidth < 768;
       const base = Math.min(window.innerWidth, window.innerHeight);
       
-      // Make Kevin bigger on mobile devices
+      // Make Kevin smaller on mobile devices
       if (isMobile) {
-        // For mobile: use a larger scale factor and higher minimum
-        const s = Math.max(2.5, Math.min(5.0, base / 200));
+        // For mobile: use a smaller scale factor
+        const s = Math.max(1.5, Math.min(3.0, base / 300));
         setScale([s, s, s]);
       } else {
         // For desktop: keep original logic

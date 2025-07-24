@@ -17,19 +17,19 @@ const Scene = ({ progress }) => {
     useEffect(() => {
 
         const updateCamPos = () => {
-            const position = [[-2.6, 0.2, 2.3],[2.8, 0.2, 2.3], [0, 3, 0.2], [0.4, -2.2, 0], [0, 2.5, 3.6]];
+            const position = [[-2.6, 0.2, 2.3],[2.8, 0.2, 2.3], [0, 3, 0.2], [0.4, -2.2, 0], [-2, 0.2, -2.8], [0, 2.5, 3.6], [-2.6, 0.2, 2.3]];
 
             if (progress >= 1) {
 
                 gsap.to(cameraRef.current.position, {
-                    x: 0,
-                    y: 2.5,
-                    z: 3.6,
+                    x: -2.6,
+                    y: 0.2,
+                    z: 2.3,
                     duration: 0.1,
                     ease: 'power1.out',
                 });
             } else {
-                const segmentProgress = 1 / 4;
+                const segmentProgress = 1 / 6;
 
                 const segmentIndex = Math.floor(progress / segmentProgress);
                 console.log("Segment Index:", segmentIndex);
