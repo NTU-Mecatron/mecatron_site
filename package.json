@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.120.8",
     "@react-three/fiber": "^8.17.12",
     "@react-three/postprocessing": "^2.16.6",
+    "@vercel/speed-insights": "^1.2.0",
     "gsap": "^3.12.5",
     "leva": "^0.9.35",
     "maath": "^0.10.8",
