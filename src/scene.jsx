@@ -1,6 +1,6 @@
 import react, { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Environment, PerspectiveCamera, OrbitControls } from '@react-three/drei';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Kevin } from './Kevin.jsx';
@@ -69,7 +69,14 @@ const Scene = ({ progress }) => {
 
 
             />
-            <Environment preset="city" />
+
+            {/* Lighting Setup */}
+            <ambientLight intensity={0.4} />
+            <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
+            <directionalLight position={[-5, 5, 10]} intensity={0.6} />
+            <pointLight position={[-10, -10, -10]} intensity={0.4} />
+            <pointLight position={[0, 10, 0]} intensity={0.3} />
+
             <Kevin />
             {/* <axesHelper args={[500]} /> */}
 

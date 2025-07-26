@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
 import { GiJourney } from 'react-icons/gi';
 
@@ -10,9 +10,9 @@ export default function Materov2024Page() {
 
   function Carousel() {
     const images = [
-      'src/assets/mate_rov_2024/images/carousel/mate_rov_2024_carousel_1.webp',
-      'src/assets/mate_rov_2024/images/carousel/mate_rov_2024_carousel_2.webp',
-      'src/assets/mate_rov_2024/images/carousel/mate_rov_2024_carousel_3.webp',
+      '/mate_rov_2024/images/carousel/mate_rov_2024_carousel_1.webp',
+      '/mate_rov_2024/images/carousel/mate_rov_2024_carousel_2.webp',
+      '/mate_rov_2024/images/carousel/mate_rov_2024_carousel_3.webp',
 
     ];
     const [idx, setIdx] = useState(0);
@@ -43,14 +43,14 @@ export default function Materov2024Page() {
   function Journey() {
     const slides = [
       {
-        image: 'src/assets/mate_rov_2024/journey/journey_1.jpg',
+        image: '/mate_rov_2024/journey/journey_1.jpg',
         title: 'step 1',
         subtitle: 'Ideation And Preparation',
         desc: 'The journey began with intensive brainstorming sessions where our team explored various concepts and ideas. We focused on defining the problem our robot would solve and outlining the key features it would need. ',
         link: '/competitions',
       },
       {
-        image: 'src/assets/mate_rov_2024/journey/Mate-Video-Task.mp4',
+        image: '/mate_rov_2024/journey/Mate-Video-Task.mp4',
         title: 'step 2',
         subtitle: 'Ideation And Preparation',
         desc: 'The tasks that were required to qualify for the Explorer Class in MATE ROV Competition was released.',
@@ -58,28 +58,28 @@ export default function Materov2024Page() {
       },
 
       {
-        image: 'src/assets/mate_rov_2024/journey/journey_3.jpg',
+        image: '/mate_rov_2024/journey/journey_3.jpg',
         title: 'step 3',
         subtitle: 'Networking',
         desc: 'Photo of Luc (Executive Lead) and Jennifer (Business Lead) with Jill Zande, MATE Executive Director at the Marine Technology Society.',
         link: '/competitions',
       },
       {
-        image: 'src/assets/mate_rov_2024/journey/journey_4.jpeg',
+        image: '/mate_rov_2024/journey/journey_4.jpeg',
         title: 'step 4',
         subtitle: 'Development and Testing',
         desc: 'Our team began assembling the required courses and obstacles to qualify for the Explorer class in MATE ROV and also testing, modifying our ROV to ensure it could successfully navigate and complete the tasks.',
         link: '/competitions',
       },
       {
-        image: 'src/assets/mate_rov_2024/journey/journey_5.png',
+        image: '/mate_rov_2024/journey/journey_5.png',
         title: 'step 5',
         subtitle: 'News on Advancing to the World Championships',
         desc: 'We managed to meet all the requirements for the MATE World Championships',
         link: '/competitions',
       },
       {
-        image: 'src/assets/mate_rov_2024/journey/journey_6.jpeg',
+        image: '/mate_rov_2024/journey/journey_6.jpeg',
         title: 'step 6',
         subtitle: 'Our final iteration of turtleboi before MATE ROV',
         desc: 'In the upcoming MATE ROV Competition World Championship in June 2024, Turtleboi’s speed, control and reliability will be put through an extreme test as he navigates through a plethora of tasks such as object picking, connection mating and scaled 3D reconstruction, all in a short time span of 15 minutes.',
@@ -134,7 +134,7 @@ export default function Materov2024Page() {
       <section className="pt-10 pb-15 px-8 md:px-20 bg-[#181818]">
         <div className="flex flex-col md:flex-row gap-8 md:pt-20 pb-10 w-full">
           <img
-            src="./src/assets/mate_rov_2024/images/mate-rov.jpeg"
+            src="/mate_rov_2024/images/mate-rov.jpeg"
             alt="wtv"
             className="w-full md:w-1/4 h-full md:h-64 object-contain object-center flex-shrink-0"
           />

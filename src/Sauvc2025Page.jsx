@@ -3,8 +3,8 @@ export default function Sauvc2025Page() {
   // return <div className="min-h-screen flex items-center justify-center text-3xl">SAUVC 2025 Page</div>;
   function Carousel() {
       const images = [
-        'src/assets/sauvc_2025/images/carousel/carousel_pic_1.jpg',
-        'src/assets/sauvc_2025/images/carousel/carousel_pic_2.jpg',
+        '/sauvc_2025/images/carousel/carousel_pic_1.jpg',
+        '/sauvc_2025/images/carousel/carousel_pic_2.jpg',
       ];
       const [idx, setIdx] = useState(0);
       const prev = () => setIdx((idx - 1 + images.length) % images.length);
@@ -43,7 +43,7 @@ export default function Sauvc2025Page() {
        <section className="flex justify-center items-center flex-col md:flex-row pt-10 pb-15 px-8 md:px-20 bg-[#181818]  max-w-30 min-h-30">
         <div className="md:pt-20 pb-10 w-full max-w-7xl">
           <img 
-            src="./src/assets/sauvc_2025/images/sauvc_2025_img_1.jpg" 
+            src="/sauvc_2025/images/sauvc_2025_img_1.jpg" 
             alt="wtv" 
             className="w-auto h-auto"
           />
@@ -63,7 +63,7 @@ export default function Sauvc2025Page() {
             <div class="flex flex-col items-center">
                 <div class="rounded-lg p-4">
                     <img 
-                        src="/src/assets/sauvc_2025/images/sauvc_2025_img_2.jpg" 
+                        src="/sauvc_2025/images/sauvc_2025_img_2.jpg" 
                         alt="Autonomous Underwater Vehicle" 
                         class="w-full h-auto rounded-lg object-cover"
                     />
@@ -145,7 +145,7 @@ export default function Sauvc2025Page() {
                   We expanded our team size while shifting focus toward mentorship, empowering more team members to contribute effectively. Additionally, we implemented more comprehensive documentation practices and strategic planning processes.                </p>
                 <div class="w-full rounded-lg p-4">
                     <img 
-                        src="/src/assets/sauvc_2025/images/sauvc_2025_img_4.jpg" 
+                        src="/sauvc_2025/images/sauvc_2025_img_4.jpg" 
                         alt="Autonomous Underwater Vehicle" 
                         class="w-auto h-auto rounded-lg object-cover"
                     />
@@ -154,7 +154,7 @@ export default function Sauvc2025Page() {
             <div class="flex flex-col items-center">
               <div class="rounded-lg p-4">
                     <img 
-                        src="/src/assets/sauvc_2025/images/sauvc_2025_img_3.jpg" 
+                        src="/sauvc_2025/images/sauvc_2025_img_3.jpg" 
                         alt="Autonomous Underwater Vehicle" 
                         class="w-full h-auto rounded-lg object-cover"
                     />
@@ -181,16 +181,16 @@ export default function Sauvc2025Page() {
           
           <div className="flex flex-col items-center space-y-6">
             <p className="font-bold">Day 1</p>
-             <video width="300" height="600" src="src/assets/sauvc_2025/videos/sauvc_2025_video_1.mp4" controls></video> 
+             <video width="300" height="600" src="/sauvc_2025/videos/sauvc_2025_video_1.mp4" controls></video> 
           </div>
           <div className="flex flex-col items-center space-y-6">
             <p className="font-bold">Day 2</p>
-            <video width="300" height="600" src="src/assets/sauvc_2025/videos/sauvc_2025_video_2.mp4" controls></video> 
+            <video width="300" height="600" src="/sauvc_2025/videos/sauvc_2025_video_2.mp4" controls></video> 
           </div>
           
           <div className="flex flex-col items-center space-y-6">
             <p className="font-bold">Day 3</p>
-            <video width="300" height="600" src="src/assets/sauvc_2025/videos/sauvc_2025_video_3.mp4" controls></video> 
+            <video width="300" height="600" src="/sauvc_2025/videos/sauvc_2025_video_3.mp4" controls></video> 
           </div>
           
         </div>

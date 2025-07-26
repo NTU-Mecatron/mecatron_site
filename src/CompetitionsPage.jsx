@@ -7,7 +7,7 @@ export default function CompetitionsPage() {
       title: "ROBOSUB 2025",
       date: "AUGUST 2025 (UPCOMING)",
       description: "Presenting our latest AUV: Kevin!",
-      image: "src/assets/competition/images/competition_img_1.jpg", // Placeholder for submarine/underwater vehicle
+      image: "/competition/images/competition_img_1.jpg", // Placeholder for submarine/underwater vehicle
       status: "upcoming",
       link:"/robosub2025"
 
@@ -17,7 +17,7 @@ export default function CompetitionsPage() {
       title: "SAUVC 2025",
       date: "MARCH 2025",
       description: "After our third-place win in 2024, Mecatron made a strong comeback and clinched 1st Place at SAUVC 2025.",
-      image: "src/assets/competition/images/competition_img_2.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_2.jpg", // Placeholder for underwater competition
       status: "completed",
       link:"/sauvc2025"
     },
@@ -26,7 +26,7 @@ export default function CompetitionsPage() {
       title: "MATE ROV 2024",
       date: "MAY 2024",
       description: "Among 82 teams from 17 countries that qualified to compete in the 2024 MATE ROV World Championship, Mecatron was selected for a special award – the Guts and Glory award.",
-      image: "src/assets/competition/images/competition_img_3.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_3.jpg", // Placeholder for underwater competition
       status: "completed",
       link:"/materov2024"
     },
@@ -35,7 +35,7 @@ export default function CompetitionsPage() {
       title: "SAUVC 2024",
       date: "APRIL 2024",
       description: "Mecatron’s AUV had the third fastest qualification timing of 10.53 seconds among the 21 qualified teams, then we proceeded to clinch the 3rd Prize in the final round!",
-      image: "src/assets/competition/images/competition_img_4.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_4.jpg", // Placeholder for underwater competition
       status: "completed",
       link:"/sauvc2024"
     }

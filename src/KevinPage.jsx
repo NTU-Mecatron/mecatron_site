@@ -189,7 +189,7 @@ function KevinPage() {
   }, []);
 
   return (
-    <main ref={mainRef} className="overflow-x-hidden bg-black min-h-screen">
+    <main ref={mainRef} className="overflow-x-hidden bg-[#232323] min-h-screen">
       <Navbar />
       {/* Clickable down arrow indicator for tab */}
       <div 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
 import { Lucy } from './Lucy';
 import Navbar from './Navbar';
@@ -58,11 +58,12 @@ export default function VehiclesPage() {
                   dpr={[1, 2]}
                   shadows
                 >
-                  <ambientLight intensity={0.05} />
-                  <directionalLight position={[10, 10, 5]} intensity={0.2} castShadow />
-                  <directionalLight position={[-5, 5, 10]} intensity={0.15} />
-                  <pointLight position={[-10, -10, -10]} intensity={0.1} />
-                  <Environment preset="studio" background={false} />
+                  <ambientLight intensity={0.4} />
+                  <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
+                  <directionalLight position={[-5, 5, 10]} intensity={0.6} />
+                  <pointLight position={[-10, -10, -10]} intensity={0.4} />
+                  <pointLight position={[0, 10, 0]} intensity={0.3} />
+                  
                   <Kevin scale={[5, 5, 5]} />
                   <OrbitControls enableZoom={false} enablePan={true} />
                 </Canvas>
@@ -102,11 +103,12 @@ export default function VehiclesPage() {
                   dpr={[1, 2]}
                   shadows
                 >
-                  <ambientLight intensity={0.05} />
-                  <directionalLight position={[10, 10, 5]} intensity={0.2} castShadow />
-                  <directionalLight position={[-5, 5, 10]} intensity={0.15} />
-                  <pointLight position={[-10, -10, -10]} intensity={0.1} />
-                  <Environment preset="studio" background={false} />
+                  <ambientLight intensity={0.4} />
+                  <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
+                  <directionalLight position={[-5, 5, 10]} intensity={0.6} />
+                  <pointLight position={[-10, -10, -10]} intensity={0.4} />
+                  <pointLight position={[0, 10, 0]} intensity={0.3} />
+                  
                   <Lucy scale={[5, 5, 5]} />
                   <OrbitControls enableZoom={false} enablePan={true} />
                 </Canvas>

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
 // import {group_pic} from './group.png'
 
@@ -40,11 +40,12 @@ export default function Robosub2025Page() {
                 dpr={[1, 2]}
                 shadows
               >
-                <ambientLight intensity={0.1} />
-                <directionalLight position={[10, 10, 5]} intensity={0.4} castShadow />
-                <directionalLight position={[-5, 5, 10]} intensity={0.3} />
-                <pointLight position={[-10, -10, -10]} intensity={0.2} />
-                <Environment preset="studio" background={false} />
+                <ambientLight intensity={0.4} />
+                <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
+                <directionalLight position={[-5, 5, 10]} intensity={0.6} />
+                <pointLight position={[-10, -10, -10]} intensity={0.4} />
+                <pointLight position={[0, 10, 0]} intensity={0.3} />
+
                 <Kevin scale={[5, 5, 5]} />
                 <OrbitControls enableZoom={false} enablePan={true} />
               </Canvas>
@@ -60,7 +61,7 @@ export default function Robosub2025Page() {
         </Link>
 
         <a 
-          href="/src/assets/robosub_2025/Technical-Documentation.pdf"
+          href="/robosub_2025/Technical-Documentation.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
@@ -95,7 +96,7 @@ export default function Robosub2025Page() {
       <section className="flex flex-col md:flex-row pt-10 pb-15 px-8 md:px-20 bg-[#181818] min-h-30">
         <div className="relative flex flex-1 mt-12 md:mt-0 pb-10">
           <img 
-            src="./src/group.png" 
+            src="./group.png" 
             alt="wtv" 
             className="w-full h-auto brightness-50"
           />

@@ -5,10 +5,10 @@ export default function Sauvc2024Page() {
 
   function Carousel() {
     const images = [
-      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_1.jpeg',
-      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_2.jpeg',
-      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_3.jpeg',
-      'src/assets/sauvc_2024/images/carousel/sauvc_2024_carousel_4.jpg',
+      '/sauvc_2024/images/carousel/sauvc_2024_carousel_1.jpeg',
+      '/sauvc_2024/images/carousel/sauvc_2024_carousel_2.jpeg',
+      '/sauvc_2024/images/carousel/sauvc_2024_carousel_3.jpeg',
+      '/sauvc_2024/images/carousel/sauvc_2024_carousel_4.jpg',
     ];
     const [idx, setIdx] = useState(0);
     const prev = () => setIdx((idx - 1 + images.length) % images.length);
@@ -44,7 +44,7 @@ export default function Sauvc2024Page() {
       <section className="flex justify-center items-center flex-col md:flex-row pt-10 pb-15 px-8 md:px-20 bg-[#181818]  max-w-30 min-h-30">
         <div className="pt-20 pb-10 w-full max-w-7xl">
           <img 
-            src="./src/assets/sauvc_2024/images/sauvc_2024_img_1.jpeg" 
+            src="/sauvc_2024/images/sauvc_2024_img_1.jpeg" 
             alt="wtv" 
             className="w-auto h-auto"
           />
@@ -85,7 +85,7 @@ export default function Sauvc2024Page() {
                 <div class="space-y-6">
                     <div class="bg-gray-800 rounded-lg p-4">
                         <img 
-                            src="/src/assets/sauvc_2024/images/turtle_boi.jpeg" 
+                            src="/sauvc_2024/images/turtle_boi.jpeg" 
                             alt="Autonomous Underwater Vehicle" 
                             class="w-full h-auto rounded-lg object-cover"
                         />
@@ -122,16 +122,16 @@ export default function Sauvc2024Page() {
       <div className="flex flex-1 flex-col md:flex-row justify-evenly items-center mt-12 md:mt-0 space-y-8 md:space-y-0 text-2xl">
         <div className="flex flex-col items-center space-y-5">
           <p className="font-bold">Day 1</p>
-          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID1.mp4" controls></video> 
+          <video width="300" height="600" src="/sauvc_2024/videos/VID1.mp4" controls></video> 
         </div>
         <div className="flex flex-col items-center space-y-5">
           <p  className="font-bold">Day 2</p>
-          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID4.mp4" controls></video> 
+          <video width="300" height="600" src="/sauvc_2024/videos/VID4.mp4" controls></video> 
         </div>
         
         <div className="flex flex-col items-center space-y-5">
           <p  className="font-bold">Day 3</p>
-          <video width="300" height="600" src="src/assets/sauvc_2024/videos/VID5.mp4" controls></video> 
+          <video width="300" height="600" src="/sauvc_2024/videos/VID5.mp4" controls></video> 
         </div>
         
       </div>

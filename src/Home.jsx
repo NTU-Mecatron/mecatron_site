@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
 
 const sections = [
@@ -69,11 +69,12 @@ export default function Home() {
                 dpr={[1, 2]}
                 shadows
               >
-                <ambientLight intensity={0.1} />
-                <directionalLight position={[10, 10, 5]} intensity={0.4} castShadow />
-                <directionalLight position={[-5, 5, 10]} intensity={0.3} />
-                <pointLight position={[-10, -10, -10]} intensity={0.2} />
-                <Environment preset="studio" background={false} />
+                <ambientLight intensity={0.4} />
+                <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
+                <directionalLight position={[-5, 5, 10]} intensity={0.6} />
+                <pointLight position={[-10, -10, -10]} intensity={0.4} />
+                <pointLight position={[0, 10, 0]} intensity={0.3} />
+
               <Kevin scale={[5, 5, 5]} />
               <OrbitControls enableZoom={false} enablePan={true} />
             </Canvas>
