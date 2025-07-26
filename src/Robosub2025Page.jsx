@@ -96,7 +96,7 @@ export default function Robosub2025Page() {
       <section className="flex flex-col md:flex-row pt-10 pb-15 px-8 md:px-20 bg-[#181818] min-h-30">
         <div className="relative flex flex-1 mt-12 md:mt-0 pb-10">
           <img 
-            src="./group.png" 
+            src="/images/group.png" 
             alt="wtv" 
             className="w-full h-auto brightness-50"
           />
