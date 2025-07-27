@@ -20,7 +20,7 @@ export default function Robosub2025Page() {
         <h1 className="flex text-5xl text-orange-600">RoboSub 2025</h1>
       </div>    */}
       <div className="flex flex-col md:flex-row pt-32 items-center md:justify-around text-center">
-        <h1 className="flex text-lg">October 2025</h1>
+        <h1 className="flex text-lg">August 2025</h1>
         <h1 className="flex text-4xl md:text-5xl text-[#d73a1a] font-bold">RoboSub 2025</h1>
       </div>
       <section className="flex flex-col md:flex-row items-center justify-between pb-5 md:pb-20 px-8 md:px-20 bg-[#181818]">
