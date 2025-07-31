@@ -249,6 +249,27 @@ export default function SponsorsPage() {
   );
 }
 
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []); 
+    return windowSize;
+  };
 function SponsorsCarousel() {
   const sponsors = [
     { logo: '/images/fstd_logo.png', alt: 'FSTD' },
@@ -260,7 +281,7 @@ function SponsorsCarousel() {
     { logo: '/images/rovmaker_round.png', alt: 'ROV Maker' },
   ];
 
-  const groupSize = 3;
+  let groupSize = 3;
   const maxStart = sponsors.length - groupSize;
   const [startIdx, setStartIdx] = useState(0);
 
@@ -270,7 +291,10 @@ function SponsorsCarousel() {
     }, 3000);
     return () => clearInterval(interval);
   }, [maxStart]);
-
+  const { width, height } = useWindowSize();
+  if(width<480){
+    groupSize = 1;
+  }
   const visible = sponsors.slice(startIdx, startIdx + groupSize);
   while (visible.length < groupSize) visible.push(null);
 
