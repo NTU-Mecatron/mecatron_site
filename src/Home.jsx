@@ -1,9 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
+
+
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -28,11 +30,24 @@ export default function Home() {
     sectionRefs[id]?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // State for 3D model loading
+  const [modelLoaded, setModelLoaded] = useState(false);
+  const [showModel, setShowModel] = useState(false);
+
+  useEffect(() => {
+    // Start the 3-second timer immediately
+    const timer = setTimeout(() => {
+      setShowModel(true);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#181818] text-white font-sans overflow-x-hidden">
       <Navbar scrollToSection={scrollToSection} />
       {/* Hero Section */}
-      <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-16 px-4 sm:px-8 md:px-20 min-h-screen bg-[#181818]">
+      <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-4 md:pb-16 px-4 sm:px-8 md:px-20 min-h-screen bg-[#181818]">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="flex-1 flex flex-col items-start justify-center space-y-6 w-full">
             <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
@@ -56,28 +71,42 @@ export default function Home() {
           <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
           {/* 3D Kevin model in a circular container */}
             <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              <Canvas 
-                camera={{ position: [0, 0, 5], fov: 50 }} 
-                style={{ background: 'transparent' }}
-                gl={{
-                  antialias: true,
-                  alpha: true,
-                  powerPreference: "high-performance",
-                  precision: "highp",
-                  outputColorSpace: "srgb"
-                }}
-                dpr={[1, 2]}
-                shadows
-              >
-                <ambientLight intensity={0.4} />
-                <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
-                <directionalLight position={[-5, 5, 10]} intensity={0.6} />
-                <pointLight position={[-10, -10, -10]} intensity={0.4} />
-                <pointLight position={[0, 10, 0]} intensity={0.3} />
+              {!showModel && (
+                <div className="absolute inset-0 z-10">
+                  <img 
+                    src="/images/kevin_placeholder.png" 
+                    alt="Kevin - Loading..." 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+              )}
+              {showModel && (
+                <Canvas 
+                  camera={{ position: [0, 0, 5], fov: 50 }} 
+                  style={{ background: 'transparent' }}
+                  gl={{
+                    antialias: true,
+                    alpha: true,
+                    powerPreference: "high-performance",
+                    precision: "highp",
+                    outputColorSpace: "srgb"
+                  }}
+                  dpr={[1, 2]}
+                  shadows
+                >
+                  <Suspense fallback={null}>
+                    <ambientLight intensity={0.8} />
+                    <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
+                    <directionalLight position={[-5, 5, 10]} intensity={1.0} />
+                    <pointLight position={[-10, -10, -10]} intensity={0.6} />
+                    <pointLight position={[0, 10, 0]} intensity={0.5} />
+                    <pointLight position={[5, 0, 5]} intensity={0.4} />
 
-              <Kevin scale={[5, 5, 5]} />
-              <OrbitControls enableZoom={false} enablePan={true} />
-            </Canvas>
+                    <Kevin scale={[5, 5, 5]} />
+                    <OrbitControls enableZoom={false} enablePan={true} />
+                  </Suspense>
+                </Canvas>
+              )}
             </div>
           </div>
         </div>
