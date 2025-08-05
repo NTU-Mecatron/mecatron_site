@@ -28,11 +28,6 @@ export function Optimized3DViewer({
     return <StaticImageViewer />;
   }
 
-  // Show loading state
-  if (isLoading) {
-    return <Spinner />;
-  }
-
   return (
     <ErrorBoundary>
       <Canvas 
@@ -41,12 +36,20 @@ export function Optimized3DViewer({
           fov: modelType === 'lucy' ? 60 : 50 
         }} 
         style={{ background: 'transparent' }}
-        gl={glConfig}
+        gl={{
+          ...glConfig,
+          // Cap pixel ratio for mobile performance
+          pixelRatio: Math.min(window.devicePixelRatio, 1.5)
+        }}
         dpr={dpr}
         shadows={shadows}
         frameloop="demand" // Only render when needed
       >
-        <Suspense fallback={<Spinner />}>
+        {/* Show loading state inside Canvas */}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <Suspense fallback={<Spinner />}>
           {/* Adaptive lighting based on capability */}
           <ambientLight intensity={capability === 'mobile' ? 0.6 : 0.8} />
           <directionalLight 
@@ -87,6 +90,7 @@ export function Optimized3DViewer({
             />
           )}
         </Suspense>
+        )}
       </Canvas>
     </ErrorBoundary>
   );

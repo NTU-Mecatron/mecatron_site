@@ -73,7 +73,7 @@ export default function VehiclesPage() {
               <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
                 <Optimized3DViewer 
                   showModel={true}
-                  scale={[4, 4, 4]}
+                  scale={[4, 4, 4 ]}
                   enableTouchControls={true}
                   modelType="lucy"
                 />

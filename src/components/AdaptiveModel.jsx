@@ -13,14 +13,14 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevi
   const modelUrl = useMemo(() => {
     switch (capability) {
       case 'fallback':
-        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
       case 'mobile':
-        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
       case 'medium':
-        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
       case 'full':
       default:
-        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
     }
   }, [capability, modelType]);
 
@@ -28,9 +28,9 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevi
   const optimizedScale = useMemo(() => {
     let baseScale = scale;
     
-    // Adjust base scale for Lucy (she's larger than Kevin)
+    // Lucy needs a much larger scale to be 3x bigger
     if (modelType === 'lucy') {
-      baseScale = [scale[0] * 0.7, scale[1] * 0.7, scale[2] * 0.7];
+      baseScale = [scale[0] * 3.0, scale[1] * 3.0, scale[2] * 3.0];
     }
     
     switch (capability) {
