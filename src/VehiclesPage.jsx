@@ -1,7 +1,5 @@
 import React from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Kevin } from './Kevin';
+import { Optimized3DViewer } from './components/Optimized3DViewer';
 import { Lucy } from './Lucy';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
@@ -45,28 +43,11 @@ export default function VehiclesPage() {
             <div className="flex-1 flex items-center justify-center">
               {/* Kevin 3D model container */}
               <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-                <Canvas 
-                  camera={{ position: [0, 0, 5], fov: 50 }} 
-                  style={{ background: 'transparent' }}
-                  gl={{
-                    antialias: true,
-                    alpha: true,
-                    powerPreference: "high-performance",
-                    precision: "highp",
-                    outputColorSpace: "srgb"
-                  }}
-                  dpr={[1, 2]}
-                  shadows
-                >
-                  <ambientLight intensity={0.4} />
-                  <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
-                  <directionalLight position={[-5, 5, 10]} intensity={0.6} />
-                  <pointLight position={[-10, -10, -10]} intensity={0.4} />
-                  <pointLight position={[0, 10, 0]} intensity={0.3} />
-                  
-                  <Kevin scale={[5, 5, 5]} />
-                  <OrbitControls enableZoom={false} enablePan={true} />
-                </Canvas>
+                <Optimized3DViewer 
+                  showModel={true}
+                  scale={[5, 5, 5]}
+                  enableTouchControls={true}
+                />
               </div>
             </div>
           </div>
@@ -90,28 +71,12 @@ export default function VehiclesPage() {
             <div className="flex-1 flex items-center justify-center">
               {/* Lucy 3D model container */}
               <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-                <Canvas 
-                  camera={{ position: [0, 0, 5], fov: 50 }} 
-                  style={{ background: 'transparent' }}
-                  gl={{
-                    antialias: true,
-                    alpha: true,
-                    powerPreference: "high-performance",
-                    precision: "highp",
-                    outputColorSpace: "srgb"
-                  }}
-                  dpr={[1, 2]}
-                  shadows
-                >
-                  <ambientLight intensity={0.4} />
-                  <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
-                  <directionalLight position={[-5, 5, 10]} intensity={0.6} />
-                  <pointLight position={[-10, -10, -10]} intensity={0.4} />
-                  <pointLight position={[0, 10, 0]} intensity={0.3} />
-                  
-                  <Lucy scale={[5, 5, 5]} />
-                  <OrbitControls enableZoom={false} enablePan={true} />
-                </Canvas>
+                <Optimized3DViewer 
+                  showModel={true}
+                  scale={[4, 4, 4]}
+                  enableTouchControls={true}
+                  modelType="lucy"
+                />
               </div>
             </div>
           </div>

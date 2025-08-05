@@ -7,13 +7,14 @@ import { getOptimizedGLConfig, getOptimizedDPR, getOptimizedShadows } from '../u
 import { TouchOrbitControls } from './TouchOrbitControls';
 import { AdaptiveModel } from './AdaptiveModel';
 import { StaticImageViewer } from './StaticImageViewer';
-import { ErrorBoundary } from '../ErrorBoundary';
+import ErrorBoundary from '../ErrorBoundary';
 import Spinner from '../Spinner';
 
 export function Optimized3DViewer({ 
   showModel = true, 
   scale = [5, 5, 5],
-  enableTouchControls = true 
+  enableTouchControls = true,
+  modelType = 'kevin'
 }) {
   const { capability, isLoading } = useProgressiveEnhancement();
   const { targetFPS } = useAdaptiveFrameRate(capability);
@@ -35,7 +36,10 @@ export function Optimized3DViewer({
   return (
     <ErrorBoundary>
       <Canvas 
-        camera={{ position: [0, 0, 5], fov: 50 }} 
+        camera={{ 
+          position: modelType === 'lucy' ? [0, 0, 8] : [0, 0, 5], 
+          fov: modelType === 'lucy' ? 60 : 50 
+        }} 
         style={{ background: 'transparent' }}
         gl={glConfig}
         dpr={dpr}
@@ -67,7 +71,8 @@ export function Optimized3DViewer({
           {/* Adaptive Model */}
           <AdaptiveModel 
             capability={capability} 
-            scale={scale} 
+            scale={scale}
+            modelType={modelType}
           />
 
           {/* Adaptive Controls */}

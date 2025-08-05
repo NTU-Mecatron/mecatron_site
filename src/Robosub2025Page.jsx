@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Kevin } from './Kevin';
+import { Optimized3DViewer } from './components/Optimized3DViewer';
 // import {group_pic} from './group.png'
 
 
@@ -27,28 +25,12 @@ export default function Robosub2025Page() {
       <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
             {/* 3D Kevin model in a circular container */}
             <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              <Canvas 
-                camera={{ position: [0, 0, 5], fov: 50 }} 
-                style={{ background: 'transparent' }}
-                gl={{
-                  antialias: true,
-                  alpha: true,
-                  powerPreference: "high-performance",
-                  precision: "highp",
-                  outputColorSpace: "srgb"
-                }}
-                dpr={[1, 2]}
-                shadows
-              >
-                <ambientLight intensity={0.4} />
-                <directionalLight position={[10, 10, 5]} intensity={0.8} castShadow />
-                <directionalLight position={[-5, 5, 10]} intensity={0.6} />
-                <pointLight position={[-10, -10, -10]} intensity={0.4} />
-                <pointLight position={[0, 10, 0]} intensity={0.3} />
-
-                <Kevin scale={[5, 5, 5]} />
-                <OrbitControls enableZoom={false} enablePan={true} />
-              </Canvas>
+              <Optimized3DViewer 
+                showModel={true}
+                scale={[5, 5, 5]}
+                enableTouchControls={true}
+                modelType="kevin"
+              />
             </div>
           </div>
       </section>

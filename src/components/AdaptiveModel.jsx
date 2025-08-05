@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { KevinOptimized } from '../KevinOptimized';
+import { LucyOptimized } from '../LucyOptimized';
 
-export function AdaptiveModel({ capability, scale = [5, 5, 5], ...props }) {
+export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevin', ...props }) {
   // For now, we'll use the same model but with different optimizations
   // In the future, you can create multiple model versions:
   // - kevin_mobile.glb (simplified, < 1MB)
@@ -12,34 +13,51 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], ...props }) {
   const modelUrl = useMemo(() => {
     switch (capability) {
       case 'fallback':
-        return '/kevin.glb'; // Use original for fallback
+        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
       case 'mobile':
-        return '/kevin.glb'; // Use original for now
+        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
       case 'medium':
-        return '/kevin.glb'; // Use original for now
+        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
       case 'full':
       default:
-        return '/kevin.glb'; // Use original for now
+        return modelType === 'lucy' ? '/LucyRobot.glb' : '/kevin.glb';
     }
-  }, [capability]);
+  }, [capability, modelType]);
 
   // Optimize scale based on capability
   const optimizedScale = useMemo(() => {
+    let baseScale = scale;
+    
+    // Adjust base scale for Lucy (she's larger than Kevin)
+    if (modelType === 'lucy') {
+      baseScale = [scale[0] * 0.7, scale[1] * 0.7, scale[2] * 0.7];
+    }
+    
     switch (capability) {
       case 'fallback':
-        return [scale[0] * 0.8, scale[1] * 0.8, scale[2] * 0.8];
+        return [baseScale[0] * 0.8, baseScale[1] * 0.8, baseScale[2] * 0.8];
       case 'mobile':
-        return [scale[0] * 0.9, scale[1] * 0.9, scale[2] * 0.9];
+        return [baseScale[0] * 0.9, baseScale[1] * 0.9, baseScale[2] * 0.9];
       case 'medium':
-        return scale;
+        return baseScale;
       case 'full':
       default:
-        return scale;
+        return baseScale;
     }
-  }, [scale, capability]);
+  }, [scale, capability, modelType]);
 
   // Preload the model
   useGLTF.preload(modelUrl);
+
+  // Return the appropriate optimized model
+  if (modelType === 'lucy') {
+    return (
+      <LucyOptimized 
+        scale={optimizedScale} 
+        {...props}
+      />
+    );
+  }
 
   return (
     <KevinOptimized 
