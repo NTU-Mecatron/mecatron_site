@@ -4,9 +4,7 @@ import Navbar from './Navbar';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Kevin } from './Kevin';
-import { KevinOptimized } from './KevinOptimized';
-import ErrorBoundary from './ErrorBoundary';
-import Spinner from './Spinner';
+import { Optimized3DViewer } from './components/Optimized3DViewer';
 
 
 
@@ -84,34 +82,11 @@ export default function Home() {
                 </div>
               )}
               {showModel && (
-                <ErrorBoundary>
-                  <Canvas 
-                    camera={{ position: [0, 0, 5], fov: 50 }} 
-                    style={{ background: 'transparent' }}
-                    gl={{
-                      antialias: false, // Disable antialiasing on mobile for performance
-                      alpha: true,
-                      powerPreference: "high-performance",
-                      precision: "mediump", // Use medium precision for better mobile performance
-                      outputColorSpace: "srgb",
-                      failIfMajorPerformanceCaveat: false // Don't fail on low-end devices
-                    }}
-                    dpr={[0.5, 1]} // Lower DPR for mobile devices
-                    shadows={false} // Disable shadows on mobile for performance
-                  >
-                    <Suspense fallback={<Spinner />}>
-                      <ambientLight intensity={0.8} />
-                      <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
-                      <directionalLight position={[-5, 5, 10]} intensity={1.0} />
-                      <pointLight position={[-10, -10, -10]} intensity={0.6} />
-                      <pointLight position={[0, 10, 0]} intensity={0.5} />
-                      <pointLight position={[5, 0, 5]} intensity={0.4} />
-
-                      <KevinOptimized scale={[5, 5, 5]} />
-                      <OrbitControls enableZoom={false} enablePan={true} />
-                    </Suspense>
-                  </Canvas>
-                </ErrorBoundary>
+                <Optimized3DViewer 
+                  showModel={showModel}
+                  scale={[5, 5, 5]}
+                  enableTouchControls={true}
+                />
               )}
             </div>
           </div>
