@@ -3,12 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import mecatronLogo from './assets/logos/mecatronLogo.png';
 
 const sections = [
-  { id: 'team', label: 'Our Team', path: '/team',
-    submenu: [
-      { id: 'team-main', label: 'Our Team', path: '/team' },
-      { id: 'focus', label: 'Our Focus', path: '/focus' },
-    ]
-  },
+  { id: 'team', label: 'Our Team', path: '/team' },
   { id: 'vehicles', label: 'Vehicles', path: '/vehicles',
     submenu: [
       { id: 'vehicles-main', label: 'Vehicles', path: '/vehicles' },

@@ -13,14 +13,14 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevi
   const modelUrl = useMemo(() => {
     switch (capability) {
       case 'fallback':
-        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinfix.glb';
       case 'mobile':
-        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinfix.glb';
       case 'medium':
-        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinfix.glb';
       case 'full':
       default:
-        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinsmalloutput.glb';
+        return modelType === 'lucy' ? '/lucysmalloutput.glb' : '/kevinfix.glb';
     }
   }, [capability, modelType]);
 

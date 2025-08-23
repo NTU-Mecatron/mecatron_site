@@ -26,7 +26,7 @@ export function Kevin(props) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const { nodes, materials } = useGLTF('/kevinsmalloutput.glb')
+  const { nodes, materials } = useGLTF('/kevinfix.glb')
   return (
     <group scale={scale} {...props} dispose={null}>
       <mesh
@@ -131,7 +131,7 @@ export function Kevin(props) {
   )
 }
 
-useGLTF.preload('/kevinsmalloutput.glb')
+useGLTF.preload('/kevinfix.glb')
 
 
 

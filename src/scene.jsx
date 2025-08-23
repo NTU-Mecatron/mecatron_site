@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Kevin } from './Kevin.jsx';
+import { KevinOptimized } from './KevinOptimized.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +77,7 @@ const Scene = ({ progress }) => {
             <pointLight position={[-10, -10, -10]} intensity={0.4} />
             <pointLight position={[0, 10, 0]} intensity={0.3} />
 
-            <Kevin />
+            <KevinOptimized scale={[2.5, 2.5, 2.5]} />
             {/* <axesHelper args={[500]} /> */}
 
         </>
