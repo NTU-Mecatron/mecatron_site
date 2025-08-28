@@ -6,6 +6,8 @@ export default function GamePage() {
   const [containerSize, setContainerSize] = useState({ width: 1101, height: 619 });
   const [isMobile, setIsMobile] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
+  const [gameLoadError, setGameLoadError] = useState(false);
+  const [gameLoaded, setGameLoaded] = useState(false);
 
   // Force landscape orientation on mobile
   useEffect(() => {
@@ -19,6 +21,18 @@ export default function GamePage() {
       }
     }
   }, [isMobile, isPortrait]);
+
+  // Timeout for game loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!gameLoaded && !gameLoadError) {
+        console.log('Game loading timeout - assuming load error');
+        setGameLoadError(true);
+      }
+    }, 10000); // 10 second timeout
+
+    return () => clearTimeout(timer);
+  }, [gameLoaded, gameLoadError]);
 
   useEffect(() => {
     const updateGameSize = () => {
@@ -134,6 +148,35 @@ export default function GamePage() {
                 </div>
               )}
               
+              {/* Game Loading Error */}
+              {gameLoadError && (
+                <div className="absolute inset-0 bg-black/90 flex items-center justify-center z-20">
+                  <div className="text-center text-white p-6">
+                    <div className="text-6xl mb-4">⚠️</div>
+                    <h3 className="text-xl font-bold mb-2">Game Loading Error</h3>
+                    <p className="text-sm text-gray-300 mb-4">
+                      The game failed to load. This might be due to browser restrictions.
+                    </p>
+                    <button 
+                      onClick={() => window.open('/game/index.html', '_blank')}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold"
+                    >
+                      Open Game in New Tab
+                    </button>
+                  </div>
+                </div>
+              )}
+              
+              {/* Game Loading Indicator */}
+              {!gameLoaded && !gameLoadError && (
+                <div className="absolute inset-0 bg-black/90 flex items-center justify-center z-10">
+                  <div className="text-center text-white p-6">
+                    <div className="animate-spin text-4xl mb-4">⚙️</div>
+                    <p className="text-lg">Loading Game...</p>
+                  </div>
+                </div>
+              )}
+              
               <div className={`w-full flex items-center justify-center ${
                 isMobile ? 'h-[350px]' : 'h-[400px] sm:h-[500px] md:h-[600px]'
               }`}>
@@ -154,6 +197,30 @@ export default function GamePage() {
                       allowFullScreen
                       scrolling="no"
                       frameBorder="0"
+                      sandbox="allow-scripts allow-same-origin"
+                      onLoad={(e) => {
+                        console.log('Game iframe loaded successfully');
+                        setGameLoaded(true);
+                        // Check if game actually loaded by trying to access iframe content
+                        setTimeout(() => {
+                          try {
+                            const iframeDoc = e.target.contentDocument || e.target.contentWindow.document;
+                            const canvas = iframeDoc.querySelector('#canvas');
+                            if (!canvas) {
+                              setGameLoadError(true);
+                              setGameLoaded(false);
+                            }
+                          } catch (err) {
+                            // Cross-origin restrictions - this is expected in production
+                            console.log('Cannot access iframe content (expected in production)');
+                          }
+                        }, 3000);
+                      }}
+                      onError={(e) => {
+                        console.error('Game iframe failed to load:', e);
+                        setGameLoadError(true);
+                        setGameLoaded(false);
+                      }}
                       style={{
                         width: '1694px',
                         height: '953px',

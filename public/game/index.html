@@ -104,22 +104,42 @@
         <!-- Run the game code -->
         <script>
         (function() {
+            console.log('Initializing GameMaker game...');
+            console.log('Current location:', window.location.href);
+            
             var script = document.createElement('script');
             script.src = 'BLANK_GAME.js?cachebust=1664111295';
+            
             script.onload = function() {
+                console.log('GameMaker script loaded successfully');
                 if (typeof window.GameMaker_Init === 'function') {
                     try {
+                        console.log('Calling GameMaker_Init...');
                         window.GameMaker_Init();
+                        console.log('GameMaker_Init completed');
                     } catch(e) {
                         console.error('GameMaker initialization error:', e);
+                        document.getElementById('canvas').style.display = 'none';
+                        document.getElementById('gm4html5_div_id').innerHTML = 
+                            '<div style="color: white; text-align: center; padding: 20px;">Game failed to initialize: ' + e.message + '</div>';
                     }
                 } else {
                     console.error('GameMaker_Init function not found after script load');
+                    document.getElementById('canvas').style.display = 'none';
+                    document.getElementById('gm4html5_div_id').innerHTML = 
+                        '<div style="color: white; text-align: center; padding: 20px;">GameMaker_Init function not found</div>';
                 }
             };
-            script.onerror = function() {
-                console.error('Failed to load GameMaker script');
+            
+            script.onerror = function(e) {
+                console.error('Failed to load GameMaker script:', e);
+                console.error('Script src was:', script.src);
+                document.getElementById('canvas').style.display = 'none';
+                document.getElementById('gm4html5_div_id').innerHTML = 
+                    '<div style="color: white; text-align: center; padding: 20px;">Failed to load game script</div>';
             };
+            
+            console.log('Appending script to head...');
             document.head.appendChild(script);
         })();
         </script>
