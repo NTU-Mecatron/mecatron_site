@@ -102,12 +102,30 @@
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/BLANK_GAME.js?cachebust=1664111295"></script>
+        <script>
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'html5game/BLANK_GAME.js?cachebust=1664111295';
+            script.onload = function() {
+                if (typeof window.GameMaker_Init === 'function') {
+                    try {
+                        window.GameMaker_Init();
+                    } catch(e) {
+                        console.error('GameMaker initialization error:', e);
+                    }
+                } else {
+                    console.error('GameMaker_Init function not found after script load');
+                }
+            };
+            script.onerror = function() {
+                console.error('Failed to load GameMaker script');
+            };
+            document.head.appendChild(script);
+        })();
+        </script>
 
         <!-- Builtin injector for injecting runner path -->
         
-
-        <script>window.onload = GameMaker_Init;</script>
 
         <!-- Builtin injector for injecting google analytics code -->
         
