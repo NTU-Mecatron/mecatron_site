@@ -74,9 +74,14 @@ export default function OutreachPage() {
             <p className="text-lg text-white mb-6">
               We have also created an interactive e-resource! It is a great conversation starter to educate children about microplastics, which are ubiquitous pollutants in the marine environment.
             </p>
-            <button className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition hover:bg-orange-500 hover:text-white">
+            <a 
+              href="/game" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="border border-gray-400 text-gray-200 font-semibold px-8 py-2 rounded-lg shadow transition hover:bg-orange-500 hover:text-white inline-block text-center cursor-pointer"
+            >
               Click to try!
-            </button>
+            </a>
           </div>
 
           {/* Right: Video */}
