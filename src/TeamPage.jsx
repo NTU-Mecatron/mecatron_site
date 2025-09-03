@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Team data structure - easy to modify and expand
 const teamData = {
-  '2024': {
+  'AY23/24': {
     Members: [
       {
         name: "Luc Vu Tien",
@@ -105,7 +105,7 @@ const teamData = {
     ],
 
   },
-  '2025': {
+  'AY24/25': {
     leads: [
       {
         name: "Zach Low",
@@ -582,7 +582,7 @@ const teamData = {
 };
 
 export default function TeamPage() {
-  const [activeTab, setActiveTab] = useState('2025');
+  const [activeTab, setActiveTab] = useState('AY24/25');
 
   const handleTabChange = (year) => {
     setActiveTab(year);
@@ -613,23 +613,23 @@ export default function TeamPage() {
           <div className="tab-container mb-4 md:mb-8 flex-shrink-0 w-full md:w-48">
             <input 
               className="tab tab--2" 
-              id="tab2025" 
+              id="tabAY24/25" 
               name="tab" 
               type="radio" 
-              checked={activeTab === '2025'}
-              onChange={() => handleTabChange('2025')}
+              checked={activeTab === 'AY24/25'}
+              onChange={() => handleTabChange('AY24/25')}
             />
-            <label htmlFor="tab2025" className="tab_label">2025</label>
+            <label htmlFor="tabAY24/25" className="tab_label">AY24/25</label>
 
             <input
               className="tab tab--1"
-              id="tab2024"
+              id="tabAY23/24"
               name="tab"
               type="radio"
-              checked={activeTab === '2024'}
-              onChange={() => handleTabChange('2024')}
+              checked={activeTab === 'AY23/24'}
+              onChange={() => handleTabChange('AY23/24')}
             />
-            <label htmlFor="tab2024" className="tab_label">2024</label>
+            <label htmlFor="tabAY23/24" className="tab_label">AY23/24</label>
 
             <div className="indicator"></div>
             <div className="scroller"></div>
@@ -637,15 +637,15 @@ export default function TeamPage() {
 
           {/* Tab Content - Full width on mobile and desktop */}
           <div className="tab-content flex-1 w-full min-w-0">
-            {activeTab === '2024' && (
+            {activeTab === 'AY23/24' && (
               <div className="text-center w-full">
-                <TeamSubmenu year="2024" />
+                <TeamSubmenu year="AY23/24" />
               </div>
             )}
             
-            {activeTab === '2025' && (
+            {activeTab === 'AY24/25' && (
               <div className="text-center w-full">
-                <TeamSubmenu year="2025" />
+                <TeamSubmenu year="AY24/25" />
               </div>
             )}
           </div>
@@ -1050,9 +1050,9 @@ export default function TeamPage() {
 }
 
 function TeamSubmenu({ year }) {
-  const [activeSubmenu, setActiveSubmenu] = useState(year === '2024' ? 'Members' : 'leads');
+  const [activeSubmenu, setActiveSubmenu] = useState(year === 'AY23/24' ? 'Members' : 'leads');
 
-  const teams = year === '2024' ? [
+  const teams = year === 'AY23/24' ? [
     { id: 'Members', label: 'Members' }
   ] : [
     { id: 'leads', label: 'Leads' },
@@ -1077,7 +1077,7 @@ function TeamSubmenu({ year }) {
     }
 
     const teamDescriptions = {
-      '2025': {
+      'AY24/25': {
         leads: "Steering the team’s vision, strategy, and cross-functional coordination to drive Mecatron forward.",
         hardware: "Designing and building the mechanical systems that bring our autonomous vehicles to life.",
         software: "Developing the brains behind our AUVs — from navigation algorithms to computer vision and control systems.",
@@ -1087,14 +1087,14 @@ function TeamSubmenu({ year }) {
         projects: "Pioneering experimental subsystems and ambitious prototypes beyond the core vehicle build, with a focus on youth engagement and outreach.",
         advisors: "Providing mentorship, technical guidance, and industry insight to elevate the team’s capabilities."
       },
-      '2024': {
+      'AY23/24': {
         Members: "Our small but dedicated team combines experience and passion to lead Mecatron’s 2024 innovations from concept to completion.",
 
       }
 
     };
 
-    const description = teamDescriptions[year]?.[teamId] || "Meet our team members for the year of 2024";
+    const description = teamDescriptions[year]?.[teamId] || "Meet our team members for the year of AY23/24";
 
     return (
       <div>
@@ -1111,7 +1111,7 @@ function TeamSubmenu({ year }) {
   return (
     <div className="w-full mx-auto">
       <div className="submenu-container">
-        {year === '2025' && (
+        {year === 'AY24/25' && (
         <div className="submenu-wrap">
           {teams.map((team, index) => (
             <React.Fragment key={team.id}>
@@ -1136,7 +1136,7 @@ function TeamSubmenu({ year }) {
       </div>
 
       {/* Submenu Content */}
-      {year === '2025' && (
+      {year === 'AY24/25' && (
         <div className="submenu-content mt-4 md:mt-8 p-3 md:p-4 lg:p-6 bg-[#232323] rounded-lg mb-8">
           <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-orange-400 mb-4">
           {teams.find(team => team.id === activeSubmenu)?.label} Team {year}
@@ -1147,10 +1147,10 @@ function TeamSubmenu({ year }) {
       </div>
       )}
 
-      {year === '2024' && (
+      {year === 'AY23/24' && (
         <div className="submenu-content mt-4 md:mt-8 p-3 md:p-4 lg:p-6 bg-[#232323] rounded-lg mb-8">
           <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-orange-400 mb-4">
-            Mecatron Members In 2024
+            Mecatron AY23/24
           </h3>
           <div className="text-sm md:text-base lg:text-lg text-white">
             {getTeamContent('Members', year)}
