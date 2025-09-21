@@ -5,10 +5,10 @@ export default function CompetitionsPage() {
     {
       id: 1,
       title: "ROBOSUB 2025",
-      date: "AUGUST 2025 (UPCOMING)",
+      date: "AUGUST 2025",
       description: "Presenting our latest AUV: Kevin!",
-      image: "/competition/images/competition_img_1.jpg", // Placeholder for submarine/underwater vehicle
-      status: "upcoming",
+      image: "/competition/images/competition_img_1.jpg",
+      status: "completed",
       link:"/robosub2025"
 
     },
@@ -17,7 +17,7 @@ export default function CompetitionsPage() {
       title: "SAUVC 2025",
       date: "MARCH 2025",
       description: "After our third-place win in 2024, Mecatron made a strong comeback and clinched 1st Place at SAUVC 2025.",
-      image: "/competition/images/competition_img_2.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_2.jpg",
       status: "completed",
       link:"/sauvc2025"
     },
@@ -26,7 +26,7 @@ export default function CompetitionsPage() {
       title: "MATE ROV 2024",
       date: "MAY 2024",
       description: "Among 82 teams from 17 countries that qualified to compete in the 2024 MATE ROV World Championship, Mecatron was selected for a special award – the Guts and Glory award.",
-      image: "/competition/images/competition_img_3.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_3.jpg",
       status: "completed",
       link:"/materov2024"
     },
@@ -35,7 +35,7 @@ export default function CompetitionsPage() {
       title: "SAUVC 2024",
       date: "APRIL 2024",
       description: "Mecatron’s AUV had the third fastest qualification timing of 10.53 seconds among the 21 qualified teams, then we proceeded to clinch the 3rd Prize in the final round!",
-      image: "/competition/images/competition_img_4.jpg", // Placeholder for underwater competition
+      image: "/competition/images/competition_img_4.jpg",
       status: "completed",
       link:"/sauvc2024"
     }
@@ -46,7 +46,7 @@ export default function CompetitionsPage() {
       {/* Header */}
 
       <section
-        className="relative w-full min-h-[70vh] flex flex-col justify-center items-center text-center px-4 sm:px-8 py-24 bg-[#181818] text-white"
+        className="relative w-full min-h-[70vh] flex flex-col justify-center items-center text-center px-4 sm:px-8 py-24 bg-black text-white"
       >
         <div className="relative z-10">
           <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 mb-8">Competitions</h1>
@@ -56,6 +56,12 @@ export default function CompetitionsPage() {
           </p>
         </div>
       </section>
+
+      <div className="flex w-full justify-center    ">
+        <p className="text-gray-300 text-lg pt-10 pb-10">
+          Stay tuned for more upcoming competitions!
+        </p>
+      </div>
       
       {/* Timeline Container */}
       <div className="relative max-w-6xl mx-auto px-4 pb-12">
@@ -91,6 +97,11 @@ export default function CompetitionsPage() {
                         Upcoming
                       </div>
                     )}
+                    {competition.status === 'completed' && (
+                      <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        Completed
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Content */}
@@ -120,11 +131,6 @@ export default function CompetitionsPage() {
             </div>
           </div>
         ))}
-      </div>
-      <div className="flex w-full justify-center    ">
-        <p className="text-gray-300 text-lg pb-10">
-          Stay tuned for more upcoming competitions!
-        </p>
       </div>
       
     </div>
