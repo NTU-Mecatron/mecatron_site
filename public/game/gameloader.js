@@ -4,7 +4,7 @@
     
     // Create a script element to load the game
     var script = document.createElement('script');
-    script.src = 'BLANK_GAME.js?cachebust=1664111295';
+    script.src = 'BLANK_GAME.js';
     script.type = 'text/javascript';
     
     script.onload = function() {
