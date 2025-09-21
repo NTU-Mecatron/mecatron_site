@@ -20,6 +20,7 @@ const sections = [
       { id: 'sauvc2024', label: 'SAUVC 2024', path: '/sauvc2024' },
     ]
   },
+  { id: 'research', label: 'Research', path: '/research' },
   { id: 'outreach', label: 'Outreach', path: '/outreach',
     submenu: [
       { id: 'outreach-main', label: 'Outreach', path: '/outreach' },

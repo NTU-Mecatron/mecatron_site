@@ -7,6 +7,7 @@ import KevinPage from './KevinPage.jsx'
 import TeamPage from './TeamPage.jsx'
 import VehiclesPage from './VehiclesPage.jsx'
 import CompetitionsPage from './CompetitionsPage.jsx'
+import ResearchPage from './ResearchPage.jsx'
 import OutreachPage from './OutreachPage.jsx'
 import SponsorsPage from './SponsorsPage.jsx'
 import ContactPage from './ContactPage.jsx'
@@ -37,6 +38,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="team" element={<TeamPage />} />
           <Route path="vehicles" element={<VehiclesPage />} />
           <Route path="competitions" element={<CompetitionsPage />} />
+          <Route path="research" element={<ResearchPage />} />
           <Route path="outreach" element={<OutreachPage />} />
           <Route path="sponsors" element={<SponsorsPage />} />
           <Route path="contact" element={<ContactPage />} />
