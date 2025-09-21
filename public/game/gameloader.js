@@ -4,7 +4,7 @@
     
     // Create a script element to load the game
     var script = document.createElement('script');
-    script.src = '/game/BLANK_GAME.js';
+    script.src = './BLANK_GAME.js';
     script.type = 'text/javascript';
     
     script.onload = function() {
