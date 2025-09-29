@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
 
         <p>
-          A NTU student-led team specializing in marine robotics with potential real-world applications
+          A NTU student-led team specialising in marine robotics with potential real-world applications
         </p>
         {/* Social Icons */}
         <div className="flex gap-6 mt-6 mb-6">
