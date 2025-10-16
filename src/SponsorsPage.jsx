@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function SponsorsPage() {
@@ -291,7 +291,7 @@ function SponsorsCarousel() {
     }, 3000);
     return () => clearInterval(interval);
   }, [maxStart]);
-  const { width, height } = useWindowSize();
+  const { width } = useWindowSize();
   if(width<480){
     groupSize = 1;
   }
