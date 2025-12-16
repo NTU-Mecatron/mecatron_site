@@ -34,7 +34,7 @@ export default function Pen3DPage() {
 };
 
   return (
-    <div className="bg-gradient-to-t from-black from-10% to-red-500  text-white px-6 py-16 space-y-16">
+    <div className="bg-gradient-to-t from-red-500 from-5% to-black  text-white px-6 py-16 space-y-16">
       <div className="max-w-6xl mx-auto pt-12">
       <div className="flex items-start justify-between w-full">
       <p className="text-white text-lg">June 2025</p>
