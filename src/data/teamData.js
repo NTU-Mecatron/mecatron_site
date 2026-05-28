@@ -1017,6 +1017,15 @@ const teamData = {
         github: "https://github.com/PhoenixChee",
       },
       {
+        name: "Liu Chuanhua",
+        role: "Software Member",
+        image: "/website_member_photos/chuanhua-1.jpg",
+        backImage: "/website_member_photos/chuanhua-2.jpg",
+        schoolYear: "Year 1 Computer Engineering Student",
+        linkedin: "https://www.linkedin.com/in/chuanhua-liu",
+        github: "https://github.com/Chuanhhua",
+      },
+      {
         name: "Sudhishna Janavi",
         role: "Software Member",
         image: "/website_member_photos/janavi-1.jpg",
@@ -1062,6 +1071,15 @@ const teamData = {
     schoolYear: "Year 3 Electrical and Electronic Engineering Student",
     linkedin: "https://www.linkedin.com/in/aungk0/",
     github: "https://github.com/HumanLeatherCowboyHat",
+  },
+  {
+  name: "Trinh Hai Duong (Riley)",
+  role: "Electrical Member",
+  image: "/website_member_photos/riley-1.jpg",
+  backImage: "/website_member_photos/riley-2.jpg",
+  schoolYear: "Year 1 Electrical and Electronic Engineering Student",
+  linkedin: "https://www.linkedin.com/in/riley-trinh-hai-duong/",
+  github: "https://github.com/riley-trinhhaiduong",
   },
   {
     name: "Thum Mun Kuan",
@@ -1233,21 +1251,6 @@ const teamData = {
       },
       ],
       advisors : [
-        {
-        name: "Chan Wai Lee",
-        role: "Team Advisor",
-        image: "/website_member_photos/wailee-2.jpg",
-        backImage: "/website_member_photos/wailee-1.jpg",
-        schoolYear: "Assistant Professor, School of Mechanical & Aerospace Engineering",
-        linkedin: "https://www.linkedin.com/in/wai-lee-chan-3b853595/?originalSubdomain=sg",
-      },
-      {
-        name: "Zheng Shimin, Lillian",
-        role: "Team Advisor",
-        image: "/website_member_photos/lilian-2.jpg",
-        backImage: "/website_member_photos/lilian-1.jpg",
-        schoolYear: "Manager - Student Development, College of Engineering",
-      },
       {
         name: "Zach Low",
         role: "AY24/25 Lead",

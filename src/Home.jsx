@@ -1,12 +1,9 @@
-import React, { useRef, useState, useEffect, Suspense } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Kevin } from './Kevin';
 import { Optimized3DViewer } from './components/Optimized3DViewer';
-
-
+import ImageCarousel from "./components/ImageCarousel"; //import two carousels for the different sections
+import ContentCarousel from "./components/ContentCarousel";
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -15,6 +12,7 @@ const sections = [
   { id: 'portfolio', label: 'Portfolio' },
   { id: 'contact', label: 'Contact me' },
 ];
+
 
 export default function Home() {
   // Refs for scrolling
@@ -27,77 +25,69 @@ export default function Home() {
     competitions: useRef(null),
   };
 
+
   const scrollToSection = (id) => {
     sectionRefs[id]?.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  // State for 3D model loading
-  const [modelLoaded, setModelLoaded] = useState(false);
-  const [showModel, setShowModel] = useState(false);
-
-  useEffect(() => {
-    // Start the 3-second timer immediately
-    const timer = setTimeout(() => {
-      setShowModel(true);
-    }, 3000);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#181818] text-white font-sans overflow-x-hidden">
       <Navbar scrollToSection={scrollToSection} />
       {/* Hero Section */}
-      <section ref={sectionRefs.home} className="flex flex-col md:flex-row items-center justify-between pt-32 pb-4 md:pb-16 px-4 sm:px-8 md:px-20 min-h-screen bg-[#181818]">
-        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="flex-1 flex flex-col items-start justify-center space-y-6 w-full">
-            <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-orange-500">Meet Kevin</div>
-            <div className="text-2xl sm:text-3xl md:text-2xl font-medium text-white">Vehicle for RoboSub 2025</div>
+      <section ref={sectionRefs.home} className="pt-28 pb-10 md:pt-32 md:pb-16 px-4 sm:px-8 md:px-12 min-h-screen bg-[#181818] flex items-center">
+        <div className="w-full max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,0.9fr)_minmax(0,1fr)] items-center gap-4 md:gap-8">
+          <div className="flex items-center justify-center w-full order-2 lg:order-1">
+            <div className="w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] lg:w-[34rem] lg:h-[34rem] xl:w-[40rem] xl:h-[40rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
+              <Optimized3DViewer
+                showModel={true}
+                scale={[4.5, 4.5, 4.5]}
+                enableTouchControls={true}
+                modelType="hydra"
+                modelRotation={[0, 0.35, 0]}
+              />
+            </div>
+          </div>
 
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 w-full">
+          <div className="flex flex-col items-center justify-center space-y-6 w-full text-center order-1 lg:order-2">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-orange-500">Meet Hydra & Kraken</div>
+            <div className="text-2xl sm:text-3xl md:text-2xl font-medium text-white">Vehicles for RoboSub 2026</div>
+
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full justify-center">
             <Link
-              to="/kevin"
+              to="/vehicles"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 text-center"
             >
-              Meet Kevin
+              Meet Hydra & Kraken
             </Link>
               <Link
-                to="/robosub2025"
+                to="/robosub2026"
                 className="border border-gray-400 text-gray-200 font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 hover:bg-gray-700 text-center"
               >
-              Robosub 2025
+              RoboSub 2026
               </Link>
             </div>
           </div>
-          <div className="flex-1 flex items-center justify-center mt-12 md:mt-0 w-full">
-          {/* 3D Kevin model in a circular container */}
-            <div className="w-[24rem] h-[24rem] sm:w-[24rem] sm:h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[44rem] lg:h-[44rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              {!showModel && (
-                <div className="absolute inset-0 z-10">
-                  <img 
-                    src="/images/kevin_placeholder.png" 
-                    alt="Kevin - Loading..." 
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-              )}
-              {showModel && (
-                <Optimized3DViewer 
-                  showModel={showModel}
-                  scale={[5, 5, 5]}
-                  enableTouchControls={true}
-                />
-              )}
+
+          <div className="flex items-center justify-center w-full order-3">
+            <div className="w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] lg:w-[34rem] lg:h-[34rem] xl:w-[40rem] xl:h-[40rem] flex items-center justify-center overflow-hidden relative bg-transparent">
+              <Optimized3DViewer
+                showModel={true}
+                scale={[3.5, 3.5, 3.5]}
+                enableTouchControls={true}
+                modelType="kraken"
+                modelRotation={[0, -0.35, 0]}
+              />
             </div>
           </div>
         </div>
       </section>
       {/* Placeholder sections for navigation */}
-      <section ref={sectionRefs.services} className="min-h-[500px] bg-[#1a1a1a] py-16">
+      <section ref={sectionRefs.services} className="min-h-[500px] bg-[#222] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
         {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Who are we</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Who we are</h2>
             <p className="text-base sm:text-lg text-white mb-6">
             Founded in 2023, Mecatron is a multidisciplinary student team from Nanyang Technological University, Singapore, driven by a passion for underwater robotics. We specialize in developing autonomous underwater vehicles (AUVs), competing in marine robotics challenges, and advancing research in the field.
           </p>
@@ -108,17 +98,59 @@ export default function Home() {
             Meet The Team <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
           </Link>
         </div>
-        {/* Right: Carousel */}
+        {/* Team Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
-          <TeamCarousel />
+          <ImageCarousel
+            images={[
+              '/images/team_1.jpg',
+              '/images/team_2.webp',
+              '/images/team_3.jpg',
+              '/images/team_4.webp',
+              '/images/team_5.jpg',
+            ]}
+            autoPlay={4000}
+          />
           </div>
         </div>
       </section>
+
       <section ref={sectionRefs.competitions} className="min-h-[500px] bg-[#181818] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-          {/* Right: Carousel */}
+          {/* Competitions Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
-            <CompetitionsCarousel />
+            <ContentCarousel
+              slides={[
+                {
+                  image: '/images/robosub2025-team.jpg',
+                  title: 'Best New All Rounder & City of Irvine Award',
+                  subtitle: 'RoboSub 2025',
+                  desc: 'Mecatron won the Best New All Rounder & City of Irvine Award for our exceptional collaboration and outstanding rookie performance.',
+                  link: '/robosub2025',
+                },
+                {
+                  image: '/images/sauvc2025.jpeg',
+                  title: '1st Place',
+                  subtitle: 'SAUVC 2025',
+                  desc: 'Following our successful debut last year, Mecatron proudly clinched 1st place at the Singapore AUV Challenge 2025!',
+                  link: '/sauvc2025',
+                },
+                {
+                  image: '/images/materov2024.webp',
+                  title: 'Finalist',
+                  subtitle: 'MATE ROV 2024',
+                  desc: 'Find out about how we conquered the MATE ROV World Championship with "Guts and Glory"!',
+                  link: '/materov2024',
+                },
+                {
+                  image: '/images/sauvc2024.jpg',
+                  title: '3rd Place',
+                  subtitle: 'SAUVC 2024',
+                  desc: 'Witness the debut of our first autonomous underwater vehicle (AUV) at the Singapore AUV Challenge.',
+                  link: '/sauvc2024',
+                },
+              ]}
+              autoPlay={5000}
+            />
           </div>
         {/* Left: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
@@ -134,11 +166,13 @@ export default function Home() {
           </Link>
         </div>
 
+
         </div>
       </section>
-      <section ref={sectionRefs.about} className="min-h-[500px] bg-[#181818] py-16">
+
+      <section ref={sectionRefs.about} className="min-h-[500px] bg-[#222] py-16">
         <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-        {/* Right: Text */}
+          {/* Right: Text */}
           <div className="flex-1 flex flex-col justify-center items-start py-8 w-full">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Our Initiatives</h2>
             <p className="text-base sm:text-lg text-white mb-8">
@@ -148,283 +182,165 @@ export default function Home() {
             Click here to view our initiative efforts <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
           </Link>
           </div>
-          {/* Left: Carousel */}
+          {/* Initiatives Carousel */}
           <div className="flex-1 flex justify-center items-center py-8 w-full">
-            <InitiativesCarousel />
+            <ContentCarousel
+              slides={[
+                {
+                  image: '/images/computervision_2.jpg',
+                  title: 'September 2024',
+                  subtitle: 'Computer Vision Workshop',
+                  desc: 'Mecatron organized a computer vision workshop for NTU students, delivering engaging sessions on image processing, neural networks, and real-world AI applications.',
+                  link: '/computervision',
+                },
+                {
+                  image: '/images/marinevehicle_1.jpg',
+                  title: 'April 2025',
+                  subtitle: 'Marine Vehicle Workshop',
+                  desc: 'Held in the iconic Sands Expo & Convention Center, Mecatron was proud to host a hands-on Marine Engineering Workshop aimed to introduce students to the exciting world of marine engineering.',
+                  link: '/marinevehicle',
+                },
+                {
+                  image: '/images/blender3d_7.jpg',
+                  title: 'October 2024',
+                  subtitle: 'Blender 3D Workshop',
+                  desc: 'Mecatron organized a 2 day Blender 3D workshop, providing NTU students with hands-on training in Blender basics and Rendering, Product Design Fundamentals, and Materials and Texturing.',
+                  link: '/blender3d',
+                },
+              ]}
+              autoPlay={6000}
+            />
           </div>
         </div>
       </section>
-      <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-[#AAAAAA] py-16">
-        <div className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 gap-8">
-        {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start py-8 text-black w-full">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">Our Proud Sponsors</h2>
-            <p className="text-sm sm:text-base md:text-lg mb-4">
-              We are grateful to our sponsors for their invaluable support in shaping Mecatron's journey. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
-          </p>
-            <Link to="/sponsors" className="text-sm sm:text-base font-semibold hover:text-orange-500 transition flex items-center group">
-            To Learn More, Click Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </Link>
-        </div>
-        {/* Right: Carousel */}
-          <div className="flex-1 flex justify-center items-center py-8 w-full">
-          <SponsorsCarousel />
+
+      <section ref={sectionRefs.portfolio} className="min-h-[400px] bg-[#1a1a1a] py-16 px-4 sm:px-8">
+          <div className="w-full max-w-screen-xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-8">Our Sponsors</h2>
+              <p className="text-base sm:text-lg text-white max-w-2xl">
+                We are grateful to our sponsors for their invaluable support. Their contributions have played a vital role in advancing our projects, research, and outreach efforts.
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <Link to="/sponsors" className="text-base sm:text-lg font-semibold text-white hover:text-orange-500 transition flex items-center group">
+                  Learn more about our partnership opportunities <span className="ml-2 group-hover:translate-x-1 transition-transform">&raquo;</span>
+              </Link>
+            </div>
+
+            <div className="mt-12">
+            {/* Sponsors Carousel */}
+            <SponsorsCarousel />
+            </div>
+
           </div>
-        </div>
       </section>
     </div>
+
   );
 }
 
-function TeamCarousel() {
-  const images = [
-    '/images/team_1.jpg',
-    '/images/team_2.webp',
-    '/images/team_3.jpg',
-    '/images/team_4.webp',
-    '/images/team_5.jpg',
-
-    
-  ];
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx(prev => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const prev = () => setIdx((idx - 1 + images.length) % images.length);
-  const next = () => setIdx((idx + 1) % images.length);
-  return (
-    <div className="relative w-full max-w-lg h-full flex items-center justify-center">
-      <img src={images[idx]} alt="Team" className="rounded-xl object-cover w-full h-full" />
-      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-      </button>
-      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-      </button>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {images.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            className={`w-3 h-3 rounded-full ${i === idx ? 'bg-orange-500' : 'bg-white/60'} border border-white`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CompetitionsCarousel() {
-  const slides = [
-    {
-      image: '/images/sauvc2025.jpeg',
-      title: '1st Place',
-      subtitle: 'SAUVC 2025',
-      desc: 'Following our successful debut last year, Mecatron proudly clinched 1st place at the Singapore AUV Challenge 2025!',
-      link: '/sauvc2025',
-    },
-    {
-      image: '/images/materov2024.webp',
-      title: 'Finalist',
-      subtitle: 'MATE ROV 2024',
-      desc: 'Find out about how we conquered the MATE ROV World Championship with "Guts and Glory"!',
-      link: '/materov2024',
-    },
-    {
-      image: '/images/sauvc2024.jpg',
-      title: '3rd Place',
-      subtitle: 'SAUVC 2024',
-      desc: 'Witness the debut of our first autonomous underwater vehicle (AUV) at the Singapore AUV Challenge.',
-      link: '/sauvc2024',
-    },
-  ];
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx(prev => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
-  const next = () => setIdx((idx + 1) % slides.length);
-  return (
-    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
-      <div className="relative w-full h-2/3 flex items-center justify-center">
-        <img src={slides[idx].image} alt={slides[idx].subtitle} className="rounded-xl object-cover w-full h-full" />
-        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-        </button>
-      </div>
-      <div className="w-full bg-[#232323] rounded-xl mt-4 p-4 sm:p-6">
-        <div className="text-sm font-bold text-white mb-1">{slides[idx].title}</div>
-        <div className="text-xl sm:text-2xl font-extrabold text-white mb-2">{slides[idx].subtitle}</div>
-        <div className="text-sm sm:text-base text-white mb-2">{slides[idx].desc}</div>
-        <Link to={slides[idx].link} className="text-sm sm:text-base font-semibold text-white hover:text-orange-500 transition flex items-center group">
-          Read More Here <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-        </Link>
-      </div>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            className={`w-3 h-3 rounded-full ${i === idx ? 'bg-orange-500' : 'bg-white/60'} border border-white`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function InitiativesCarousel() {
-  const slides = [
-    {
-      image: '/images/computervision_2.jpg',
-      date: 'September 2024',
-      title: 'Computer Vision Workshop',
-      desc: 'Mecatron organised and held a computer vision workshop for NTU students, delivering engaging sessions on image processing, neural networks, and real-world AI applications. This workshop introduced Roboflow, guiding attendees through data collection, labeling, and training a YOLO (You Only Look Once) model for object detection.',
-    },
-    {
-      image: '/images/marinevehicle_1.jpg',
-      date: 'April 2025',
-      title: 'Marine Vehicle Workshop',
-      desc: 'Held in the iconic Sands Expo & Convention Center, the heart of Singapore\'s celebration of skills, creativity, and innovation, Mecatron was proud to host a hands-on Marine Engineering Workshop aimed to introduce students to the exciting world of marine engineering, highlighting its real-world relevance in fields such as Ocean waste retrieval, Underwater inspection and repair, Marine biodiversity sampling',
-    },
-    {
-      image: '/images/blender3d_7.jpg',
-      date: 'October 2024',
-      title: 'Blender 3D Workshop',
-      desc: 'Mecatron organized a 2 day Blender 3D workshop, providing NTU students with hands-on training in Blender basics, product design fundamentals, Materials and Texturing, Rendering etc. Whether it is for marketing, game asset creation, or simply converting an image from your head to something others can see, creating 3D content is an extremely valuable skill.',
-    },
-  ];
-  const [idx, setIdx] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx(prev => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  const prev = () => setIdx((idx - 1 + slides.length) % slides.length);
-  const next = () => setIdx((idx + 1) % slides.length);
-  return (
-    <div className="relative w-full max-w-lg h-full flex flex-col items-center justify-center">
-      <div className="relative w-full h-2/3 flex items-center justify-center">
-        <img src={slides[idx].image} alt={slides[idx].title} className="rounded-xl object-cover w-full h-full" />
-        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-orange-500 text-black hover:text-white rounded-full p-2 shadow transition z-10">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-        </button>
-      </div>
-      <div className="w-full bg-[#232323] rounded-xl mt-4 p-4 sm:p-6">
-        <div className="text-sm font-bold text-white mb-1">{slides[idx].date}</div>
-        <div className="text-xl sm:text-2xl font-extrabold text-white mb-2">{slides[idx].title}</div>
-        <div className="text-sm sm:text-base text-white mb-2">{slides[idx].desc}</div>
-      </div>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            className={`w-3 h-3 rounded-full ${i === idx ? 'bg-orange-500' : 'bg-white/60'} border border-white`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []); 
-    return windowSize;
-  };
 
 function SponsorsCarousel() {
-  const sponsors = [
-    { logo: '/images/fstd_logo.png', alt: 'FSTD' },
-    { logo: '/images/smf_transparent.png', alt: 'Singapore Maritime Foundation' },
-    { logo: '/images/jdf_transparent.webp', alt: 'James Dyson Foundation' },
-    { logo: '/images/waterlinked_transparent.svg', alt: 'Waterlinked' },
-    { logo: '/images/sonardyne_transparent.svg', alt: 'Sonardyne' },
-    { logo: '/images/zen4blue_logo.png', alt: 'Zen4Blue' },
-    { logo: '/images/rovmaker_round.png', alt: 'ROV Maker' },
-  ];
+  const sponsors = useMemo(() => [
+    { logo: "/images/logos/fstd_logo.webp", alt: "FSTD", logoClass: "max-h-16 max-w-44" },
+    { logo: "/images/logos/smf.webp", alt: "Singapore Maritime Foundation", logoClass: "max-h-14 max-w-40" },
+    { logo: "/images/logos/jdf_logo.webp", alt: "James Dyson Foundation", logoClass: "max-h-14 max-w-36" },
+    { logo: "/images/logos/dso_logo.webp", alt: "DSO", logoClass: "max-h-14 max-w-36" },
+    { logo: "/images/logos/vectornav_logo.png", alt: "VectorNav", logoClass: "max-h-12 max-w-44" },
+    { logo: "/images/logos/waterlinked_logo.svg", alt: "WaterLinked", logoClass: "max-h-12 max-w-44" },
+    { logo: "/images/logos/espressif_logo.webp", alt: "Espressif", logoClass: "max-h-12 max-w-44" },
+    { logo: "/images/logos/zen4blue_logo.webp", alt: "Zen4Blue", logoClass: "max-h-14 max-w-40" },
+    { logo: "/images/logos/aquarian_logo.webp", alt: "Aquarian Audio", logoClass: "max-h-12 max-w-44" },
+    { logo: "/images/logos/dwe_logo.webp", alt: "DWE", logoClass: "max-h-9 max-w-36" },
+    { logo: "/images/logos/sonardyne_logo.webp", alt: "Sonardyne", logoClass: "max-h-12 max-w-44" },
+    { logo: "/images/logos/rovmaker_round.png", alt: "ROV Maker", logoClass: "max-h-20 max-w-32" },
+  ], []);
 
-  let groupSize = 3;
-  const maxStart = sponsors.length - groupSize;
-  const [startIdx, setStartIdx] = useState(0);
+  const trackRef = useRef(null);
+  const [width, setWidth] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const scrollStart = useRef(0);
 
+  // Measure width of one full set
   useEffect(() => {
-    const interval = setInterval(() => {
-      setStartIdx(prev => (prev + 1) % (maxStart + 1));
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [maxStart]);
+    if (!trackRef.current) return;
 
-  const { width, height } = useWindowSize();
-  if(width<480){
-    groupSize = 1;
-  }
-  const visible = sponsors.slice(startIdx, startIdx + groupSize);
-  while (visible.length < groupSize) visible.push(null);
+    const measure = () => {
+      const el = trackRef.current;
+      setWidth(el.scrollWidth / 2);
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  // Drag support
+  const handlePointerDown = (e) => {
+    setIsDragging(true);
+    dragStartX.current = e.clientX;
+    scrollStart.current = 0;
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDragging || !trackRef.current) return;
+
+    const delta = e.clientX - dragStartX.current;
+    trackRef.current.scrollLeft = scrollStart.current - delta;
+  };
+
+  const handlePointerUp = () => {
+    setIsDragging(false);
+  };
+
+  const doubled = useMemo(() => [...sponsors, ...sponsors], [sponsors]);
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto px-4 py-6">
-      <div className="w-full flex flex-wrap justify-center items-center gap-6">
-          {visible.map((s, i) =>
-            s ? (
-              <img
-                key={s.alt}
-                src={s.logo}
-                alt={s.alt}
-              className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem] object-contain"
-              />
-            ) : (
-            <div key={i} className="h-28 sm:h-36 max-w-[10rem] sm:max-w-[14rem]" />
-            )
-          )}
-      </div>
+    <div className="w-full overflow-hidden py-6">
+      <div
+        className="relative overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Fade edges */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#1a1a1a] to-transparent z-10" />
 
-      <div className="mt-4 flex justify-center space-x-2">
-        {Array.from({ length: maxStart + 1 }).map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setStartIdx(i)}
-            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full ${
-              i === startIdx ? 'bg-orange-500' : 'bg-gray-300'
-            }`}
-          />
-        ))}
+        {/* Track */}
+        <div
+          ref={trackRef}
+          className={`flex gap-8 w-max will-change-transform ${
+            isPaused ? "animate-none" : "animate-marquee"
+          }`}
+          style={{
+            animationDuration: `${Math.max(width / 80, 20)}s`,
+          }}
+        >
+          {doubled.map((s, i) => (
+            <div
+              key={`${s.alt}-${i}`}
+              className="min-w-[180px] sm:min-w-[220px] h-28 sm:h-32 bg-white/25 border-white/40 backdrop-blur-xl hover:bg-white/35 rounded-lg flex items-center justify-center p-5 backdrop-blur-md hover:scale-105 transition-transform duration-300"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerLeave={handlePointerUp}
+            >
+              <div className="flex h-20 w-44 items-center justify-center">
+                <img
+                  src={s.logo}
+                  alt={s.alt}
+                  className={`${s.logoClass} h-auto w-auto object-contain transition duration-300 mx-auto`}
+                  draggable={false}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
-} 
+}
