@@ -209,7 +209,7 @@ const posts = [
     tag: 'Mechanical',
     authors: 'Yi Liang',
     date: 'Sep 2025 - May 2026',
-    image: '/images/robosub2026/mechanical-subsystems/blog2-18.png',
+    image: '/images/kraken_updated.jpg',
     description: "Development notes for Kraken's experimental frame and structural concept.",
     sections: [
       {
