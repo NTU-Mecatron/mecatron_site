@@ -131,7 +131,3 @@ export function Kevin(props) {
   )
 }
 
-useGLTF.preload('/kevinfix.glb')
-
-
-

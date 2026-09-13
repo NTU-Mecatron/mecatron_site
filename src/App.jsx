@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -20,7 +20,15 @@ function App() {
     <>
       <ScrollToTop />
       <Navbar />
-      <Outlet />
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-[#181818] flex items-center justify-center">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-orange-500"></div>
+          </div>
+        }
+      >
+        <Outlet />
+      </Suspense>
       <Footer />
       {/* <Toast /> */}
       <SpeedInsights />

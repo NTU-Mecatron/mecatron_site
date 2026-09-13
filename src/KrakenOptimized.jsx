@@ -17,5 +17,3 @@ export function KrakenOptimized(props) {
     </group>
   );
 }
-
-useGLTF.preload('/krakensmalloutput.glb', '/draco/');

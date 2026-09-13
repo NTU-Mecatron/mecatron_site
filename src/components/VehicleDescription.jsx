@@ -1,5 +1,7 @@
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Optimized3DViewer } from './Optimized3DViewer';
+import { StaticImageViewer } from './StaticImageViewer';
 
 export function VehicleDescription({
   title,
@@ -11,6 +13,34 @@ export function VehicleDescription({
   reverseLayout = false,
   highlightBg = false,
 }) {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Render 3D only when near or within viewport to keep mobile memory low and prevent WebGL context exhaustion
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: '100px 0px',
+        threshold: 0.1,
+      }
+    );
+
+    const currentElem = containerRef.current;
+    if (currentElem) {
+      observer.observe(currentElem);
+    }
+
+    return () => {
+      if (currentElem) {
+        observer.unobserve(currentElem);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section
       className={`w-full py-4 sm:py-6 transition-colors duration-300 ${
@@ -23,8 +53,8 @@ export function VehicleDescription({
           reverseLayout ? 'lg:flex-row-reverse' : ''
         }`}
       >
-      {/* Content Block */}
-      <div className="flex-1 text-center lg:text-left sm:px-8">
+        {/* Content Block */}
+        <div className="flex-1 text-center lg:text-left sm:px-8">
           <h2 className="text-4xl font-bold text-orange-500 mb-4">
             {title}
           </h2>
@@ -32,41 +62,45 @@ export function VehicleDescription({
             {description}
           </p>
 
-        {/* Tags (Rounded Badges) */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full bg-zinc-800 text-gray-200 border border-zinc-700 shadow-sm"
+          {/* Tags (Rounded Badges) */}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full bg-zinc-800 text-gray-200 border border-zinc-700 shadow-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Action Button */}
+          <div className="mt-4">
+            <Link
+              to={linkTo}
+              className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-orange-500/20 transition-all duration-200"
             >
-              {tag}
-            </span>
-          ))}
+              Meet {title.split(' ')[0]}
+            </Link>
+          </div>
         </div>
 
-        {/* Action Button */}
-        <div className="mt-4">
-          <Link
-            to={linkTo}
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 text-sm sm:text-base rounded-lg shadow-lg hover:shadow-orange-500/20 transition-all duration-200"
-          >
-            Meet {title.split(' ')[0]}
-          </Link>
+        {/* 3D Viewer Block */}
+        <div ref={containerRef} className="flex-1 flex items-center justify-center">
+          <div className="w-[24rem] h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center overflow-hidden relative backdrop-blur-sm border border-zinc-800/50">
+            {isVisible ? (
+              <Optimized3DViewer
+                showModel={true}
+                scale={modelScale}
+                enableTouchControls={true}
+                modelType={modelType}
+              />
+            ) : (
+              <StaticImageViewer modelType={modelType} />
+            )}
+          </div>
         </div>
       </div>
-
-      {/* 3D Viewer Block */}
-      <div className="flex-1 flex items-center justify-center">
-        <div className="w-[24rem] h-[24rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] flex items-center justify-center overflow-hidden relative backdrop-blur-sm border border-zinc-800/50">
-          <Optimized3DViewer
-            showModel={true}
-            scale={modelScale}
-            enableTouchControls={true}
-            modelType={modelType}
-          />
-        </div>
-      </div>
-    </div>
     </section>
   );
 }
