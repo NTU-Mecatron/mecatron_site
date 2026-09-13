@@ -25,8 +25,13 @@ const sections = [
       { id: 'sauvc2024', label: 'SAUVC 2024', path: '/sauvc2024' },
     ]
   },
-  //{ id: 'research', label: 'Research', path: '/research' },
-  { id: 'blog', label: 'Team Blog', path: '/blog' },
+  { id: 'blog', label: 'Team Blog', path: '/blog',
+    submenu: [
+      { id: 'blog-main', label: 'Team Blog', path: '/blog' },
+      { id: 'blog-robotx2026', label: 'RobotX 2026', path: '/blog?tab=robotx2026' },
+      { id: 'blog-robosub2026', label: 'RoboSub 2026', path: '/blog?tab=robosub2026' },
+    ]
+  },
   { id: 'outreach', label: 'Outreach', path: '/outreach',
     submenu: [
       { id: 'outreach-main', label: 'Outreach', path: '/outreach' },
