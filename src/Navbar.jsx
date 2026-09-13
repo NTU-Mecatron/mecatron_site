@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import mecatronLogo from './assets/logos/mecatronLogo.png';
 
 const sections = [
@@ -16,6 +16,7 @@ const sections = [
   { id: 'competitions', label: 'Competitions', path: '/competitions',
     submenu: [
       { id: 'competitions-main', label: 'Competitions', path: '/competitions' },
+      { id: 'robotx2026', label: 'RobotX 2026', path: '/robotx2026' },
       { id: 'robosub2026', label: 'RoboSub 2026', path: '/robosub2026' },
       { id: 'sauvc2026', label: 'SAUVC 2026', path: '/sauvc2026' },
       { id: 'robosub2025', label: 'RoboSub 2025', path: '/robosub2025' },
@@ -45,8 +46,7 @@ const sections = [
   },
 ];
 
-export default function Navbar({ scrollToSection }) {
-  const location = useLocation();
+export default function Navbar() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
