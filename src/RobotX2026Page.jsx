@@ -259,7 +259,7 @@ export default function RobotX2026Page() {
         </a>
 
         <Link
-          to="/blog"
+          to="/blog?tab=robotx2026"
           className="inline-block bg-orange-600 hover:bg-[#d73a1a] text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
         >
           Team Blog
