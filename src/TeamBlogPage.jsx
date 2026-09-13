@@ -3,8 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { blogPosts, tagStyles } from './teamBlogData';
 
 const competitionTabs = [
-  { id: 'robosub2026', label: 'RoboSub 2026' },
-  { id: 'robotx2026', label: 'RobotX 2026' }
+  { id: 'robotx2026', label: 'RobotX 2026' },
+  { id: 'robosub2026', label: 'RoboSub 2026' }
 ];
 
 const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software'];
@@ -12,15 +12,17 @@ const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software'];
 export default function TeamBlogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tabParam = searchParams.get('tab');
-  const initialCompetition = tabParam === 'robotx2026' ? 'robotx2026' : 'robosub2026';
+  const initialCompetition = tabParam === 'robosub2026' ? 'robosub2026' : 'robotx2026';
 
   const [activeCompetition, setActiveCompetition] = useState(initialCompetition);
   const [activeCategory, setActiveCategory] = useState('All');
 
   // Keep state in sync with URL search params
   useEffect(() => {
-    if (tabParam === 'robotx2026' || tabParam === 'robosub2026') {
-      setActiveCompetition(tabParam);
+    if (tabParam === 'robosub2026') {
+      setActiveCompetition('robosub2026');
+    } else {
+      setActiveCompetition('robotx2026');
     }
   }, [tabParam]);
 
