@@ -18,6 +18,8 @@ import LucyPage from './LucyPage.jsx';
 import Robosub2025Page from './Robosub2025Page.jsx';
 import Robosub2026Page from './Robosub2026Page.jsx';
 import RoboSub2026SubsystemPage from './RoboSub2026SubsystemPage.jsx';
+import RobotX2026Page from './RobotX2026Page.jsx';
+import RobotX2026SubsystemPage from './RobotX2026SubsystemPage.jsx';
 import Sauvc2025Page from './Sauvc2025Page.jsx';
 import Sauvc2026Page from './Sauvc2026Page.jsx';
 import Materov2024Page from './Materov2024Page.jsx';
@@ -55,6 +57,7 @@ createRoot(document.getElementById('root')).render(
           {/* <Route path="focus" element={<FocusPage />} /> */}
           <Route path="robosub2025" element={<Robosub2025Page />} />
           <Route path="robosub2026" element={<Robosub2026Page />} />
+          <Route path="robotx2026" element={<RobotX2026Page />} />
           <Route path="robosub2026hydramechanical" element={<RoboSub2026SubsystemPage vehicleId="hydra" subsystemId="mechanical" />} />
           <Route path="hydra/mechanical" element={<RoboSub2026SubsystemPage vehicleId="hydra" subsystemId="mechanical" />} />
           <Route path="hydra/electrical" element={<RoboSub2026SubsystemPage vehicleId="hydra" subsystemId="electrical" />} />
@@ -62,6 +65,12 @@ createRoot(document.getElementById('root')).render(
           <Route path="kraken/mechanical" element={<RoboSub2026SubsystemPage vehicleId="kraken" subsystemId="mechanical" />} />
           <Route path="kraken/electrical" element={<RoboSub2026SubsystemPage vehicleId="kraken" subsystemId="electrical" />} />
           <Route path="kraken/software" element={<RoboSub2026SubsystemPage vehicleId="kraken" subsystemId="software" />} />
+          <Route path="poseidon/mechanical" element={<RobotX2026SubsystemPage vehicleId="poseidon" subsystemId="mechanical" />} />
+          <Route path="poseidon/electrical" element={<RobotX2026SubsystemPage vehicleId="poseidon" subsystemId="electrical" />} />
+          <Route path="poseidon/software" element={<RobotX2026SubsystemPage vehicleId="poseidon" subsystemId="software" />} />
+          <Route path="phoenix/mechanical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="mechanical" />} />
+          <Route path="phoenix/electrical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="electrical" />} />
+          <Route path="phoenix/software" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="software" />} />
           <Route path="sauvc2025" element={<Sauvc2025Page />} />
           <Route path="sauvc2026" element={<Sauvc2026Page />} />
           <Route path="materov2024" element={<Materov2024Page />} />
