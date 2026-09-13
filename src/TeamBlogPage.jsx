@@ -2,15 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { blogPosts, tagStyles } from './teamBlogData';
 
-const competitionTabs = [
-  { id: 'robotx2026', label: 'RobotX 2026' },
-  { id: 'robosub2026', label: 'RoboSub 2026' }
-];
 
 const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software'];
 
 export default function TeamBlogPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const tabParam = searchParams.get('tab');
   const initialCompetition = tabParam === 'robosub2026' ? 'robosub2026' : 'robotx2026';
 
@@ -25,12 +21,6 @@ export default function TeamBlogPage() {
       setActiveCompetition('robotx2026');
     }
   }, [tabParam]);
-
-  const handleCompetitionChange = (competitionId) => {
-    setActiveCompetition(competitionId);
-    setActiveCategory('All');
-    setSearchParams({ tab: competitionId });
-  };
 
   const competitionPosts = blogPosts.filter((post) => post.competition === activeCompetition);
   const visiblePosts = activeCategory === 'All'
