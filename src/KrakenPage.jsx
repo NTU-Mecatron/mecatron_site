@@ -301,7 +301,15 @@ function KrakenPage() {
         {/* 3D Scene */}
         <section className="relative grid place-items-center h-[100vh]">
           <div ref={sceneRef} className="h-[100vh] w-[100vw] text-white z-0">
-            <Canvas>
+            <Canvas
+              dpr={[1, Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)]}
+              gl={{
+                powerPreference: "default",
+                antialias: false,
+                preserveDrawingBuffer: false,
+                pixelRatio: Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)
+              }}
+            >
               <Scene progress={progress} modelType="kraken" />
             </Canvas>
           </div>

@@ -434,7 +434,4 @@ export function LucyOptimized(props) {
       />
     </group>
   );
-}
-
-// Preload
-useGLTF.preload('/lucysmalloutput.glb'); 
+}

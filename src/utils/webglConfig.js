@@ -17,6 +17,7 @@ export const getOptimizedGLConfig = (capability) => {
     case 'fallback':
       return {
         ...baseConfig,
+        powerPreference: "low-power",
         antialias: false,
         precision: "lowp",
         depth: false,
@@ -26,6 +27,7 @@ export const getOptimizedGLConfig = (capability) => {
     case 'mobile':
       return {
         ...baseConfig,
+        powerPreference: "default",
         antialias: false,
         precision: "mediump",
         depth: true,
@@ -35,7 +37,8 @@ export const getOptimizedGLConfig = (capability) => {
     case 'medium':
       return {
         ...baseConfig,
-        antialias: isIOS, // Enable on iOS for better quality
+        powerPreference: "default",
+        antialias: !isMobile,
         precision: "mediump",
         depth: true,
         alpha: true
@@ -54,19 +57,20 @@ export const getOptimizedGLConfig = (capability) => {
 };
 
 export const getOptimizedDPR = (capability) => {
+  const maxDpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
   switch (capability) {
     case 'fallback':
       return [0.5, 1];
     case 'mobile':
-      return [0.75, 1];
+      return [0.75, Math.min(maxDpr, 1.25)];
     case 'medium':
-      return [1, 1.5];
+      return [1, Math.min(maxDpr, 1.5)];
     case 'full':
     default:
-      return [1, 2];
+      return [1, Math.min(maxDpr, 2)];
   }
 };
 
 export const getOptimizedShadows = (capability) => {
-  return capability !== 'fallback' && capability !== 'mobile';
+  return capability === 'full';
 }; 

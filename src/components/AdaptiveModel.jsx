@@ -48,9 +48,6 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevi
     }
   }, [scale, capability, modelType]);
 
-  // Preload the model
-  useGLTF.preload(modelUrl, getDracoPath(modelType));
-
   // Return the appropriate optimized model
   if (modelType === 'lucy') {
     return (

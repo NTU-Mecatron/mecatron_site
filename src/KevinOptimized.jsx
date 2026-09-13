@@ -4222,7 +4222,3 @@ export function KevinOptimized(props) {
     </group>
   )
 }
-
-useGLTF.preload('/kevinfix.glb')
-
-

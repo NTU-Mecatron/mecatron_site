@@ -26,7 +26,7 @@ export function Optimized3DViewer({
 
   // Show fallback for very low-end devices
   if (capability === 'fallback') {
-    return <StaticImageViewer />;
+    return <StaticImageViewer modelType={modelType} />;
   }
 
   return (
