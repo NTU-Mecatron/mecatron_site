@@ -6,13 +6,12 @@ import { Optimized3DViewer } from './components/Optimized3DViewer';
 const sharedSoftwareFeature = {
   title: 'Software',
   tag: 'Software',
-  description: 'To manage dual-AUV complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead.',
+  description: 'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three. To manage this, all three vehicles run the same containerized ROS2 autonomy stack.',
   details: [
-    'UnityMDS',
-    'Perception',
-    'Mission Planning',
-    'Localization',
-    'Containerization'
+    'UnitySim',
+    'Spatial Perception',
+    'Navigation and Mission Planning',
+    'Fleet Communication Architecture'
   ],
   image: '/robosub_2026/software-header.png',
 };
