@@ -383,7 +383,7 @@ function getPhoenixMechanicalSections() {
         },
         {
           src: '/images/robosub2026/mechanical-subsystems/thrusters8.png',
-          caption: 'Assembled propulsion layout.'
+          caption: 'Assembled propulsion layout'
         }
       ]
     },
