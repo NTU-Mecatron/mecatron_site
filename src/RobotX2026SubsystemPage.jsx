@@ -383,7 +383,7 @@ function getPhoenixMechanicalSections() {
         },
         {
           src: '/images/robosub2026/mechanical-subsystems/thrusters8.png',
-          caption: 'Assembled propulsion layout.'
+          caption: 'Assembled propulsion layout'
         }
       ]
     },
@@ -493,7 +493,7 @@ function getKrakenMechanicalSections() {
     },
     {
       title: 'CNC Aluminum Electronics Enclosure Box',
-      description: 'The transition from a cylindrical main hull for key electrical systems to a custom machined aluminum electrical enclosure maximized space efficiency, modularity and ease of maintenance. This reduced the weight of our vehicle by reducing buoyancy from the large volumetric displacement of a traditional cylindrical hull, thereby decreasing the mass needed to maintain neutral buoyancy. This also built the foundation of a new electrical system layout that is easy to modify and maintain, by creating swappable mounting plates that can be freely removed and worked on without space constraints.',
+      description: 'The transition from a cylindrical main hull for key  systems to a custom machined aluminum electrical enclosure maximized space efficiency, modularity and ease of maintenance. This reduced the weight of our vehicle by reducing buoyancy from the large volumetric displacement of a traditional cylindrical hull, thereby decreasing the mass needed to maintain neutral buoyancy. This also built the foundation of a new electrical system layout that is easy to modify and maintain, by creating swappable mounting plates that can be freely removed and worked on without space constraints.',
       bullets: [],
       images: [
         {
