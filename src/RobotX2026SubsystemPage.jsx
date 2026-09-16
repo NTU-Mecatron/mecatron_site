@@ -277,8 +277,14 @@ function getSharedSoftwareSections(subsystem) {
       imageLayout: 'comparison'
     },
     {
-      title: 'Mission Planning',
-      description: 'Similar to last year’s iterations, the Behavior Tree (BT) framework remains the core of our mission planning system. This year, we improved modularity by encapsulating complex tasks into higher-level actions, which simplifies debugging and results in a more intuitive monitoring interface.To translate these high-level mission goals into physical motion, we transitioned to the Nav2 stack. Nav2 leverages our new spatial perception data to handle dynamic path planning and obstacle avoidance, providing the vehicle with the agility required for complex, multi-objective maneuvers.',
+      title: 'Navigation and Mission Planning',
+      description: `1) One Navigation Framework Across Three Domains: Navigation3 (Nav3) is our in-house extension of Nav2 with custom 3D planners, controllers and behaviors. It was built as a hardware-independent layer for RoboSub, and RobotX 2026 is the first time it has been ported across domains. The same framework now drives a surface vessel, an underwater vehicle and an aerial vehicle.
+
+      2) Cross-Vehicle Mission Delegation:
+      - Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
+      - Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.
+
+      Fig. X: The USV mission tree dispatching Task 1 to the UUV.`,
       bullets: subsystem.development,
       imageLayout: 'comparison'
     },
