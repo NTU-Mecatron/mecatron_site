@@ -245,7 +245,7 @@ function getSharedSoftwareSections(subsystem) {
   return [
     {
       title: 'UnitySim',
-      description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS [1], our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
+      description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS, our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
 
       1) Full-Team, Hardware-Fidelity Simulation:
       Real autopilot firmware. Each vehicle runs its own ArduPilot Software-In-The-Loop (SITL) instance, which reproduces the actual autopilot firmware and its sensor fusion.
@@ -258,8 +258,21 @@ function getSharedSoftwareSections(subsystem) {
       imageLayout: 'comparison'
     },
     {
-      title: 'Perception',
-      description: `This year, our perception pipeline moves beyond basic object detection. Instead of relying on simple 2D bounding boxes with vision-based, reactive approaches, we fused depth data with semantic segmentation. By utilising 3D pose estimation of competition elements, this approach enables prior path planning and dynamic replanning, providing our vehicle with critical spatial awareness for fine-tuned manoeuvres especially required in Torpedo and Picking tasks.`,
+      title: 'Spatial Perception',
+      description: `1) Depth-Segmentation Fusion Tailored to Each Domain: Every vehicle runs YOLO11 instance segmentation on TensorRT and reads object distance only from pixels inside each mask. The depth source differs by vehicle:
+
+      USV: Camera-LiDAR Fusion. LiDAR points are projected into the camera image using the live extrinsic transform, which stays aligned as the camera tilts on its gimbal. Only the nearest return is kept at each pixel, so a buoy in the foreground is never blended with the shoreline behind it.
+      UUV and UAV: Monocular Metric Depth. LiDAR is unavailable underwater and too heavy for the aerial platform, so both vehicles estimate metric depth from a single camera with Depth Anything 3.
+
+      Both methods are plugins behind a common interface, so everything downstream is identical across the fleet.
+      
+      2) Probabilistic Multi-Object Tracking:
+      • Measurement model. Each object is tracked in the global frame by its own Square-Root Unscented Kalman Filter (SR-UKF). The filter projects the object's map position into pixel coordinates and depth, so detector noise and range noise are each modeled in their own units.
+      • Association. The Hungarian algorithm assigns detections to tracks optimally, using Mahalanobis gating and matching only objects of the same class.
+      • Confirmation. A detection must be confirmed several times before it becomes a track, which rejects false positives.
+      • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.
+
+      Fig. X: Perception pipeline: raw image, instance masks, metric depth, and tracked 3D objects (green: confirmed, yellow: candidate).`,
       bullets: subsystem.highlights,
       imageLayout: 'comparison'
     },
