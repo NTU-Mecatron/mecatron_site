@@ -1,8 +1,19 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
 const sponsorProfiles = {
+  ouster: {
+    name: 'Ouster',
+    tier: 'Gold',
+    logo: '/images/logos/ouster_black_tbg.png',
+    logoClass: 'max-h-28 max-w-full object-contain',
+    bg: '#ffffff',
+    text: 'text-black',
+    imageClass: 'max-w-3xl rounded-xl object-contain',
+    description: [
+      "We would like to express our sincere gratitude for Ouster’s contribution and the trust placed in Mecatron. As a leading company in robotic sensing and environmental perception, Ouster has provided us with advanced robotic equipment that will significantly enhance our team’s sensing and perception capabilities. Their strong technical support has also provided a solid foundation for our continued technical development and future endeavours."
+    ]
+  },
   fstd: {
     name: 'Future Systems & Technology Directorate',
     tier: 'Gold',
@@ -170,7 +181,7 @@ const sponsorProfiles = {
 const sponsorYears = {
   2026: {
     tierImage: '/images/tiered-sponsors-2026.png',
-    sponsors: ['fstd', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
+    sponsors: ['fstd', 'ouster', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
     supporters: ['coe', 'jdf']
   },
   2025: {
