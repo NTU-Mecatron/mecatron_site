@@ -35,7 +35,7 @@ const subsystemPages = {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'To manage multi-agent RobotX complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead. These optimizations, paired with new 3D spatial perception, enable advanced path planning and autonomous navigation.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
         image: '/robosub_2026/software-header.png',
