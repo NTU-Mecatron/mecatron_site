@@ -251,6 +251,8 @@ function SponsorsCarousel() {
     { logo: "/images/logos/dwe_logo.webp", alt: "DWE", logoClass: "max-h-9 max-w-36" },
     { logo: "/images/logos/sonardyne_logo.webp", alt: "Sonardyne", logoClass: "max-h-12 max-w-44" },
     { logo: "/images/logos/rovmaker_round.png", alt: "ROV Maker", logoClass: "max-h-20 max-w-32" },
+    { logo: "/images/logos/ouster_white_tbg.png", alt: "Ouster", logoClass: "max-h-14 max-w-40" },
+    { logo: "/images/logos/gps_lands_white_tbg.avif", alt: "GPS Lands", logoClass: "max-h-12 max-w-44" },
   ], []);
 
   const trackRef = useRef(null);
