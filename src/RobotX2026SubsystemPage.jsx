@@ -245,7 +245,15 @@ function getSharedSoftwareSections(subsystem) {
   return [
     {
       title: 'UnitySim',
-      description: `We leveraged Unity to develop a high-fidelity digital twin of the competition environment. This allowed for extensive “dry” testing of our new algorithms and mission logic before vehicle design was finalized and parts were manufactured. ROS2 packages were individually validated within the simulation environment to assess operational suitability and isolate software bugs before integration into the full autonomy stack. Upon completion of vehicle assembly, the UnityMDS simulation setup complemented semiweekly in-person pool tests, for a final systems validation of our competition vehicle within pseudo-deployment environments.`,
+      description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS [1], our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
+
+      1) Full-Team, Hardware-Fidelity Simulation:
+      Real autopilot firmware. Each vehicle runs its own ArduPilot Software-In-The-Loop (SITL) instance, which reproduces the actual autopilot firmware and its sensor fusion.
+      Realistic sensors and physics. Unity renders realistic scenes, generates camera, LiDAR, GNSS, IMU and DVL data, and models drag and added mass from the hull mesh.
+
+      2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.
+
+      Fig. X: Coordinated USV, UUV and UAV operation in UnityMDS (vehicle and third-person views).`,
       bullets: subsystem.highlights,
       imageLayout: 'comparison'
     },
@@ -808,7 +816,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-6">
                       {section.title}
                     </h2>
-                    <p className="text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
+                    <p className="whitespace-pre-line text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (
