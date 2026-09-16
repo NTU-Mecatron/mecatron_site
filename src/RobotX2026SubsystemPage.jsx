@@ -281,42 +281,20 @@ function getSharedSoftwareSections(subsystem) {
       description: `1) One Navigation Framework Across Three Domains: Navigation3 (Nav3) is our in-house extension of Nav2 with custom 3D planners, controllers and behaviors. It was built as a hardware-independent layer for RoboSub, and RobotX 2026 is the first time it has been ported across domains. The same framework now drives a surface vessel, an underwater vehicle and an aerial vehicle.
 
       2) Cross-Vehicle Mission Delegation:
-      - Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
-      - Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.
+      • Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
+      • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.
 
       Fig. X: The USV mission tree dispatching Task 1 to the UUV.`,
       bullets: subsystem.development,
       imageLayout: 'comparison'
     },
     {
-      title: 'Localization',
-      description: 'To achieve greater navigation precision with reduced drift, we implemented an Extended Kalman Filter (EKF) to fuse data from our DVL and a new external IMU. Real-time monitoring via Foxglove Studio during pool tests confirmed that this results in a highly stable odometry stack, even during complex movements.',
+      title: 'Fleet Communication Architecture',
+      description: `Isolated Domains, Explicit Interfaces: 
+      • Isolation by design. Each vehicle runs in its own ROS domain, so no data crosses between vehicles unless it is explicitly whitelisted. A fault or network flood on one vehicle cannot spread to the others.
+      • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
       bullets: subsystem.development
     },
-    {
-      title: 'Containerization to Facilitate Multi-Vehicle Deployment',
-      description: '',
-      subsections: [
-        {
-          title: 'Docker Containerization',
-          body: "To facilitate long-term development and seamless cross-platform testing, our entire software stack is containerized using Docker. This architecture abstracts dependencies away from individual host systems, ensuring a consistent environment whether code is running on a developer's laptop, a simulation machine, or the vehicle's onboard computer. Crucially, this containerized model enables simultaneous, seamless deployment across both of our physical vehicles. Because the core software stack remains completely identical, we can deploy the exact same container to either robot without modifying the underlying codebase.",
-          image: {
-            src: '/images/robosub2026/software-subsystems/docker-containerisation-dark.svg',
-            caption: 'Docker containerization keeps the same software environment across machines and vehicles.'
-          }
-        },
-        {
-          title: 'Process Optimization',
-          body: 'To maximize onboard efficiency, we utilize ROS2 Composable Nodes within our containers. By loading multiple nodes into a single process, we enable zero-copy memory sharing, which removes the CPU overhead of traditional message serialization. This reduction in computational load ensures our vehicles can run complex perception and navigation pipelines concurrently without hitting hardware bottlenecks.',
-          image: {
-            src: '/images/robosub2026/software-subsystems/ros2.png',
-            caption: 'Composable nodes reduce overhead while running perception and navigation together.'
-          }
-        }
-      ],
-      imageLayout: 'subsectionComparison',
-      bullets: []
-    }
   ].map((section) => ({
     ...section,
     images: featureCarouselImages[section.title]
@@ -878,7 +856,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
                       {section.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
+                    <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (
