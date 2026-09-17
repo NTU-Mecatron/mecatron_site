@@ -437,7 +437,7 @@ function getPhoenixMechanicalSections() {
 function getKrakenMechanicalSections() {
   return [
     {
-      title: '8-Thruster Configuration',
+      title: 'I EDIT THIS ONLY!',
       description: 'Kraken transitioned from the previous 6-thruster layout to a vectored 8-thruster configuration. This vectored architecture completely decouples the vertical and horizontal axes, yielding a highly stable hydrodynamic platform capable of precise, 6-degree-of-freedom (6-DOF) manoeuvring.',
       bullets: [],
       imageLayout: 'comparison',
@@ -782,7 +782,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
           {navItems.map((item) => (
             <Link
               key={item}
-              to={`/${vehicleId}/${item}`}
+              to={vehicleId === 'kraken' ? `/robotx/kraken/${item}` : `/${vehicleId}/${item}`}
               className={`px-5 py-2 rounded-lg border text-sm sm:text-base font-semibold transition-all duration-200 ${
                 item === subsystemId
                   ? 'bg-orange-500 border-orange-400 text-white'
