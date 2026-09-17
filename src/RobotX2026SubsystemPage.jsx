@@ -241,7 +241,17 @@ const featureCarouselImages = {
   ]
 };
 
-function getSharedSoftwareSections(subsystem) {
+const vehicleFeatureCarouselImages = {
+  poseidon: {},
+  kraken: {},
+  phoenix: {}
+};
+
+function getFeatureCarouselImages(vehicleId, sectionTitle) {
+  return vehicleFeatureCarouselImages[vehicleId]?.[sectionTitle];
+}
+
+function getSharedSoftwareSections(subsystem, vehicleId) {
   return [
     {
       title: 'UnitySim',
@@ -297,7 +307,7 @@ function getSharedSoftwareSections(subsystem) {
     },
   ].map((section) => ({
     ...section,
-    images: featureCarouselImages[section.title]
+    images: getFeatureCarouselImages(vehicleId, section.title)
   }));
 }
 
@@ -607,13 +617,13 @@ function getContentSections(vehicle, subsystem, vehicleId, subsystemId) {
   } else if (subsystemId === 'electrical') {
     sections = getSharedElectricalSections();
   } else {
-    sections = getSharedSoftwareSections(subsystem);
+    sections = getSharedSoftwareSections(subsystem, vehicleId);
   }
 
   return sections.map((section) => ({
     ...section,
     bullets: section.bullets ?? [],
-    images: section.images ?? featureCarouselImages[section.title] ?? vehicle.carouselImages
+    images: section.images
   }));
 }
 
@@ -714,6 +724,8 @@ function MediaPreview({ media }) {
 }
 
 function ComparisonCaptionImages({ images, onMediaClick }) {
+  if (!images?.length) return null;
+
   const gridClass = images.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
 
   return (
