@@ -9,7 +9,7 @@ const subsystemPages = {
     carouselImages: [
       {
         src: '/competition/images/competition_img_2.jpg',
-        caption: 'Poseidon development and testing.'
+        caption: 'Poseidon development and testing'
       },
       {
         src: '/competition/images/robosub2026-bots.jpg',
