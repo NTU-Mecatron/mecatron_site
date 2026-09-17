@@ -261,9 +261,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       Real autopilot firmware. Each vehicle runs its own ArduPilot Software-In-The-Loop (SITL) instance, which reproduces the actual autopilot firmware and its sensor fusion.
       Realistic sensors and physics. Unity renders realistic scenes, generates camera, LiDAR, GNSS, IMU and DVL data, and models drag and added mass from the hull mesh.
 
-      2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.
-
-      Fig. X: Coordinated USV, UUV and UAV operation in UnityMDS (vehicle and third-person views).`,
+      2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
       imageLayout: 'comparison'
     },
@@ -280,9 +278,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       • Measurement model. Each object is tracked in the global frame by its own Square-Root Unscented Kalman Filter (SR-UKF). The filter projects the object's map position into pixel coordinates and depth, so detector noise and range noise are each modeled in their own units.
       • Association. The Hungarian algorithm assigns detections to tracks optimally, using Mahalanobis gating and matching only objects of the same class.
       • Confirmation. A detection must be confirmed several times before it becomes a track, which rejects false positives.
-      • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.
-
-      Fig. X: Perception pipeline: raw image, instance masks, metric depth, and tracked 3D objects (green: confirmed, yellow: candidate).`,
+      • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.`,
       bullets: subsystem.highlights,
       imageLayout: 'comparison'
     },
@@ -292,9 +288,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
 
       2) Cross-Vehicle Mission Delegation:
       • Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
-      • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.
-
-      Fig. X: The USV mission tree dispatching Task 1 to the UUV.`,
+      • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.`,
       bullets: subsystem.development,
       imageLayout: 'comparison'
     },
