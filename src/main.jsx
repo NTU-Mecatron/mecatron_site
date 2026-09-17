@@ -74,6 +74,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="phoenix/mechanical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="mechanical" />} />
           <Route path="phoenix/electrical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="electrical" />} />
           <Route path="phoenix/software" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="software" />} />
+          <Route path="robotx/kraken/mechanical" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="mechanical" />} />
+          <Route path="robotx/kraken/electrical" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="electrical" />} />
+          <Route path="robotx/kraken/software" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="software" />} />
           <Route path="sauvc2025" element={<Sauvc2025Page />} />
           <Route path="sauvc2026" element={<Sauvc2026Page />} />
           <Route path="materov2024" element={<Materov2024Page />} />

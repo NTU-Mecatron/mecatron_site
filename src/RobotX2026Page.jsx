@@ -72,7 +72,7 @@ const vehicleTabs = {
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. Featuring an acrylic skeleton and a metal electrical box, Kraken aims to be more durable and maneuverable than our previous vehicles.',
+        description: 'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION.',
         details: [
           '8-Thruster Configuration',
           'Acrylic Skeletal Frame',
@@ -80,16 +80,16 @@ const vehicleTabs = {
           'CNC Aluminum Electronics Enclosure Box',
           'Torpedo'
         ],
-        subpage: '/kraken/mechanical',
+        subpage: '/robotx/kraken/mechanical',
         image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg'
       },
       {
         ...sharedElectricalFeature,
-        subpage: '/kraken/electrical',
+        subpage: '/robotx/kraken/electrical',
       },
       {
         ...sharedSoftwareFeature,
-        subpage: '/kraken/software'
+        subpage: '/robotx/kraken/software'
       },
     ]
   },
