@@ -242,7 +242,20 @@ const featureCarouselImages = {
 };
 
 const vehicleFeatureCarouselImages = {
-  poseidon: {},
+  poseidon: {
+    'Spatial Perception': [
+    {
+      src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png',
+      caption: 'Foxglove visualization of USV perception.'
+    }
+    ],
+    'Navigation and Mission Planning': [
+    {
+      src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif',
+      caption: 'Foxglove visualization of USV perception.'
+    }
+    ]
+  },
   kraken: {},
   phoenix: {}
 };
@@ -280,7 +293,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       • Confirmation. A detection must be confirmed several times before it becomes a track, which rejects false positives.
       • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.`,
       bullets: subsystem.highlights,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
       title: 'Navigation and Mission Planning',
@@ -290,7 +303,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       • Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
       • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.`,
       bullets: subsystem.development,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
       title: 'Fleet Communication Architecture',
@@ -855,6 +868,45 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                       </div>
                     ))}
                   </div>
+                </div>
+              ) : section.imageLayout === 'bottom' ? (
+                <div className="mx-auto max-w-4xl">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
+                    {section.title}
+                  </h2>
+                  <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+                    {section.description}
+                  </p>
+                  {section.bullets.length > 0 && (
+                    <ul className="mb-6 list-disc space-y-2 pl-5 text-left text-sm sm:text-base text-gray-200">
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.images && section.images.length > 0 && (
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-white/15 bg-black/40">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedMedia(section.images[0])}
+                          className="block h-full w-full cursor-zoom-in"
+                          aria-label={`Open ${section.images[0].caption ?? section.title}`}
+                        >
+                          <img
+                            src={section.images[0].src}
+                            alt={section.images[0].caption ?? section.title}
+                            className="h-auto w-full object-cover"
+                          />
+                        </button>
+                        {section.images[0].caption && (
+                          <p className="bg-black/60 p-3 text-xs sm:text-sm text-gray-300 text-center">
+                            {section.images[0].caption}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="flex flex-col lg:flex-row gap-8 items-center">
