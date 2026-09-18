@@ -16,6 +16,7 @@ const sections = [
   { id: 'competitions', label: 'Competitions', path: '/competitions',
     submenu: [
       { id: 'competitions-main', label: 'Competitions', path: '/competitions' },
+      { id: 'robotx2026', label: 'RobotX 2026', path: '/robosub2026' },
       { id: 'robosub2026', label: 'RoboSub 2026', path: '/robosub2026' },
       { id: 'sauvc2026', label: 'SAUVC 2026', path: '/sauvc2026' },
       { id: 'robosub2025', label: 'RoboSub 2025', path: '/robosub2025' },
