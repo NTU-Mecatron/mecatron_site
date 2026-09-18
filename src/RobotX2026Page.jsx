@@ -13,7 +13,7 @@ const sharedSoftwareFeature = {
     'Navigation and Mission Planning',
     'Fleet Communication Architecture'
   ],
-  image: '/robosub_2026/software-header.png',
+  image: '',  // Put Image for software feature
 };
 
 const sharedElectricalFeature = {
