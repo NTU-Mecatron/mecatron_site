@@ -176,71 +176,6 @@ const subsystemPages = {
 
 const navItems = ['mechanical', 'electrical', 'software'];
 
-const featureCarouselImages = {
-  UnitySim: [
-    {
-      src: '/images/robosub2026/software-subsystems/unity-sim-vid.gif',
-      caption: 'Video demonstration of Unity simulation.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-1st-perspective.png',
-      caption: 'Vehicle\'s perspective.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-3rd-perspective.png',
-      caption: 'Third-person\'s perspective.'
-    },
-  ],
-  Perception: [
-    {
-      src: '/images/robosub2026/software-subsystems/old-bounding-box.png',
-      caption: 'Previous simple 2D bounding box.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/new-bounding-box.png',
-      caption: 'New improved perception pipeline.'
-    }
-  ],
-  'Mission Planning': [
-    {
-      src: '/images/robosub2026/software-subsystems/bt-simple.png',
-      caption: 'A typical BT for a given task.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/nav-rect-animation.gif',
-      caption: 'Flow built around reusable BT actions.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/spatial1.png',
-      caption: 'Spatial perception and navigation.'
-    },
-  ],
-  Localization: [
-    {
-      src: '/images/robosub2026/software-subsystems/corecont.png',
-      caption: 'EKF localization fuses DVL and IMU data for stable odometry.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/ekf.png',
-      caption: 'Foxglove monitoring supported real-time localization review.'
-    },
-  ],
-  'Containerization for Multi-Vehicle Deployment': [
-    {
-      src: '/images/robosub2026/software-subsystems/ros2.png',
-      caption: 'ROS2'
-    },
-    {
-      src: '/competition/images/competition_img_1.jpg',
-      caption: 'Composable nodes reduce CPU overhead through zero-copy sharing.'
-    },
-    {
-      src: '/competition/images/competition_img_2.jpg',
-      caption: 'Efficient deployment keeps perception and navigation pipelines running together.'
-    }
-  ]
-};
-
 const vehicleFeatureCarouselImages = {
   poseidon: {
     'Spatial Perception': [
@@ -310,7 +245,8 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       description: `Isolated Domains, Explicit Interfaces: 
       • Isolation by design. Each vehicle runs in its own ROS domain, so no data crosses between vehicles unless it is explicitly whitelisted. A fault or network flood on one vehicle cannot spread to the others.
       • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
-      bullets: subsystem.development
+      bullets: subsystem.development,
+      imageLayout: 'bottom'
     },
   ].map((section) => ({
     ...section,
@@ -871,7 +807,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                 </div>
               ) : section.imageLayout === 'bottom' ? (
                 <div className="mx-auto max-w-4xl">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
+                  <h2 className="text-center text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
                     {section.title}
                   </h2>
                   <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
