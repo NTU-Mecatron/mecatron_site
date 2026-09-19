@@ -38,7 +38,7 @@ const subsystemPages = {
           'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '', // Put Image for software feature
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
