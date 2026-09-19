@@ -192,7 +192,7 @@ const sponsorProfiles = {
 
 const sponsorYears = {
   2026: {
-    tierImage: '/images/tiered-sponsors-2026.png',
+    tierImage: '/images/tiered-sponsors-2026-v2.png',
     sponsors: ['fstd', 'gpslands', 'ouster', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
     supporters: ['coe', 'jdf']
   },
