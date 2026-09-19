@@ -152,10 +152,10 @@ const subsystemPages = {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'Phoenix runs a containerized ROS2 and flight control stack enabling autonomous takeoff, waypoint navigation, target tracking, and cooperative communication with the surface vessel.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '/robosub_2026/software-header.png',
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
@@ -192,7 +192,32 @@ const vehicleFeatureCarouselImages = {
     ]
   },
   kraken: {},
-  phoenix: {}
+  phoenix: {
+    'UnitySim': [
+    {
+      src: '/images/robotx2026/software-subsystems/unitysim-UAV.png',
+      caption: 'UnitySim visualization of UAV deployment.'
+    }
+    ],
+    'Spatial Perception': [
+    {
+      src: '/images/robotx2026/software-subsystems/spatial-perception-UAV.png',
+      caption: 'Vision Model for UAV.'
+    }
+    ],
+    'Navigation and Mission Planning': [
+    {
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif',
+      caption: 'Autonomous navigation and mission planning.'
+    }
+    ],
+    'Fleet Communication Architecture': [
+    {
+      src: '/images/robotx2026/software-subsystems/fleet-communication-UAV.png',
+      caption: 'Fleet communication architecture for UAVs.'
+    }
+    ]
+  }
 };
 
 function getFeatureCarouselImages(vehicleId, sectionTitle) {
@@ -211,7 +236,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
 
       2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
       title: 'Spatial Perception',
