@@ -35,10 +35,10 @@ const subsystemPages = {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'To manage multi-agent RobotX complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead. These optimizations, paired with new 3D spatial perception, enable advanced path planning and autonomous navigation.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '/robosub_2026/software-header.png',
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
@@ -176,123 +176,81 @@ const subsystemPages = {
 
 const navItems = ['mechanical', 'electrical', 'software'];
 
-const featureCarouselImages = {
-  UnitySim: [
+const vehicleFeatureCarouselImages = {
+  poseidon: {
+    'Spatial Perception': [
     {
-      src: '/images/robosub2026/software-subsystems/unity-sim-vid.gif',
-      caption: 'Video demonstration of Unity simulation.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-1st-perspective.png',
-      caption: 'Vehicle\'s perspective.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-3rd-perspective.png',
-      caption: 'Third-person\'s perspective.'
-    },
-  ],
-  Perception: [
-    {
-      src: '/images/robosub2026/software-subsystems/old-bounding-box.png',
-      caption: 'Previous simple 2D bounding box.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/new-bounding-box.png',
-      caption: 'New improved perception pipeline.'
+      src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png',
+      caption: 'Foxglove visualization of USV perception.'
     }
-  ],
-  'Mission Planning': [
+    ],
+    'Navigation and Mission Planning': [
     {
-      src: '/images/robosub2026/software-subsystems/bt-simple.png',
-      caption: 'A typical BT for a given task.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/nav-rect-animation.gif',
-      caption: 'Flow built around reusable BT actions.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/spatial1.png',
-      caption: 'Spatial perception and navigation.'
-    },
-  ],
-  Localization: [
-    {
-      src: '/images/robosub2026/software-subsystems/corecont.png',
-      caption: 'EKF localization fuses DVL and IMU data for stable odometry.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/ekf.png',
-      caption: 'Foxglove monitoring supported real-time localization review.'
-    },
-  ],
-  'Containerization for Multi-Vehicle Deployment': [
-    {
-      src: '/images/robosub2026/software-subsystems/ros2.png',
-      caption: 'ROS2'
-    },
-    {
-      src: '/competition/images/competition_img_1.jpg',
-      caption: 'Composable nodes reduce CPU overhead through zero-copy sharing.'
-    },
-    {
-      src: '/competition/images/competition_img_2.jpg',
-      caption: 'Efficient deployment keeps perception and navigation pipelines running together.'
+      src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif',
+      caption: 'Autonomous navigation and mission planning.'
     }
-  ]
+    ]
+  },
+  kraken: {},
+  phoenix: {}
 };
 
-function getSharedSoftwareSections(subsystem) {
+function getFeatureCarouselImages(vehicleId, sectionTitle) {
+  return vehicleFeatureCarouselImages[vehicleId]?.[sectionTitle];
+}
+
+function getSharedSoftwareSections(subsystem, vehicleId) {
   return [
     {
       title: 'UnitySim',
-      description: `We leveraged Unity to develop a high-fidelity digital twin of the competition environment. This allowed for extensive “dry” testing of our new algorithms and mission logic before vehicle design was finalized and parts were manufactured. ROS2 packages were individually validated within the simulation environment to assess operational suitability and isolate software bugs before integration into the full autonomy stack. Upon completion of vehicle assembly, the UnityMDS simulation setup complemented semiweekly in-person pool tests, for a final systems validation of our competition vehicle within pseudo-deployment environments.`,
+      description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS, our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
+
+      1) Full-Team, Hardware-Fidelity Simulation:
+      Real autopilot firmware. Each vehicle runs its own ArduPilot Software-In-The-Loop (SITL) instance, which reproduces the actual autopilot firmware and its sensor fusion.
+      Realistic sensors and physics. Unity renders realistic scenes, generates camera, LiDAR, GNSS, IMU and DVL data, and models drag and added mass from the hull mesh.
+
+      2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
       imageLayout: 'comparison'
     },
     {
-      title: 'Perception',
-      description: `This year, our perception pipeline moves beyond basic object detection. Instead of relying on simple 2D bounding boxes with vision-based, reactive approaches, we fused depth data with semantic segmentation. By utilising 3D pose estimation of competition elements, this approach enables prior path planning and dynamic replanning, providing our vehicle with critical spatial awareness for fine-tuned manoeuvres especially required in Torpedo and Picking tasks.`,
+      title: 'Spatial Perception',
+      description: `1) Depth-Segmentation Fusion Tailored to Each Domain: Every vehicle runs YOLO11 instance segmentation on TensorRT and reads object distance only from pixels inside each mask. The depth source differs by vehicle:
+
+      USV: Camera-LiDAR Fusion. LiDAR points are projected into the camera image using the live extrinsic transform, which stays aligned as the camera tilts on its gimbal. Only the nearest return is kept at each pixel, so a buoy in the foreground is never blended with the shoreline behind it.
+      UUV and UAV: Monocular Metric Depth. LiDAR is unavailable underwater and too heavy for the aerial platform, so both vehicles estimate metric depth from a single camera with Depth Anything 3.
+
+      Both methods are plugins behind a common interface, so everything downstream is identical across the fleet.
+      
+      2) Probabilistic Multi-Object Tracking:
+      • Measurement model. Each object is tracked in the global frame by its own Square-Root Unscented Kalman Filter (SR-UKF). The filter projects the object's map position into pixel coordinates and depth, so detector noise and range noise are each modeled in their own units.
+      • Association. The Hungarian algorithm assigns detections to tracks optimally, using Mahalanobis gating and matching only objects of the same class.
+      • Confirmation. A detection must be confirmed several times before it becomes a track, which rejects false positives.
+      • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.`,
       bullets: subsystem.highlights,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
-      title: 'Mission Planning',
-      description: 'Similar to last year’s iterations, the Behavior Tree (BT) framework remains the core of our mission planning system. This year, we improved modularity by encapsulating complex tasks into higher-level actions, which simplifies debugging and results in a more intuitive monitoring interface.To translate these high-level mission goals into physical motion, we transitioned to the Nav2 stack. Nav2 leverages our new spatial perception data to handle dynamic path planning and obstacle avoidance, providing the vehicle with the agility required for complex, multi-objective maneuvers.',
+      title: 'Navigation and Mission Planning',
+      description: `1) One Navigation Framework Across Three Domains: Navigation3 (Nav3) is our in-house extension of Nav2 with custom 3D planners, controllers and behaviors. It was built as a hardware-independent layer for RoboSub, and RobotX 2026 is the first time it has been ported across domains. The same framework now drives a surface vessel, an underwater vehicle and an aerial vehicle.
+
+      2) Cross-Vehicle Mission Delegation:
+      • Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
+      • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.`,
       bullets: subsystem.development,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
-      title: 'Localization',
-      description: 'To achieve greater navigation precision with reduced drift, we implemented an Extended Kalman Filter (EKF) to fuse data from our DVL and a new external IMU. Real-time monitoring via Foxglove Studio during pool tests confirmed that this results in a highly stable odometry stack, even during complex movements.',
-      bullets: subsystem.development
+      title: 'Fleet Communication Architecture',
+      description: `Isolated Domains, Explicit Interfaces: 
+      • Isolation by design. Each vehicle runs in its own ROS domain, so no data crosses between vehicles unless it is explicitly whitelisted. A fault or network flood on one vehicle cannot spread to the others.
+      • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
+      bullets: subsystem.development,
+      imageLayout: 'bottom'
     },
-    {
-      title: 'Containerization to Facilitate Multi-Vehicle Deployment',
-      description: '',
-      subsections: [
-        {
-          title: 'Docker Containerization',
-          body: "To facilitate long-term development and seamless cross-platform testing, our entire software stack is containerized using Docker. This architecture abstracts dependencies away from individual host systems, ensuring a consistent environment whether code is running on a developer's laptop, a simulation machine, or the vehicle's onboard computer. Crucially, this containerized model enables simultaneous, seamless deployment across both of our physical vehicles. Because the core software stack remains completely identical, we can deploy the exact same container to either robot without modifying the underlying codebase.",
-          image: {
-            src: '/images/robosub2026/software-subsystems/docker-containerisation-dark.svg',
-            caption: 'Docker containerization keeps the same software environment across machines and vehicles.'
-          }
-        },
-        {
-          title: 'Process Optimization',
-          body: 'To maximize onboard efficiency, we utilize ROS2 Composable Nodes within our containers. By loading multiple nodes into a single process, we enable zero-copy memory sharing, which removes the CPU overhead of traditional message serialization. This reduction in computational load ensures our vehicles can run complex perception and navigation pipelines concurrently without hitting hardware bottlenecks.',
-          image: {
-            src: '/images/robosub2026/software-subsystems/ros2.png',
-            caption: 'Composable nodes reduce overhead while running perception and navigation together.'
-          }
-        }
-      ],
-      imageLayout: 'subsectionComparison',
-      bullets: []
-    }
   ].map((section) => ({
     ...section,
-    images: featureCarouselImages[section.title]
+    images: getFeatureCarouselImages(vehicleId, section.title)
   }));
 }
 
@@ -602,13 +560,13 @@ function getContentSections(vehicle, subsystem, vehicleId, subsystemId) {
   } else if (subsystemId === 'electrical') {
     sections = getSharedElectricalSections();
   } else {
-    sections = getSharedSoftwareSections(subsystem);
+    sections = getSharedSoftwareSections(subsystem, vehicleId);
   }
 
   return sections.map((section) => ({
     ...section,
     bullets: section.bullets ?? [],
-    images: section.images ?? featureCarouselImages[section.title] ?? vehicle.carouselImages
+    images: section.images
   }));
 }
 
@@ -709,6 +667,8 @@ function MediaPreview({ media }) {
 }
 
 function ComparisonCaptionImages({ images, onMediaClick }) {
+  if (!images?.length) return null;
+
   const gridClass = images.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
 
   return (
@@ -808,7 +768,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-6">
                       {section.title}
                     </h2>
-                    <p className="text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
+                    <p className="whitespace-pre-line text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (
@@ -845,13 +805,52 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     ))}
                   </div>
                 </div>
+              ) : section.imageLayout === 'bottom' ? (
+                <div className="mx-auto max-w-4xl">
+                  <h2 className="text-center text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
+                    {section.title}
+                  </h2>
+                  <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+                    {section.description}
+                  </p>
+                  {section.bullets.length > 0 && (
+                    <ul className="mb-6 list-disc space-y-2 pl-5 text-left text-sm sm:text-base text-gray-200">
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.images && section.images.length > 0 && (
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-white/15 bg-black/40">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedMedia(section.images[0])}
+                          className="block h-full w-full cursor-zoom-in"
+                          aria-label={`Open ${section.images[0].caption ?? section.title}`}
+                        >
+                          <img
+                            src={section.images[0].src}
+                            alt={section.images[0].caption ?? section.title}
+                            className="h-auto w-full object-cover"
+                          />
+                        </button>
+                        {section.images[0].caption && (
+                          <p className="bg-black/60 p-3 text-xs sm:text-sm text-gray-300 text-center">
+                            {section.images[0].caption}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ) : (
                 <div className="flex flex-col lg:flex-row gap-8 items-center">
                   <div className="flex-1">
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
                       {section.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
+                    <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (
