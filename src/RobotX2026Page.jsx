@@ -135,37 +135,39 @@ const tagStyles = {
 const journeyTimeline = [
   {
     phase: 'Phase 1',
-    title: 'Exploration & Experimentation',
-    period: 'Nov 2025 - Jan 2026',
+    title: 'Digital Twin Architecture, Autonomy Simulation & Structural Sizing',
+    period: 'Jul 2026 - Aug 2026',
     details: [
-      'Acoustics & Hardware Evaluation:',
-      'Vehicle Frame Optimization:',
-      'Software Prototyping:'
+      'Multi-Domain Virtual Modeling:',
+      'Pre-Assembly Autonomy & State Estimation:',
+      'Mechanical Framing & Actuator CAD:',
+      'Cross-Domain Data Infrastructure:'
     ],
     subpoints: [
-      'Conducted baseline hydrophone and speaker testing. This year, we are determined to develop and deploy in-house acoustic capabilities.',
-      'Designed initial hull and frame iterations for two underwater vehicles, with a focus on modularity, improved hydrodynamics, and a reconfigured thruster layout for enhanced maneuverability.',
-      'Explored and benchmarked various spatial navigation and perception packages to establish a robust foundation for an improved software stack.'
+      'Expanded UnityMDS to simulate full tri-domain dynamics, generating synthetic camera, LiDAR, DVL, GNSS, and IMU data alongside drag and added-mass hydrodynamic models. Integrated independent ArduPilot SITL instances for each platform.',
+      'Prototyped the shared Nav3 stack, Behavior Tree mission delegation, and the UUV\'s Square-Root Unscented Kalman Filter (SR-UKF) localization in simulation under simulated bright-light and murky-water conditions.',
+      'Designed the USV and UUV 30° square thruster geometries. CAD-modeled the USV 2-DOF planetary-gear water shooter, the modular UUV frame with universal mounting points, and the lightweight carbon-fiber UAV frame with low-infill mounts and compliant TPU gripper.',
+      'Configured Zenoh routing topologies and ROS 2 domain separations to isolate high-bandwidth intra-vehicle traffic while bridging mission actions and elevated UAV bird\'s-eye-view target data.'
     ]
   },
   {
     phase: 'Phase 2',
-    title: 'Systems Integration & Baseline Validation',
-    period: 'Feb 2026 - Apr 2026',
+    title: 'Parallel Hardware Fabrication, Subsystem Assembly & Reality Transfer',
+    period: 'Aug 2026 - Sep 2026',
     details: [
-      'Electrical Integration: Gradual integration of the Power Distribution Unit (PDU), incorporating CAN-bus communications, voltage/current sensing, and upgraded compute capabilities.',
-      'Software Fusion: Integrated navigation and perception modules to establish a functional operational baseline.',
-      'Regression Testing: Performed the previous year’s Gate task to validate that the new software stack meets or exceeds prior performance benchmarks.'
+      'Mechanical Actuation & Hull Assembly: CNC-machined the USV 2-DOF planetary-gear pan-tilt water-shooter and assembled the nozzle pump system. Fabricated the UUV rectangular aluminum electronics enclosure (with transparent service lid) for passive convective heat transfer, assembled its PWM servo-driven magnetic probe, and 3D-printed the UAV TPU gripper and protective environmental cowl.',
+      'Board-Level Electrical Staging: Independently fabricated and verified custom PCBs across power-distribution, ideal-diode, load-switch, battery-management, and UPS circuits before mounting them into vehicle chassis.',
+      'Sim-to-Real Code Deployment: Transferred the containerized ROS 2 autonomy stack directly onto physical hardware via shared TF frames and identical topic schemas using the deployment configuration flag.'
     ]
   },
   {
     phase: 'Phase 3',
-    title: 'Mission-Specific Testing & Reliability',
-    period: 'May 2026 - Jul 2026',
+    title: 'Sensor-Actuator Tuning, Subsea Calibration & Multi-Domain Field Trials',
+    period: 'Sep 2026 - Oct 2026',
     details: [
-      'Full System Pool Tests: Transitioned to intensive pool testing with fully assembled vehicles and the validated software stack.',
-      'Task-Specific Optimization: Conducted individual testing for both vehicles on their assigned competition tasks to bridge the sim-to-real domain gap.',
-      'Operational Validation: Focused on ensuring the reliability, repeatability, and robustness of autonomous behaviors in a physical environment in preparation for RoboSub 2026.'
+      'Perception & Gimbal Extrinsic Calibration: Calibrated TensorRT YOLO11 instance segmentation pipelines across all vehicles. Fused USV Ouster LiDAR and camera point clouds via dynamic gimbal extrinsics, calibrated monocular Depth Anything networks for the UUV and UAV, and tuned per-object SR-UKF global frame tracking.',
+      'Subsea & Aerial Subsystem Validation: Validated UUV thermal performance and enclosure seals in water. Calibrated the 40/12/10 Hz time-ordered SR-UKF external odometry (IMU, DVL, pressure sensor) for subsea dead reckoning, and verified UAV AprilTag payload drop alignment.',
+      'Collaborative In-Water System-of-Systems Trials: Executed full multi-agent field trials for Task 1 (UAV elevated BEV guidance to USV Nav3 costmap), Task 2 (UUV subsea tracking and magnetic probe engagement with UAV drop), and Task 3 (USV visual-servoing water shooter on docking berths with coordinated aerial delivery). Verified battery health gating and mission timeouts ahead of the November competition.'
     ]
   }
 ];
@@ -357,7 +359,7 @@ export default function RobotX2026Page() {
           <div className="text-center mb-14">
             <h2 className="text-4xl font-extrabold text-orange-500 mb-8">RobotX 2026 Developmental Timeline</h2>
             <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-              From early task planning to pool validation, Hydra and Kraken move through one shared development path.
+              Here’s how Mecatron pushed through a demanding development sprint to build and deploy our tri-domain fleet.
             </p>
             <div className="mt-6">
               <Link
