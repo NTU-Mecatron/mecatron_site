@@ -210,12 +210,6 @@ const vehicleFeatureCarouselImages = {
       src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif',
       caption: 'Autonomous navigation and mission planning.'
     }
-    ],
-    'Fleet Communication Architecture': [
-    {
-      src: '/images/robotx2026/software-subsystems/fleet-communication-UAV.png',
-      caption: 'Fleet communication architecture for UAVs.'
-    }
     ]
   }
 };
@@ -236,7 +230,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
 
       2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
-      imageLayout: 'bottom'
+      imageLayout: ''
     },
     {
       title: 'Spatial Perception',
