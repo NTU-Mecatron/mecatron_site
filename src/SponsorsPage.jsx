@@ -2,6 +2,18 @@ import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
 const sponsorProfiles = {
+  gpslands: {
+    name: 'GPS Lands',
+    tier: 'Gold',
+    logo: '/images/logos/gps_lands_black_tbg.png',
+    logoClass: 'max-h-28 max-w-full object-contain',
+    bg: '#ffffff',
+    text: 'text-black',
+    imageClass: 'max-w-3xl rounded-xl object-contain',
+    description: [
+      "We are extremely grateful to GPS Lands for their resources and support in our technical development. As a fellow Singaporean company specialising in LiDAR, geospatial technologies, robotics and autonomous vehicles, GPS Lands has provided Mecatron with access to advanced technologies that have strengthened our sensing and navigation capabilities. Their contributions have greatly supported the development and performance of our robotic systems as we prepare to represent Singapore at international robotics competitions."
+    ]
+  },
   ouster: {
     name: 'Ouster',
     tier: 'Gold',
@@ -181,7 +193,7 @@ const sponsorProfiles = {
 const sponsorYears = {
   2026: {
     tierImage: '/images/tiered-sponsors-2026.png',
-    sponsors: ['fstd', 'ouster', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
+    sponsors: ['fstd', 'gpslands', 'ouster', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
     supporters: ['coe', 'jdf']
   },
   2025: {
