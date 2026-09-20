@@ -9,7 +9,7 @@ export default function CompetitionsPage() {
       description: "USV, UUV & UAV - Coordinating across three domains with one unified autonomy stack!",
       image: "/competition/images/RobotX_2026.PNG",
       status: "upcoming",
-      link:"/robosub2026",
+      link:"/robotx2026",
     },
     {
       id: 1,
