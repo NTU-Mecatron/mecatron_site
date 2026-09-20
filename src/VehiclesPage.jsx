@@ -41,7 +41,6 @@ export default function VehiclesPage() {
           title="Phoenix 2026"
           description="Phoenix 2026 is our latest innovation in underwater robotics. Designed for maximum efficiency and performance, Phoenix features a sleek design and advanced capabilities."
           linkTo="/phoenix"
-          highlightBg={true}
           modelType="phoenix"
           modelScale={[1.5, 1.5, 1.5]}
           tags={[
