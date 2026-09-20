@@ -7,11 +7,7 @@ export default function CompetitionsPage() {
       title: "ROBOTX 2026",
       date: "NOVEMBER 2026",
       description: "USV, UUV & UAV - Coordinating across three domains with one unified autonomy stack!",
-      image: [
-        "/competition/images/robosub2026-bots.jpg",
-        "/competition/images/robosub2026-bots.jpg",
-        "/competition/images/robosub2026-bots.jpg"
-      ],
+      image: "/competition/images/RobotX_2026.PNG",
       status: "upcoming",
       link:"/robosub2026",
     },
