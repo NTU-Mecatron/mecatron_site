@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { KevinOptimized } from './KevinOptimized.jsx';
 import { HydraOptimized } from './HydraOptimized.jsx';
 import { KrakenOptimized } from './KrakenOptimized.jsx';
+import { PhoenixOptimized } from './PhoenixOptimized.jsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,7 +80,9 @@ const Scene = ({ progress, modelType = 'kevin' }) => {
             <pointLight position={[-10, -10, -10]} intensity={0.4} />
             <pointLight position={[0, 10, 0]} intensity={0.3} />
 
-            {modelType === 'hydra' ? (
+            {modelType === 'phoenix' ? (
+                <PhoenixOptimized scale={[1, 1, 1]} />
+            ) : modelType === 'hydra' ? (
                 <HydraOptimized scale={[2.5, 2.5, 2.5]} />
             ) : modelType === 'kraken' ? (
                 <KrakenOptimized scale={[2.5, 2.5, 2.5]} />

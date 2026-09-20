@@ -9,6 +9,7 @@ const KevinPage = lazy(() => import('./KevinPage.jsx'));
 const HydraPage = lazy(() => import('./HydraPage.jsx'));
 const KrakenPage = lazy(() => import('./KrakenPage.jsx'));
 const LucyPage = lazy(() => import('./LucyPage.jsx'));
+const PhoenixPage = lazy(() => import('./PhoenixPage.jsx'));
 const VehiclesPage = lazy(() => import('./VehiclesPage.jsx'));
 const GamePage = lazy(() => import('./GamePage.jsx'));
 
@@ -57,6 +58,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="sponsors" element={<SponsorsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="lucy" element={<LucyPage />} />
+          <Route path="phoenix" element={<PhoenixPage />} />
           {/* <Route path="focus" element={<FocusPage />} /> */}
           <Route path="robosub2025" element={<Robosub2025Page />} />
           <Route path="robosub2026" element={<Robosub2026Page />} />
