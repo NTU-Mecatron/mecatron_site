@@ -16,6 +16,14 @@ const sharedSoftwareFeature = {
   image: '/images/robotx2026/software-subsystems/software-header.jpg',
 };
 
+const krakenSoftwareFeature = {
+  ...sharedSoftwareFeature,
+  details: [
+    ...sharedSoftwareFeature.details,
+    'UUV Localization'
+  ]
+};
+
 const sharedElectricalFeature = {
   title: 'Electrical',
   tag: 'Electrical',
@@ -87,7 +95,7 @@ const vehicleTabs = {
         subpage: '/robotx/kraken/electrical',
       },
       {
-        ...sharedSoftwareFeature,
+        ...krakenSoftwareFeature,
         subpage: '/robotx/kraken/software'
       },
     ]
