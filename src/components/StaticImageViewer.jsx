@@ -6,6 +6,7 @@ const modelImages = {
   lucy: '/images/lucy_placeholder.png',
   kevin: '/images/kevin_placeholder.png',
   phoenix: '/images/phoenix_placeholder.png',
+  poseidon: '/images/poseidon_placeholder.png',
 };
 
 export function StaticImageViewer({ modelType = 'kevin' }) {
