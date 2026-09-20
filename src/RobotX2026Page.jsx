@@ -6,15 +6,14 @@ import { Optimized3DViewer } from './components/Optimized3DViewer';
 const sharedSoftwareFeature = {
   title: 'Software',
   tag: 'Software',
-  description: 'To manage dual-AUV complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead.',
+  description: 'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three. To manage this, all three vehicles run the same containerized ROS2 autonomy stack.',
   details: [
-    'UnityMDS',
-    'Perception',
-    'Mission Planning',
-    'Localization',
-    'Containerization'
+    'UnitySim',
+    'Spatial Perception',
+    'Navigation and Mission Planning',
+    'Fleet Communication Architecture'
   ],
-  image: '/robosub_2026/software-header.png',
+  image: '/images/robotx2026/software-subsystems/software-header.jpg',
 };
 
 const sharedElectricalFeature = {
@@ -31,11 +30,73 @@ const sharedElectricalFeature = {
 };
 
 const vehicleTabs = {
-  hydra: {
-    label: 'Hydra',
-    title: 'Hydra 2026',
-    modelType: 'hydra',
-    linkTo: '/hydra',
+  poseidon: {
+    label: 'Poseidon (USV)',
+    title: 'Poseidon 2026',
+    modelType: 'poseidon',
+    linkTo: '/poseidon',
+    image: '/competition/images/robosub2026-bots.jpg',
+    features: [
+      {
+        title: 'Mechanical',
+        tag: 'Mechanical',
+        description: 'Poseidon 2026 is an upgraded version of Lucy 2025, with an updated thruster configuration, improved frame through topology optimization, and greater design modularity.',
+        details: [
+          '8-Thruster Configuration',
+          'Mass Optimization',
+          'Modular Frame Design',
+          'Dropper',
+          'Gripper'
+        ], 
+        subpage: '/poseidon/mechanical',
+        image: '/robosub_2026/mechanical-hydra-header.png',
+      },
+      {
+        ...sharedElectricalFeature,
+        subpage: '/poseidon/electrical'
+      },
+      {
+        ...sharedSoftwareFeature,
+        subpage: '/poseidon/software',
+      },
+    ]
+  },
+  kraken: {
+    label: 'Kraken (UUV)',
+    title: 'Kraken 2026',
+    modelType: 'kraken',
+    linkTo: '/kraken',
+    image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg',
+    features: [
+      {
+        title: 'Mechanical',
+        tag: 'Mechanical',
+        description: 'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION.',
+        details: [
+          '8-Thruster Configuration',
+          'Acrylic Skeletal Frame',
+          'Hydrodynamics Optimization',
+          'CNC Aluminum Electronics Enclosure Box',
+          'Torpedo'
+        ],
+        subpage: '/robotx/kraken/mechanical',
+        image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg'
+      },
+      {
+        ...sharedElectricalFeature,
+        subpage: '/robotx/kraken/electrical',
+      },
+      {
+        ...sharedSoftwareFeature,
+        subpage: '/robotx/kraken/software'
+      },
+    ]
+  },
+  phoenix: {
+    label: 'Phoenix (UAV)',
+    title: 'Phoenix 2026',
+    modelType: 'phoenix',
+    linkTo: '/phoenix',
     image: '/competition/images/robosub2026-bots.jpg',
     features: [
       {
@@ -49,50 +110,19 @@ const vehicleTabs = {
           'Dropper',
           'Gripper'
         ], 
-        subpage: '/hydra/mechanical',
+        subpage: '/phoenix/mechanical',
         image: '/robosub_2026/mechanical-hydra-header.png',
       },
       {
         ...sharedElectricalFeature,
-        subpage: '/hydra/electrical'
+        subpage: '/phoenix/electrical'
       },
       {
         ...sharedSoftwareFeature,
-        subpage: '/hydra/software',
+        subpage: '/phoenix/software',
       },
     ]
   },
-  kraken: {
-    label: 'Kraken',
-    title: 'Kraken 2026',
-    modelType: 'kraken',
-    linkTo: '/kraken',
-    image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg',
-    features: [
-      {
-        title: 'Mechanical',
-        tag: 'Mechanical',
-        description: 'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. Featuring an acrylic skeleton and a metal electrical box, Kraken aims to be more durable and maneuverable than our previous vehicles.',
-        details: [
-          '8-Thruster Configuration',
-          'Acrylic Skeletal Frame',
-          'Hydrodynamics Optimization',
-          'CNC Aluminum Electronics Enclosure Box',
-          'Torpedo'
-        ],
-        subpage: '/kraken/mechanical',
-        image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg'
-      },
-      {
-        ...sharedElectricalFeature,
-        subpage: '/kraken/electrical',
-      },
-      {
-        ...sharedSoftwareFeature,
-        subpage: '/kraken/software'
-      },
-    ]
-  }
 };
 
 const tagStyles = {
@@ -104,37 +134,39 @@ const tagStyles = {
 const journeyTimeline = [
   {
     phase: 'Phase 1',
-    title: 'Exploration & Experimentation',
-    period: 'Nov 2025 - Jan 2026',
+    title: 'Digital Twin Architecture, Autonomy Simulation & Structural Sizing',
+    period: 'Jul 2026 - Aug 2026',
     details: [
-      'Acoustics & Hardware Evaluation:',
-      'Vehicle Frame Optimization:',
-      'Software Prototyping:'
+      'Multi-Domain Virtual Modeling:',
+      'Pre-Assembly Autonomy & State Estimation:',
+      'Mechanical Framing & Actuator CAD:',
+      'Cross-Domain Data Infrastructure:'
     ],
     subpoints: [
-      'Conducted baseline hydrophone and speaker testing. This year, we are determined to develop and deploy in-house acoustic capabilities.',
-      'Designed initial hull and frame iterations for two underwater vehicles, with a focus on modularity, improved hydrodynamics, and a reconfigured thruster layout for enhanced maneuverability.',
-      'Explored and benchmarked various spatial navigation and perception packages to establish a robust foundation for an improved software stack.'
+      'Expanded UnityMDS to simulate full tri-domain dynamics, generating synthetic camera, LiDAR, DVL, GNSS, and IMU data alongside drag and added-mass hydrodynamic models. Integrated independent ArduPilot SITL instances for each platform.',
+      'Prototyped the shared Nav3 stack, Behavior Tree mission delegation, and the UUV\'s Square-Root Unscented Kalman Filter (SR-UKF) localization in simulation under simulated bright-light and murky-water conditions.',
+      'Designed the USV and UUV 30° square thruster geometries. CAD-modeled the USV 2-DOF planetary-gear water shooter, the modular UUV frame with universal mounting points, and the lightweight carbon-fiber UAV frame with low-infill mounts and compliant TPU gripper.',
+      'Configured Zenoh routing topologies and ROS 2 domain separations to isolate high-bandwidth intra-vehicle traffic while bridging mission actions and elevated UAV bird\'s-eye-view target data.'
     ]
   },
   {
     phase: 'Phase 2',
-    title: 'Systems Integration & Baseline Validation',
-    period: 'Feb 2026 - Apr 2026',
+    title: 'Parallel Hardware Fabrication, Subsystem Assembly & Reality Transfer',
+    period: 'Aug 2026 - Sep 2026',
     details: [
-      'Electrical Integration: Gradual integration of the Power Distribution Unit (PDU), incorporating CAN-bus communications, voltage/current sensing, and upgraded compute capabilities.',
-      'Software Fusion: Integrated navigation and perception modules to establish a functional operational baseline.',
-      'Regression Testing: Performed the previous year’s Gate task to validate that the new software stack meets or exceeds prior performance benchmarks.'
+      'Mechanical Actuation & Hull Assembly: CNC-machined the USV 2-DOF planetary-gear pan-tilt water-shooter and assembled the nozzle pump system. Fabricated the UUV rectangular aluminum electronics enclosure (with transparent service lid) for passive convective heat transfer, assembled its PWM servo-driven magnetic probe, and 3D-printed the UAV TPU gripper and protective environmental cowl.',
+      'Board-Level Electrical Staging: Independently fabricated and verified custom PCBs across power-distribution, ideal-diode, load-switch, battery-management, and UPS circuits before mounting them into vehicle chassis.',
+      'Sim-to-Real Code Deployment: Transferred the containerized ROS 2 autonomy stack directly onto physical hardware via shared TF frames and identical topic schemas using the deployment configuration flag.'
     ]
   },
   {
     phase: 'Phase 3',
-    title: 'Mission-Specific Testing & Reliability',
-    period: 'May 2026 - Jul 2026',
+    title: 'Sensor-Actuator Tuning, Subsea Calibration & Multi-Domain Field Trials',
+    period: 'Sep 2026 - Oct 2026',
     details: [
-      'Full System Pool Tests: Transitioned to intensive pool testing with fully assembled vehicles and the validated software stack.',
-      'Task-Specific Optimization: Conducted individual testing for both vehicles on their assigned competition tasks to bridge the sim-to-real domain gap.',
-      'Operational Validation: Focused on ensuring the reliability, repeatability, and robustness of autonomous behaviors in a physical environment in preparation for RoboSub 2026.'
+      'Perception & Gimbal Extrinsic Calibration: Calibrated TensorRT YOLO11 instance segmentation pipelines across all vehicles. Fused USV Ouster LiDAR and camera point clouds via dynamic gimbal extrinsics, calibrated monocular Depth Anything networks for the UUV and UAV, and tuned per-object SR-UKF global frame tracking.',
+      'Subsea & Aerial Subsystem Validation: Validated UUV thermal performance and enclosure seals in water. Calibrated the 40/12/10 Hz time-ordered SR-UKF external odometry (IMU, DVL, pressure sensor) for subsea dead reckoning, and verified UAV AprilTag payload drop alignment.',
+      'Collaborative In-Water System-of-Systems Trials: Executed full multi-agent field trials for Task 1 (UAV elevated BEV guidance to USV Nav3 costmap), Task 2 (UUV subsea tracking and magnetic probe engagement with UAV drop), and Task 3 (USV visual-servoing water shooter on docking berths with coordinated aerial delivery). Verified battery health gating and mission timeouts ahead of the November competition.'
     ]
   }
 ];
@@ -154,8 +186,8 @@ function TimelineDetail({ detail }) {
   );
 }
 
-export default function Robosub2026Page() {
-  const [activeVehicle, setActiveVehicle] = useState('hydra');
+export default function RobotX2026Page() {
+  const [activeVehicle, setActiveVehicle] = useState('poseidon');
   const [openTimelinePhase, setOpenTimelinePhase] = useState(null);
   const vehicle = vehicleTabs[activeVehicle];
   const tabs = useMemo(() => Object.entries(vehicleTabs), []);
@@ -167,8 +199,8 @@ export default function Robosub2026Page() {
   return (
     <div className="min-h-screen bg-[#181818] text-white font-sans">
       <div className="flex flex-col pt-32 items-center text-center px-4">
-        <div className="text-lg text-gray-300">July 2026</div>
-        <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 mb-8">RoboSub 2026</h1>
+        <div className="text-lg text-gray-300">November 2026</div>
+        <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 mb-8">RobotX 2026</h1>
 
         <div className="inline-flex rounded-lg border border-white/15 bg-white/10 p-1 backdrop-blur-md">
           {tabs.map(([id, tab]) => (
@@ -228,7 +260,7 @@ export default function Robosub2026Page() {
         </a>
 
         <Link
-          to="/blog?tab=robosub2026"
+          to="/blog?tab=robotx2026"
           className="inline-block bg-orange-600 hover:bg-[#d73a1a] text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
         >
           Team Blog
@@ -299,12 +331,12 @@ export default function Robosub2026Page() {
 
       <section className="px-8 md:px-20 py-16 bg-[#1a1a1a]">
         <div className="flex flex-col items-center">
-          <h2 className="text-4xl font-extrabold text-orange-500 mb-10">RoboSub 2026 Team Video</h2>
+          <h2 className="text-4xl font-extrabold text-orange-500 mb-10">RobotX 2026 Team Video</h2>
           <div className="w-full aspect-video max-w-4xl">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/mK8vjsBc7f4"
-              title="Team Mecatron RoboSub Introduction Video | RoboSub 2026"
+              title="Team Mecatron RobotX Introduction Video | RobotX 2026"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -324,16 +356,16 @@ export default function Robosub2026Page() {
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-extrabold text-orange-500 mb-8">RoboSub 2026 Developmental Timeline</h2>
+            <h2 className="text-4xl font-extrabold text-orange-500 mb-8">RobotX 2026 Developmental Timeline</h2>
             <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-              From early task planning to pool validation, Hydra and Kraken move through one shared development path.
+              Here’s how Mecatron pushed through a demanding development sprint to build and deploy our tri-domain fleet.
             </p>
             <div className="mt-6">
               <Link
                 to="/blog"
                 className="inline-block bg-orange-600 hover:bg-[#d73a1a] text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
               >
-                View RoboSub 2026 Blog
+                View RobotX 2026 Blog
               </Link>
             </div>
           </div>

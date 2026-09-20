@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import mecatronLogo from './assets/logos/mecatronLogo.png';
 
 const sections = [
@@ -16,7 +16,7 @@ const sections = [
   { id: 'competitions', label: 'Competitions', path: '/competitions',
     submenu: [
       { id: 'competitions-main', label: 'Competitions', path: '/competitions' },
-      { id: 'robotx2026', label: 'RobotX 2026', path: '/robosub2026' },
+      { id: 'robotx2026', label: 'RobotX 2026', path: '/robotx2026' },
       { id: 'robosub2026', label: 'RoboSub 2026', path: '/robosub2026' },
       { id: 'sauvc2026', label: 'SAUVC 2026', path: '/sauvc2026' },
       { id: 'robosub2025', label: 'RoboSub 2025', path: '/robosub2025' },
@@ -25,8 +25,13 @@ const sections = [
       { id: 'sauvc2024', label: 'SAUVC 2024', path: '/sauvc2024' },
     ]
   },
-  //{ id: 'research', label: 'Research', path: '/research' },
-  { id: 'blog', label: 'Team Blog', path: '/blog' },
+  { id: 'blog', label: 'Team Blog', path: '/blog',
+    submenu: [
+      { id: 'blog-main', label: 'Team Blog', path: '/blog' },
+      { id: 'blog-robotx2026', label: 'RobotX 2026', path: '/blog?tab=robotx2026' },
+      { id: 'blog-robosub2026', label: 'RoboSub 2026', path: '/blog?tab=robosub2026' },
+    ]
+  },
   { id: 'outreach', label: 'Outreach', path: '/outreach',
     submenu: [
       { id: 'outreach-main', label: 'Outreach', path: '/outreach' },
@@ -46,8 +51,7 @@ const sections = [
   },
 ];
 
-export default function Navbar({ scrollToSection }) {
-  const location = useLocation();
+export default function Navbar() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);

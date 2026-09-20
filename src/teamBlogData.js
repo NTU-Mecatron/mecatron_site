@@ -1041,7 +1041,18 @@ const posts = [
   }
 ];
 
-export const blogPosts = posts.map((post) => ({
+const robosubPosts = posts.map((post) => ({
+  ...post,
+  competition: 'robosub2026'
+}));
+
+const robotxPosts = posts.map((post) => ({
+  ...post,
+  slug: `robotx-${post.slug}`,
+  competition: 'robotx2026'
+}));
+
+export const blogPosts = [...robosubPosts, ...robotxPosts].map((post) => ({
   details: [
     `${post.tag} workstream`,
     'Reusable post template ready for detailed write-up'

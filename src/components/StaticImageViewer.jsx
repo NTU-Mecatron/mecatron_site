@@ -1,14 +1,23 @@
 import React from 'react';
-import { Html } from '@react-three/drei';
 
-export function StaticImageViewer() {
+const modelImages = {
+  hydra: '/images/logos/hydra-home.png',
+  kraken: '/images/logos/kraken-home.png',
+  lucy: '/images/lucy_placeholder.png',
+  kevin: '/images/kevin_placeholder.png',
+};
+
+export function StaticImageViewer({ modelType = 'kevin' }) {
+  const imageSrc = modelImages[modelType] || '/images/kevin_placeholder.png';
+
   return (
-    <Html center>
+    <div className="w-full h-full flex items-center justify-center p-4">
       <img 
-        src="/images/kevin_placeholder.png" 
-        alt="Kevin - Static View" 
-        className="w-full h-full object-cover rounded-full"
+        src={imageSrc} 
+        alt={`${modelType} vehicle`}
+        className="w-full h-full object-contain max-h-80"
+        loading="lazy"
       />
-    </Html>
+    </div>
   );
-} 
+}

@@ -1,8 +1,31 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
 const sponsorProfiles = {
+  gpslands: {
+    name: 'GPS Lands',
+    tier: 'Gold',
+    logo: '/images/logos/gps_lands_black_tbg.png',
+    logoClass: 'max-h-28 max-w-full object-contain',
+    bg: '#ffffff',
+    text: 'text-black',
+    imageClass: 'max-w-3xl rounded-xl object-contain',
+    description: [
+      "We are extremely grateful to GPS Lands for their resources and support in our technical development. As a fellow Singaporean company specialising in LiDAR, geospatial technologies, robotics and autonomous vehicles, GPS Lands has provided Mecatron with access to advanced technologies that have strengthened our sensing and navigation capabilities. Their contributions have greatly supported the development and performance of our robotic systems as we prepare to represent Singapore at international robotics competitions."
+    ]
+  },
+  ouster: {
+    name: 'Ouster',
+    tier: 'Gold',
+    logo: '/images/logos/ouster_black_tbg.png',
+    logoClass: 'max-h-28 max-w-full object-contain',
+    bg: '#ffffff',
+    text: 'text-black',
+    imageClass: 'max-w-3xl rounded-xl object-contain',
+    description: [
+      "We would like to express our sincere gratitude for Ouster’s contribution and the trust placed in Mecatron. As a leading company in robotic sensing and environmental perception, Ouster has provided us with advanced robotic equipment that will significantly enhance our team’s sensing and perception capabilities. Their strong technical support has also provided a solid foundation for our continued technical development and future endeavours."
+    ]
+  },
   fstd: {
     name: 'Future Systems & Technology Directorate',
     tier: 'Gold',
@@ -169,8 +192,8 @@ const sponsorProfiles = {
 
 const sponsorYears = {
   2026: {
-    tierImage: '/images/tiered-sponsors-2026.png',
-    sponsors: ['fstd', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
+    tierImage: '/images/tiered-sponsors-2026-v2.png',
+    sponsors: ['fstd', 'gpslands', 'ouster', 'smf', 'dso', 'vectornav', 'waterlinked', 'espressif', 'zen4blue', 'aquarian', 'dwe'],
     supporters: ['coe', 'jdf']
   },
   2025: {
@@ -253,7 +276,7 @@ export default function SponsorsPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-5">
                 <a
-                  href="/sponsorship_deck/Mecatron-Sponsorship-Deck-2026.pdf"
+                  href="/sponsorship_deck/Mecatron-Sponsorship-Deck-V2-2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block rounded-lg bg-orange-500 px-8 py-2 text-center font-semibold text-white shadow transition-all duration-200 hover:bg-orange-600"

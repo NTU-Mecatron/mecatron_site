@@ -1,17 +1,37 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { blogPosts, tagStyles } from './teamBlogData';
+
 
 const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software'];
 
 export default function TeamBlogPage() {
+  const [searchParams] = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  const initialCompetition = tabParam === 'robosub2026' ? 'robosub2026' : 'robotx2026';
+
+  const [activeCompetition, setActiveCompetition] = useState(initialCompetition);
   const [activeCategory, setActiveCategory] = useState('All');
+
+  // Keep state in sync with URL search params
+  useEffect(() => {
+    if (tabParam === 'robosub2026') {
+      setActiveCompetition('robosub2026');
+    } else {
+      setActiveCompetition('robotx2026');
+    }
+  }, [tabParam]);
+
+  const competitionPosts = blogPosts.filter((post) => post.competition === activeCompetition);
   const visiblePosts = activeCategory === 'All'
-    ? blogPosts
-    : blogPosts.filter((post) => post.tag === activeCategory);
+    ? competitionPosts
+    : competitionPosts.filter((post) => post.tag === activeCategory);
+
+  const competitionLabel = activeCompetition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026';
 
   return (
     <div className="min-h-screen bg-[#181818] text-white">
+      {/* Hero Section */}
       <section className="relative overflow-hidden px-4 sm:px-8 md:px-20 pt-32 pb-16 text-center">
         <div
           className="absolute inset-0 scale-110 bg-cover bg-center blur-sm"
@@ -21,18 +41,20 @@ export default function TeamBlogPage() {
         <div className="absolute inset-0 bg-black/75" aria-hidden="true" />
 
         <div className="relative z-10">
-          <p className="text-lg text-gray-300 mb-3">RoboSub 2026</p>
+          <p className="text-lg text-gray-300 mb-3">{competitionLabel}</p>
           <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 mb-6">
             Team Blog
           </h1>
-          <p className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300">
-            Follow our mechanical, electrical, and software progress through our team blog posts.
+          <p className="mx-auto max-w-3xl text-base sm:text-lg text-gray-300 mb-8">
+            Follow our mechanical, electrical, and software progress for {competitionLabel}!
           </p>
         </div>
       </section>
 
+      {/* Main Content & Category Filters */}
       <section className="bg-[#1a1a1a] px-4 sm:px-8 md:px-20 py-10">
         <div className="max-w-7xl mx-auto">
+          {/* Subsystem Category Filters */}
           <div className="mb-10 flex flex-wrap justify-center gap-3">
             {categoryFilters.map((category) => {
               const isActive = activeCategory === category;
@@ -57,6 +79,7 @@ export default function TeamBlogPage() {
             })}
           </div>
 
+          {/* Blog Posts Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {visiblePosts.map((post) => (
               <article
@@ -106,6 +129,12 @@ export default function TeamBlogPage() {
               </article>
             ))}
           </div>
+
+          {visiblePosts.length === 0 && (
+            <div className="text-center py-16 text-gray-400">
+              <p className="text-lg">No blog posts found for this category yet.</p>
+            </div>
+          )}
         </div>
       </section>
     </div>
