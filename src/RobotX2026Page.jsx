@@ -128,7 +128,8 @@ const vehicleTabs = {
 const tagStyles = {
   Electrical: 'border-sky-300/40 bg-sky-400/15 text-sky-100',
   Software: 'border-emerald-300/40 bg-emerald-400/15 text-emerald-100',
-  Mechanical: 'border-orange-300/40 bg-orange-400/15 text-orange-100'
+  Mechanical: 'border-orange-300/40 bg-orange-400/15 text-orange-100',
+  'Vehicle Test': 'border-purple-300/40 bg-purple-400/15 text-purple-100'
 };
 
 const journeyTimeline = [
@@ -362,7 +363,7 @@ export default function RobotX2026Page() {
             </p>
             <div className="mt-6">
               <Link
-                to="/blog"
+                to="/blog?tab=robotx2026"
                 className="inline-block bg-orange-600 hover:bg-[#d73a1a] text-white font-semibold px-8 py-2 rounded-lg shadow transition-all duration-200"
               >
                 View RobotX 2026 Blog

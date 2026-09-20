@@ -1,7 +1,7 @@
 const defaultSections = (post) => [
   {
     heading: 'Overview',
-    body: `${post.title} is part of Mecatron's RoboSub 2026 development work. Use this section to introduce the subsystem, the problem it solves, and the design direction behind it.`
+    body: `${post.title} is part of Mecatron's ${post.competition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026'} development work. Use this section to introduce the subsystem, the problem it solves, and the design direction behind it.`
   },
   {
     heading: 'Development Notes',
@@ -13,7 +13,7 @@ const defaultSections = (post) => [
   }
 ];
 
-const posts = [
+const robosubPostsRaw = [
   {
     slug: 'interim-vehicle',
     title: 'Building the Interim Vehicle',
@@ -1041,15 +1041,267 @@ const posts = [
   }
 ];
 
-const robosubPosts = posts.map((post) => ({
-  ...post,
-  competition: 'robosub2026'
+// =============================================================================
+// ROBOTX 2026 BLOG POSTS
+// Add RobotX-specific posts here. Each post should have:
+// - slug: Unique URL slug (e.g., 'robotx-heterogeneous-fleet-autonomy')
+// - title: Post title
+// - tag: 'Mechanical' | 'Electrical' | 'Software'
+// - authors: Author name(s)
+// - date: e.g. 'Jan 2026 - Mar 2026'
+// - image: Path to hero/card image (e.g. from /images/robotx2026/... or /competition/images/...)
+// - description: Short summary shown on the blog cards and post header
+// - sections: Array of sections with headings, layouts, text, and images
+// =============================================================================
+const robotxPostsRaw = [
+  {
+    slug: 'robotx-uuv-pool-test-1',
+    title: 'Kraken Pool Test 1',
+    tag: 'Vehicle Test',
+    authors: 'Baba',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    sections: [
+      {
+        heading: 'Multi-Domain Fleet Architecture',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
+            ],
+            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
+            ],
+            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
+            ],
+            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-usv-pool-test-1',
+    title: 'Poseidon Pool Test 1',
+    tag: 'Vehicle Test',
+    authors: 'Riley',
+    date: 'Aug 2026',
+    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    sections: [
+      {
+        heading: 'Multi-Domain Fleet Architecture',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
+            ],
+            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
+            ],
+            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
+            ],
+            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-uav-drone-test-1',
+    title: 'Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Aug 2026',
+    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    sections: [
+      {
+        heading: 'Multi-Domain Fleet Architecture',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
+            ],
+            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
+            ],
+            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
+            ],
+            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-uav-drone-test-2',
+    title: 'Phoenix\'s Stress test day',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    sections: [
+      {
+        heading: 'Multi-Domain Fleet Architecture',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
+            ],
+            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
+            ],
+            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
+              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
+            ],
+            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-uav-gripper',
+    title: 'Phoenix\'s gripper design',
+    tag: 'Mechanical',
+    authors: 'Ambrose',
+    date: 'Sep 2026',
+    image: '/competition/images/RobotX_2026.PNG',
+    description: 'Structural rigging, thruster pod mounts, and sensor mast design for the Poseidon Wave Adaptive Modular Vessel (WAM-V).',
+    sections: [
+      {
+        heading: 'WAM-V Platform & Subsystem Integration',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            images: [
+              { src: '/competition/images/RobotX_2026.PNG', caption: 'Mecatron RobotX 2026 vehicle platform' }
+            ],
+            body: 'The Poseidon platform is built around the WAM-V catamaran surface craft, featuring flexible suspension pods designed to absorb wave impact and maintain stability in rough water. Mechanical modifications focus on modularity, payload accessibility, and corrosion-resistant mounting for our navigation sensor mast and deployment mechanisms.'
+          },
+          {
+            body: 'Custom CNC-machined and anodized aluminum brackets were designed to secure the main electronics enclosures and waterproof battery cylinders directly to the suspension frame. The thruster mounts accommodate dual high-thrust articulating azimuth pods, enabling precise station-keeping and zero-radius turns in open water.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-elect-pdu-pcb',
+    title: '6s Battery Power Distribution Unit (PDU) Design and Testing',
+    tag: 'Electrical',
+    authors: 'Cheng Jing',
+    date: 'Sep 2026',
+    image: '/robosub_2026/electrical-header.png',
+    description: 'Engineering the electrical power architecture for high-capacity marine propulsion, intelligent battery management, and mandatory wireless safety kill-switches.',
+    sections: [
+      {
+        heading: 'Power & Safety Architecture',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            images: [
+              { src: '/robosub_2026/electrical-header.png', caption: 'Modular power architecture and management system' }
+            ],
+            body: 'RobotX operations demand substantially higher power bandwidth than underwater vehicles due to high-current surface thrusters and powerful long-range sensors. Our updated Power Distribution Unit (PDU) incorporates active current and voltage monitoring on all output rails, with automated fault detection isolating problematic subsystems before damage occurs.'
+          },
+          {
+            body: 'For maritime safety and competition compliance, a multi-tiered emergency stop (E-Stop) system was implemented. This includes physical hardwired marine kill-switches located on the vessel superstructure alongside an encrypted, fail-safe 915 MHz wireless remote kill link. In the event of signal loss or operator trigger, the main contactor de-energizes all motor drives within 50 milliseconds.'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-sw-unity-simulation',
+    title: 'Unity simulation for RobotX',
+    tag: 'Software',
+    authors: 'Jia Qian',
+    date: 'Aug 2026 - Sep 2026',
+    image: '/competition/images/competition_img_2.jpg',
+    description: 'Field notes and telemetry evaluation from our first full-scale open-water testing session with the Poseidon WAM-V surface craft.',
+    sections: [
+      {
+        heading: 'Open-Water Test Objectives',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            images: [
+              { src: '/competition/images/competition_img_2.jpg', caption: 'Poseidon USV deployment during open-water trials' }
+            ],
+            body: 'Our primary goal for this on-water trial was validating thruster authority, emergency kill-switch responsiveness, and closed-loop GPS waypoint tracking on the full-scale WAM-V hull. Weather conditions provided mild surface chop, offering ideal validation data for our heading controllers.'
+          },
+          {
+            body: 'Telemetry confirmed reliable station-keeping within a 0.5-meter radius and smooth heading transitions during dynamic waypoint execution. Marine safety systems responded flawlessly during manual and wireless E-Stop verification tests.'
+          }
+        ]
+      }
+    ]
+  }
+];
+
+const robosubPosts = robosubPostsRaw.map((post) => ({
+  competition: 'robosub2026',
+  ...post
 }));
 
-const robotxPosts = posts.map((post) => ({
-  ...post,
-  slug: `robotx-${post.slug}`,
-  competition: 'robotx2026'
+const robotxPosts = robotxPostsRaw.map((post) => ({
+  competition: 'robotx2026',
+  ...post
 }));
 
 export const blogPosts = [...robosubPosts, ...robotxPosts].map((post) => ({
@@ -1064,5 +1316,6 @@ export const blogPosts = [...robosubPosts, ...robotxPosts].map((post) => ({
 export const tagStyles = {
   Mechanical: 'border-orange-300/40 bg-orange-400/15 text-orange-100',
   Electrical: 'border-sky-300/40 bg-sky-400/15 text-sky-100',
-  Software: 'border-emerald-300/40 bg-emerald-400/15 text-emerald-100'
+  Software: 'border-emerald-300/40 bg-emerald-400/15 text-emerald-100',
+  'Vehicle Test': 'border-purple-300/40 bg-purple-400/15 text-purple-100'
 };
