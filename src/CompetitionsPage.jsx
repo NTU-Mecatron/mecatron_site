@@ -6,7 +6,7 @@ export default function CompetitionsPage() {
       id: 7,
       title: "ROBOTX 2026",
       date: "NOVEMBER 2026",
-      description: "USV, UUV & UAV - Coordinating across three domains with one unified autonomy stack!",
+      description: "Poseidon, Kraken & Phoenix - Coordinating across three domains with one unified autonomy stack!",
       image: "/competition/images/RobotX_2026.PNG",
       status: "upcoming",
       link:"/robotx2026",
