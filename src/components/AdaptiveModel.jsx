@@ -5,6 +5,7 @@ import { LucyOptimized } from '../LucyOptimized';
 import { HydraOptimized } from '../HydraOptimized';
 import { KrakenOptimized } from '../KrakenOptimized';
 import { PhoenixOptimized } from '../PhoenixOptimized';
+import { PoseidonOptimized } from '../PoseidonOptimized';
 
 export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevin', ...props }) {
   // For now, we'll use the same model but with different optimizations
@@ -87,6 +88,16 @@ export function AdaptiveModel({ capability, scale = [5, 5, 5], modelType = 'kevi
     );
   }
 
+  if (modelType === 'poseidon') {
+    return (
+      <PoseidonOptimized
+        scale={optimizedScale}
+        modelUrl={modelUrl}
+        {...props}
+      />
+    );
+  }
+
   return (
     <KevinOptimized 
       scale={optimizedScale} 
@@ -105,6 +116,8 @@ function getModelUrl(modelType) {
       return '/krakensmalloutput.glb';
     case 'phoenix':
       return '/phoenixsmalloutput.glb';
+    case 'poseidon':
+      return '/poseidonsmalloutput.glb';
     case 'kevin':
     default:
       return '/kevinfix.glb';
