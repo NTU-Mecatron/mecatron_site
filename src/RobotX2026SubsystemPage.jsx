@@ -219,7 +219,7 @@ function getFeatureCarouselImages(vehicleId, sectionTitle) {
 }
 
 function getSharedSoftwareSections(subsystem, vehicleId) {
-  return [
+  const baseSections = [
     {
       title: 'UnitySim',
       description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS, our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
@@ -266,10 +266,27 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
       bullets: subsystem.development,
       imageLayout: 'bottom'
-    },
-  ].map((section) => ({
+    }
+  ];
+
+  const krakenOnlySection = vehicleId === 'kraken'
+    ? [{
+        title: 'UUV Localization',
+        description: `GPS is unavailable underwater. Therefore we developed a custom localization filter for the UUV instead of relying solely on the autopilot's internal EKF.
+
+        1) Square-Root Unscented Kalman Filter:
+        Sensors fused: IMU delta-velocity, DVL velocity and pressure depth.
+        Chronological processing. Measurements arrive at different rates (~40, ~12 and ~10 Hz), so they are processed in timestamp order and late messages don't corrupt the estimate.
+
+        2) Autopilot Integration: The estimate goes to ArduPilot as external odometry, so the autopilot's own control loops navigate on it without GPS.`,
+        imageLayout: 'bottom',
+        images: []
+      }]
+    : [];
+
+  return [...baseSections, ...krakenOnlySection].map((section) => ({
     ...section,
-    images: getFeatureCarouselImages(vehicleId, section.title)
+    images: section.images ?? getFeatureCarouselImages(vehicleId, section.title)
   }));
 }
 
