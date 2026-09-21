@@ -1054,6 +1054,125 @@ const robosubPostsRaw = [
 // - sections: Array of sections with headings, layouts, text, and images
 // =============================================================================
 const robotxPostsRaw = [
+    {
+    slug: 'uuv-new-frame-2026',
+    title: 'Aluminium frame redesign (Kraken UUV)',
+    tag: 'Mechanical',
+    authors: 'Muresh',
+    date: 'Sep 2026',
+    image: '/images/robosub2026/mechanical-subsystems/torpedo1.png',
+    description: 'Redesigning the Kraken UUV frame to improve strength, durability, and ease of maintenance through a lightweight aluminium structure.',
+    sections: [
+      {
+        heading: 'Redesigning the Kraken UUV Frame',
+        layout: 'versionedRows',
+        versions: [
+          {
+            title: 'Purpose of Redesign',
+            subtitle: 'Problem and Solution',
+            body: 'We hope to create a dependable base for the rest of the vehicle\'s systems to be mounted on. ',
+            details: [
+              {
+                label: 'Problem',
+                body: 'The existing acrylic frame had developed cracks over time, which made it unreliable as the backbone holding all of the AUV\'s components together.'
+              },
+              {
+                label: 'Solution',
+                body: 'We switched the material to aluminium, which would give us a much stronger and more durable frame that could handle repeated handling, testing and vibration. '
+              },
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
+              }
+            ]
+          },
+          {
+            title: 'Balance between Weight and Strength',
+            subtitle: 'Cutting holes into the frame to reduce weight',
+            body: 'Aluminium is far stronger than acrylic, but it is also heavier, so we planned to cut holes into the frame wherever the material was not carrying much load. This way we keep the strength of aluminium while lessening the overall weight of the frame. The holes were placed around the mounting points and load paths of the components so that the frame stays rigid.',
+            details: [
+              
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo-v1.png',
+              }
+            ]
+          },
+          {
+            title: 'Consideration of Holes',
+            subtitle: 'The Result of Unsuitable Holes Number and Placement',
+            body: 'We tried to be deliberate about where material was removed, only cutting from low-stress regions of the frame.',
+            details: [
+              {
+                label: 'Too many or poorly placed holes',
+                body: 'Weaken the frame and defeat the purpose of the switch.'
+              },
+              {
+                label: 'Too Few Holes',
+                body: 'Leave the AUV heavier than necessary, which affects its buoyancy and how much thrust it needs to manoeuvre.'
+              }
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo1.png'
+              }
+            ]
+          },
+          {
+            title: 'Optimization for Serviceability',
+            subtitle: 'Improved Component Layout in the New Frame',
+            body: 'This frame design makes repairs, part swaps and upgrades between test runs take much less time.',
+            details: [
+              {
+                label: 'Previous Issues',
+                body: 'Working on one part of the AUV could mean disturbing much of the rest of the vehicle, which made maintenance slow and discouraged quick fixes.'
+              },
+              {
+                label: 'Improvement',
+                body: 'We arranged the layout, which allows key components to be reached, removed and reinstalled individually without dismantling everything around them. This means repairs, part swaps and upgrades between test runs take much less time.'
+              },
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
+              }
+            ]
+          },
+          {
+            title: 'Optimization for Assembly',
+            subtitle: 'Reduced Number and Complexity of Steps Needed for Assembly',
+            body: 'We used simpler, more consistent mounting methods so that the AUV can be assembled and disassembled quickly and repeatably by any team member, not just the person who built it. This makes the whole build process more reliable and less prone to errors.',
+            details: [
+              
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
+              }
+            ]
+          },
+          {
+            title: 'Improvement in Ergonomics',
+            subtitle: 'Easier transportation and field testing',
+            body: 'As the AUV is regularly moved between the workshop and test sites, we made the frame easier to lift, carry and handle safely. This makes it simpler to deploy and recover the vehicle in the field, so the team can spend more of its testing time on actual tests rather than on logistics.',
+            details: [
+              {
+                label: 'Ease of Deployment and Recovery',
+                body: 'This makes it simpler to deploy and recover the vehicle in the field, which allows the team to spend more of its testing time on actual tests rather than on logistics.'
+              }
+            ],
+            images: [
+              {
+                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
+              }
+            ]
+          },
+        ]
+      }
+    ]
+  },
   {
     slug: 'robotx-uuv-pool-test-1',
     title: 'Our First UUV Pool Test',
