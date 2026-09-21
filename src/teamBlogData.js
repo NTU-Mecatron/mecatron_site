@@ -1056,42 +1056,91 @@ const robosubPostsRaw = [
 const robotxPostsRaw = [
   {
     slug: 'robotx-uuv-pool-test-1',
-    title: 'Kraken Pool Test 1',
+    title: 'Our First UUV Pool Test',
     tag: 'Vehicle Test',
     authors: 'Baba',
     date: 'Sep 2026',
-    image: '/images/robotx2026/software-subsystems/software-header.jpg',
-    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    image: '/images/robotx2026/uuv-blog/uuv-18sep-pool-1.jpg',
+    description: "Taking our stack from simulation to splash, the new RobotX crew hit the pool for 2.5 hours of live Kraken (UUV) deployment, leak checks, and real-world troubleshooting. Read how we tackled the challenges faced!",
     sections: [
       {
-        heading: 'Multi-Domain Fleet Architecture',
-        layout: 'blockImageStory',
-        blocks: [
+        heading: 'UUV Pool Test 1',
+        body: 'We conducted our first pool test with the UUV, with a total of 2 hours and 30 minutes in the water. The USV was not tested due to electrical issues.\nThe main goal of the pool test was to familiarize new RobotX team members with deploying and operating the stack in a physical environment, building on their previous experience with our custom simulator. During the session, the team was guided through a live demonstration of the UUV deployment procedure, including how the system would be deployed during the competition.',
+        images: [
           {
-            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
-            ],
-            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
-            ],
-            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
-            ],
-            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-pic.jpg',
+            caption: ''
           }
         ]
-      }
+      },
+      {
+        heading: 'Physical Checks and Troubleshooting',
+        body: 'Several checks were carried out before operating the UUV. The safety plug was only connected after all the above checks had been completed. The team was also made aware of potential issues that could arise during testing. Each member present also gained hands-on experience in physically deploying the stack.',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
+          }
+        ],
+        items: [
+          {
+            title: 'Leak Check',
+            details: [
+              {
+                label: 'Check for Bubbles',
+                body: 'Submerge the UUV without power and check for any bubbles to ensure there are no leaks.'
+              }
+            ]
+          },
+          {
+            title: 'Network Check',
+            details: [
+              {
+                label: 'Verify Connection',
+                body: 'Verify a stable connection between the host machine, broadcast network, and UUV.'
+              }
+            ]
+          },
+          {
+            title: 'Power Check',
+            details: [
+              {
+                label: 'Ensure Voltage Range',
+                body: 'Ensure that the voltage remains within the required range.'
+              }
+            ]
+          },
+          {
+            title: 'Temperature Check',
+            details: [
+              {
+                label: 'Monitor the DVL temperature',
+                body: 'Ensure that the DVL does not overheat. '
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Observations and Control Tuning',
+        body: 'During the pool test, we observed significant overshoot and oscillation in the y-direction, as well as a yaw step response that did not closely match the step input. To address these issues, we attempted to tune the Cascade PID controller for the UUV. The tuning process showed improvements in the overall control response.',
+        images: [
+          {
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-control-tuning.jpg',
+            caption: ''
+          }
+        ]
+      },
+      {
+        heading: 'Simulation Tuning',
+        body: 'Following the physical testing, we continued tuning the UUV control parameters in simulation. The feed-forward and integral terms for the y-direction were adjusted, reducing the steady-state error from 20% to 5%. The pitch and roll transients were also reduced to below 3°.',
+        images: [
+          {
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-sim-tuning.jpg',
+            caption: ''
+          }
+        ]
+      },
     ]
   },
   {
