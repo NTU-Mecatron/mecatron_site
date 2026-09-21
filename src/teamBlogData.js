@@ -1267,6 +1267,41 @@ const robotxPostsRaw = [
     ]
   },
   {
+    slug: 'robotx-usv-lidar-integration',
+    title: 'Lidar Integration (USV)',
+    tag: 'Software',
+    authors: 'Baba',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/software-subsystems/spatial-perception-USV.png',
+    description: 'Pairing a lidar with the camera on Poseidon to build a more robust obstacle detection system, and feeding its point clouds into Nav2 costmaps so the USV can plan around buoys.',
+    sections: [
+      {
+        heading: 'Lidar Integration',
+        layout: 'subsectionImageGrid',
+        subsections: [
+          {
+            title: 'Why Pair a Lidar with a Camera',
+            body: 'The purpose of pairing a lidar with a camera was to create a more robust detection system than relying on either sensor alone. The rich semantic object detection from the camera is fused with the precise 3D distance and depth mapping of the lidar. This creates a modular system where we can harness the advantages of both sensors to actively detect and avoid obstacles, which in the context of the RobotX competition are buoys.'
+          },
+          {
+            title: 'Integration with Navigation2',
+            body: [
+              'The integration was made much easier by the Navigation2 (Nav2) stack. The main job of the lidar is to identify where the buoys are on the map, and to let the USV actively create a plan and navigate safely around them.',
+              'Our approach was to feed the live PointCloud streams from the lidar into the costmap plugins from Nav2. The costmaps are composed of multiple layers, which we configured to create a dynamic environment around the buoys for the USV to actively avoid.'
+            ],
+            images: [
+              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Foxglove visualization of USV perception.' }
+            ]
+          },
+          {
+            title: 'Computational Efficiency',
+            body: 'A consideration we had to come up with was about computational efficiency, we had to make sure that the processes we select would not be computationally intensive since the whole stack would be running on a Jetson. Therefore we tried to minimize wherever we could, by opting for standard Nav2 navigation as opposed to other methods.'
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'robotx-sw-unity-simulation',
     title: 'Unity simulation for RobotX',
     tag: 'Software',
