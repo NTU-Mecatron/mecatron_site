@@ -1055,6 +1055,47 @@ const robosubPostsRaw = [
 // =============================================================================
 const robotxPostsRaw = [
   {
+    slug: 'robotx-drone-gripper',
+    title: 'Drone Gripper',
+    tag: 'Mechanical',
+    authors: 'TBA',
+    date: 'TBA 2026',
+    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    description: "Explored the drone gripper system through its Fin Ray finger structure, lead-screw mechanism, and gripping operation.",
+    sections: [
+      {
+        heading: 'Fin Ray Fingers',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: "The gripper uses Fin Ray fingers as a soft-robotic gripping surface. Each finger is printed from flexible TPU with an outer frame and external diagonal ribs. When the target pushes against the finger, the rib structure deforms and causes the finger to wrap around the target instead of simply bending away."
+          },
+          {
+            body:"This passive deformation allows the fingers to adapt to different target shapes and small positioning errors without requiring extra motors, sensors or complex control. The larger contact area also distributes gripping pressure, reducing the risk of the target slipping or being damaged."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/drone-fin-ray-fingers.png', caption: 'Grooves are added to the inner gripping surfaces to increase friction.' },
+            ],
+            body:"The grooves raised edges improve mechanical engagement with the target, while the channels can help displace water from the contact area during wet operation. Groove depth and spacing must still leave enough TPU thickness for the finger to flex without tearing."
+          },
+          {  
+            body: 'Each finger rotates around a fixed pivot point connected to the gripper frame. A second rotating pin connects the finger to a linked bar, while the opposite end of that bar connects to the moving nut carriage.'
+          },
+          {
+            body:"When the motor rotates the lead screw, the flange nut and carriage move linearly. The linked bars push or pull the fingers, causing them to rotate around their fixed pivots and open or close symmetrically. Using equal-length links on both sides helps maintain balanced gripping and prevents one finger from reaching the target before the other."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/software-subsystems/drone-gripper-closed.png' },
+              { src: '/images/robotx2026/software-subsystems/drone-gripper-open.png' },
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'robotx-uuv-pool-test-1',
     title: 'Kraken Pool Test 1',
     tag: 'Vehicle Test',
