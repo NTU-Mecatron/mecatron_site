@@ -96,7 +96,7 @@ const subsystemPages = {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'To manage dual-vehicle complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead. These optimizations, paired with new 3D spatial perception, enable advanced path planning and autonomous navigation.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
         image: '/robosub_2026/software-header.png',
@@ -186,12 +186,19 @@ const vehicleFeatureCarouselImages = {
     ],
     'Navigation and Mission Planning': [
     {
-      src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif',
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-USV.gif',
       caption: 'Autonomous navigation and mission planning.'
     }
     ]
   },
-  kraken: {},
+  kraken: {
+    'Navigation and Mission Planning': [
+    {
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UUV.gif',
+      caption: 'Navigation of UUV.'
+    }
+    ]
+  },
   phoenix: {
     'UnitySim': [
     {
@@ -219,7 +226,7 @@ function getFeatureCarouselImages(vehicleId, sectionTitle) {
 }
 
 function getSharedSoftwareSections(subsystem, vehicleId) {
-  return [
+  const baseSections = [
     {
       title: 'UnitySim',
       description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS, our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
@@ -230,7 +237,7 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
 
       2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
-      imageLayout: ''
+      imageLayout: vehicleId === 'phoenix' ? '' : 'bottom'
     },
     {
       title: 'Spatial Perception',
@@ -266,10 +273,27 @@ function getSharedSoftwareSections(subsystem, vehicleId) {
       • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
       bullets: subsystem.development,
       imageLayout: 'bottom'
-    },
-  ].map((section) => ({
+    }
+  ];
+
+  const krakenOnlySection = vehicleId === 'kraken'
+    ? [{
+        title: 'UUV Localization',
+        description: `GPS is unavailable underwater. Therefore we developed a custom localization filter for the UUV instead of relying solely on the autopilot's internal EKF.
+
+        1) Square-Root Unscented Kalman Filter:
+        Sensors fused: IMU delta-velocity, DVL velocity and pressure depth.
+        Chronological processing. Measurements arrive at different rates (~40, ~12 and ~10 Hz), so they are processed in timestamp order and late messages don't corrupt the estimate.
+
+        2) Autopilot Integration: The estimate goes to ArduPilot as external odometry, so the autopilot's own control loops navigate on it without GPS.`,
+        imageLayout: 'bottom',
+        images: []
+      }]
+    : [];
+
+  return [...baseSections, ...krakenOnlySection].map((section) => ({
     ...section,
-    images: getFeatureCarouselImages(vehicleId, section.title)
+    images: section.images ?? getFeatureCarouselImages(vehicleId, section.title)
   }));
 }
 
