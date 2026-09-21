@@ -1265,25 +1265,40 @@ const robotxPostsRaw = [
   },
   {
     slug: 'robotx-uav-gripper',
-    title: 'Phoenix\'s gripper design',
+    title: 'UAV Gripper Design Explained',
     tag: 'Mechanical',
     authors: 'Ambrose',
     date: 'Sep 2026',
-    image: '/competition/images/RobotX_2026.PNG',
-    description: 'Structural rigging, thruster pod mounts, and sensor mast design for the Poseidon Wave Adaptive Modular Vessel (WAM-V).',
+    image: '/images/robotx2026/uav-blog/fin-ray-fingers.jpg',
+    description: 'In this blog, we explore our UAV, Phoenix\'s, gripper system through its Fin Ray Fingers structure, lead-screw mechanism, and gripping operation.',
     sections: [
       {
-        heading: 'WAM-V Platform & Subsystem Integration',
+        heading: 'Fin Ray Fingers',
         layout: 'blockImageStory',
         blocks: [
           {
-            images: [
-              { src: '/competition/images/RobotX_2026.PNG', caption: 'Mecatron RobotX 2026 vehicle platform' }
-            ],
-            body: 'The Poseidon platform is built around the WAM-V catamaran surface craft, featuring flexible suspension pods designed to absorb wave impact and maintain stability in rough water. Mechanical modifications focus on modularity, payload accessibility, and corrosion-resistant mounting for our navigation sensor mast and deployment mechanisms.'
+            body: "The gripper uses Fin Ray fingers as a soft-robotic gripping surface. Each finger is printed from flexible TPU with an outer frame and external diagonal ribs. When the target pushes against the finger, the rib structure deforms and causes the finger to wrap around the target instead of simply bending away."
           },
           {
-            body: 'Custom CNC-machined and anodized aluminum brackets were designed to secure the main electronics enclosures and waterproof battery cylinders directly to the suspension frame. The thruster mounts accommodate dual high-thrust articulating azimuth pods, enabling precise station-keeping and zero-radius turns in open water.'
+            body:"This passive deformation allows the fingers to adapt to different target shapes and small positioning errors without requiring extra motors, sensors or complex control. The larger contact area also distributes gripping pressure, reducing the risk of the target slipping or being damaged."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/uav-blog/fin-ray-fingers.jpg', caption: 'Grooves are added to the inner gripping surfaces to increase friction.' },
+            ],
+            body:"The grooves raised edges improve mechanical engagement with the target, while the channels can help displace water from the contact area during wet operation. Groove depth and spacing must still leave enough TPU thickness for the finger to flex without tearing."
+          },
+          {  
+            body: 'Each finger rotates around a fixed pivot point connected to the gripper frame. A second rotating pin connects the finger to a linked bar, while the opposite end of that bar connects to the moving nut carriage.'
+          },
+          {
+            body:"When the motor rotates the lead screw, the flange nut and carriage move linearly. The linked bars push or pull the fingers, causing them to rotate around their fixed pivots and open or close symmetrically. Using equal-length links on both sides helps maintain balanced gripping and prevents one finger from reaching the target before the other."
+          },
+          {
+            images: [
+              { src: '/images/robotx2026/uav-blog/uav-gripper-frame-closed.png', caption: 'The fingers are fully closed, ready to grip a target.' },
+              { src: '/images/robotx2026/uav-blog/uav-gripper-frame-open.png', caption: 'The fingers are fully open, ready to release a target.' },
+            ]
           }
         ]
       }
