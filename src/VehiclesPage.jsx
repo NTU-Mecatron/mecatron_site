@@ -21,6 +21,35 @@ export default function VehiclesPage() {
       {/* Vehicles Content Container */}
       <div className="w-full">
 
+        {/* Poseidon Section */}
+        <VehicleDescription
+          title="Poseidon 2026"
+          description="Poseidon 2026 is our latest innovation in underwater robotics. Designed for maximum efficiency and performance, Poseidon features a sleek design and advanced capabilities."
+          linkTo="/poseidon"
+          highlightBg={true}
+          modelType="poseidon"
+          modelScale={[1.5, 1.5, 1.5]}
+          tags={[
+            "Topology Optimization",
+            "Modular Frame Design",
+            "Symmetric 8-thruster Configuration"
+          ]}
+        />
+
+        {/* Phoenix Section */}
+        <VehicleDescription
+          title="Phoenix 2026"
+          description="Phoenix 2026 is our latest innovation in underwater robotics. Designed for maximum efficiency and performance, Phoenix features a sleek design and advanced capabilities."
+          linkTo="/phoenix"
+          modelType="phoenix"
+          modelScale={[1.5, 1.5, 1.5]}
+          tags={[
+            "Topology Optimization",
+            "Modular Frame Design",
+            "Symmetric 8-thruster Configuration"
+          ]}
+        />
+
         {/* Hydra Section */}
         <VehicleDescription
           title="Hydra 2026"
