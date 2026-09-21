@@ -1,7 +1,7 @@
 const defaultSections = (post) => [
   {
     heading: 'Overview',
-    body: `${post.title} is part of Mecatron's RoboSub 2026 development work. Use this section to introduce the subsystem, the problem it solves, and the design direction behind it.`
+    body: `${post.title} is part of Mecatron's ${post.competition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026'} development work. Use this section to introduce the subsystem, the problem it solves, and the design direction behind it.`
   },
   {
     heading: 'Development Notes',
@@ -13,7 +13,7 @@ const defaultSections = (post) => [
   }
 ];
 
-const posts = [
+const robosubPostsRaw = [
   {
     slug: 'interim-vehicle',
     title: 'Building the Interim Vehicle',
@@ -1041,11 +1041,6 @@ const posts = [
   }
 ];
 
-<<<<<<< Updated upstream
-const robosubPosts = posts.map((post) => ({
-  ...post,
-  competition: 'robosub2026'
-=======
 // =============================================================================
 // ROBOTX 2026 BLOG POSTS
 // Add RobotX-specific posts here. Each post should have:
@@ -1386,13 +1381,11 @@ const robotxPostsRaw = [
 const robosubPosts = robosubPostsRaw.map((post) => ({
   competition: 'robosub2026',
   ...post
->>>>>>> Stashed changes
 }));
 
-const robotxPosts = posts.map((post) => ({
-  ...post,
-  slug: `robotx-${post.slug}`,
-  competition: 'robotx2026'
+const robotxPosts = robotxPostsRaw.map((post) => ({
+  competition: 'robotx2026',
+  ...post
 }));
 
 export const blogPosts = [...robosubPosts, ...robotxPosts].map((post) => ({
@@ -1407,5 +1400,6 @@ export const blogPosts = [...robosubPosts, ...robotxPosts].map((post) => ({
 export const tagStyles = {
   Mechanical: 'border-orange-300/40 bg-orange-400/15 text-orange-100',
   Electrical: 'border-sky-300/40 bg-sky-400/15 text-sky-100',
-  Software: 'border-emerald-300/40 bg-emerald-400/15 text-emerald-100'
+  Software: 'border-emerald-300/40 bg-emerald-400/15 text-emerald-100',
+  'Vehicle Test': 'border-purple-300/40 bg-purple-400/15 text-purple-100'
 };
