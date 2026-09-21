@@ -1060,7 +1060,7 @@ const robotxPostsRaw = [
     tag: 'Mechanical',
     authors: 'TBA',
     date: 'TBA 2026',
-    image: '/images/robotx2026/software-subsystems/software-header.jpg',
+    image: '/images/robotx2026/software-subsystems/drone-gripper-closed.png',
     description: "Explored the drone gripper system through its Fin Ray finger structure, lead-screw mechanism, and gripping operation.",
     sections: [
       {
