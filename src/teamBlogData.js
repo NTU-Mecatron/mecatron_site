@@ -1065,7 +1065,7 @@ const robotxPostsRaw = [
     sections: [
       {
         heading: 'Objectives of the First Dip',
-        body: 'The maiden pool test served as an essential baseline check:',
+        body: 'The maiden pool test served as an essential baseline check',
         layout: 'sideImageAccordion',
         images: [
           {
