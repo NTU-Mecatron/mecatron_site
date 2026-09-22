@@ -44,15 +44,10 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility. A higher power budget supports our latest applications demands, smart capabilities enable advanced monitoring and precise control, and a modular design allows seamless customization and scalability as system needs evolve.',
-        highlights: [
-          'Organized signal and power paths to reduce service confusion',
-          'Sensor placement planned around cameras, navigation, and task payloads',
-          'Electronics access designed for faster debugging between on-water runs',
-          'Integration support for dropper, gripper, and vehicle feedback systems'
-        ],
+          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+        highlights: [],
         development: [],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/competition/images/robotx-all-vehicles.jpg',
       },
     }
   },
@@ -105,19 +100,14 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility. A higher power budget supports our latest applications demands, smart capabilities enable advanced monitoring and precise control, and a modular design allows seamless customization and scalability as system needs evolve.',
-        highlights: [
-          'Organized signal and power paths to reduce service confusion',
-          'Sensor placement planned around cameras, navigation, and task payloads',
-          'Electronics access designed for faster debugging between pool runs',
-          'Integration support for dropper, gripper, and vehicle feedback systems'
-        ],
+          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+        highlights: [],
         development: [
           'Map electronics placement against mechanical access zones',
           'Prepare wiring routes for cameras, navigation sensors, and actuators',
           'Run bench checks before full vehicle integration'
         ],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/competition/images/robotx-all-vehicles.jpg',
       },
     }
   },
@@ -161,14 +151,10 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'High-density battery power distribution and flight controller electronics delivering clean power to motors, radios, and onboard companion computers.',
-        highlights: [
-          'High-discharge battery management and telemetry',
-          'Regulated power rails for companion compute and transmission systems',
-          'Fail-safe return-to-base and power monitoring'
-        ],
+          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+        highlights: [],
         development: [],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/competition/images/robotx-all-vehicles.jpg',
       },
     }
   }
@@ -527,66 +513,56 @@ function getKrakenMechanicalSections() {
   ];
 }
 
-function getSharedElectricalSections() {
+function getSharedElectricalSections(vehicleId) {
   return [
     {
-      title: 'Battery Management System (BMS)',
-      description: 'ReRoute is a custom BMS engineered with a multi‑layer, hardware‑first safety architecture to keep the battery permanently within its safe operating zone. It combines a physical fuse for catastrophic fault protection with a resettable soft fuse using precision current sensing and comparator‑based cutoff. Dedicated hardware overvoltage and undervoltage protection, including undervoltage lockout, continuously monitors battery limits and enforces immediate disconnection when thresholds are exceeded. All critical protections are implemented in analog hardware, delivering fast, deterministic, and fail‑safe battery protection for high‑reliability applications.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/bms1.png',
-          caption: 'Render of ReRoute BMS PCB.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/bms2.png',
-          caption: 'Testing of ReRoute BMS PCB.'
-        },
+      title: 'Fleet-Wide Electrical Architecture',
+      description: 'The fleet separates computing and sensing loads from actuation loads so each power path can be designed for its own operating profile. The Compute Electrical Subsystem (CESS) supplies sensors, single-board computers, and compute nodes with continuous, low-current power (approximately 8 A). The Actuation Electrical Subsystem (AESS) supplies thrusters, servos, pumps, and motors, and is designed for short, high-current transients (approximately 40 A).',
+      bullets: [
+        'Separate CESS and AESS power paths help contain actuator noise and keep compute power predictable.',
+        'Shared electrical principles are adapted to each vehicle’s power, mass, thermal, and mission constraints.'
       ]
     },
     {
-      title: 'Power Distribution Unit (PDU)',
-      description: 'The PDUC is a modular power distribution board is designed for high‑power applications where scalability, visibility, and flexibility are critical. Supporting a higher overall power budget, it features an expandable architecture that allows power channels to be added or tailored to system needs, while integrated monitoring provides real‑time insight into system performance and health. The board can be configured for both Actuator Electrical Subsystem (AESS) and Compute Electrical Subsystem (CESS) architectures, making it adaptable across different energy storage and system designs. Built for reliability and control, it delivers a robust foundation for demanding power distribution environments.',
-      bullets: [],
-      imageLayout: 'comparison',
+      title: 'Safety, Protection & Modular Electronics',
+      description: 'Custom battery management systems combine hardware and software protection to help keep cells within safe operating limits. Protections include over-current protection (OCP), over-voltage protection (OVP), and under-voltage lockout (UVLO). A dual-failsafe kill system combines an onboard mechanical E-Stop with a wireless remote. The remote sends heartbeats to an onboard microcontroller; a lost heartbeat, detected fault, or switch press drives the buffer-enable line LOW so the Load Switch PCB isolates actuator power.',
+      bullets: [
+        'Standardized PDU, Load Switch, Safety System, and BMS boards use modular footprints.',
+        'Boards are tested to their rated currents and mounted on modular trays for maintenance and field swapping.'
+      ],
       images: [
-        
+        { src: '/images/robosub2026/electrical-subsystems/bms1.png', caption: 'Custom battery management system PCB.' },
+        { src: '/images/robosub2026/electrical-subsystems/bms2.png', caption: 'Battery management system validation.' }
       ]
     },
-    {
-      title: "Sensors & Functionality",
-      description: 'Sensory feedback transforms our robot from a pre-programmed machine into an adaptable system capable of reacting to field variables, verifying mechanism states, and executing consistent autonomous actions. ',
-      bullets: ["Vectornav : Identify positioning such as orientation & velocity of the vehicle", "Doppler Velocity Log: Track exact velocity & position from the pool floor "],
-      images: [
-        {
-          
-        }
+    ...(vehicleId === 'poseidon' ? [{
+      title: 'Poseidon · USV Power & Payloads',
+      description: 'Poseidon uses Power System Architecture A, with independent battery paths for CESS and AESS to extend compute runtime and isolate high-current propulsion noise. A dedicated 6S 12,500 mAh solid-state battery powers CESS, providing approximately twice the compute endurance of a standard 4S LiPo alternative. Power and electronics are distributed across two modular side hulls and a central aluminum enclosure; each side hull carries a 6S LiPo battery and custom BMS for propulsion.',
+      bullets: [
+        'High-current switching and drive logic support the 2-DOF water-shooter pump and planetary-gear actuation.',
+        'Conditioned and filtered sensor rails serve the dual-antenna RTK-GPS, Ouster LiDAR, and camera gimbal systems.'
       ]
-    },
-    {
-      title: 'Network & Communication',
-      description: 'The Uninterrupted Power Supply (UPS) is intergrated into the system to smooth voltage fluctuations and prevent any power interruptions. It is specially engineered to power the Power Line Communication, PoE switch, senses and computer. The UPS helps to eliminate unexpected system crashes, critical data loss and hardware downtime during power disruptions.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics1.jpg',
-          caption: 'Hydrophone array bench test.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics2.png',
-          caption: 'Hydrophone mounting setup.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics3.png',
-          caption: 'Acoustics software architecture.'
-        }
+    }] : []),
+    ...(vehicleId === 'kraken' ? [{
+      title: 'Kraken · UUV Power & Subsea Integration',
+      description: 'Kraken uses Power System Architecture B, with an ideal-diode OR-ing stage between its battery sources. Identical battery cylinders sit beneath the port and starboard sides to balance the center of gravity and hydro-trim. The OR-ing arrangement allows a battery to be exchanged while compute remains powered. Electrical components are packaged in a custom rectangular aluminum enclosure; the aluminum hull transfers heat from high-power boards to the surrounding water.',
+      bullets: [
+        'Dedicated power rails help isolate the DVL, pressure-depth sensors, and IMU from thruster transient spikes.',
+        'Symmetric battery placement supports vehicle balance while enabling rapid turnaround between runs.'
       ]
-    }
-    ,
+    }] : []),
+    ...(vehicleId === 'phoenix' ? [{
+      title: 'Phoenix · UAV Power & Flight Safety',
+      description: 'Phoenix prioritizes low mass and uninterrupted flight actuation. Its compact PDU uses small SMD components and integrated solid-copper busbars to carry peak current while reducing board mass and footprint. Because cutting motor power during flight could cause a fall, Phoenix AESS bypasses the Load Switch, OCP, OVP, and UVLO paths so motors can remain powered through voltage sag; CESS retains OCP protection.',
+      bullets: [
+        'Dedicated regulated rails and servo drivers power the linear lead-screw Fin-Ray gripper.',
+        'Filtered power supports dual-antenna RTK navigation for precise heading during airborne surveillance and payload deployment.'
+      ]
+    }] : []),
     {
-      title: 'Power Composite',
-      description: 'The whole robot system runs on 4s/6s  lithium-ion polymer batteries. The voltage for 4s batteries ranges from 14.8 to 16.8V and 22.2 to 25.2V for 6s batteries.',
-      
+      title: 'Shore Infrastructure · Ground Support',
+      description: 'The shore-side UPS uses an 8S battery topology to power the Operator Control Station (OCS), PoE switch, Power Line Communication (PLC), and telemetry. Its higher input rail lets efficient buck regulators step down power for ground equipment, reducing heat and helping keep switching noise away from communications channels.',
+      bullets: []
     }
   ];
 }
@@ -601,7 +577,7 @@ function getContentSections(vehicle, subsystem, vehicleId, subsystemId) {
   } else if (subsystemId === 'mechanical') {
     sections = getPoseidonMechanicalSections();
   } else if (subsystemId === 'electrical') {
-    sections = getSharedElectricalSections();
+    sections = getSharedElectricalSections(vehicleId);
   } else {
     sections = getSharedSoftwareSections(subsystem, vehicleId);
   }

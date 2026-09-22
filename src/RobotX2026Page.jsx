@@ -27,15 +27,14 @@ const krakenSoftwareFeature = {
 const sharedElectricalFeature = {
   title: 'Electrical',
   tag: 'Electrical',
-  description: 'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility.',
+  description: 'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
   details: [
-    'Battery Management System (BMS)',
-    'Power Distribution Unit (PDU)',
-    'Sensors & Functionality',
-    'Network & Communication',
-    'Power Composite',
+    'Fleet-wide CESS and AESS architecture',
+    'Battery and actuator safety systems',
+    'Poseidon, Kraken, and Phoenix power designs',
+    'Shore-side UPS and ground support',
   ],
-  image: '/robosub_2026/electrical-header.png',
+  image: '/competition/images/robotx-all-vehicles.jpg',
 };
 
 const vehicleTabs = {
