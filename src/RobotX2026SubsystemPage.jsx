@@ -379,8 +379,8 @@ function getPoseidonMechanicalSections() {
 function getPhoenixMechanicalSections() {
   return [
     {
-      title: 'Airframe & Rotor Configuration',
-      description: 'Phoenix features a high-efficiency multi-rotor layout optimized for aerial stability, endurance, and quick deployment from the surface vessel.',
+      title: 'Frame & Mounts',
+      description: 'Phoenix uses a carbon-fibre frame and lightweight printed mounts to limit structural and integration mass. The mounts are printed with low infill to reduce their contribution to the vehicle’s weight. This approach makes mass reduction an explicit consideration in the integration of onboard components, rather than treating mounting hardware as an unconstrained addition. ',
       bullets: [],
       imageLayout: 'comparison',
       images: [
@@ -395,7 +395,7 @@ function getPhoenixMechanicalSections() {
       ]
     },
     {
-      title: 'Mass Optimization',
+      title: 'Flexible TPU Gripper',
       description: 'Using carbon fiber composite materials and generative structure design, the airframe minimizes empty weight to maximize battery flight endurance and payload carrying capacity.',
       bullets: [],
       images: [
@@ -406,8 +406,8 @@ function getPhoenixMechanicalSections() {
       ]
     },
     {
-      title: 'Modular Frame Design',
-      description: 'Designed with quick-release arms and swappable sensor mounts for fast maintenance and convenient transport during competition trials.',
+      title: 'Hassle-free Protective Cover',
+      description: 'A protective cover is intended to shield onboard components from water exposure and debris during unexpected operating conditions. Its integration must be considered alongside the UAV’s mass constraints and access requirements, so that protection does not unnecessarily complicate maintenance.',
       bullets: [],
       images: [
         {
