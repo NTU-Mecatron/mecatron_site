@@ -24,8 +24,9 @@ const sharedElectricalFeature = {
   details: [
     'Battery Management System (BMS)',
     'Power Distribution Unit (PDU)',
-    'Actuator Board',
-    'Acoustics',
+    'Sensors & Functionality',
+    'Network & Communication',
+    'Power Composite',
   ],
   image: '/robosub_2026/electrical-header.png',
 };
