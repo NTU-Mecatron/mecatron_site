@@ -1367,25 +1367,39 @@ const robotxPostsRaw = [
   },
   {
     slug: 'robotx-sw-unity-simulation',
-    title: 'Unity simulation for RobotX',
+    title: 'Unity Simulation for RobotX',
     tag: 'Software',
     authors: 'Jia Qian',
-    date: 'Aug 2026 - Sep 2026',
-    image: '/competition/images/competition_img_2.jpg',
-    description: 'Field notes and telemetry evaluation from our first full-scale open-water testing session with the Poseidon WAM-V surface craft.',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/software-subsystems/unitysim-UAV.png',
+    description: "How Mecatron's Unity simulation lets us test controls, navigation, and perception across the RobotX fleet without setting up the physical vehicles every time, and how we keep it efficient enough to run on a wide range of hardware.",
     sections: [
       {
-        heading: 'Open-Water Test Objectives',
-        layout: 'blockImageStory',
-        blocks: [
+        heading: 'Unity Simulation',
+        layout: 'subsectionImageGrid',
+        subsections: [
           {
+            title: 'Why Simulate',
+            body: 'The Unity simulation is used to test various aspects of the robotics software, such as controls, navigation, and perception, without setting up the physical vehicle every time. It simulates real world visuals using the same STL models for buildings and vehicles, and the same water color and murkiness, which lets perception test the vision model without going to the physical location. It also simulates water and air physics to help us tune controls better, and simulates comms, including ROS2, MAVROS, and ArduPilot, and how the vehicle would receive data such as IMU, camera, and DVL measurements.',
             images: [
-              { src: '/competition/images/competition_img_2.jpg', caption: 'Poseidon USV deployment during open-water trials' }
-            ],
-            body: 'Our primary goal for this on-water trial was validating thruster authority, emergency kill-switch responsiveness, and closed-loop GPS waypoint tracking on the full-scale WAM-V hull. Weather conditions provided mild surface chop, offering ideal validation data for our heading controllers.'
+              { src: '/images/navigation-usv-foxglove.jpg', caption: 'UnitySim visualization of UAV deployment.' }
+            ]
           },
           {
-            body: 'Telemetry confirmed reliable station-keeping within a 0.5-meter radius and smooth heading transitions during dynamic waypoint execution. Marine safety systems responded flawlessly during manual and wireless E-Stop verification tests.'
+            title: 'Reusing the Existing Foundation',
+            body: "Since the foundation was already developed by past members, it makes it easier to reuse former base classes to build new things. For example, we reused the mount control that was originally used for the gimbal to instead control the water shooter's pitch and yaw, and we reused the set trigger service that was used for the torpedo to instead control the dropper."
+          },
+          {
+            title: 'Adding New Vehicle Features',
+            body: 'Adding a new vehicle feature usually means going into the codebase to find a script with a similar function, then adapting it to fit the new feature. If the feature is new and nothing similar exists, we instead create a similarly abstract, expandable system that can be reused in the future. For example, the LED toggle script was written generally enough that it now covers Tasks 1, 2, and 3, and can be reused for future tasks as well.'
+          },
+          {
+            title: 'Performance Considerations',
+            body: "Another consideration is the performance of the simulator itself. It is already resource intensive, since it needs to manage publishing and subscription for three different vehicles as well as the calculations for realistic graphics and physics, so every feature we implement needs to be as efficient as possible. Instead of spamming a large number of water particles, each with collision, to simulate the water shooter hitting the Task 3 target, it's better to just cast a ray that simulates where the water would hit.",
+            images: [
+              { src: '/images/usv-performance-considerations.jpg', caption: 'Performance considerations visualized.' }
+            ]
+
           }
         ]
       }
