@@ -1056,11 +1056,11 @@ const robosubPostsRaw = [
 const robotxPostsRaw = [
     {
     slug: 'uuv-new-frame-2026',
-    title: 'Aluminium frame redesign (Kraken UUV)',
+    title: 'UUV: Aluminium Frame Redesign for Kraken',
     tag: 'Mechanical',
     authors: 'Muresh',
     date: 'Sep 2026',
-    image: '/images/robosub2026/mechanical-subsystems/torpedo1.png',
+    image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
     description: 'Redesigning the Kraken UUV frame to improve strength, durability, and ease of maintenance through a lightweight aluminium structure.',
     sections: [
       {
@@ -1081,11 +1081,6 @@ const robotxPostsRaw = [
                 body: 'We switched the material to aluminium, which would give us a much stronger and more durable frame that could handle repeated handling, testing and vibration. '
               },
             ],
-            images: [
-              {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
-              }
-            ]
           },
           {
             title: 'Balance between Weight and Strength',
@@ -1096,7 +1091,7 @@ const robotxPostsRaw = [
             ],
             images: [
               {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo-v1.png',
+                src: '/images/robotx2026/uuv-blog/uuv-frame-design-2.jpg',
               }
             ]
           },
@@ -1114,11 +1109,6 @@ const robotxPostsRaw = [
                 body: 'Leave the AUV heavier than necessary, which affects its buoyancy and how much thrust it needs to manoeuvre.'
               }
             ],
-            images: [
-              {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo1.png'
-              }
-            ]
           },
           {
             title: 'Optimization for Serviceability',
@@ -1134,11 +1124,6 @@ const robotxPostsRaw = [
                 body: 'We arranged the layout, which allows key components to be reached, removed and reinstalled individually without dismantling everything around them. This means repairs, part swaps and upgrades between test runs take much less time.'
               },
             ],
-            images: [
-              {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
-              }
-            ]
           },
           {
             title: 'Optimization for Assembly',
@@ -1147,11 +1132,6 @@ const robotxPostsRaw = [
             details: [
               
             ],
-            images: [
-              {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
-              }
-            ]
           },
           {
             title: 'Improvement in Ergonomics',
@@ -1165,7 +1145,7 @@ const robotxPostsRaw = [
             ],
             images: [
               {
-                src: '/images/robosub2026/mechanical-subsystems/torpedo2025.png',
+                src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
               }
             ]
           },
