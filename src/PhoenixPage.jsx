@@ -438,7 +438,7 @@ function PhoenixPage() {
           to="/robosub2026"
           className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
           >
-          View our RoboSub 2026 Development
+          View our RobotX 2026 Development
           </Link>
           </div>
           </div>

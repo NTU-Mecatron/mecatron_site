@@ -110,16 +110,16 @@ const vehicleTabs = {
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Hydra 2026 is an upgraded version of Lucy 2025, with an updated thruster configuration, improved frame through topology optimization, and greater design modularity.',
+        description: 'Phoenix 2026 features a lightweight airframe engineered for agile flight, stable hovering, and reliable aerial payload deployment.',
         details: [
-          '8-Thruster Configuration',
-          'Mass Optimization',
-          'Modular Frame Design',
-          'Dropper',
-          'Gripper'
+          'Carbon-Fibre Frame',
+          'Unity Simulation',
+          'BT-Based Mission Planning',
+          'TPU Gripper',
+          'Double Capacity with Longer Distance'
         ], 
         subpage: '/phoenix/mechanical',
-        image: '/robosub_2026/mechanical-hydra-header.png',
+        image: '/robosub_2026/staging_test.jpg',
       },
       {
         ...sharedElectricalFeature,
