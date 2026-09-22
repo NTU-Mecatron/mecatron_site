@@ -1060,7 +1060,7 @@ const robotxPostsRaw = [
     tag: 'Vehicle Test',
     authors: 'Riley',
     date: 'Sep 2026',
-    image: '/images/robotx2026/uuv-blog/uuv-18sep-pool-1.jpg',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-2-header.png',
     description: "Passing the Proof-of-Readiness (POR) milestone requires proving not only that Poseidon USV can navigate autonomously, but that it is fundamentally safe, resilient, and competition-compliant. Filming our POR submission meant showcasing two core capabilities: rock-solid safety interlocks and clean autonomous navigation through the gate.",
     sections: [
       {
@@ -1069,7 +1069,7 @@ const robotxPostsRaw = [
         layout: 'sideImageAccordion',
         images: [
           {
-            src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
+            src: '/images/robotx2026/usv-blog/usv-pool-test-2-body.png',
           }
         ],
         items: [
@@ -1116,7 +1116,7 @@ const robotxPostsRaw = [
         body: 'With safety verified, Poseidon lined up for the headline event: the autonomous navigation demo. Starting 3 meters behind the entry gate, the USV initiated full autonomous mode, lined up its path, and cleared both sets of gates cleanly without touching a single buoy. Capturing this on film was a massive milestone for the team—validating our mechanical redesigns, electrical isolation, and control loops in one unified run. Poseidon is officially ready for the field!',
         images: [
           {
-            src: '/images/robotx2026/uuv-blog/uuv-18sep-control-tuning.jpg',
+            src: '/images/robotx2026/usv-blog/usv-pool-test-2-end.png',
             caption: ''
           }
         ]
