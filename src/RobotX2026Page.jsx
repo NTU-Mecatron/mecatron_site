@@ -27,15 +27,14 @@ const krakenSoftwareFeature = {
 const sharedElectricalFeature = {
   title: 'Electrical',
   tag: 'Electrical',
-  description: 'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility.',
+  description: 'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
   details: [
-    'Battery Management System (BMS)',
-    'Power Distribution Unit (PDU)',
-    'Sensors & Functionality',
-    'Network & Communication',
-    'Power Composite',
+    'Fleet-wide CESS and AESS architecture',
+    'Battery and actuator safety systems',
+    'Poseidon, Kraken, and Phoenix power designs',
+    'Shore-side UPS and ground support',
   ],
-  image: '/robosub_2026/electrical-header.png',
+  image: '/competition/images/robotx-all-vehicles.jpg',
 };
 
 const vehicleTabs = {
@@ -49,16 +48,15 @@ const vehicleTabs = {
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Poseidon 2026 is an upgraded version of Lucy 2025, with an updated thruster configuration, improved frame through topology optimization, and greater design modularity.',
+        description: 'Poseidon pairs a catamaran hull with a shared four-thruster marine layout, a two-axis water shooter, and an elevated sensor deck.',
         details: [
-          '8-Thruster Configuration',
-          'Mass Optimization',
-          'Modular Frame Design',
-          'Dropper',
-          'Gripper'
+          'Shared marine propulsion layout',
+          'Catamaran hull and deck structure',
+          '2-DOF water shooter',
+          'Sensor deck and rigging'
         ], 
         subpage: '/poseidon/mechanical',
-        image: '/robosub_2026/mechanical-hydra-header.png',
+        image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
       },
       {
         ...sharedElectricalFeature,
@@ -80,16 +78,16 @@ const vehicleTabs = {
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION. I WANT TO EDIT THIS DESCRIPTION.',
+        description: 'Kraken combines the shared four-thruster marine layout with a modular aluminum frame, a heat-conducting rectangular electronics enclosure, balanced underside battery cylinders, and a compliant magnetic probe for Task 2.',
         details: [
-          '8-Thruster Configuration',
-          'Acrylic Skeletal Frame',
-          'Hydrodynamics Optimization',
-          'CNC Aluminum Electronics Enclosure Box',
-          'Torpedo'
+          'Shared marine propulsion layout',
+          'Modular aluminum frame',
+          'Rectangular electronics enclosure',
+          'Twin underside battery cylinders',
+          'Spring-loaded magnetic probe for Task 2'
         ],
         subpage: '/robotx/kraken/mechanical',
-        image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg'
+        image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg'
       },
       {
         ...sharedElectricalFeature,
@@ -111,16 +109,15 @@ const vehicleTabs = {
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Phoenix 2026 features a lightweight airframe engineered for agile flight, stable hovering, and reliable aerial payload deployment.',
+        description: 'Phoenix uses a mass-optimized carbon-fibre airframe and a single-servo lead-screw gripper with compliant Fin-Ray fingers to handle payloads in flight.',
         details: [
-          'Carbon-Fibre Frame',
-          'Unity Simulation',
-          'BT-Based Mission Planning',
-          'TPU Gripper',
-          'Double Capacity with Longer Distance'
+          'Airframe and mass optimization',
+          'Single-servo lead-screw gripper',
+          'Compliant Fin-Ray fingers',
+          'Protective aerodynamic canopy'
         ], 
         subpage: '/phoenix/mechanical',
-        image: '/robosub_2026/staging_test.jpg',
+        image: '/images/robotx2026/uav-blog/fin-ray-fingers.jpg',
       },
       {
         ...sharedElectricalFeature,
