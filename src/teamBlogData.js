@@ -1055,6 +1055,75 @@ const robosubPostsRaw = [
 // =============================================================================
 const robotxPostsRaw = [
   {
+    slug: 'robotx-usv-pool-test-2',
+    title: 'Filming Proof-of-Readiness – Safety Verification & Autonomous Runs',
+    tag: 'Vehicle Test',
+    authors: 'Riley',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/uuv-blog/uuv-18sep-pool-1.jpg',
+    description: "Passing the Proof-of-Readiness (POR) milestone requires proving not only that Poseidon USV can navigate autonomously, but that it is fundamentally safe, resilient, and competition-compliant. Filming our POR submission meant showcasing two core capabilities: rock-solid safety interlocks and clean autonomous navigation through the gate.",
+    sections: [
+      {
+        heading: 'Engineering a Fail-Safe E-Stop System',
+        body: 'A major component of POR is demonstrating reliable onboard (wired) and remote (wireless) kill-switch operation. During our preparation, our safety architecture underwent a critical redesign',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
+          }
+        ],
+        items: [
+          {
+            title: 'Enchancing Safety',
+            details: [
+              {
+                label: 'Moving Away from Microcontroller-Dependent Safety',
+                body: 'Originally, we routed both E-stops through an ESP32-S3 microcontroller to handle the AND logic (where system power requires both switches to be un-pressed). However, relying on software or MCU firmware for a safety-critical kill switch introduces potential failure points if the MCU freezes or encounters a brownout.'
+              }
+            ]
+          },
+          {
+            title: 'Physical Safety Measures',
+            details: [
+              {
+                label: 'Hardware-Level Switching',
+                body: 'In line with industry safety standards, we transitioned the safety system to dedicated physical switches and hardware logic.'
+              }
+            ]
+          },
+          {
+            title: 'Electrical Improvements',
+            details: [
+              {
+                label: 'Optocoupler Isolation',
+                body: 'We replaced standard relays with optocouplers to cleanly isolate grounds between sensitive control electronics and higher-power actuation lines, eliminating electrical noise while guaranteeing immediate cutoff.'
+              }
+            ]
+          },
+          {
+            title: 'Fail-Safe',
+            details: [
+              {
+                label: 'Fail-Safe Behavior',
+                body: 'If either switch is engaged—or if RF connection from the handheld transmitter drops—the propulsion system immediately cuts power. During the video shoot, Scott ran through this full test sequence: toggling onboard switches, hitting the remote kill switch, and verifying that the visual feedback indicators switched accurately between autonomous, manual, and kill states.'
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Nailing the Autonomous Demonstration',
+        body: 'With safety verified, Poseidon lined up for the headline event: the autonomous navigation demo. Starting 3 meters behind the entry gate, the USV initiated full autonomous mode, lined up its path, and cleared both sets of gates cleanly without touching a single buoy. Capturing this on film was a massive milestone for the team—validating our mechanical redesigns, electrical isolation, and control loops in one unified run. Poseidon is officially ready for the field!',
+        images: [
+          {
+            src: '/images/robotx2026/uuv-blog/uuv-18sep-control-tuning.jpg',
+            caption: ''
+          }
+        ]
+      },
+    ]
+  },
+  {
     slug: 'robotx-uuv-pool-test-1',
     title: 'Our First UUV Pool Test',
     tag: 'Vehicle Test',
