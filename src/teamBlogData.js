@@ -1060,7 +1060,7 @@ const robotxPostsRaw = [
     tag: 'Vehicle Test',
     authors: 'Riley',
     date: 'Sep 2026',
-    image: '/images/robotx2026/uuv-blog/uuv-18sep-pool-1.jpg',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-1-header.jpg',
     description: "Before sending an autonomous boat to navigate gates and execute complex missions, you have to answer the most fundamental questions of all: Does it float, does it balance, and can it move forward without veering off course? For Poseidon USV’s first splash, we stripped away the high-level autonomy stack to focus strictly on physical and hydrodynamic validation.",
     sections: [
       {
@@ -1069,7 +1069,7 @@ const robotxPostsRaw = [
         layout: 'sideImageAccordion',
         images: [
           {
-            src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-objectives.png',
           }
         ],
         items: [
@@ -1107,7 +1107,7 @@ const robotxPostsRaw = [
         body: 'Putting Poseidon in the water early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. With buoyancy confirmed, waterlines checked, and basic propulsion verified, the platform proved ready for the next phase: full system integration, safety compliance, and autonomous testing.',
         images: [
           {
-            src: '/images/robotx2026/uuv-blog/uuv-18sep-control-tuning.jpg',
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-end.png',
             caption: ''
           }
         ]
