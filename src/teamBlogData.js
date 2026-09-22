@@ -1382,7 +1382,7 @@ const robotxPostsRaw = [
             title: 'Why Simulate',
             body: 'The Unity simulation is used to test various aspects of the robotics software, such as controls, navigation, and perception, without setting up the physical vehicle every time. It simulates real world visuals using the same STL models for buildings and vehicles, and the same water color and murkiness, which lets perception test the vision model without going to the physical location. It also simulates water and air physics to help us tune controls better, and simulates comms, including ROS2, MAVROS, and ArduPilot, and how the vehicle would receive data such as IMU, camera, and DVL measurements.',
             images: [
-              { src: '/images/navigation-usv-foxglove.jpg', caption: 'UnitySim visualization of UAV deployment.' }
+              { src: '/images/navigation-usv-foxglove.jpg', caption: 'UnitySim visualization of USV deployment.' }
             ]
           },
           {
@@ -1395,9 +1395,10 @@ const robotxPostsRaw = [
           },
           {
             title: 'Performance Considerations',
-            body: "Another consideration is the performance of the simulator itself. It is already resource intensive, since it needs to manage publishing and subscription for three different vehicles as well as the calculations for realistic graphics and physics, so every feature we implement needs to be as efficient as possible. Instead of spamming a large number of water particles, each with collision, to simulate the water shooter hitting the Task 3 target, it's better to just cast a ray that simulates where the water would hit.",
+            body: "Simulator performance and frame rate (FPS) were major priorities during development. As the environment is already computationally heavy, every new feature had to be strictly optimized to prevent severe frame drops on lower-spec machines. Instead of using high-overhead methods like generating dense water particle systems with individual collision checks to simulate Task 3’s water shooting, we are exploring the use of a raycasting approach. This captures the target hit accurately while keeping frame rates smooth and simulation lag minimal across all team hardware.",
             images: [
-              { src: '/images/usv-performance-considerations.jpg', caption: 'Performance considerations visualized.' }
+              { src: '/images/robotx2026/software-subsystems/unity-sim-original-fps.gif', caption: 'Original Unity simulation FPS performance, lag observed' },
+              { src: '/images/robotx2026/software-subsystems/unity-sim-higher-fps.gif', caption: 'Optimized Unity simulation FPS performance, smoother playback' }
             ]
 
           }
