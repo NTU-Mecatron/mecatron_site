@@ -550,34 +550,22 @@ function getSharedElectricalSections() {
       bullets: [],
       imageLayout: 'comparison',
       images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/pduc-archi.png',
-          caption: 'PDUC overall architecture.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/cess-render.png',
-          caption: 'Render of CESS PDUC.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/aess-render.png',
-          caption: 'Render of AESS PDUC.'
-        },
+        
       ]
     },
     {
-      title: 'Actuator Board',
-      description: 'The Actuator Board manages high-load task mechanisms including marker droppers, torpedo launchers, and robotic grippers with precision timing and isolated power switching.',
-      bullets: [],
+      title: "Sensors & Functionality",
+      description: 'Sensory feedback transforms our robot from a pre-programmed machine into an adaptable system capable of reacting to field variables, verifying mechanism states, and executing consistent autonomous actions. ',
+      bullets: ["Vectornav : Identify positioning such as orientation & velocity of the vehicle", "Doppler Velocity Log: Track exact velocity & position from the pool floor "],
       images: [
         {
-          src: '/images/robosub2026/electrical-subsystems/bms2.png',
-          caption: 'Actuator testing.'
+          
         }
       ]
     },
     {
-      title: 'Acoustics',
-      description: 'Hydrophone signal processing and acoustic pinger tracking module delivering robust bearing and range estimates in reflective aquatic environments.',
+      title: 'Network & Communication',
+      description: 'The Uninterrupted Power Supply (UPS) is intergrated into the system to smooth voltage fluctuations and prevent any power interruptions. It is specially engineered to power the Power Line Communication, PoE switch, senses and computer. The UPS helps to eliminate unexpected system crashes, critical data loss and hardware downtime during power disruptions.',
       bullets: [],
       images: [
         {
@@ -593,6 +581,12 @@ function getSharedElectricalSections() {
           caption: 'Acoustics software architecture.'
         }
       ]
+    }
+    ,
+    {
+      title: 'Power Composite',
+      description: 'The whole robot system runs on 4s/6s  lithium-ion polymer batteries. The voltage for 4s batteries ranges from 14.8 to 16.8V and 22.2 to 25.2V for 6s batteries.',
+      
     }
   ];
 }
