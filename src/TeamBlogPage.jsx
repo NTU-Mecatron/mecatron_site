@@ -29,7 +29,7 @@ export default function TeamBlogPage() {
 
   const competitionLabel = activeCompetition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026';
   const heroBg = activeCompetition === 'robotx2026'
-    ? '/competition/images/RobotX_2026.PNG'
+    ? '/competition/images/robotx-all-vehicles.jpg'
     : '/competition/images/robosub2026-bots.jpg';
 
   return (
