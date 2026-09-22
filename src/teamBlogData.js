@@ -1154,6 +1154,66 @@ const robotxPostsRaw = [
     ]
   },
   {
+    slug: 'robotx-usv-pool-test-1',
+    title: 'Testing the Waters – The Maiden Pool Test of Poseidon USV',
+    tag: 'Vehicle Test',
+    authors: 'Riley',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-1-header.jpg',
+    description: "Before sending an autonomous boat to navigate gates and execute complex missions, you have to answer the most fundamental questions of all: Does it float, does it balance, and can it move forward without veering off course? For Poseidon USV’s first splash, we stripped away the high-level autonomy stack to focus strictly on physical and hydrodynamic validation.",
+    sections: [
+      {
+        heading: 'Objectives of the First Dip',
+        body: 'The maiden pool test served as an essential baseline check',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-objectives.png',
+          }
+        ],
+        items: [
+          {
+            title: 'Payload',
+            details: [
+              {
+                label: 'Buoyancy & Payload Capacity',
+                body: 'We needed to test how much weight the twin hulls could support while keeping the waterline at a safe, stable level. Ensuring that batteries, electronics enclosures, and sensors didn’t submerge the hulls beyond their design margins was step one.'
+              }
+            ]
+          },
+          {
+            title: 'Weight Distribution',
+            details: [
+              {
+                label: 'Trim & Balance',
+                body: 'An unbalanced USV wastes thruster power simply trying to hold a heading. We checked the boat\'s roll and pitch in calm water to ensure weight distribution across both hulls was even.'
+              }
+            ]
+          },
+          {
+            title: 'Heading Check',
+            details: [
+              {
+                label: 'Straight-Line Propulsion',
+                body: 'Running the thrusters under direct manual RC control to confirm differential thrust tracking. Before closing the feedback loop with software, the boat needed to demonstrate stable, predictable straight-line motion in the water.'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Key Takeaways & Moving Forward',
+        body: 'Putting Poseidon in the water early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. With buoyancy confirmed, waterlines checked, and basic propulsion verified, the platform proved ready for the next phase: full system integration, safety compliance, and autonomous testing.',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-end.png',
+            caption: ''
+          }
+        ]
+      },
+    ]
+  },
+  {
     slug: 'robotx-uuv-pool-test-1',
     title: 'Our First UUV Pool Test',
     tag: 'Vehicle Test',
