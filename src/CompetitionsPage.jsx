@@ -7,7 +7,7 @@ export default function CompetitionsPage() {
       title: "ROBOTX 2026",
       date: "NOVEMBER 2026",
       description: "Poseidon, Kraken & Phoenix - Coordinating across three domains with one unified autonomy stack!",
-      image: "/competition/images/RobotX_2026.PNG",
+      image: "/competition/images/robotx-all-vehicles.jpg",
       status: "upcoming",
       link:"/robotx2026",
     },
