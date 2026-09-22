@@ -1487,6 +1487,84 @@ const robotxPostsRaw = [
         ]
       }
     ]
+  },
+  {
+    slug: 'robotx-uav-drone-test-1',
+    title: 'Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Aug 2026',
+    image: '/images/robotx2026/uav-blog/uav-flight-test-1-main.jpg',
+    description: "Before sending an autonomous drone to move from waypoint to waypoint and execute complex missions, you have to answer the most fundamental questions of all: Does it hover, does it respond correctly to autonomous and manual controls, and can it fly without drift?",
+    sections: [
+      {
+        heading: 'Objectives of the First Flight',
+        body: 'The maiden flight served as an essential baseline check:',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-objectives.jpg',
+          }
+        ],
+        items: [
+          {
+            title: 'Sensor Calibration and System Readiness',
+            details: [
+              {
+                label: 'Essential Drone Sensor Calibration',
+                body: 'We needed to perform rigorous IMU, Compass and GPS calibration to ensure that the drone’s internal sensors are perfectly calibrated to its physical orientation. Ensuring proper calibration was step one to ensuring a stable and predictable flight.'
+              }
+            ]
+          },
+          {
+            title: 'Maiden Flight',
+            details: [
+              {
+                label: 'Manual Flight Mode Testing',
+                body: 'We took off with manual control to test the drone’s hover stability in the wind and tendency to drift. We check its throttle response and different flight modes like loiter, altitude hold and  stabilise.'
+              }
+            ]
+          },
+          {
+            title: 'Manual Flight Readiness Verification',
+            details: [
+              {
+                label: 'Filming Manual POR',
+                body: 'We didn’t stop after verifying that it could hover and didn’t drift. Instead, we went ahead on filming the POR for manual control as we had more time. This ensures that everything works before we embark on autonomous flights.'
+              }
+            ]
+          },
+          {
+            title: 'Autonomous Flight Readiness Verification',
+            details: [
+              {
+                label: 'Autonomous Waypoint Navigation',
+                body: 'After completion of the manual POR, we then went on to set the waypoints to film the autonomous POR. We uploaded the mission path to the flight controller and tested if we could read it from the flight controller and tested the GPS tracking. The drone successfully navigated from waypoint to waypoint and adjusted its altitude and tracking as programmed; thus proving the autonomy stack is working.'
+              },
+            ]
+          },
+          {
+            title: 'Fail-safe Behaviour',
+            details: [
+              {
+                label: 'Testing Drone Failsafe Systems',
+                body: 'Finally, it was time for us to complete the failsafe behaviours. To simulate the loss of link with the remote controller, we turned off the radio transmitter and checked if the drone would return. We then tested the low battery, Task/Mission abort and Geofence boundary reached and ensured that all safety systems are working properly.'
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Key Takeaways & Moving Forward',
+        body: 'Putting the drone early in the air early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. By completing the calibration, manual validation and autonomous navigation all in one day, the platform has proven its reliability and efficiency. With manual and autonomous flights confirmed, we have fully validated the aircraft and are ready for extended range missions and payload integrations.',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-takeaways.jpg',
+            caption: ''
+          }
+        ]
+      }
+    ]
   }
 ];
 
