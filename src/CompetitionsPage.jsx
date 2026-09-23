@@ -3,12 +3,21 @@ import { Link } from 'react-router-dom';
 export default function CompetitionsPage() {
   const competitions = [
     {
+      id: 7,
+      title: "ROBOTX 2026",
+      date: "NOVEMBER 2026",
+      description: "Poseidon, Kraken & Phoenix - Coordinating across three domains with one unified autonomy stack!",
+      image: "/competition/images/robotx-all-vehicles.jpg",
+      status: "upcoming",
+      link:"/robotx2026",
+    },
+    {
       id: 1,
       title: "ROBOSUB 2026",
       date: "JULY 2026",
       description: "Hydra & Kraken - Next Generation AUVs coming soon!",
       image: "/competition/images/robosub2026-bots.jpg",
-      status: "upcoming",
+      status: "completed",
       link:"/robosub2026"
     },
     {
@@ -92,8 +101,8 @@ export default function CompetitionsPage() {
             <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-gray-900 z-10"></div>
 
             {/* Card Container */}
-            <div className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-              <div className={`w-full max-w-xl ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+            <div className={`flex items-center ${(competition.side ?? (index % 2 === 0 ? 'left' : 'right')) === 'left' ? 'justify-start' : 'justify-end'}`}>
+              <div className={`w-full max-w-xl ${(competition.side ?? (index % 2 === 0 ? 'left' : 'right')) === 'left' ? 'pr-8' : 'pl-8'}`}>
                 <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700">
                   {/* Date Badge */}
                   <div className="px-6 py-3 bg-gray-700">
@@ -104,11 +113,14 @@ export default function CompetitionsPage() {
 
                   {/* Competition Image */}
                   <div className="relative h-auto bg-gray-700">
-                    <img 
-                      src={competition.image} 
-                      alt={competition.title}
-                      className="w-full h-full object-cover"
-                    />
+                    {(Array.isArray(competition.image) ? competition.image : [competition.image]).map((image, imageIndex) => (
+                      <img
+                        key={`${competition.id}-${imageIndex}`}
+                        src={image}
+                        alt={`${competition.title} ${imageIndex + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    ))}
                     {competition.status === 'upcoming' && (
                       <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                         Upcoming

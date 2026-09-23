@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { blogPosts, tagStyles } from './teamBlogData';
 
 
-const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software'];
+const categoryFilters = ['All', 'Mechanical', 'Electrical', 'Software', 'Vehicle Test'];
 
 export default function TeamBlogPage() {
   const [searchParams] = useSearchParams();
@@ -28,6 +28,9 @@ export default function TeamBlogPage() {
     : competitionPosts.filter((post) => post.tag === activeCategory);
 
   const competitionLabel = activeCompetition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026';
+  const heroBg = activeCompetition === 'robotx2026'
+    ? '/competition/images/robotx-all-vehicles.jpg'
+    : '/competition/images/robosub2026-bots.jpg';
 
   return (
     <div className="min-h-screen bg-[#181818] text-white">
@@ -35,7 +38,7 @@ export default function TeamBlogPage() {
       <section className="relative overflow-hidden px-4 sm:px-8 md:px-20 pt-32 pb-16 text-center">
         <div
           className="absolute inset-0 scale-110 bg-cover bg-center blur-sm"
-          style={{ backgroundImage: "url('/competition/images/robosub2026-bots.jpg')" }}
+          style={{ backgroundImage: `url('${heroBg}')` }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/75" aria-hidden="true" />
