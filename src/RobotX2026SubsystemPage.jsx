@@ -78,19 +78,19 @@ const subsystemPages = {
         label: 'Mechanical',
         title: 'Mechanical Subsystem',
         summary:
-          'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. Featuring an acrylic skeleton and a metal electrical box, Kraken aims to be more durable and maneuverable than our previous vehicles.',
+          'Kraken’s mechanical system is being redesigned around strength, modularity, and serviceability. Its aluminium frame provides a more durable platform for repeated testing, while an accessible electronics enclosure and task-specific magnetic probe support reliable integration and operation.',
         highlights: [
-          'Airfoil-inspired frame geometry for drag and stiffness studies',
-          'Acrylic skeleton concept for direct visual inspection',
-          'Simple assembly layout that supports fast mechanical changes',
-          'Dedicated space for validating torpedo deployment hardware'
+          'Durable, modular aluminium frame with universal mounting points',
+          'Accessible rectangular electronics enclosure for easier packaging and maintenance',
+          'Passive spring-loaded magnetic probe for the Infrastructure Survey and Repair task',
+          'Shared USV/UUV thruster-layout approach carried over from RoboSub 2026'
         ],
         development: [
-          'Prototype frame sections and compare assembly approaches',
-          'Evaluate hull material behavior during handling and pool testing',
-          'Iterate mechanism mounting around torpedo deployment needs'
+          'Balance frame strength against vehicle weight, buoyancy, and thrust requirements',
+          'Validate enclosure sealing and thermal performance through testing',
+          'Refine the magnetic probe design ahead of competition integration'
         ],
-        image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg',
+        image: '/images/robotx2026/mechanical-subsystems/kraken-current-design.jpg',
       },
       software: {
         label: 'Software',
@@ -437,83 +437,38 @@ function getPhoenixMechanicalSections() {
 function getKrakenMechanicalSections() {
   return [
     {
-      title: 'I EDIT THIS ONLY!',
-      description: 'Kraken transitioned from the previous 6-thruster layout to a vectored 8-thruster configuration. This vectored architecture completely decouples the vertical and horizontal axes, yielding a highly stable hydrodynamic platform capable of precise, 6-degree-of-freedom (6-DOF) manoeuvring.',
+      title: 'Aluminium Frame Redesign',
+      description: 'Kraken’s original acrylic frame developed cracks over time, making it unreliable as the structural backbone holding the vehicle’s components together. The redesign replaces acrylic with aluminium for greater strength and durability under repeated handling, testing, and vibration. Because aluminium is heavier than acrylic, the design works to remove material from low-stress regions while retaining it around mounting points and structural load paths, balancing frame strength against vehicle weight, buoyancy, and the thrust needed to manoeuvre. The layout is guided by three principles: ease of assembly, modularity, and agility in reconfiguration. Universal mounting points let sensors, actuators, and thrusters be repositioned without redesigning the whole frame, supporting vehicle trimming and integration of changing subsystem configurations. Individual components are intended to be accessed, removed, repaired, replaced, and reinstalled without dismantling most of the vehicle, while simpler and more consistent mounting methods aim to make assembly and disassembly faster and repeatable across different team members. The frame is also intended to improve lifting, transportation, deployment, and recovery during field testing. The USV and UUV share a common thruster-layout approach, with thrusters placed at the corners of a square layout and mounted at 30 degrees, supporting reuse of the control stack and building on the team’s RoboSub 2026 experience.',
       bullets: [],
-      imageLayout: 'comparison',
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-render.png',
-          caption: 'Render of Kraken\'s 8-thrusters.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-config.png',
-          caption: 'Kraken 8-thrusters layout.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
+          alt: 'CAD render of Kraken’s modular aluminium frame',
+          caption: 'Current aluminium frame concept for Kraken; an updated render may replace this image as the design is refined.'
         }
       ]
     },
     {
-      title: 'Acrylic Skeletal Frame',
-      description: 'Kraken utilizes a novel, fully acrylic skeletal frame to provide primary structural integrity. Compared to previous 3D-printed load-bearing structures, this CNC machined acrylic chassis offers superior structural integrity while being easily modifiable in-house for highly cost-effective and rapid prototyping cycles. To optimize hydrodynamic performance, this skeletal frame is enveloped by a streamlined, 3D-printed shell for improved hydrodynamic movement.',
+      title: 'Electronics Enclosure',
+      description: 'The earlier cylindrical enclosure is being replaced with a rectangular aluminium electronics enclosure featuring a transparent top plate. Its rectangular layout provides more accessible space for PCB installation, cable routing, and wiring access, reducing the difficulty of working inside the enclosure during assembly and later modifications. The aluminium enclosure is intended to protect the internal electronics from water, while its aluminium walls provide a heat-transfer path from the electronics to the surrounding environment, from which heat can transfer to the water through convection. Together, these features are intended to address the vehicle’s electronics packaging and thermal-management requirements, though the enclosure’s sealing and thermal performance still need to be established through testing. This aluminium electronics enclosure is a separate part from the aluminium vehicle frame.',
       bullets: [],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/aframe2.jpg',
-          caption: 'Mechanical members assembling the acrylic skeletal frame.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/aframe1.jpg',
-          caption: 'Waterproof testing with the frame.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/aframe3.jpg',
-          caption: 'Acrylic frame assembled!'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-electronics-enclosure.jpg',
+          alt: 'CAD render of Kraken’s rectangular aluminium electronics enclosure',
+          caption: 'Rectangular aluminium electronics enclosure designed for improved access, packaging, and maintenance.'
         }
       ]
     },
     {
-      title: 'Hydrodynamics Optimization',
-      description: 'The vehicle\'s lateral wings are explicitly modeled after aircraft airfoils to delay flow separation and minimize wake. Computational fluid dynamics (CFD) analysis validates this design, demonstrating a 32% reduction in total drag when the shells are fully integrated. Additionally, the frame is engineered with a detachable front nose cone to facilitate rapid internal access and streamline assembly during deployments.',
-      bullets: [],
-      imageLayout: 'comparison',
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-before.png',
-          caption: 'CFD simulation without shell.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-after.jpg',
-          caption: 'CFD simulation with shell.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-results.png',
-          caption: 'CFD results table.'
-        }
-      ]
-    },
-    {
-      title: 'CNC Aluminum Electronics Enclosure Box',
-      description: 'The transition from a cylindrical main hull for key  systems to a custom machined aluminum electrical enclosure maximized space efficiency, modularity and ease of maintenance. This reduced the weight of our vehicle by reducing buoyancy from the large volumetric displacement of a traditional cylindrical hull, thereby decreasing the mass needed to maintain neutral buoyancy. This also built the foundation of a new electrical system layout that is easy to modify and maintain, by creating swappable mounting plates that can be freely removed and worked on without space constraints.',
+      title: 'Spring-Loaded Magnetic Probe',
+      description: 'The magnetic probe is designed for RobotX Mission Task 2, Infrastructure Survey and Repair, where it is used to activate magnetic light switches along an underwater pipeline network. It is a passive, spring-loaded mechanism: a flexible rubber cap securely houses a neodymium magnet and allows quick, tool-free magnet replacement during competition runs, while a compression spring absorbs impact forces when the probe contacts the pipeline. An internal guide shaft maintains axial alignment and reduces lateral deflection, and the compact, open-shaft design aims to reduce hydrodynamic drag and the risk of snagging on underwater structures. Using a passive mechanism instead of a motorized actuator requires no additional power and avoids the need for a dynamic shaft seal, reducing mechanical complexity and potential leakage points.',
       bullets: [],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/electbox1.png',
-          caption: 'Isometric view of Kraken electrical enclosure.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/electbox2.jpg',
-          caption: 'Real-life image of custom machined aluminum box.'
-        }
-      ]
-    },
-    {
-      title: 'Torpedo',
-      description: 'The previous friction-fit design was prone to wear-and-tear, occasionally resulting in premature launching before torpedo activation. Our new design uses a positive mechanical locking mechanism by fixing a T8 nut directly onto the propeller and a T8 lead screw onto the launcher. Upon activation, the propeller’s rotation should unscrew the nut from the stationary lead screw. This mechanism ensures a secure hold during the pre-launch phase followed by a seamless transition to forward flight once the threads are fully disengaged.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/torpedo1.png',
-          caption: 'Kraken\'s torpedo render.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-magnetic-probe.jpg',
+          alt: 'CAD render of Kraken’s spring-loaded magnetic probe',
+          caption: 'Passive spring-loaded magnetic probe designed to activate magnetic switches along the RobotX pipeline task.'
         }
       ]
     }
@@ -867,7 +822,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                       <div className="rounded-xl overflow-hidden border border-white/15 max-w-md w-full">
                         <img
                           src={section.images[0].src}
-                          alt={section.images[0].caption ?? section.title}
+                          alt={section.images[0].alt ?? section.images[0].caption ?? section.title}
                           className="w-full h-auto object-cover"
                         />
                         {section.images[0].caption && (
