@@ -356,7 +356,7 @@ export default function RobotX2026Page() {
       <section className="relative overflow-hidden px-4 sm:px-8 md:px-20 py-20">
         <div
           className="absolute inset-0 scale-110 bg-cover bg-center blur-sm"
-          style={{ backgroundImage: "url('/images/robosub2026-team-photo.jpg')" }}
+          style={{ backgroundImage: "url('competition/images/robotx-all-vehicles.jpg')" }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/80" aria-hidden="true" />
