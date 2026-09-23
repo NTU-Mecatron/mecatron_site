@@ -1055,6 +1055,84 @@ const robosubPostsRaw = [
 // =============================================================================
 const robotxPostsRaw = [
   {
+    slug: 'robotx-uav-drone-test-1',
+    title: 'UAV Test: Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Aug 2026',
+    image: '/images/robotx2026/uav-blog/uav-flight-test-1-main.jpg',
+    description: "Before sending an autonomous drone to move from waypoint to waypoint and execute complex missions, you have to answer the most fundamental questions of all: Does it hover, does it respond correctly to autonomous and manual controls, and can it fly without drift?",
+    sections: [
+      {
+        heading: 'Objectives of the First Flight',
+        body: 'The maiden flight served as an essential baseline check:',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-objectives.jpg',
+          }
+        ],
+        items: [
+          {
+            title: 'Sensor Calibration and System Readiness',
+            details: [
+              {
+                label: 'Essential Drone Sensor Calibration',
+                body: 'We needed to perform rigorous IMU, Compass and GPS calibration to ensure that the drone’s internal sensors are perfectly calibrated to its physical orientation. Ensuring proper calibration was step one to ensuring a stable and predictable flight.'
+              }
+            ]
+          },
+          {
+            title: 'Maiden Flight',
+            details: [
+              {
+                label: 'Manual Flight Mode Testing',
+                body: 'We took off with manual control to test the drone’s hover stability in the wind and tendency to drift. We check its throttle response and different flight modes like loiter, altitude hold and  stabilise.'
+              }
+            ]
+          },
+          {
+            title: 'Manual Flight Readiness Verification',
+            details: [
+              {
+                label: 'Filming Manual POR',
+                body: 'We didn’t stop after verifying that it could hover and didn’t drift. Instead, we went ahead on filming the POR for manual control as we had more time. This ensures that everything works before we embark on autonomous flights.'
+              }
+            ]
+          },
+          {
+            title: 'Autonomous Flight Readiness Verification',
+            details: [
+              {
+                label: 'Autonomous Waypoint Navigation',
+                body: 'After completion of the manual POR, we then went on to set the waypoints to film the autonomous POR. We uploaded the mission path to the flight controller and tested if we could read it from the flight controller and tested the GPS tracking. The drone successfully navigated from waypoint to waypoint and adjusted its altitude and tracking as programmed; thus proving the autonomy stack is working.'
+              },
+            ]
+          },
+          {
+            title: 'Fail-safe Behaviour',
+            details: [
+              {
+                label: 'Testing Drone Failsafe Systems',
+                body: 'Finally, it was time for us to complete the failsafe behaviours. To simulate the loss of link with the remote controller, we turned off the radio transmitter and checked if the drone would return. We then tested the low battery, Task/Mission abort and Geofence boundary reached and ensured that all safety systems are working properly.'
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Key Takeaways & Moving Forward',
+        body: 'Putting the drone early in the air early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. By completing the calibration, manual validation and autonomous navigation all in one day, the platform has proven its reliability and efficiency. With manual and autonomous flights confirmed, we have fully validated the aircraft and are ready for extended range missions and payload integrations.',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-takeaways.jpg',
+            caption: ''
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'robotx-usv-pool-test-1',
     title: 'USV Test: Testing the Waters with Poseidon',
     tag: 'Vehicle Test',
@@ -1108,75 +1186,6 @@ const robotxPostsRaw = [
         images: [
           {
             src: '/images/robotx2026/usv-blog/usv-pool-test-1-end.png',
-            caption: ''
-          }
-        ]
-      },
-    ]
-  },
-  {
-    slug: 'robotx-usv-pool-test-2',
-    title: 'USV Test: Filming Proof-of-Readiness',
-    tag: 'Vehicle Test',
-    authors: 'Riley',
-    date: 'Sep 2026',
-    image: '/images/robotx2026/usv-blog/usv-pool-test-2-header.png',
-    description: "Passing the Proof-of-Readiness (POR) milestone requires proving not only that Poseidon USV can navigate autonomously, but that it is fundamentally safe, resilient, and competition-compliant. Filming our POR submission meant showcasing two core capabilities: rock-solid safety interlocks and clean autonomous navigation through the gate.",
-    sections: [
-      {
-        heading: 'Engineering a Fail-Safe E-Stop System',
-        body: 'A major component of POR is demonstrating reliable onboard (wired) and remote (wireless) kill-switch operation. During our preparation, our safety architecture underwent a critical redesign',
-        layout: 'sideImageAccordion',
-        images: [
-          {
-            src: '/images/robotx2026/usv-blog/usv-pool-test-2-body.png',
-          }
-        ],
-        items: [
-          {
-            title: 'Enchancing Safety',
-            details: [
-              {
-                label: 'Moving Away from Microcontroller-Dependent Safety',
-                body: 'Originally, we routed both E-stops through an ESP32-S3 microcontroller to handle the AND logic (where system power requires both switches to be un-pressed). However, relying on software or MCU firmware for a safety-critical kill switch introduces potential failure points if the MCU freezes or encounters a brownout.'
-              }
-            ]
-          },
-          {
-            title: 'Physical Safety Measures',
-            details: [
-              {
-                label: 'Hardware-Level Switching',
-                body: 'In line with industry safety standards, we transitioned the safety system to dedicated physical switches and hardware logic.'
-              }
-            ]
-          },
-          {
-            title: 'Electrical Improvements',
-            details: [
-              {
-                label: 'Optocoupler Isolation',
-                body: 'We replaced standard relays with optocouplers to cleanly isolate grounds between sensitive control electronics and higher-power actuation lines, eliminating electrical noise while guaranteeing immediate cutoff.'
-              }
-            ]
-          },
-          {
-            title: 'Fail-Safe',
-            details: [
-              {
-                label: 'Fail-Safe Behavior',
-                body: 'If either switch is engaged—or if RF connection from the handheld transmitter drops—the propulsion system immediately cuts power. During the video shoot, Scott ran through this full test sequence: toggling onboard switches, hitting the remote kill switch, and verifying that the visual feedback indicators switched accurately between autonomous, manual, and kill states.'
-              },
-            ]
-          }
-        ]
-      },
-      {
-        heading: 'Nailing the Autonomous Demonstration',
-        body: 'With safety verified, Poseidon lined up for the headline event: the autonomous navigation demo. Starting 3 meters behind the entry gate, the USV initiated full autonomous mode, lined up its path, and cleared both sets of gates cleanly without touching a single buoy. Capturing this on film was a massive milestone for the team—validating our mechanical redesigns, electrical isolation, and control loops in one unified run. Poseidon is officially ready for the field!',
-        images: [
-          {
-            src: '/images/robotx2026/usv-blog/usv-pool-test-2-end.png',
             caption: ''
           }
         ]
@@ -1266,6 +1275,75 @@ const robotxPostsRaw = [
         images: [
           {
             src: '/images/robotx2026/uuv-blog/uuv-18sep-sim-tuning.jpg',
+            caption: ''
+          }
+        ]
+      },
+    ]
+  },
+  {
+    slug: 'robotx-usv-pool-test-2',
+    title: 'USV Test: Filming Proof-of-Readiness',
+    tag: 'Vehicle Test',
+    authors: 'Riley',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-2-header.png',
+    description: "Passing the Proof-of-Readiness (POR) milestone requires proving not only that Poseidon USV can navigate autonomously, but that it is fundamentally safe, resilient, and competition-compliant. Filming our POR submission meant showcasing two core capabilities: rock-solid safety interlocks and clean autonomous navigation through the gate.",
+    sections: [
+      {
+        heading: 'Engineering a Fail-Safe E-Stop System',
+        body: 'A major component of POR is demonstrating reliable onboard (wired) and remote (wireless) kill-switch operation. During our preparation, our safety architecture underwent a critical redesign',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-2-body.png',
+          }
+        ],
+        items: [
+          {
+            title: 'Enchancing Safety',
+            details: [
+              {
+                label: 'Moving Away from Microcontroller-Dependent Safety',
+                body: 'Originally, we routed both E-stops through an ESP32-S3 microcontroller to handle the AND logic (where system power requires both switches to be un-pressed). However, relying on software or MCU firmware for a safety-critical kill switch introduces potential failure points if the MCU freezes or encounters a brownout.'
+              }
+            ]
+          },
+          {
+            title: 'Physical Safety Measures',
+            details: [
+              {
+                label: 'Hardware-Level Switching',
+                body: 'In line with industry safety standards, we transitioned the safety system to dedicated physical switches and hardware logic.'
+              }
+            ]
+          },
+          {
+            title: 'Electrical Improvements',
+            details: [
+              {
+                label: 'Optocoupler Isolation',
+                body: 'We replaced standard relays with optocouplers to cleanly isolate grounds between sensitive control electronics and higher-power actuation lines, eliminating electrical noise while guaranteeing immediate cutoff.'
+              }
+            ]
+          },
+          {
+            title: 'Fail-Safe',
+            details: [
+              {
+                label: 'Fail-Safe Behavior',
+                body: 'If either switch is engaged—or if RF connection from the handheld transmitter drops—the propulsion system immediately cuts power. During the video shoot, Scott ran through this full test sequence: toggling onboard switches, hitting the remote kill switch, and verifying that the visual feedback indicators switched accurately between autonomous, manual, and kill states.'
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Nailing the Autonomous Demonstration',
+        body: 'With safety verified, Poseidon lined up for the headline event: the autonomous navigation demo. Starting 3 meters behind the entry gate, the USV initiated full autonomous mode, lined up its path, and cleared both sets of gates cleanly without touching a single buoy. Capturing this on film was a massive milestone for the team—validating our mechanical redesigns, electrical isolation, and control loops in one unified run. Poseidon is officially ready for the field!',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-2-end.png',
             caption: ''
           }
         ]
@@ -1484,84 +1562,6 @@ const robotxPostsRaw = [
               }
             ]
           },
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'robotx-uav-drone-test-1',
-    title: 'Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
-    tag: 'Vehicle Test',
-    authors: 'Darren',
-    date: 'Aug 2026',
-    image: '/images/robotx2026/uav-blog/uav-flight-test-1-main.jpg',
-    description: "Before sending an autonomous drone to move from waypoint to waypoint and execute complex missions, you have to answer the most fundamental questions of all: Does it hover, does it respond correctly to autonomous and manual controls, and can it fly without drift?",
-    sections: [
-      {
-        heading: 'Objectives of the First Flight',
-        body: 'The maiden flight served as an essential baseline check:',
-        layout: 'sideImageAccordion',
-        images: [
-          {
-            src: '/images/robotx2026/uav-blog/uav-flight-test-1-objectives.jpg',
-          }
-        ],
-        items: [
-          {
-            title: 'Sensor Calibration and System Readiness',
-            details: [
-              {
-                label: 'Essential Drone Sensor Calibration',
-                body: 'We needed to perform rigorous IMU, Compass and GPS calibration to ensure that the drone’s internal sensors are perfectly calibrated to its physical orientation. Ensuring proper calibration was step one to ensuring a stable and predictable flight.'
-              }
-            ]
-          },
-          {
-            title: 'Maiden Flight',
-            details: [
-              {
-                label: 'Manual Flight Mode Testing',
-                body: 'We took off with manual control to test the drone’s hover stability in the wind and tendency to drift. We check its throttle response and different flight modes like loiter, altitude hold and  stabilise.'
-              }
-            ]
-          },
-          {
-            title: 'Manual Flight Readiness Verification',
-            details: [
-              {
-                label: 'Filming Manual POR',
-                body: 'We didn’t stop after verifying that it could hover and didn’t drift. Instead, we went ahead on filming the POR for manual control as we had more time. This ensures that everything works before we embark on autonomous flights.'
-              }
-            ]
-          },
-          {
-            title: 'Autonomous Flight Readiness Verification',
-            details: [
-              {
-                label: 'Autonomous Waypoint Navigation',
-                body: 'After completion of the manual POR, we then went on to set the waypoints to film the autonomous POR. We uploaded the mission path to the flight controller and tested if we could read it from the flight controller and tested the GPS tracking. The drone successfully navigated from waypoint to waypoint and adjusted its altitude and tracking as programmed; thus proving the autonomy stack is working.'
-              },
-            ]
-          },
-          {
-            title: 'Fail-safe Behaviour',
-            details: [
-              {
-                label: 'Testing Drone Failsafe Systems',
-                body: 'Finally, it was time for us to complete the failsafe behaviours. To simulate the loss of link with the remote controller, we turned off the radio transmitter and checked if the drone would return. We then tested the low battery, Task/Mission abort and Geofence boundary reached and ensured that all safety systems are working properly.'
-              },
-            ]
-          }
-        ]
-      },
-      {
-        heading: 'Key Takeaways & Moving Forward',
-        body: 'Putting the drone early in the air early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. By completing the calibration, manual validation and autonomous navigation all in one day, the platform has proven its reliability and efficiency. With manual and autonomous flights confirmed, we have fully validated the aircraft and are ready for extended range missions and payload integrations.',
-        images: [
-          {
-            src: '/images/robotx2026/uav-blog/uav-flight-test-1-takeaways.jpg',
-            caption: ''
-          }
         ]
       }
     ]
