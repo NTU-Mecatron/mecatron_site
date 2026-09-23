@@ -78,14 +78,14 @@ const subsystemPages = {
           'Four horizontal thrusters at a nominal 30° angle',
           'Reconfigurable mounting points for hydro-trim and payloads',
           'Transparent-top aluminum electronics enclosure',
-          'Spring-loaded magnetic probe for Task 2'
+          'Spring-loaded magnetic probe'
         ],
         development: [
           'Reposition ballast, sensors, or thrusters using universal frame mounts',
           'Balance underside battery cylinders to lower the center of gravity',
           'Tune magnetic probe compliance for pipeline-switch contact'
         ],
-        image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
+        image: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
       },
       software: {
         label: 'Software',
@@ -399,12 +399,12 @@ function getKrakenMechanicalSections() {
       imageLayout: 'comparison',
       images: [
         {
-          src: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
-          caption: 'Kraken frame design and propulsion integration.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-kraken.png',
+          caption: 'Bottom view of Kraken with four thrusters.'
         },
         {
-          src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-pic.jpg',
-          caption: 'Kraken during RobotX UUV pool testing.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-usv.png',
+          caption: 'Bottom view of Poseidon (also with four thrusters).'
         }
       ]
     },
@@ -414,12 +414,8 @@ function getKrakenMechanicalSections() {
       bullets: ['Reconfigurable mounting points for propulsion, ballast, and sensors.', 'Supports hydro-trim adjustment and payload changes.'],
       images: [
         {
-          src: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
+          src: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
           caption: 'Kraken modular frame design.'
-        },
-        {
-          src: '/images/robotx2026/uuv-blog/uuv-frame-design-2.jpg',
-          caption: 'Frame layout and component mounting points.'
         }
       ]
     },
@@ -429,16 +425,8 @@ function getKrakenMechanicalSections() {
       bullets: ['Rectangular interior provides room for boards and harnesses.', 'Transparent top plate allows visual inspection.', 'Aluminum enclosure conducts heat into the water.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/electbox1.png',
+          src: '/images/robotx2026/mechanical-subsystems/kraken-electronics-enclosure.jpg',
           caption: 'Rectangular aluminum electronics enclosure.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/electbox2.jpg',
-          caption: 'Kraken electronics enclosure with transparent access cover.'
-        },
-        {
-          src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-pic.jpg',
-          caption: 'Kraken platform during water testing.'
         }
       ]
     },
@@ -448,23 +436,19 @@ function getKrakenMechanicalSections() {
       bullets: ['Port and starboard battery cylinders balance the vehicle.', 'Underside placement lowers the center of gravity.'],
       images: [
         {
-          src: '/images/robotx2026/uuv-blog/uuv-frame-design-2.jpg',
-          caption: 'Kraken frame layout for underside battery integration.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-current-design.jpg',
+          caption: 'Kraken bottom view with underside battery integration.'
         },
-        {
-          src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-pic.jpg',
-          caption: 'Kraken vehicle during pool testing.'
-        }
       ]
     },
     {
-      title: 'Spring-Loaded Magnetic Probe · Task 2',
+      title: 'Spring-Loaded Magnetic Probe',
       description: 'The probe places a central linear guide shaft inside a compression-spring assembly. The spring absorbs impact when the vehicle approaches the pipeline switch off-axis, reducing lateral buckling and shear loads on the probe. A replaceable elastic rubber boot press-fits around the magnet to seal and retain it without adhesive or threads, allowing tool-less field swaps for different switch sensitivities.',
       bullets: ['Guide shaft and compression spring absorb collision shock.', 'Compliant travel helps protect against non-perpendicular impacts.', 'Press-fit rubber boot supports tool-less magnet replacement.'],
       images: [
         {
-          src: '/images/robotx2026/uuv-blog/uuv-18sep-control-tuning.jpg',
-          caption: 'Kraken task development and in-water tuning.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-magnetic-probe.jpg',
+          caption: 'Kraken\'s magnetic probe for Task 2.'
         }
       ]
     }

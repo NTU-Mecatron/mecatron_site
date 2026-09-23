@@ -73,21 +73,21 @@ const vehicleTabs = {
     title: 'Kraken 2026',
     modelType: 'kraken',
     linkTo: '/kraken',
-    image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg',
+    image: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
     features: [
       {
         title: 'Mechanical',
         tag: 'Mechanical',
-        description: 'Kraken combines the shared four-thruster marine layout with a modular aluminum frame, a heat-conducting rectangular electronics enclosure, balanced underside battery cylinders, and a compliant magnetic probe for Task 2.',
+        description: 'Kraken combines the shared four-thruster marine layout with a modular aluminum frame, a heat-conducting rectangular electronics enclosure, balanced underside battery cylinders, and a compliant magnetic probe.',
         details: [
           'Shared marine propulsion layout',
           'Modular aluminum frame',
           'Rectangular electronics enclosure',
           'Twin underside battery cylinders',
-          'Spring-loaded magnetic probe for Task 2'
+          'Spring-loaded magnetic probe'
         ],
         subpage: '/robotx/kraken/mechanical',
-        image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg'
+        image: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg'
       },
       {
         ...sharedElectricalFeature,

@@ -39,8 +39,8 @@ export default function Home() {
           alt="Poseidon, Kraken, and Phoenix together at a competition"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#101010]/95 via-[#101010]/70 to-[#101010]/15" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#181818]/75 via-transparent to-[#101010]/25" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#101010]/75 via-[#101010]/70 to-[#101010]/15" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#181818]/60 via-transparent to-[#101010]/25" />
 
         <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 md:px-16 py-16">
           <div className="max-w-3xl">
@@ -63,10 +63,10 @@ export default function Home() {
                 RobotX 2026
               </Link>
               <Link
-                to="/vehicles"
+                to="/blog"
                 className="inline-flex justify-center rounded-lg border border-white/55 bg-black/20 px-7 py-3.5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 text-size-lg sm:text-lg md:text-xl"
               >
-                Explore Our Vehicles
+                Read Our Blogs
               </Link>
             </div>
           </div>
