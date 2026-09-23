@@ -342,7 +342,7 @@ export default function RobotX2026Page() {
           <div className="w-full aspect-video max-w-4xl">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/mK8vjsBc7f4"
+              src="https://www.youtube.com/embed/VD6ZAlBN13w?si=zYBRT6xfmGTQAU9z"
               title="Team Mecatron RobotX Introduction Video | RobotX 2026"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
