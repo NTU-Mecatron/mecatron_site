@@ -1225,39 +1225,25 @@ const robotxPostsRaw = [
   },
   {
     slug: 'robotx-uav-drone-test-2',
-    title: 'Phoenix\'s Stress test day',
+    title: 'UAV: Stress Test Day for Phoenix!',
     tag: 'Vehicle Test',
     authors: 'Darren',
     date: 'Sep 2026',
-    image: '/images/robotx2026/software-subsystems/software-header.jpg',
-    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    image: '/images/phoenix_placeholder.png',
+    description: 'After the success of the maiden flight and the autonomous flights, it was time to move Phoenix on to the next phase: full system stress testing.',
     sections: [
       {
-        heading: 'Multi-Domain Fleet Architecture',
+        heading: 'Stress Test Day',
         layout: 'blockImageStory',
         blocks: [
           {
-            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+            body: "Flying indoors in our school's hall gave us the perfect environment to perform stress tests, since we could remove variables and environmental factors such as wind. The goal for this test was simple: add on weights and simulate an event where the drone would be pushed to its maximum limit with sustained and aggressive maneuvers."
           },
           {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
-            ],
-            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+            body: "One of the key things we tracked was battery drain. The extra physical weight meant the motors had to work much harder just to hover, which resulted in drawing additional current."
           },
           {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
-            ],
-            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
-            ],
-            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+            body: "By the end of this test, we confirmed that our current battery configuration would not give us the endurance we need to complete our mission comfortably, and that we had to obtain a battery with higher capacity. Since we needed the payload to complete the mission, the variable we had to change was the power source. We will now look into batteries with different capacities to find the one that gives us the most flight time for our missions!"
           }
         ]
       }
