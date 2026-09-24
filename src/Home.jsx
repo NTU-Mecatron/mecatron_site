@@ -33,46 +33,41 @@ export default function Home() {
     <div className="min-h-screen bg-[#181818] text-white font-sans overflow-x-hidden">
       <Navbar scrollToSection={scrollToSection} />
       {/* Hero Section */}
-      <section ref={sectionRefs.home} className="pt-28 pb-10 md:pt-32 md:pb-16 px-4 sm:px-8 md:px-12 min-h-screen bg-[#181818] flex items-center">
-        <div className="w-full max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,0.9fr)_minmax(0,1fr)] items-center gap-4 md:gap-8">
-          <div className="flex items-center justify-center w-full order-2 lg:order-1">
-            <div className="w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] lg:w-[34rem] lg:h-[34rem] xl:w-[40rem] xl:h-[40rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
-              <img
-                src="/images/logos/hydra-home.png"
-                alt="Hydra 2026"
-                className="h-full w-full object-contain"
-              />
+      <section ref={sectionRefs.home} className="relative isolate min-h-[720px] h-[min(900px,100svh)] overflow-hidden bg-[#111] flex items-center pt-24 md:pt-28">
+        <img
+          src="/competition/images/robotx-all-vehicles.jpg"
+          alt="Poseidon, Kraken, and Phoenix together at a competition"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#101010]/75 via-[#101010]/70 to-[#101010]/15" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#181818]/60 via-transparent to-[#101010]/25" />
+
+        <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 md:px-16 py-16">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-orange-400">
+              <span className="h-px w-9 bg-orange-500" />
+              Mecatron · RobotX 2026
             </div>
-          </div>
-
-          <div className="flex flex-col items-center justify-center space-y-6 w-full text-center order-1 lg:order-2">
-            <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-orange-500">Meet Hydra & Kraken</div>
-            <div className="text-2xl sm:text-3xl md:text-2xl font-medium text-white">Vehicles for RoboSub 2026</div>
-
-
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full justify-center">
-            <Link
-              to="/vehicles"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 text-center"
-            >
-              Meet Hydra & Kraken
-            </Link>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-extrabold leading-[0.98] tracking-tight text-white">
+              Meet <span className="text-orange-500">Poseidon,</span><br />
+              <span className="text-orange-500">Kraken</span> <span className="text-white">&</span><br /><span className="text-orange-500">Phoenix</span>
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-white/85">
+              Three vehicles. One team. Make waves with Mecatron.
+            </p>
+            <div className="mt-9 flex flex-col sm:flex-row gap-4">
               <Link
-                to="/robosub2026"
-                className="border border-gray-400 text-gray-200 font-semibold px-4 sm:px-8 py-2 text-sm sm:text-base rounded-lg shadow transition-all duration-200 hover:bg-gray-700 text-center"
+                to="/robotx2026"
+                className="inline-flex justify-center rounded-lg bg-orange-500 px-7 py-3.5 font-semibold text-white shadow-lg shadow-orange-950/30 transition-colors hover:bg-orange-600 text-size-lg sm:text-lg md:text-xl"
               >
-              RoboSub 2026
+                RobotX 2026
               </Link>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center w-full order-3">
-            <div className="w-[18rem] h-[18rem] sm:w-[24rem] sm:h-[24rem] lg:w-[34rem] lg:h-[34rem] xl:w-[40rem] xl:h-[40rem] flex items-center justify-center overflow-hidden relative bg-transparent">
-              <img
-                src="/images/logos/kraken-home.png"
-                alt="Kraken 2026"
-                className="h-full w-full object-contain"
-              />
+              <Link
+                to="/blog"
+                className="inline-flex justify-center rounded-lg border border-white/55 bg-black/20 px-7 py-3.5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/15 text-size-lg sm:text-lg md:text-xl"
+              >
+                Read Our Blogs
+              </Link>
             </div>
           </div>
         </div>

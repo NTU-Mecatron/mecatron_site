@@ -1055,8 +1055,146 @@ const robosubPostsRaw = [
 // =============================================================================
 const robotxPostsRaw = [
   {
+    slug: 'robotx-uav-drone-test-1',
+    title: 'UAV Test: Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Aug 2026',
+    image: '/images/robotx2026/uav-blog/uav-flight-test-1-main.jpg',
+    description: "Before sending an autonomous drone to move from waypoint to waypoint and execute complex missions, you have to answer the most fundamental questions of all: Does it hover, does it respond correctly to autonomous and manual controls, and can it fly without drift?",
+    sections: [
+      {
+        heading: 'Objectives of the First Flight',
+        body: 'The maiden flight served as an essential baseline check:',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-objectives.jpg',
+          }
+        ],
+        items: [
+          {
+            title: 'Sensor Calibration and System Readiness',
+            details: [
+              {
+                label: 'Essential Drone Sensor Calibration',
+                body: 'We needed to perform rigorous IMU, Compass and GPS calibration to ensure that the drone’s internal sensors are perfectly calibrated to its physical orientation. Ensuring proper calibration was step one to ensuring a stable and predictable flight.'
+              }
+            ]
+          },
+          {
+            title: 'Maiden Flight',
+            details: [
+              {
+                label: 'Manual Flight Mode Testing',
+                body: 'We took off with manual control to test the drone’s hover stability in the wind and tendency to drift. We check its throttle response and different flight modes like loiter, altitude hold and  stabilise.'
+              }
+            ]
+          },
+          {
+            title: 'Manual Flight Readiness Verification',
+            details: [
+              {
+                label: 'Filming Manual POR',
+                body: 'We didn’t stop after verifying that it could hover and didn’t drift. Instead, we went ahead on filming the POR for manual control as we had more time. This ensures that everything works before we embark on autonomous flights.'
+              }
+            ]
+          },
+          {
+            title: 'Autonomous Flight Readiness Verification',
+            details: [
+              {
+                label: 'Autonomous Waypoint Navigation',
+                body: 'After completion of the manual POR, we then went on to set the waypoints to film the autonomous POR. We uploaded the mission path to the flight controller and tested if we could read it from the flight controller and tested the GPS tracking. The drone successfully navigated from waypoint to waypoint and adjusted its altitude and tracking as programmed; thus proving the autonomy stack is working.'
+              },
+            ]
+          },
+          {
+            title: 'Fail-safe Behaviour',
+            details: [
+              {
+                label: 'Testing Drone Failsafe Systems',
+                body: 'Finally, it was time for us to complete the failsafe behaviours. To simulate the loss of link with the remote controller, we turned off the radio transmitter and checked if the drone would return. We then tested the low battery, Task/Mission abort and Geofence boundary reached and ensured that all safety systems are working properly.'
+              },
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Key Takeaways & Moving Forward',
+        body: 'Putting the drone early in the air early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. By completing the calibration, manual validation and autonomous navigation all in one day, the platform has proven its reliability and efficiency. With manual and autonomous flights confirmed, we have fully validated the aircraft and are ready for extended range missions and payload integrations.',
+        images: [
+          {
+            src: '/images/robotx2026/uav-blog/uav-flight-test-1-takeaways.jpg',
+            caption: ''
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'robotx-usv-pool-test-1',
+    title: 'USV Test: Testing the Waters with Poseidon',
+    tag: 'Vehicle Test',
+    authors: 'Riley',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-1-header.jpg',
+    description: "Before sending an autonomous boat to navigate gates and execute complex missions, you have to answer the most fundamental questions of all: Does it float, does it balance, and can it move forward without veering off course? For Poseidon USV’s first splash, we stripped away the high-level autonomy stack to focus strictly on physical and hydrodynamic validation.",
+    sections: [
+      {
+        heading: 'Objectives of the First Dip',
+        body: 'The maiden pool test served as an essential baseline check',
+        layout: 'sideImageAccordion',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-objectives.png',
+          }
+        ],
+        items: [
+          {
+            title: 'Payload',
+            details: [
+              {
+                label: 'Buoyancy & Payload Capacity',
+                body: 'We needed to test how much weight the twin hulls could support while keeping the waterline at a safe, stable level. Ensuring that batteries, electronics enclosures, and sensors didn’t submerge the hulls beyond their design margins was step one.'
+              }
+            ]
+          },
+          {
+            title: 'Weight Distribution',
+            details: [
+              {
+                label: 'Trim & Balance',
+                body: 'An unbalanced USV wastes thruster power simply trying to hold a heading. We checked the boat\'s roll and pitch in calm water to ensure weight distribution across both hulls was even.'
+              }
+            ]
+          },
+          {
+            title: 'Heading Check',
+            details: [
+              {
+                label: 'Straight-Line Propulsion',
+                body: 'Running the thrusters under direct manual RC control to confirm differential thrust tracking. Before closing the feedback loop with software, the boat needed to demonstrate stable, predictable straight-line motion in the water.'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Key Takeaways & Moving Forward',
+        body: 'Putting Poseidon in the water early gave the mechanical and electrical teams immediate, real-world feedback that simulations simply cannot replicate. With buoyancy confirmed, waterlines checked, and basic propulsion verified, the platform proved ready for the next phase: full system integration, safety compliance, and autonomous testing.',
+        images: [
+          {
+            src: '/images/robotx2026/usv-blog/usv-pool-test-1-end.png',
+            caption: ''
+          }
+        ]
+      },
+    ]
+  },
+  {
     slug: 'robotx-uuv-pool-test-1',
-    title: 'Our First UUV Pool Test',
+    title: 'UUV Test: Kraken Deployed!',
     tag: 'Vehicle Test',
     authors: 'Baba',
     date: 'Sep 2026',
@@ -1144,80 +1282,59 @@ const robotxPostsRaw = [
     ]
   },
   {
-    slug: 'robotx-usv-pool-test-1',
-    title: 'Poseidon Pool Test 1',
+    slug: 'robotx-usv-pool-test-2',
+    title: 'USV Test: Filming Proof-of-Readiness',
     tag: 'Vehicle Test',
     authors: 'Riley',
-    date: 'Aug 2026',
-    image: '/images/robotx2026/software-subsystems/software-header.jpg',
-    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
+    date: 'Sep 2026',
+    image: '/images/robotx2026/usv-blog/usv-pool-test-2-header.png',
+    description: "Passing the Proof-of-Readiness (POR) milestone requires proving not only that Poseidon USV can navigate autonomously, but that it is fundamentally safe, resilient, and competition-compliant. Filming our POR submission meant showcasing two core capabilities: rock-solid safety interlocks and clean autonomous navigation through the gate.",
     sections: [
       {
-        heading: 'Multi-Domain Fleet Architecture',
-        layout: 'blockImageStory',
-        blocks: [
+        heading: 'Engineering a Fail-Safe E-Stop System',
+        body: 'A major component of POR is demonstrating reliable onboard (wired) and remote (wireless) kill-switch operation. During our preparation, our safety architecture underwent a critical redesign',
+        layout: 'sideImageAccordion',
+        images: [
           {
-            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
-            ],
-            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
-            ],
-            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
-          },
-          {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
-            ],
-            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+            src: '/images/robotx2026/usv-blog/usv-pool-test-2-body.png',
           }
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'robotx-uav-drone-test-1',
-    title: 'Phoenix\'s First flight, Control tuning, and Proof-of-Readiness filming',
-    tag: 'Vehicle Test',
-    authors: 'Darren',
-    date: 'Aug 2026',
-    image: '/images/robotx2026/software-subsystems/software-header.jpg',
-    description: "RobotX 2026 extends Mecatron's multi-vehicle strategy across three domains: USV (surface), UUV (underwater), and UAV (aerial). Learn how containerized ROS2 and domain separation enable coordinated autonomy.",
-    sections: [
-      {
-        heading: 'Multi-Domain Fleet Architecture',
-        layout: 'blockImageStory',
-        blocks: [
+        ],
+        items: [
           {
-            body: "RobotX 2026 introduces a heterogeneous team of three vehicles: Poseidon (USV), Kraken (UUV), and Phoenix (UAV). Operating across three domains significantly increases communication complexity and potential points of failure. To address this, all three vehicles share the same containerized ROS2 autonomy stack."
+            title: 'Enchancing Safety',
+            details: [
+              {
+                label: 'Moving Away from Microcontroller-Dependent Safety',
+                body: 'Originally, we routed both E-stops through an ESP32-S3 microcontroller to handle the AND logic (where system power requires both switches to be un-pressed). However, relying on software or MCU firmware for a safety-critical kill switch introduces potential failure points if the MCU freezes or encounters a brownout.'
+              }
+            ]
           },
           {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/software-header.jpg', caption: 'Heterogeneous fleet software architecture and vehicle lineup' },
-            ],
-            body: 'Each vehicle executes in its own isolated ROS domain. Only explicitly whitelisted topics, services, and actions are bridged between vehicles over high-bandwidth RF and Wi-Fi links. This domain separation isolates faults, prevents network congestion on high-rate telemetry, and allows each vehicle to be tested independently.'
+            title: 'Physical Safety Measures',
+            details: [
+              {
+                label: 'Hardware-Level Switching',
+                body: 'In line with industry safety standards, we transitioned the safety system to dedicated physical switches and hardware logic.'
+              }
+            ]
           },
           {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png', caption: 'Spatial perception and object identification from Poseidon USV' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mision-planning-USV.gif', caption: 'Real-time navigation and waypoint execution in simulation' }
-            ],
-            body: 'Using 3D LiDAR point clouds and stereo camera feeds, our spatial perception pipeline performs obstacle detection, buoy classification, and maritime marker localization. The mission planner translates competition objectives into dynamically prioritized behavior trees.'
+            title: 'Electrical Improvements',
+            details: [
+              {
+                label: 'Optocoupler Isolation',
+                body: 'We replaced standard relays with optocouplers to cleanly isolate grounds between sensitive control electronics and higher-power actuation lines, eliminating electrical noise while guaranteeing immediate cutoff.'
+              }
+            ]
           },
           {
-            images: [
-              { src: '/images/robotx2026/software-subsystems/unitysim-UAV.png', caption: 'Unity-based multi-vehicle digital twin simulation environment' },
-              { src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif', caption: 'Phoenix UAV autonomous flight path and search pattern testing' }
-            ],
-            body: 'Before on-water deployment, our Unity-based digital twin simulates hydrodynamics, aerodynamics, and sensor noise for all three vehicles simultaneously. This allows rapid iterative testing of autonomous cooperative maneuvers such as aerial reconnaissance feeding target coordinates to the surface craft.'
+            title: 'Fail-Safe',
+            details: [
+              {
+                label: 'Fail-Safe Behavior',
+                body: 'If either switch is engaged—or if RF connection from the handheld transmitter drops—the propulsion system immediately cuts power. During the video shoot, Scott ran through this full test sequence: toggling onboard switches, hitting the remote kill switch, and verifying that the visual feedback indicators switched accurately between autonomous, manual, and kill states.'
+              },
+            ]
           }
         ]
       }
@@ -1246,12 +1363,12 @@ const robotxPostsRaw = [
             body: "By the end of this test, we confirmed that our current battery configuration would not give us the endurance we need to complete our mission comfortably, and that we had to obtain a battery with higher capacity. Since we needed the payload to complete the mission, the variable we had to change was the power source. We will now look into batteries with different capacities to find the one that gives us the most flight time for our missions!"
           }
         ]
-      }
+      },
     ]
   },
   {
     slug: 'robotx-uav-gripper',
-    title: 'UAV Gripper Design Explained',
+    title: 'UAV: Gripper Design Explained',
     tag: 'Mechanical',
     authors: 'Ambrose',
     date: 'Sep 2026',
@@ -1291,34 +1408,8 @@ const robotxPostsRaw = [
     ]
   },
   {
-    slug: 'robotx-elect-pdu-pcb',
-    title: '6s Battery Power Distribution Unit (PDU) Design and Testing',
-    tag: 'Electrical',
-    authors: 'Cheng Jing',
-    date: 'Sep 2026',
-    image: '/robosub_2026/electrical-header.png',
-    description: 'Engineering the electrical power architecture for high-capacity marine propulsion, intelligent battery management, and mandatory wireless safety kill-switches.',
-    sections: [
-      {
-        heading: 'Power & Safety Architecture',
-        layout: 'blockImageStory',
-        blocks: [
-          {
-            images: [
-              { src: '/robosub_2026/electrical-header.png', caption: 'Modular power architecture and management system' }
-            ],
-            body: 'RobotX operations demand substantially higher power bandwidth than underwater vehicles due to high-current surface thrusters and powerful long-range sensors. Our updated Power Distribution Unit (PDU) incorporates active current and voltage monitoring on all output rails, with automated fault detection isolating problematic subsystems before damage occurs.'
-          },
-          {
-            body: 'For maritime safety and competition compliance, a multi-tiered emergency stop (E-Stop) system was implemented. This includes physical hardwired marine kill-switches located on the vessel superstructure alongside an encrypted, fail-safe 915 MHz wireless remote kill link. In the event of signal loss or operator trigger, the main contactor de-energizes all motor drives within 50 milliseconds.'
-          }
-        ]
-      }
-    ]
-  },
-  {
     slug: 'robotx-usv-lidar-integration',
-    title: 'Lidar Integration (USV)',
+    title: 'USV: Lidar Integration',
     tag: 'Software',
     authors: 'Baba',
     date: 'Sep 2026',
@@ -1353,7 +1444,7 @@ const robotxPostsRaw = [
   },
   {
     slug: 'robotx-sw-unity-simulation',
-    title: 'Unity Simulation for RobotX',
+    title: 'USV/UUV/UAV: Unity Simulation for RobotX',
     tag: 'Software',
     authors: 'Jia Qian',
     date: 'Sep 2026',
@@ -1368,7 +1459,7 @@ const robotxPostsRaw = [
             title: 'Why Simulate',
             body: 'The Unity simulation is used to test various aspects of the robotics software, such as controls, navigation, and perception, without setting up the physical vehicle every time. It simulates real world visuals using the same STL models for buildings and vehicles, and the same water color and murkiness, which lets perception test the vision model without going to the physical location. It also simulates water and air physics to help us tune controls better, and simulates comms, including ROS2, MAVROS, and ArduPilot, and how the vehicle would receive data such as IMU, camera, and DVL measurements.',
             images: [
-              { src: '/images/navigation-usv-foxglove.jpg', caption: 'UnitySim visualization of UAV deployment.' }
+              { src: '/images/navigation-usv-foxglove.jpg', caption: 'UnitySim visualization of USV deployment.' }
             ]
           },
           {
@@ -1381,12 +1472,112 @@ const robotxPostsRaw = [
           },
           {
             title: 'Performance Considerations',
-            body: "Another consideration is the performance of the simulator itself. It is already resource intensive, since it needs to manage publishing and subscription for three different vehicles as well as the calculations for realistic graphics and physics, so every feature we implement needs to be as efficient as possible. Instead of spamming a large number of water particles, each with collision, to simulate the water shooter hitting the Task 3 target, it's better to just cast a ray that simulates where the water would hit.",
+            body: "Simulator performance and frame rate (FPS) were major priorities during development. As the environment is already computationally heavy, every new feature had to be strictly optimized to prevent severe frame drops on lower-spec machines. Instead of using high-overhead methods like generating dense water particle systems with individual collision checks to simulate Task 3’s water shooting, we are exploring the use of a raycasting approach. This captures the target hit accurately while keeping frame rates smooth and simulation lag minimal across all team hardware.",
             images: [
-              { src: '/images/usv-performance-considerations.jpg', caption: 'Performance considerations visualized.' }
+              { src: '/images/robotx2026/software-subsystems/unity-sim-original-fps.gif', caption: 'Original Unity simulation FPS performance, lag observed' },
+              { src: '/images/robotx2026/software-subsystems/unity-sim-higher-fps.gif', caption: 'Optimized Unity simulation FPS performance, smoother playback' }
             ]
 
           }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'uuv-new-frame-2026',
+    title: 'UUV: Aluminium Frame Redesign for Kraken',
+    tag: 'Mechanical',
+    authors: 'Muresh',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
+    description: 'Redesigning the Kraken UUV frame to improve strength, durability, and ease of maintenance through a lightweight aluminium structure.',
+    sections: [
+      {
+        heading: 'Redesigning the Kraken UUV Frame',
+        layout: 'versionedRows',
+        versions: [
+          {
+            title: 'Purpose of Redesign',
+            subtitle: 'Problem and Solution',
+            body: 'We hope to create a dependable base for the rest of the vehicle\'s systems to be mounted on. ',
+            details: [
+              {
+                label: 'Problem',
+                body: 'The existing acrylic frame had developed cracks over time, which made it unreliable as the backbone holding all of the UUV\'s components together.'
+              },
+              {
+                label: 'Solution',
+                body: 'We switched the material to aluminium, which would give us a much stronger and more durable frame that could handle repeated handling, testing and vibration. '
+              },
+            ],
+          },
+          {
+            title: 'Balance between Weight and Strength',
+            subtitle: 'Cutting holes into the frame to reduce weight',
+            body: 'Aluminium is far stronger than acrylic, but it is also heavier, so we planned to cut holes into the frame wherever the material was not carrying much load. This way we keep the strength of aluminium while lessening the overall weight of the frame. The holes were placed around the mounting points and load paths of the components so that the frame stays rigid.',
+            details: [
+              
+            ],
+            images: [
+              {
+                src: '/images/robotx2026/uuv-blog/uuv-frame-design-2.jpg',
+              }
+            ]
+          },
+          {
+            title: 'Consideration of Holes',
+            subtitle: 'The Result of Unsuitable Holes Number and Placement',
+            body: 'We tried to be deliberate about where material was removed, only cutting from low-stress regions of the frame.',
+            details: [
+              {
+                label: 'Too many or poorly placed holes',
+                body: 'Weaken the frame and defeat the purpose of the switch.'
+              },
+              {
+                label: 'Too Few Holes',
+                body: 'Leave the UUV heavier than necessary, which affects its buoyancy and how much thrust it needs to manoeuvre.'
+              }
+            ],
+          },
+          {
+            title: 'Optimization for Serviceability',
+            subtitle: 'Improved Component Layout in the New Frame',
+            body: 'This frame design makes repairs, part swaps and upgrades between test runs take much less time.',
+            details: [
+              {
+                label: 'Previous Issues',
+                body: 'Working on one part of the UUV could mean disturbing much of the rest of the vehicle, which made maintenance slow and discouraged quick fixes.'
+              },
+              {
+                label: 'Improvement',
+                body: 'We arranged the layout, which allows key components to be reached, removed and reinstalled individually without dismantling everything around them. This means repairs, part swaps and upgrades between test runs take much less time.'
+              },
+            ],
+          },
+          {
+            title: 'Optimization for Assembly',
+            subtitle: 'Reduced Number and Complexity of Steps Needed for Assembly',
+            body: 'We used simpler, more consistent mounting methods so that the UUV can be assembled and disassembled quickly and repeatably by any team member, not just the person who built it. This makes the whole build process more reliable and less prone to errors.',
+            details: [
+              
+            ],
+          },
+          {
+            title: 'Improvement in Ergonomics',
+            subtitle: 'Easier transportation and field testing',
+            body: 'As the UUV is regularly moved between the workshop and test sites, we made the frame easier to lift, carry and handle safely. This makes it simpler to deploy and recover the vehicle in the field, so the team can spend more of its testing time on actual tests rather than on logistics.',
+            details: [
+              {
+                label: 'Ease of Deployment and Recovery',
+                body: 'This makes it simpler to deploy and recover the vehicle in the field, which allows the team to spend more of its testing time on actual tests rather than on logistics.'
+              }
+            ],
+            images: [
+              {
+                src: '/images/robotx2026/uuv-blog/uuv-18sep-pool-2.jpg',
+              }
+            ]
+          },
         ]
       }
     ]
