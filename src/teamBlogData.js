@@ -1337,14 +1337,30 @@ const robotxPostsRaw = [
             ]
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    slug: 'robotx-uav-drone-test-2',
+    title: 'UAV: Stress Test Day for Phoenix!',
+    tag: 'Vehicle Test',
+    authors: 'Darren',
+    date: 'Sep 2026',
+    image: '/images/phoenix_placeholder.png',
+    description: 'After the success of the maiden flight and the autonomous flights, it was time to move Phoenix on to the next phase: full system stress testing.',
+    sections: [
       {
-        heading: 'Nailing the Autonomous Demonstration',
-        body: 'With safety verified, Poseidon lined up for the headline event: the autonomous navigation demo. Starting 3 meters behind the entry gate, the USV initiated full autonomous mode, lined up its path, and cleared both sets of gates cleanly without touching a single buoy. Capturing this on film was a massive milestone for the team—validating our mechanical redesigns, electrical isolation, and control loops in one unified run. Poseidon is officially ready for the field!',
-        images: [
+        heading: 'Stress Test Day',
+        layout: 'blockImageStory',
+        blocks: [
           {
-            src: '/images/robotx2026/usv-blog/usv-pool-test-2-end.png',
-            caption: ''
+            body: "Flying indoors in our school's hall gave us the perfect environment to perform stress tests, since we could remove variables and environmental factors such as wind. The goal for this test was simple: add on weights and simulate an event where the drone would be pushed to its maximum limit with sustained and aggressive maneuvers."
+          },
+          {
+            body: "One of the key things we tracked was battery drain. The extra physical weight meant the motors had to work much harder just to hover, which resulted in drawing additional current."
+          },
+          {
+            body: "By the end of this test, we confirmed that our current battery configuration would not give us the endurance we need to complete our mission comfortably, and that we had to obtain a battery with higher capacity. Since we needed the payload to complete the mission, the variable we had to change was the power source. We will now look into batteries with different capacities to find the one that gives us the most flight time for our missions!"
           }
         ]
       },
