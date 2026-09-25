@@ -435,7 +435,7 @@ function PhoenixPage() {
 
           <div className="flex justify-center mt-10">
           <Link
-          to="/robosub2026"
+          to="/robotx2026"
           className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
           >
           View our RobotX 2026 Development
