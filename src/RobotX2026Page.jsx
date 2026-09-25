@@ -232,7 +232,10 @@ export default function RobotX2026Page() {
           <div className="w-[20rem] h-[20rem] sm:w-[23rem] sm:h-[23rem] md:w-[30rem] md:h-[30rem] lg:w-[36rem] lg:h-[22rem] rounded-full flex items-center justify-center overflow-hidden relative bg-transparent">
             <Optimized3DViewer
               showModel={true}
-              scale={[5.5, 5.5, 5.5]}
+              scale={vehicle.modelType === 'kraken'
+                ? [5.5, 5.5, 5.5]
+                : [1.8, 1.8, 1.8]
+              }
               enableTouchControls={true}
               modelType={vehicle.modelType}
             />
