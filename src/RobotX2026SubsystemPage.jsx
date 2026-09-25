@@ -437,7 +437,7 @@ function getKrakenMechanicalSections() {
       images: [
         {
           src: '/images/robotx2026/mechanical-subsystems/kraken-current-design.jpg',
-          caption: 'Kraken bottom view with underside battery integration.'
+          caption: 'Kraken with underside battery integration.'
         },
       ]
     },
@@ -447,7 +447,7 @@ function getKrakenMechanicalSections() {
       bullets: ['Guide shaft and compression spring absorb collision shock.', 'Compliant travel helps protect against non-perpendicular impacts.', 'Press-fit rubber boot supports tool-less magnet replacement.'],
       images: [
         {
-          src: '/images/robotx2026/mechanical-subsystems/kraken-magnetic-probe.jpg',
+          src: '/images/robotx2026/mechanical-subsystems/magnetic-probe-edited.jpg',
           caption: 'Kraken\'s magnetic probe for Task 2.'
         }
       ]

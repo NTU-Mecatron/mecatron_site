@@ -9,8 +9,8 @@ const sections = [
       { id: 'vehicles-main', label: 'Vehicles', path: '/vehicles' },
       { id: 'poseidon', label: 'Poseidon 2026', path: '/poseidon' },
       { id: 'phoenix', label: 'Phoenix 2026', path: '/phoenix' },
-      { id: 'hydra', label: 'Hydra 2026', path: '/hydra' },
       { id: 'kraken', label: 'Kraken 2026', path: '/kraken' },
+      { id: 'hydra', label: 'Hydra 2026', path: '/hydra' },
       { id: 'kevin', label: 'Kevin 2025', path: '/kevin' },
       { id: 'lucy', label: 'Lucy 2025', path: '/lucy' },
     ]
