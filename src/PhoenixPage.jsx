@@ -141,11 +141,11 @@ function PhoenixPage() {
   // Define sections for navigation
   const sections = [
     { id: 'intro', title: 'Intro' },
-    { id: 'manoeuvrability', title: 'Compact' },
-    { id: 'energy', title: 'Longer Range' },
-    { id: 'simulation', title: 'Unity Simulation' },
-    { id: 'mission', title: 'BT-Based Mission Planning' },
-    { id: 'controller', title: 'Upgraded Perception' }
+    { id: 'manoeuvrability', title: 'Fin Ray TPU Gripper' },
+    { id: 'energy', title: 'Lightweight Frame' },
+    { id: 'simulation', title: 'Modular Mounts & Protective Cover' },
+    { id: 'mission', title: 'Unity Simulation' },
+    { id: 'controller', title: 'BT-Based Mission Planning' }
   ];
 
   // Function to scroll to section
@@ -332,7 +332,7 @@ function PhoenixPage() {
             <>
               <div className="fixed inset-0 bg-black/50 z-10 pointer-events-none"></div>
               <p className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mx-4 w-fit text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-white text-center z-20 pointer-events-none">
-                designed
+                customized
               </p>
             </>
           )}
@@ -361,17 +361,17 @@ function PhoenixPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Compact</h2>
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Fin Ray TPU Gripper</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Phoenix is designed with an organic internal structure that has been optimized to be compact yet able to hold many actuators
+              Flexible fingers adapt to different object shapes for more reliable gripping without needing a complicated mechanism
             </p>
           </div>
         </section>
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Longer Range</h2>
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Lightweight Frame</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Phoenix features dual battery cylinders, doubling its storage capacity and allowing the vehicle to run twice the distance
+              Provides a high strength-to-weight ratio, keeping the UAV lightweight while maintaining structural rigidity
             </p>
           </div>
           <p className="w-[50%] order-2"></p>
@@ -379,27 +379,27 @@ function PhoenixPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Modular Mounts & Protective Cover</h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
+              Custom lightweight mounts allow easy integration of components, while the cover protects electronics and mechanisms during operation
+            </p>
+          </div>
+        </section>
+        <section className="relative flex items-center justify-evenly h-[100vh]">
+          <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
             <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Unity Simulation</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
               Full-fledged digital twin of Phoenix enables fast software iterations and testing
             </p>
           </div>
-        </section>
-        <section className="relative flex items-center justify-evenly h-[100vh]">
-          <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">BT-Based Mission Planning</h2>
-            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Fully reusable and customisable behavior trees to make mission planning a breeze
-            </p>
-          </div>
           <p className="w-[50%] order-2"></p>
         </section>
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Upgraded Perception</h2>
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">BT-Based Mission Planning</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Phoenix features an upgraded perception algorithm that uses depth segmentation to improve 3D pose estimation
+              Fully reusable and customisable behavior trees to make mission planning a breeze
             </p>
           </div>
         </section>
