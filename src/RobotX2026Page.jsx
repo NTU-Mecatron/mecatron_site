@@ -34,7 +34,7 @@ const sharedElectricalFeature = {
     'Poseidon, Kraken, and Phoenix power designs',
     'Shore-side UPS and ground support',
   ],
-  image: '/competition/images/robotx-all-vehicles.jpg',
+  image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
 };
 
 const vehicleTabs = {

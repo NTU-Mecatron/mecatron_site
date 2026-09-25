@@ -44,10 +44,10 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
         highlights: [],
         development: [],
-        image: '/competition/images/robotx-all-vehicles.jpg',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   },
@@ -100,14 +100,14 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
         highlights: [],
         development: [
           'Map electronics placement against mechanical access zones',
           'Prepare wiring routes for cameras, navigation sensors, and actuators',
           'Run bench checks before full vehicle integration'
         ],
-        image: '/competition/images/robotx-all-vehicles.jpg',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   },
@@ -152,10 +152,10 @@ const subsystemPages = {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'RobotX 2026 uses a shared electrical and embedded-systems architecture across Poseidon, Kraken, and Phoenix. A common safety and modular-PCB foundation is adapted to each platform’s power, mass, thermal, and mission requirements.',
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
         highlights: [],
         development: [],
-        image: '/competition/images/robotx-all-vehicles.jpg',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   }
@@ -473,12 +473,11 @@ function getSharedElectricalSections(vehicleId) {
         'Boards are tested to their rated currents and mounted on modular trays for maintenance and field swapping.'
       ],
       images: [
-        { src: '/images/robosub2026/electrical-subsystems/bms1.png', caption: 'Custom battery management system PCB.' },
-        { src: '/images/robosub2026/electrical-subsystems/bms2.png', caption: 'Battery management system validation.' }
+        { src: '/images/robotx2026/electrical-subsystems/load-switch.png', caption: 'Load switch diagram.' },
       ]
     },
     ...(vehicleId === 'poseidon' ? [{
-      title: 'Poseidon · USV Power & Payloads',
+      title: 'USV Power & Payloads',
       description: 'Poseidon uses Power System Architecture A, with independent battery paths for CESS and AESS to extend compute runtime and isolate high-current propulsion noise. A dedicated 6S 12,500 mAh solid-state battery powers CESS, providing approximately twice the compute endurance of a standard 4S LiPo alternative. Power and electronics are distributed across two modular side hulls and a central aluminum enclosure; each side hull carries a 6S LiPo battery and custom BMS for propulsion.',
       bullets: [
         'High-current switching and drive logic support the 2-DOF water-shooter pump and planetary-gear actuation.',
@@ -486,7 +485,7 @@ function getSharedElectricalSections(vehicleId) {
       ]
     }] : []),
     ...(vehicleId === 'kraken' ? [{
-      title: 'Kraken · UUV Power & Subsea Integration',
+      title: 'UUV Power & Subsea Integration',
       description: 'Kraken uses Power System Architecture B, with an ideal-diode OR-ing stage between its battery sources. Identical battery cylinders sit beneath the port and starboard sides to balance the center of gravity and hydro-trim. The OR-ing arrangement allows a battery to be exchanged while compute remains powered. Electrical components are packaged in a custom rectangular aluminum enclosure; the aluminum hull transfers heat from high-power boards to the surrounding water.',
       bullets: [
         'Dedicated power rails help isolate the DVL, pressure-depth sensors, and IMU from thruster transient spikes.',
@@ -494,7 +493,7 @@ function getSharedElectricalSections(vehicleId) {
       ]
     }] : []),
     ...(vehicleId === 'phoenix' ? [{
-      title: 'Phoenix · UAV Power & Flight Safety',
+      title: 'UAV Power & Flight Safety',
       description: 'Phoenix prioritizes low mass and uninterrupted flight actuation. Its compact PDU uses small SMD components and integrated solid-copper busbars to carry peak current while reducing board mass and footprint. Because cutting motor power during flight could cause a fall, Phoenix AESS bypasses the Load Switch, OCP, OVP, and UVLO paths so motors can remain powered through voltage sag; CESS retains OCP protection.',
       bullets: [
         'Dedicated regulated rails and servo drivers power the linear lead-screw Fin-Ray gripper.',
@@ -502,7 +501,7 @@ function getSharedElectricalSections(vehicleId) {
       ]
     }] : []),
     {
-      title: 'Shore Infrastructure · Ground Support',
+      title: 'Shore Infrastructure',
       description: 'The shore-side UPS uses an 8S battery topology to power the Operator Control Station (OCS), PoE switch, Power Line Communication (PLC), and telemetry. Its higher input rail lets efficient buck regulators step down power for ground equipment, reducing heat and helping keep switching noise away from communications channels.',
       bullets: []
     }
