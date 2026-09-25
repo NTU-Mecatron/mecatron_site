@@ -29,7 +29,7 @@ const subsystemPages = {
           'Raised mounts for cameras, LiDAR, and dual RTK antennas'
         ],
         development: [],
-        image: '/images/robotx2026/usv-blog/usv-pool-test-1-header.jpg',
+        image: '/images/robotx2026/mechanical-subsystems/usv-header.jpg',
       },
       software: {
         label: 'Software',
@@ -298,12 +298,12 @@ function getPoseidonMechanicalSections() {
       imageLayout: 'comparison',
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-render.png',
-          caption: 'Marine platform thruster arrangement.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-kraken.png',
+          caption: 'Bottom view of Kraken (4 thrusters).'
         },
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-config.png',
-          caption: 'Thruster configuration used as the shared marine baseline.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-usv.png',
+          caption: 'Similar thruster configuration for Poseidon.'
         }
       ]
     },
@@ -324,8 +324,8 @@ function getPoseidonMechanicalSections() {
       bullets: ['Independent base pan and nozzle tilt.', 'Planetary-gear-based aiming drive.', 'Dedicated pump delivers water directly to the nozzle.'],
       images: [
         {
-          src: '/images/robotx2026/usv-blog/usv-pool-test-1-objectives.png',
-          caption: 'Poseidon water-shooter development and testing.'
+          src: '/images/robotx2026/mechanical-subsystems/water-shooter.png',
+          caption: 'Poseidon water-shooter mock-up.'
         }
       ]
     },
@@ -336,7 +336,7 @@ function getPoseidonMechanicalSections() {
       images: [
         {
           src: '/competition/images/robotx-all-vehicles.jpg',
-          caption: 'Poseidon alongside the RobotX 2026 vehicle fleet.'
+          caption: 'Poseidon alongside the RobotX 2026 vehicle fleet in simulation.'
         }
       ]
     }
