@@ -24,29 +24,31 @@ export default function VehiclesPage() {
         {/* Poseidon Section */}
         <VehicleDescription
           title="Poseidon 2026"
-          description="Poseidon 2026 is our latest innovation in underwater robotics. Designed for maximum efficiency and performance, Poseidon features a sleek design and advanced capabilities."
+          description="Poseidon is an autonomous surface vessel featuring modular dual hulls, precision dual-antenna RTK-GPS navigation, and a 2-DOF targeting water shooter. Serving as the central command node, it orchestrates tri-domain missions across air, surface, and subsea autonomous assets seamlessly."
           linkTo="/poseidon"
           highlightBg={true}
           modelType="poseidon"
           modelScale={[1.5, 1.5, 1.5]}
           tags={[
-            "Topology Optimization",
-            "Modular Frame Design",
-            "Symmetric 8-thruster Configuration"
+            "Accelerated Development",
+            "Modular Integration",
+            "Custom Water Shooter",
+            "Multi-Sensor Perception",
+            "Autonomous Navigation"
           ]}
         />
 
         {/* Phoenix Section */}
         <VehicleDescription
           title="Phoenix 2026"
-          description="Phoenix 2026 is our latest innovation in underwater robotics. Designed for maximum efficiency and performance, Phoenix features a sleek design and advanced capabilities."
+          description="Phoenix is an autonomous aerial vehicle featuring a lightweight carbon-fiber airframe, dual-antenna RTK-GPS, and a compliant Fin Ray gripper for payload delivery. It provides elevated target perception and seamless aerial logistics to support coordinated, cross-domain maritime missions."
           linkTo="/phoenix"
           modelType="phoenix"
           modelScale={[1.5, 1.5, 1.5]}
           tags={[
-            "Topology Optimization",
-            "Modular Frame Design",
-            "Symmetric 8-thruster Configuration"
+            "Fin Ray TPU Gripper",
+            "Ligghtweight Frame",
+            "Modular Mounts & Protective Cover"
           ]}
         />
 
