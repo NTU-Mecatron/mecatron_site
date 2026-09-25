@@ -1346,7 +1346,7 @@ const robotxPostsRaw = [
     tag: 'Vehicle Test',
     authors: 'Darren',
     date: 'Sep 2026',
-    image: '/images/phoenix_placeholder.png',
+    image: '/images/robotx2026/uav-blog/uav-with-screen.png',
     description: 'After the success of the maiden flight and the autonomous flights, it was time to move Phoenix on to the next phase: full system stress testing.',
     sections: [
       {
@@ -1354,7 +1354,10 @@ const robotxPostsRaw = [
         layout: 'blockImageStory',
         blocks: [
           {
-            body: "Flying indoors in our school's hall gave us the perfect environment to perform stress tests, since we could remove variables and environmental factors such as wind. The goal for this test was simple: add on weights and simulate an event where the drone would be pushed to its maximum limit with sustained and aggressive maneuvers."
+            body: "Flying indoors in our school's hall gave us the perfect environment to perform stress tests, since we could remove variables and environmental factors such as wind. The goal for this test was simple: add on weights and simulate an event where the drone would be pushed to its maximum limit with sustained and aggressive maneuvers.",
+            images: [
+              { src: '/images/robotx2026/uav-blog/uav-stress-test.gif', caption: 'Phoenix in action!' },
+            ]
           },
           {
             body: "One of the key things we tracked was battery drain. The extra physical weight meant the motors had to work much harder just to hover, which resulted in drawing additional current."
