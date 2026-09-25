@@ -384,9 +384,7 @@ function getPhoenixMechanicalSections() {
     },
     {
       title: 'Protective Aerodynamic Canopy',
-      description: 'A lightweight top canopy shields the flight controller and onboard electronics from marine water splash and airborne debris, while keeping the airframe’s mass budget in view.',
-      bullets: ['Protects avionics from splash and debris.', 'Designed as a lightweight part of the airframe.'],
-      images: [{ src: '/RobotX_UAV_Mechanical/close-up-uav.jpg', caption: 'Close-up of UAV with the canopy cover.' }]
+      description: 'A lightweight top canopy shields the flight controller and onboard electronics from marine water splash and airborne debris. It is designed with the airframe’s mass budget in view to abide by the competition rules.',
     }
   ];
 }
