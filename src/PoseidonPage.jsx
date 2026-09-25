@@ -144,8 +144,8 @@ function PoseidonPage() {
     { id: 'manoeuvrability', title: 'Accelerated Development' },
     { id: 'energy', title: 'Modular Integration' },
     { id: 'simulation', title: 'Custom Water Shooter' },
-    { id: 'mission', title: 'BT-Based Mission Planning' },
-    { id: 'controller', title: 'Upgraded Perception' }
+    { id: 'mission', title: 'Multi-Sensor Perception' },
+    { id: 'controller', title: 'Autonomous Navigation' }
   ];
 
   // Function to scroll to section
@@ -363,7 +363,7 @@ function PoseidonPage() {
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
             <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Accelerated Development</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Built upon the BlueBoat platform, Poseidon allows us to prioritise mission-specific engineering and system integration within a tight development timeline, rather than developing the hull and propulsion system from scratch.
+              Built upon the BlueBoat platform, Poseidon allows us to prioritise mission-specific engineering and system integration within a tight development timeline, rather than developing the hull and propulsion system from scratch
             </p>
           </div>
         </section>
@@ -371,7 +371,7 @@ function PoseidonPage() {
           <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
             <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Modular Integration</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Custom mechanical mounts accommodate cameras, sensors and mission-specific payloads, with emphasis on accessibility, weight distribution and ease of maintenance.
+              Custom mechanical mounts accommodate cameras, sensors and mission-specific payloads, with emphasis on accessibility, weight distribution and ease of maintenance
             </p>
           </div>
           <p className="w-[50%] order-2"></p>
@@ -381,15 +381,15 @@ function PoseidonPage() {
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
             <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Custom Water Shooter</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              A custom-designed water shooter featuring independent pitch and yaw adjustment, enabling precise targeting without requiring the entire USV to reposition.
+              A custom-designed water shooter featuring independent pitch and yaw adjustment, enabling precise targeting without requiring the entire USV to reposition
             </p>
           </div>
         </section>
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <div className="text-white order-1 w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">BT-Based Mission Planning</h2>
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Multi-Sensor Perception</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Fully reusable and customisable behavior trees to make mission planning a breeze
+              Fusing LiDAR and camera data for real-time environmental awareness
             </p>
           </div>
           <p className="w-[50%] order-2"></p>
@@ -397,9 +397,9 @@ function PoseidonPage() {
         <section className="relative flex items-center justify-evenly h-[100vh]">
           <p className="w-[50%] border-0 border-red-700"></p>
           <div className="text-white w-[50%] text-center px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Upgraded Perception</h2>
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-6">Autonomous Navigation</h2>
             <p className="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-4xl font-semibold">
-              Poseidon features an upgraded perception algorithm that uses depth segmentation to improve 3D pose estimation
+              Real-time path planning and obstacle avoidance for complex environments
             </p>
           </div>
         </section>
