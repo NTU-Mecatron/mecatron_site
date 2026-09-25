@@ -56,7 +56,7 @@ const vehicleTabs = {
           'Sensor deck and rigging'
         ], 
         subpage: '/poseidon/mechanical',
-        image: '/images/robotx2026/uuv-blog/uuv-frame-design-1.jpg',
+        image: '/images/robotx2026/mechanical-subsystems/usv-header.jpg',
       },
       {
         ...sharedElectricalFeature,
