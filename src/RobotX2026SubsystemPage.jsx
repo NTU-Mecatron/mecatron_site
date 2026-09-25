@@ -137,7 +137,7 @@ const subsystemPages = {
           'Lightweight splash and debris canopy'
         ],
         development: [],
-        image: '/RobotX_UAV_Mechanical/Drone.jpg',
+        image: '/RobotX_UAV_Mechanical/drone-edited.jpg',
       },
       software: {
         label: 'Software',
@@ -351,8 +351,8 @@ function getPhoenixMechanicalSections() {
       bullets: ['Carbon-fibre airframe structure.', 'Low-infill printed brackets reduce component mass.', 'Topology-optimized joints retain critical load paths.'],
       images: [
         {
-          src: '/competition/images/robotx-all-vehicles.jpg',
-          caption: 'Phoenix as part of the RobotX 2026 fleet.'
+          src: '/RobotX_UAV_Mechanical/drone-real-life.png',
+          caption: 'Phoenix with assembled components.'
         }
       ]
     },
@@ -386,7 +386,7 @@ function getPhoenixMechanicalSections() {
       title: 'Protective Aerodynamic Canopy',
       description: 'A lightweight top canopy shields the flight controller and onboard electronics from marine water splash and airborne debris, while keeping the airframe’s mass budget in view.',
       bullets: ['Protects avionics from splash and debris.', 'Designed as a lightweight part of the airframe.'],
-      images: [{ src: '/competition/images/robotx-all-vehicles.jpg', caption: 'Phoenix UAV in the RobotX 2026 fleet.' }]
+      images: [{ src: '/RobotX_UAV_Mechanical/close-up-uav.jpg', caption: 'Close-up of UAV with the canopy cover.' }]
     }
   ];
 }
