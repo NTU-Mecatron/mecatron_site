@@ -117,7 +117,7 @@ const vehicleTabs = {
           'Protective aerodynamic canopy'
         ], 
         subpage: '/phoenix/mechanical',
-        image: '/images/robotx2026/uav-blog/fin-ray-fingers.jpg',
+        image: '/RobotX_UAV_Mechanical/Drone.jpg',
       },
       {
         ...sharedElectricalFeature,
