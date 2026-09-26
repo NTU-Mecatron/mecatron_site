@@ -57,60 +57,51 @@ function TabNavigation({ sections, onTabClick, visible, onExited, onInteraction 
 const poseidonSpecifications = [
   {
     title: "Vehicle's Dimensions",
-    bullets: ["Length: 0.54m", "Height: 0.34m", "Width: 0.51m"]
+    bullets: ["Length: 0.91m", "Height: 0.376m", "Width: 1.195m"]
   },
   {
     title: "Mass of Vehicle",
-    bullets: ["23kg in Air"]
+    bullets: ["14.5kg"]
   },
   {
     title: "Degrees of Freedom",
-    bullets: ["6 (Surge, Sway, Heave, Roll, Pitch, Yaw)"]
+    bullets: ["3 (Surge, Sway, Yaw)"]
   },
   {
     title: "Computer Stack",
-    bullets: ["16GB RAM", "512GB M.2SATA3 SSD", "NVIDIA Jetson Orin NX Super"]
+    bullets: ["16GB RAM", "512GB M.2SATA3 SSD", "NVIDIA Jetson Orin NX"]
   },
   {
     title: "Acoustics System",
-    bullets: ["Aquarian AS-1 Hydrophones (x3)",
-        "Custom-Designed Filter Board",
-        "Teensy 4.1 Microcontroller",
-        "Aquarian PA-4 Pre-Amplifier", 
-        "ROVMAKER 60mm Acrylic Underwater Electronic Enclosure",
+    bullets: ["No acoustics",
         ]
   },
   {
     title: "Control System",
-    bullets: ["BlueRobotics T200 Thrusters (x8)",
-    "ROVMAKER 35A ESC (x8)",
+    bullets: ["BlueRobotics T200 Thrusters (x4)",
+    "ROVMAKER 35A ESC (x4)",
     "Holybro Pixhawk 6C Controller"
 ]
   },
   {
     title: "Navigation Suite",
-    bullets: ["Water Linked A50 DVL", "VectorNav VN-100 IMU",
+    bullets: ["Water Linked A50 DVL", "Robosense Airy LiDAR", "H-RTK Unicore UM982"
     ]
   },
   {
     title: "Sensors",
-    bullets: ["ROVMAKER Bar30 Pressure Sensor","DWE exploreHD Camera (downward facing)","DWE exploreHD Camera (forward facing)"]
+    bullets: ["Arducam AR0234 Camera Module"]
   },
   {
     title: "Actuators",
     bullets: [
-      "15 Kg Electromagnet (30mm x 30mm x 20mm) (x2) - Dropper",
-      "ROVMAKER Positional Underwater Servo - Gripper",
-      "ROVMAKER 60mm Acrylic Underwater Electronic Enclosure",
+      "2-DoF Water Shooter (planetary-gear base rotation and nozzle pitching) powered by a compact pump",
     ]
   },
   {
     title: "Power System",
     bullets: [
-      "4S 88.8Wh LiPo Battery (x2)",
-      "Custom-Designed LV Power Distribution Unit",
-      "Custom-Designed HV Power Distribution Unit",
-      "ROVMAKER 90mm Acrylic Underwater Electronic Enclosure (x2)"
+      "CESS (Compute): 6S 12,500 mAh Solid State battery", "AESS (Actuation): 6S LiPo battery in each side power hull (with custom BMS)", "Failsafe on-board and remote kill switches"
     ]
   },
   {
@@ -411,7 +402,7 @@ function PoseidonPage() {
                 Vehicle Specifications
               </h2>
               <p className="mx-auto max-w-3xl text-sm sm:text-base md:text-lg text-gray-300">
-                Poseidon's hardware and autonomy stack are organized around reliability, modularity, and competition-ready underwater performance.
+                Poseidon's hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
               </p>
             </div>
 
