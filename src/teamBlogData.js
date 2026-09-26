@@ -1584,6 +1584,74 @@ const robotxPostsRaw = [
         ]
       }
     ]
+  },
+  {
+    slug: 'robotx-water-shooter-mechanical-design',
+    title: 'USV: Engineering Our 2-DOF Water Shooter',
+    tag: 'Mechanical',
+    authors: 'Aisyah',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/mechanical-subsystems/water-shooter.png',
+    description: 'When building a targeted water shooter for an autonomous boat, we needed a system nimble enough to lock onto targets quickly without turning the entire mast into a top-heavy lever arm that upsets the boat\'s stability. Here is how the mechanical team engineered the water shooter assembly from deck mount to nozzle tip.',
+    sections: [
+      {
+        heading: 'Clamped Rail Mount and Planetary Yaw',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: [
+              'Every reliable aiming mechanism needs a solid anchor. Rather than drilling permanent mounts into the deck, the base of the water shooter clamps directly onto our structural frame bars.',
+              'For the horizontal yaw axis, we built around an integrated planetary gear system:',
+              ' ',
+            ],
+            bullets: [
+              'High Torque in a Compact Form: Planetary gears distribute mechanical loads evenly across multiple contact points, delivering the robust torque needed to pan against wind drag and hull roll.',
+              'Low Center of Gravity: The compact profile keeps the yaw assembly low to the deck, preventing top-heavy sway.',
+              'Vibration Isolation: The rigid clamp prevents motor backlash and fast panning steps from shaking the rest of the payload mast.'
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Line of Sight: Elevation Beneath LiDAR',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: ['Target acquisition requires the shooter to aim closely along the boat’s primary perception axis. We positioned the discharge nozzle directly beneath the LiDAR unit to align physical aim with sensor feedback while keeping the LiDAR’s scanning plane completely unobstructed.', ' ',],
+            bullets: [
+              'Dedicated Pitch Motor: A lightweight motor coupled directly to the nozzle bracket drives the vertical pitch, allowing precise ballistic elevation adjustments for targets at varying distances.',
+              'Feeder Tube Clearance: The delivery tube runs up through the center of the yaw axis and flexes neatly into the nozzle bracket, ensuring full range of motion without kinking or binding during simultaneous pan-and-tilt maneuvers.'
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Smart Mass Management',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: [
+              'A high-pressure water pump is easily the heaviest part of any fluid delivery system. Mounting it on the moving head would require bulky motors and slow down tracking speeds significantly.',
+              'We decoupled the fluid delivery from the aiming axes:',
+              ' ',
+            ],
+            bullets: [
+              'Pump Fixed at Bar Level: Bolting the pump directly to the lower bar framework keeps its weight off both the yaw planetary gears and the pitch motor. The actuators only have to move the lightweight nozzle assembly and flexible tubing.',
+              'Side-Mounted Hull Intake: The intake line is secured along the boat’s flank, drawing directly from the surrounding water. This eliminates the deadweight of an onboard reservoir while ensuring instant, continuous priming whenever the trigger signal fires.'
+            ]
+          }
+        ]
+      },
+      {
+        heading: 'Next Steps',
+        layout: 'blockImageStory',
+        blocks: [
+          {
+            body: 'With the clamp tolerances verified and fluid lines routed, our focus shifts to bench-testing nozzle recoil forces and fine-tuning gear mesh. Once static pressure tests are complete, we’ll run dynamic targeting trials to ensure smooth tracking while the pump runs at full blast.'
+          }
+        ]
+      }
+    ]
   }
 ];
 
