@@ -61,7 +61,7 @@ const phoenixSpecifications = [
   },
   {
     title: "Mass of Vehicle",
-    bullets: ["23kg in Air"]
+    bullets: ["5.8kg in Air with gripper"]
   },
   {
     title: "Degrees of Freedom",
@@ -69,48 +69,36 @@ const phoenixSpecifications = [
   },
   {
     title: "Computer Stack",
-    bullets: ["16GB RAM", "512GB M.2SATA3 SSD", "NVIDIA Jetson Orin NX Super"]
+    bullets: ["8GB RAM", "512GB M.2SATA3 SSD", "NVIDIA Jetson Orin Nano"]
   },
   {
     title: "Acoustics System",
-    bullets: ["Aquarian AS-1 Hydrophones (x3)",
-        "Custom-Designed Filter Board",
-        "Teensy 4.1 Microcontroller",
-        "Aquarian PA-4 Pre-Amplifier", 
-        "ROVMAKER 60mm Acrylic Underwater Electronic Enclosure",
+    bullets: ["No acoustics",
         ]
   },
   {
     title: "Control System",
-    bullets: ["BlueRobotics T200 Thrusters (x8)",
-    "ROVMAKER 35A ESC (x8)",
-    "Holybro Pixhawk 6C Controller"
-]
+    bullets: ["Tekko32 F4 45A (x4)", "Tmotor MN4014 KV330 Motor (x4)", "Holybro Pixhawk 6X Controller"]
   },
   {
     title: "Navigation Suite",
-    bullets: ["Water Linked A50 DVL", "VectorNav VN-100 IMU",
+    bullets: ["H-RTK Unicore UM982",
     ]
   },
   {
     title: "Sensors",
-    bullets: ["ROVMAKER Bar30 Pressure Sensor","DWE exploreHD Camera (downward facing)","DWE exploreHD Camera (forward facing)"]
+    bullets: ["Arducam AR0234 Camera Module"]
   },
   {
     title: "Actuators",
     bullets: [
-      "15 Kg Electromagnet (30mm x 30mm x 20mm) (x2) - Dropper",
-      "ROVMAKER Positional Underwater Servo - Gripper",
-      "ROVMAKER 60mm Acrylic Underwater Electronic Enclosure",
+      "Servo-driven lead-screw actuated gripper with symmetrical jaw motion", "Compliant 3D-printed TPU fingers based on the Fin Ray concept", "Topology-optimized structural arms",
     ]
   },
   {
     title: "Power System",
     bullets: [
-      "4S 88.8Wh LiPo Battery (x2)",
-      "Custom-Designed LV Power Distribution Unit",
-      "Custom-Designed HV Power Distribution Unit",
-      "ROVMAKER 90mm Acrylic Underwater Electronic Enclosure (x2)"
+      "Dedicated lightweight PDU with busbars instead of thick PCB traces", "AESS isolated from Load Switch and bypasses OCP, OVP, and UVLO protections to prevent mid-air power cuts", "CESS retains Over-Current Protection (OCP)"
     ]
   },
   {
@@ -411,7 +399,7 @@ function PhoenixPage() {
                 Vehicle Specifications
               </h2>
               <p className="mx-auto max-w-3xl text-sm sm:text-base md:text-lg text-gray-300">
-                Phoenix's hardware and autonomy stack are organized around reliability, modularity, and competition-ready underwater performance.
+                Phoenix's hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
               </p>
             </div>
 
