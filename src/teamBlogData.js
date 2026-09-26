@@ -1608,6 +1608,9 @@ const robotxPostsRaw = [
               'High Torque in a Compact Form: Planetary gears distribute mechanical loads evenly across multiple contact points, delivering the robust torque needed to pan against wind drag and hull roll.',
               'Low Center of Gravity: The compact profile keeps the yaw assembly low to the deck, preventing top-heavy sway.',
               'Vibration Isolation: The rigid clamp prevents motor backlash and fast panning steps from shaking the rest of the payload mast.'
+            ],
+            images: [
+              { src: '/images/robotx2026/usv-blog/base-clamp.jpg', caption: 'Base clamp attached to primary bars housing planetary gears.' }
             ]
           }
         ]
@@ -1621,6 +1624,9 @@ const robotxPostsRaw = [
             bullets: [
               'Dedicated Pitch Motor: A lightweight motor coupled directly to the nozzle bracket drives the vertical pitch, allowing precise ballistic elevation adjustments for targets at varying distances.',
               'Feeder Tube Clearance: The delivery tube runs up through the center of the yaw axis and flexes neatly into the nozzle bracket, ensuring full range of motion without kinking or binding during simultaneous pan-and-tilt maneuvers.'
+            ],
+            images: [
+              { src: '/images/robotx2026/usv-blog/water-shooter-nozzle.jpg', caption: 'CAD design of nozzle and pitch motor used for water expulsion.' }
             ]
           }
         ]
