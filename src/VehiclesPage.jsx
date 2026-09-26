@@ -32,9 +32,7 @@ export default function VehiclesPage() {
           tags={[
             "Accelerated Development",
             "Modular Integration",
-            "Custom Water Shooter",
-            "Multi-Sensor Perception",
-            "Autonomous Navigation"
+            "Custom Water Shooter"
           ]}
         />
 
@@ -66,7 +64,7 @@ export default function VehiclesPage() {
             "Symmetric 8-thruster Configuration"
           ]}
         />
-        
+
         {/* Kraken Section */}
         <VehicleDescription
           title="Kraken 2026"
