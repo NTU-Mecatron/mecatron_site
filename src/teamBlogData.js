@@ -1652,6 +1652,59 @@ const robotxPostsRaw = [
         ]
       }
     ]
+  },
+  {
+    slug: 'powering-the-boat',
+    title: 'Powering the USV: Pool Tests, 6S Hot-Swaps, and Electrical Ideation',
+    tag: 'Electrical',
+    authors: 'Cheng Jing',
+    date: 'Sep 2026',
+    image: '/images/robotx2026/electrical-subsystems/elect-blog-1.jpg',
+    description: 'Between weekly poolside testing and late-night architecture brainstorms, our electrical team has had its hands full adapting to a larger surface vehicle. Here is an inside look at how we’re scaling our power distribution, onboarding teammates, and rethinking our battery topology.',
+    sections: [
+      {
+        heading: 'Hands-on Poolside Debugging & Mentorship',
+        body: ['Every week, pool testing is a crash course in cross-subsystem collaboration. Software constantly comes to us with new payload modules, peripheral sensors, and custom compute requirements that need power on the fly. ', 'Right now, that means figuring out reliable integration pathways using our current 4S PCB architecture. Whenever we run into edge cases or draw limits at the pool, we treat it as live data:'],
+        items: [
+          {
+            title: 'Iterative Design Notes',
+            details: [{ label: 'Proactive logging', body: 'Every workaround, voltage drop, and odd pinout constraint gets logged immediately into our design notes for what must be baked into our next revision of custom PCBs.' }]
+          },
+          {
+            title: 'Building Bench Strength',
+            details: [{ label: 'Hands-on mentorship', body: 'Pool tests are our best training ground. We regularly bring down junior electrical members to walk them through the full vehicle harness, teaching them how things interconnect, how to read wiring schematics under field conditions, and how to safely probe for continuity, ripple, and rail voltages with a multimeter before plugging in critical hardware.' }]
+          }
+        ],
+        images: [
+          { src: '/images/robotx2026/electrical-subsystems/elect-blog-3.jpg', caption: 'Working through the vehicle harness and its power connections.' },
+          { src: '/images/robotx2026/electrical-subsystems/elect-blog-1.jpg', caption: 'Electrical integration and troubleshooting before a pool-test session.' }
+        ]
+      },
+      {
+        heading: 'Battery Architecture: The 6S Hot-Swap Evolution',
+        body: 'Back in the lab, our ideation sessions have been focused on a major architectural leap: moving from small underwater vehicle power setups to high-capacity surface boat endurance. We threw multiple battery configurations on the whiteboard, debating transient loads, safety margins, and charging logistics. The winning concept drew direct inspiration from the dual-battery setups we used on Hydra and Kraken. For the boat, we’re stepping up to dual 6S batteries configured in a seamless hot-swap topology:',
+        items: [
+          {
+            title: 'Continuous Uptime',
+            details: [{ label: 'Higher capacity', body: 'Instead of shutting down the Jetson, losing sensor calibration, and restarting the entire ROS 2 stack just to swap a low battery, one 6S pack keeps the vehicle alive while the other is on standby or actively charging.' }]
+          },
+          {
+            title: 'Scaling Up to High Capacity',
+            details: [{ label: 'Challenging ourselves', body: 'This is our first time deploying batteries with this much capacity and discharge potential. Working at this scale has been a massive learning experience, especially around designing safe temporary wire harnesses, managing beefier connectors, and ensuring solid thermal and current limits across every junction.' }]
+          }
+        ],
+        images: [
+          { src: '/images/robotx2026/electrical-subsystems/elect-blog-2.jpg', caption: 'Bench prototyping and soldering electrical connections.' }
+        ]
+      },
+      {
+        heading: 'Looking Ahead to Next-Gen PCBs',
+        body: 'These pool tests and rough-and-ready bench prototypes are doing exactly what they’re supposed to: exposing the gaps between theory and real-world testing. With our 6S dual hot-swap architecture dialed in, the team is channeling these lessons directly into schematics for our upcoming integrated power distribution board.',
+        images: [
+          { src: '/images/robotx2026/electrical-subsystems/elect-blog-4.jpg', caption: 'Developing the next iteration.' }
+        ]
+      }
+    ]
   }
 ];
 
