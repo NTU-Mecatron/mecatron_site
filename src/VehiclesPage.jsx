@@ -14,7 +14,7 @@ export default function VehiclesPage() {
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="relative z-10">
           <h1 className="text-5xl font-bold text-orange-500 mb-8 text-center">Our Vehicles</h1>
-          <p className="text-lg text-center mb-16">Explore our innovative underwater vehicles!</p>
+          <p className="text-lg text-center mb-16">Explore our innovative competition vehicles!</p>
         </div>
       </section>
 
