@@ -73,8 +73,7 @@ const poseidonSpecifications = [
   },
   {
     title: "Acoustics System",
-    bullets: ["No acoustics",
-        ]
+    bullets: ["Aquarian AS-1 Hydrophone", "Custom-Designed Filter Board", "Teensy 4.1 Microcontroller", "Aquarian PA-4 Pre-Amplifier"]
   },
   {
     title: "Control System",
@@ -95,13 +94,13 @@ const poseidonSpecifications = [
   {
     title: "Actuators",
     bullets: [
-      "2-DoF Water Shooter (planetary-gear base rotation and nozzle pitching) powered by a compact pump",
+      "12V DC Pump",
     ]
   },
   {
     title: "Power System",
     bullets: [
-      "CESS (Compute): 6S 12,500 mAh Solid State battery", "AESS (Actuation): 6S LiPo battery in each side power hull (with custom BMS)", "Failsafe on-board and remote kill switches"
+      "6S LiPo Battery", "6S Solid State Battery", "1S LiPo Battery", "Custom-Designed Power Distribution Unit (x5)"
     ]
   },
   {
@@ -111,10 +110,7 @@ const poseidonSpecifications = [
   {
     title: "Waterproofing",
     bullets: [
-      "CNC Aluminum Electronics Enclosure (D=130mm)",
-      "ROVMAKER M10 Cable Penetrators",
-      "ROVMAKER Underwater Connectors",
-      "Blue Trail Engineering Cobalt Series"
+      "M10 ROV Maker Penetrator"
     ]
   }
 ];
@@ -402,7 +398,7 @@ function PoseidonPage() {
                 Vehicle Specifications
               </h2>
               <p className="mx-auto max-w-3xl text-sm sm:text-base md:text-lg text-gray-300">
-                Poseidon's hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
+                Poseidon&apos;s hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
               </p>
             </div>
 
