@@ -2,11 +2,10 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function PhoenixOptimized({ modelUrl = '/phoenixsmalloutput.glb', ...props }) {
-  const { nodes, materials } = useGLTF(modelUrl)
-  const material = Object.values(materials)[0]
+  const { scene } = useGLTF(modelUrl)
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.textured_meshobj.geometry} material={material} />
+      <primitive object={scene} scale={2.5} />
     </group>
   )
 }
