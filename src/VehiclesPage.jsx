@@ -14,12 +14,41 @@ export default function VehiclesPage() {
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="relative z-10">
           <h1 className="text-5xl font-bold text-orange-500 mb-8 text-center">Our Vehicles</h1>
-          <p className="text-lg text-center mb-16">Explore our innovative underwater vehicles!</p>
+          <p className="text-lg text-center mb-16">Explore our innovative competition vehicles!</p>
         </div>
       </section>
 
       {/* Vehicles Content Container */}
       <div className="w-full">
+
+        {/* Poseidon Section */}
+        <VehicleDescription
+          title="Poseidon 2026"
+          description="Poseidon is an autonomous surface vessel featuring modular dual hulls, precision dual-antenna RTK-GPS navigation, and a 2-DOF targeting water shooter. Serving as the central command node, it orchestrates tri-domain missions across air, surface, and subsea autonomous assets seamlessly."
+          linkTo="/poseidon"
+          highlightBg={true}
+          modelType="poseidon"
+          modelScale={[1.5, 1.5, 1.5]}
+          tags={[
+            "Accelerated Development",
+            "Modular Integration",
+            "Custom Water Shooter"
+          ]}
+        />
+
+        {/* Phoenix Section */}
+        <VehicleDescription
+          title="Phoenix 2026"
+          description="Phoenix is an autonomous aerial vehicle featuring a lightweight carbon-fiber airframe, dual-antenna RTK-GPS, and a compliant Fin Ray gripper for payload delivery. It provides elevated target perception and seamless aerial logistics to support coordinated, cross-domain maritime missions."
+          linkTo="/phoenix"
+          modelType="phoenix"
+          modelScale={[1.5, 1.5, 1.5]}
+          tags={[
+            "Fin Ray TPU Gripper",
+            "Ligghtweight Frame",
+            "Modular Mounts & Protective Cover"
+          ]}
+        />
 
         {/* Hydra Section */}
         <VehicleDescription
@@ -35,7 +64,7 @@ export default function VehiclesPage() {
             "Symmetric 8-thruster Configuration"
           ]}
         />
-        
+
         {/* Kraken Section */}
         <VehicleDescription
           title="Kraken 2026"

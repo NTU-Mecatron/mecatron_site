@@ -115,6 +115,42 @@ function TextBlock({ body, className = '' }) {
   );
 }
 
+function BulletDropdowns({ bullets = [] }) {
+  const [openItems, setOpenItems] = useState({});
+
+  return (
+    <div className="mx-auto max-w-4xl space-y-3">
+      {bullets.map((bullet) => {
+        const separator = bullet.indexOf(':');
+        const title = separator === -1 ? bullet : bullet.slice(0, separator);
+        const description = separator === -1 ? '' : bullet.slice(separator + 1).trim();
+        const isOpen = Boolean(openItems[title]);
+
+        return (
+          <div key={bullet} className="rounded-lg border border-white/10 bg-black/20">
+            <button
+              type="button"
+              onClick={() => setOpenItems((current) => ({ ...current, [title]: !current[title] }))}
+              className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left"
+              aria-expanded={isOpen}
+            >
+              <span className="text-base sm:text-lg font-bold text-orange-200">{title}</span>
+              <span className="shrink-0 text-sm text-orange-200" aria-hidden="true">
+                {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+              </span>
+            </button>
+            {isOpen && description && (
+              <div className="border-t border-white/10 px-4 pb-4 pt-3">
+                <p className="text-justify text-sm sm:text-base leading-relaxed text-gray-200">{description}</p>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function SubsectionContent({ subsection }) {
   if (subsection.bullets) {
     return (
@@ -144,6 +180,7 @@ function SubsectionContent({ subsection }) {
                 <TextBlock body={block.body} className={block.images?.length ? 'mx-auto mt-5 max-w-4xl' : 'mx-auto max-w-4xl'} />
               </>
             )}
+            {block.bullets && <BulletDropdowns bullets={block.bullets} />}
           </div>
         ))}
       </div>
@@ -239,14 +276,17 @@ export default function TeamBlogPostPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_0.85fr] gap-10 items-center">
           <div>
             <Link
-              to="/blog"
+              to={`/blog?tab=${post.competition || 'robosub2026'}`}
               className="mb-8 inline-flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow transition-all duration-200 hover:bg-[#d73a1a]"
             >
               <FaChevronLeft className="text-xs" aria-hidden="true" />
-              Back to Team Blog
+              Back to {post.competition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026'} Blog
             </Link>
 
             <div className="mb-6 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300">
+                {post.competition === 'robotx2026' ? 'RobotX 2026' : 'RoboSub 2026'}
+              </span>
               <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${tagStyles[post.tag]}`}>
                 {post.tag}
               </span>

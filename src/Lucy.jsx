@@ -406,6 +406,4 @@ export function Lucy(props) {
       />
     </group>
   )
-}
-
-useGLTF.preload('/lucysmalloutput.glb') 
+}

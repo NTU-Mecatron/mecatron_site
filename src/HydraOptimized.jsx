@@ -15,5 +15,3 @@ export function HydraOptimized(props) {
     </group>
   );
 }
-
-useGLTF.preload('/hydrasmalloutput.glb', '/draco/');

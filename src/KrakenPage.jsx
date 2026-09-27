@@ -301,7 +301,15 @@ function KrakenPage() {
         {/* 3D Scene */}
         <section className="relative grid place-items-center h-[100vh]">
           <div ref={sceneRef} className="h-[100vh] w-[100vw] text-white z-0">
-            <Canvas>
+            <Canvas
+              dpr={[1, Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)]}
+              gl={{
+                powerPreference: "default",
+                antialias: false,
+                preserveDrawingBuffer: false,
+                pixelRatio: Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)
+              }}
+            >
               <Scene progress={progress} modelType="kraken" />
             </Canvas>
           </div>
@@ -424,10 +432,10 @@ function KrakenPage() {
 
           <div className="flex justify-center mt-10">
           <Link
-          to="/robosub2026"
+          to="/robotx2026"
           className="bg-[#d73a1a] hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
           >
-          View our RoboSub 2026 Development
+          View our RobotX 2026 Development
           </Link>
           </div>
           </div>

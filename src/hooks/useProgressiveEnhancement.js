@@ -26,37 +26,27 @@ export const useProgressiveEnhancement = () => {
         const isIOS = /iphone|ipad|ipod/.test(userAgent);
         const isAndroid = /android/.test(userAgent);
 
-        // Calculate device score
-        let deviceScore = 0;
-        
-        // Memory score (0-3 points)
-        if (memory >= 8) deviceScore += 3;
-        else if (memory >= 4) deviceScore += 2;
-        else if (memory >= 2) deviceScore += 1;
-
-        // CPU cores score (0-2 points)
-        if (cores >= 8) deviceScore += 2;
-        else if (cores >= 4) deviceScore += 1;
-
-        // Screen size score (0-2 points)
-        if (!isMobile && !isTablet) deviceScore += 2;
-        else if (isTablet) deviceScore += 1;
-
-        // iOS specific optimization (iOS has better WebGL performance)
-        if (isIOS) deviceScore += 1;
-
-        // Determine capability based on score
-        if (deviceScore >= 6) {
-          setCapability('full');
-        } else if (deviceScore >= 3) {
-          setCapability('medium');
-        } else if (deviceScore >= 1) {
-          setCapability('mobile');
+        // If device is mobile, strictly set to 'mobile' (or 'fallback' if WebGL is unavailable)
+        // Mobile browsers have strict memory ceilings and must not run desktop settings
+        let nextCapability;
+        if (isMobile) {
+          nextCapability = 'mobile';
+        } else if (isTablet) {
+          nextCapability = 'medium';
         } else {
-          setCapability('fallback');
+          // Desktop scoring
+          let desktopScore = 0;
+          if (memory >= 8) desktopScore += 3;
+          else if (memory >= 4) desktopScore += 2;
+          else if (memory >= 2) desktopScore += 1;
+
+          if (cores >= 8) desktopScore += 2;
+          else if (cores >= 4) desktopScore += 1;
+
+          nextCapability = desktopScore >= 4 ? 'full' : 'medium';
         }
 
-        console.log(`Device capability: ${capability} (score: ${deviceScore})`);
+        setCapability(nextCapability);
         setIsLoading(false);
       } catch (error) {
         console.error('Error checking device capability:', error);
