@@ -45,7 +45,7 @@ export default function VehiclesPage() {
           modelScale={[1.5, 1.5, 1.5]}
           tags={[
             "Fin Ray TPU Gripper",
-            "Ligghtweight Frame",
+            "Lightweight Frame",
             "Modular Mounts & Protective Cover"
           ]}
         />
