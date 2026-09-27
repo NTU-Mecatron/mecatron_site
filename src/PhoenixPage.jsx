@@ -57,7 +57,7 @@ function TabNavigation({ sections, onTabClick, visible, onExited, onInteraction 
 const phoenixSpecifications = [
   {
     title: "Vehicle's Dimensions",
-    bullets: ["Length: 0.54m", "Height: 0.34m", "Width: 0.51m"]
+    bullets: ["Length: 0.84m (including propeller)", "Height: 0.45m", "Width: 0.84m (including propeller)"]
   },
   {
     title: "Mass of Vehicle",
@@ -92,13 +92,13 @@ const phoenixSpecifications = [
   {
     title: "Actuators",
     bullets: [
-      "Servo-driven lead-screw actuated gripper with symmetrical jaw motion", "Compliant 3D-printed TPU fingers based on the Fin Ray concept", "Topology-optimized structural arms",
+      "T-Motor MN4014 KV330 Brushless Motor (x4)", "Tekko32 F4 45A ESC (×4)", "210:1 Micro Metal Gearmotor HPCB 6V (×1)",
     ]
   },
   {
     title: "Power System",
     bullets: [
-      "Dedicated lightweight PDU with busbars instead of thick PCB traces", "AESS isolated from Load Switch and bypasses OCP, OVP, and UVLO protections to prevent mid-air power cuts", "CESS retains Over-Current Protection (OCP)"
+      "6S LiPo Battery", "Custom-Designed Power Distribution Unit (x4)"
     ]
   },
   {
@@ -108,10 +108,7 @@ const phoenixSpecifications = [
   {
     title: "Waterproofing",
     bullets: [
-      "CNC Aluminum Electronics Enclosure (D=130mm)",
-      "ROVMAKER M10 Cable Penetrators",
-      "ROVMAKER Underwater Connectors",
-      "Blue Trail Engineering Cobalt Series"
+      "Upper Electronics: Splash-Proof Enclosure (Jetson)", "Lower Electronics: Custom Waterproof Enclosure", "Custom O-Ring Sealing"
     ]
   }
 ];
@@ -399,7 +396,7 @@ function PhoenixPage() {
                 Vehicle Specifications
               </h2>
               <p className="mx-auto max-w-3xl text-sm sm:text-base md:text-lg text-gray-300">
-                Phoenix's hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
+                Phoenix&apos;s hardware and autonomy stack are organized around reliability, modularity, and competition-ready performance.
               </p>
             </div>
 
