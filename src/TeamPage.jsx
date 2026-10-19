@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import teamData from './data/teamData.js';
 
 export default function TeamPage() {
-  const [activeTab, setActiveTab] = useState('AY25/26');
+  const [activeTab, setActiveTab] = useState('AY26/27');
 
   const handleTabChange = (year) => {
     setActiveTab(year);
@@ -31,7 +31,17 @@ export default function TeamPage() {
         {/* Year Tabs - Mobile: Stack vertically, Desktop: Side by side */}
         <div className="flex flex-col md:flex-row justify-start items-start gap-4 md:gap-8">
           {/* Tab Container */}
-          <div className="tab-container mb-4 md:mb-8 flex-shrink-0 w-full md:w-48">
+        <div className="tab-container mb-4 md:mb-8 flex-shrink-0 w-full md:w-48">
+
+            <input
+              className="tab tab--4"
+              id="tabAY26/27"
+              name="tab"
+              type="radio"
+              checked={activeTab === 'AY26/27'}
+              onChange={() => handleTabChange('AY26/27')}
+            />
+            <label htmlFor="tabAY26/27" className="tab_label">AY26/27</label>
 
             <input 
               className="tab tab--3" 
@@ -86,6 +96,12 @@ export default function TeamPage() {
                 <TeamSubmenu year="AY25/26" />
               </div>
             )}
+
+            {activeTab === 'AY26/27' && (
+              <div className="text-center w-full">
+                <TeamSubmenu year="AY26/27" />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -125,7 +141,7 @@ export default function TeamPage() {
         .indicator {
           content: "";
           width: 10px;
-          height: calc(100% / 3); /* adjust when number of tabs changes */
+          height: calc(100% / 4);
           background: #ffa500;
           position: absolute;
           top: 5px;
@@ -139,9 +155,10 @@ export default function TeamPage() {
         }
 
         /* move indicator by multiples of its own height using :checked sibling selectors */
-        .tab--3:checked ~ .indicator { transform: translateY(0%); }   /* first item (AY25/26) */
-        .tab--2:checked ~ .indicator { transform: translateY(100%); } /* second item (AY24/25) */
-        .tab--1:checked ~ .indicator { transform: translateY(200%); } /* third item (AY23/24) */
+        .tab--4:checked ~ .indicator { transform: translateY(0%); }
+        .tab--3:checked ~ .indicator { transform: translateY(100%); }
+        .tab--2:checked ~ .indicator { transform: translateY(200%); }
+        .tab--1:checked ~ .indicator { transform: translateY(300%); }
 
         /* responsive overrides keep the scroller behavior consistent */
         @media (max-width: 768px) {
@@ -153,7 +170,7 @@ export default function TeamPage() {
           .indicator {
             left: 9px;
             top: 8px;
-            height: calc(100% / 3);
+            height: calc(100% / 4);
           }
         }
 
@@ -166,7 +183,7 @@ export default function TeamPage() {
           .indicator {
             left: -15px;
             top: 5px;
-            height: calc(100% / 3);
+            height: calc(100% / 4);
           }
         }
 
@@ -411,6 +428,20 @@ export default function TeamPage() {
         .submenu-wrap .rd-8:checked ~ .submenu-slidebar {
           transform: translateX(700%) scaleX(1);
         }
+        .submenu-wrap.submenu-count-6 { --w-label: calc(100% / 6); }
+        .submenu-wrap.submenu-count-6 .submenu-label span {
+          display: block;
+          overflow: visible;
+          white-space: normal;
+          -webkit-line-clamp: unset;
+          text-align: center;
+        }
+        @media (max-width: 768px) {
+          .submenu-wrap.submenu-count-6 .submenu-label { flex-basis: calc(50% - 4px); }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .submenu-wrap.submenu-count-6 .submenu-label { flex-basis: calc(33.33% - 8px); }
+        }
       `}</style>
     </div>
   );
@@ -445,6 +476,15 @@ function TeamSubmenu({ year }) {
       { id: "rnd", label: "R&D" },
       { id: "advisors", label: "Advisors" },
     ];
+  } else if (year === "AY26/27") {
+    teams = [
+      { id: "leads", label: "Leads" },
+      { id: "mechanical", label: "Mechanical" },
+      { id: "electrical", label: "Electrical" },
+      { id: "roboticsSoftware", label: "Robotics Software" },
+      { id: "digitalSoftware", label: "Digital Software" },
+      { id: "advisors", label: "Advisors" },
+    ];
   }
 
   const handleSubmenuChange = (teamId) => {
@@ -477,6 +517,14 @@ const teamDescriptions = {
       advisors:
         "Providing mentorship, technical guidance, and industry insight to elevate the team’s capabilities.",
     },
+      'AY26/27': {
+        leads: "Steering the team’s vision, strategy, and cross-functional coordination to drive Mecatron forward.",
+        mechanical: "Designing and building the mechanical systems that bring our autonomous vehicles to life.",
+        electrical: "Engineering the power, circuits, and embedded systems that keep our vehicles running reliably.",
+        roboticsSoftware: "Developing robotics software for autonomy, navigation, perception, and vehicle control.",
+        digitalSoftware: "Building Mecatron’s digital platforms and tools.",
+        advisors: "Providing mentorship, technical guidance, and industry insight to elevate the team’s capabilities.",
+      },
       'AY24/25': {
         leads: "Steering the team’s vision, strategy, and cross-functional coordination to drive Mecatron forward.",
         hardware: "Designing and building the mechanical systems that bring our autonomous vehicles to life.",
@@ -510,8 +558,8 @@ const teamDescriptions = {
   return (
     <div className="w-full mx-auto">
       <div className="submenu-container">
-        {["AY24/25", "AY25/26"].includes(year) && (
-        <div className="submenu-wrap">
+        {["AY24/25", "AY25/26", "AY26/27"].includes(year) && (
+        <div className={`submenu-wrap ${teams.length === 6 ? 'submenu-count-6' : ''}`}>
           {teams.map((team, index) => (
             <React.Fragment key={team.id}>
               <input
@@ -524,7 +572,11 @@ const teamDescriptions = {
                 hidden
               />
               <label htmlFor={`${year}-${team.id}`} className="submenu-label" style={{ '--index': index }}>
-                <span>{team.label}</span>
+                <span>
+                  {year === 'AY26/27' && team.id === 'digitalSoftware' ? (
+                    <>Digital<br />Software</>
+                  ) : team.label}
+                </span>
               </label>
             </React.Fragment>
           ))}
@@ -535,7 +587,7 @@ const teamDescriptions = {
       </div>
 
       {/* Submenu Content */}
-      {["AY24/25", "AY25/26"].includes(year) && (
+      {["AY24/25", "AY25/26", "AY26/27"].includes(year) && (
         <div className="submenu-content mt-4 md:mt-8 p-3 md:p-4 lg:p-6 bg-[#232323] rounded-lg mb-8">
           <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-orange-400 mb-4">
           {teams.find(team => team.id === activeSubmenu)?.label} Team {year}

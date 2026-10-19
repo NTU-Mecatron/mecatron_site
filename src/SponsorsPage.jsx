@@ -276,7 +276,7 @@ export default function SponsorsPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-5">
                 <a
-                  href="/sponsorship_deck/Mecatron-Sponsorship-Deck-2026.pdf"
+                  href="/sponsorship_deck/Mecatron-Sponsorship-Deck-V2-2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block rounded-lg bg-orange-500 px-8 py-2 text-center font-semibold text-white shadow transition-all duration-200 hover:bg-orange-600"

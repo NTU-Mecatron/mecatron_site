@@ -21,38 +21,33 @@ const subsystemPages = {
         label: 'Mechanical',
         title: 'Mechanical Subsystem',
         summary:
-          'Poseidon 2026 is an upgraded autonomous vehicle with an updated thruster configuration, improved frame through topology optimization, and greater design modularity.',
+          'Poseidon is a catamaran USV with two pontoon power hulls, a four-thruster marine layout shared with Kraken, an independently aimed water shooter, and elevated sensor rigging.',
         highlights: [
-          '8-Thruster Configuration for decoupled control',
-          'Mass Optimization using generative design',
-          'Modular Frame Design for rapid reconfiguration',
-          'Dropper and Gripper task mechanism integration'
+          'Four horizontal thrusters at a nominal 30° angle',
+          'Twin pontoon hulls joined by crossbeams',
+          'Independent pan and tilt water shooter',
+          'Raised mounts for cameras, LiDAR, and dual RTK antennas'
         ],
         development: [],
-        image: '/robosub_2026/mechanical-hydra-header.png',
+        image: '/images/robotx2026/mechanical-subsystems/usv-header.jpg',
       },
       software: {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'To manage multi-agent RobotX complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead. These optimizations, paired with new 3D spatial perception, enable advanced path planning and autonomous navigation.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '/robosub_2026/software-header.png',
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility. A higher power budget supports our latest applications demands, smart capabilities enable advanced monitoring and precise control, and a modular design allows seamless customization and scalability as system needs evolve.',
-        highlights: [
-          'Organized signal and power paths to reduce service confusion',
-          'Sensor placement planned around cameras, navigation, and task payloads',
-          'Electronics access designed for faster debugging between on-water runs',
-          'Integration support for dropper, gripper, and vehicle feedback systems'
-        ],
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
+        highlights: [],
         development: [],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   },
@@ -78,46 +73,41 @@ const subsystemPages = {
         label: 'Mechanical',
         title: 'Mechanical Subsystem',
         summary:
-          'Kraken is an experimental platform for Mecatron to develop more mature manufacturing processes. Featuring an acrylic skeleton and a metal electrical box, Kraken aims to be more durable and maneuverable than our previous vehicles.',
+          'Kraken is a UUV with a modular aluminum frame, shared four-thruster marine geometry, a rectangular electronics enclosure, balanced underside batteries, and a compliant magnetic task probe.',
         highlights: [
-          'Airfoil-inspired frame geometry for drag and stiffness studies',
-          'Acrylic skeleton concept for direct visual inspection',
-          'Simple assembly layout that supports fast mechanical changes',
-          'Dedicated space for validating torpedo deployment hardware'
+          'Four horizontal thrusters at a nominal 30° angle',
+          'Reconfigurable mounting points for hydro-trim and payloads',
+          'Transparent-top aluminum electronics enclosure',
+          'Spring-loaded magnetic probe'
         ],
         development: [
-          'Prototype frame sections and compare assembly approaches',
-          'Evaluate hull material behavior during handling and pool testing',
-          'Iterate mechanism mounting around torpedo deployment needs'
+          'Reposition ballast, sensors, or thrusters using universal frame mounts',
+          'Balance underside battery cylinders to lower the center of gravity',
+          'Tune magnetic probe compliance for pipeline-switch contact'
         ],
-        image: '/images/robosub2026/mechanical-subsystems/blog2-11.jpg',
+        image: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
       },
       software: {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'To manage dual-vehicle complexity, we utilized cross-platform Docker containerization for streamlined development and ROS2 composition to minimize latency and CPU overhead. These optimizations, paired with new 3D spatial perception, enable advanced path planning and autonomous navigation.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '/robosub_2026/software-header.png',
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'This year’s electrical power distribution is engineered to deliver more power, greater intelligence, and flexibility. A higher power budget supports our latest applications demands, smart capabilities enable advanced monitoring and precise control, and a modular design allows seamless customization and scalability as system needs evolve.',
-        highlights: [
-          'Organized signal and power paths to reduce service confusion',
-          'Sensor placement planned around cameras, navigation, and task payloads',
-          'Electronics access designed for faster debugging between pool runs',
-          'Integration support for dropper, gripper, and vehicle feedback systems'
-        ],
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
+        highlights: [],
         development: [
           'Map electronics placement against mechanical access zones',
           'Prepare wiring routes for cameras, navigation sensors, and actuators',
           'Run bench checks before full vehicle integration'
         ],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   },
@@ -139,36 +129,33 @@ const subsystemPages = {
         label: 'Mechanical',
         title: 'Mechanical Subsystem',
         summary:
-          'Phoenix 2026 features a lightweight airframe engineered for agile flight, stable hovering, and reliable aerial payload deployment.',
+          'Phoenix is a mass-optimized UAV with a carbon-fibre airframe, topology-optimized joints, a synchronized lead-screw gripper, compliant Fin-Ray fingers, and a protective canopy.',
         highlights: [
-          'Lightweight carbon fiber airframe structure',
-          'Vibration-damped sensor and camera gimbals',
-          'Modular payload deployment mechanism'
+          'Carbon fibre and low-infill printed brackets',
+          'Single-servo lead-screw drive for two jaws',
+          'Flexible TPU Fin-Ray fingers',
+          'Lightweight splash and debris canopy'
         ],
         development: [],
-        image: '/robosub_2026/mechanical-hydra-header.png',
+        image: '/RobotX_UAV_Mechanical/drone-edited.jpg',
       },
       software: {
         label: 'Software',
         title: 'Software Subsystem',
         summary:
-          'Phoenix runs a containerized ROS2 and flight control stack enabling autonomous takeoff, waypoint navigation, target tracking, and cooperative communication with the surface vessel.',
+          'RobotX 2026 extends Mecatron\'s multi-vehicle strategy from two Unmanned Underwater Vehicles to a heterogeneous team of three: an Unmanned Surface Vehicle (USV), an Unmanned Underwater Vehicle (UUV) and an Unmanned Aerial Vehicle (UAV). This adds operating domains and makes coordination between vehicles harder. To manage this, all three vehicles run the same containerized ROS2 autonomy stack. Each vehicle runs in its own ROS domain, and only explicitly whitelisted topics, services and actions are bridged between vehicles. This isolates faults, minimizes network congestion, and keeps each vehicle independently testable.',
         highlights: [],
         development: [],
-        image: '/robosub_2026/software-header.png',
+        image: '/images/robotx2026/software-subsystems/software-header.jpg',
       },
       electrical: {
         label: 'Electrical',
         title: 'Electrical Subsystem',
         summary:
-          'High-density battery power distribution and flight controller electronics delivering clean power to motors, radios, and onboard companion computers.',
-        highlights: [
-          'High-discharge battery management and telemetry',
-          'Regulated power rails for companion compute and transmission systems',
-          'Fail-safe return-to-base and power monitoring'
-        ],
+          'A shared electrical architecture connects CESS and AESS across the RobotX fleet, with vehicle-specific power systems, modular electronics, and layered safety.',
+        highlights: [],
         development: [],
-        image: '/robosub_2026/electrical-header.png',
+        image: '/images/robotx2026/electrical-subsystems/protection-system-board.png',
       },
     }
   }
@@ -176,193 +163,180 @@ const subsystemPages = {
 
 const navItems = ['mechanical', 'electrical', 'software'];
 
-const featureCarouselImages = {
-  UnitySim: [
+const vehicleFeatureCarouselImages = {
+  poseidon: {
+    'Spatial Perception': [
     {
-      src: '/images/robosub2026/software-subsystems/unity-sim-vid.gif',
-      caption: 'Video demonstration of Unity simulation.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-1st-perspective.png',
-      caption: 'Vehicle\'s perspective.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/mds-3rd-perspective.png',
-      caption: 'Third-person\'s perspective.'
-    },
-  ],
-  Perception: [
-    {
-      src: '/images/robosub2026/software-subsystems/old-bounding-box.png',
-      caption: 'Previous simple 2D bounding box.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/new-bounding-box.png',
-      caption: 'New improved perception pipeline.'
+      src: '/images/robotx2026/software-subsystems/spatial-perception-USV.png',
+      caption: 'Foxglove visualization of USV perception.'
     }
-  ],
-  'Mission Planning': [
+    ],
+    'Navigation and Mission Planning': [
     {
-      src: '/images/robosub2026/software-subsystems/bt-simple.png',
-      caption: 'A typical BT for a given task.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/nav-rect-animation.gif',
-      caption: 'Flow built around reusable BT actions.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/spatial1.png',
-      caption: 'Spatial perception and navigation.'
-    },
-  ],
-  Localization: [
-    {
-      src: '/images/robosub2026/software-subsystems/corecont.png',
-      caption: 'EKF localization fuses DVL and IMU data for stable odometry.'
-    },
-    {
-      src: '/images/robosub2026/software-subsystems/ekf.png',
-      caption: 'Foxglove monitoring supported real-time localization review.'
-    },
-  ],
-  'Containerization for Multi-Vehicle Deployment': [
-    {
-      src: '/images/robosub2026/software-subsystems/ros2.png',
-      caption: 'ROS2'
-    },
-    {
-      src: '/competition/images/competition_img_1.jpg',
-      caption: 'Composable nodes reduce CPU overhead through zero-copy sharing.'
-    },
-    {
-      src: '/competition/images/competition_img_2.jpg',
-      caption: 'Efficient deployment keeps perception and navigation pipelines running together.'
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-USV.gif',
+      caption: 'Autonomous navigation and mission planning.'
     }
-  ]
+    ]
+  },
+  kraken: {
+    'Spatial Perception': [
+    {
+      src: '/images/robotx2026/software-subsystems/spatial-perception-UUV.png',
+      caption: 'Visualization of UUV perception.'
+    }
+    ],
+    'Navigation and Mission Planning': [
+    {
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UUV.gif',
+      caption: 'Navigation of UUV.'
+    }
+    ]
+  },
+  phoenix: {
+    'UnitySim': [
+    {
+      src: '/images/robotx2026/software-subsystems/unitysim-UAV.png',
+      caption: 'UnitySim visualization of UAV deployment.'
+    }
+    ],
+    'Spatial Perception': [
+    {
+      src: '/images/robotx2026/software-subsystems/spatial-perception-UAV.png',
+      caption: 'Vision Model for UAV.'
+    }
+    ],
+    'Navigation and Mission Planning': [
+    {
+      src: '/images/robotx2026/software-subsystems/navigation-and-mission-planning-UAV.gif',
+      caption: 'Autonomous navigation and mission planning.'
+    }
+    ]
+  }
 };
 
-function getSharedSoftwareSections(subsystem) {
-  return [
+function getFeatureCarouselImages(vehicleId, sectionTitle) {
+  return vehicleFeatureCarouselImages[vehicleId]?.[sectionTitle];
+}
+
+function getSharedSoftwareSections(subsystem, vehicleId) {
+  const baseSections = [
     {
       title: 'UnitySim',
-      description: `We leveraged Unity to develop a high-fidelity digital twin of the competition environment. This allowed for extensive “dry” testing of our new algorithms and mission logic before vehicle design was finalized and parts were manufactured. ROS2 packages were individually validated within the simulation environment to assess operational suitability and isolate software bugs before integration into the full autonomy stack. Upon completion of vehicle assembly, the UnityMDS simulation setup complemented semiweekly in-person pool tests, for a final systems validation of our competition vehicle within pseudo-deployment environments.`,
+      description: `Standard ROS2 simulators such as Gazebo don't reproduce flight-controller behaviour, realistic rendering or hydrodynamics. These gaps grow when a team must be validated across surface, underwater and aerial domains at once. We therefore extended UnityMDS, our in-house Multi-Drone, Multi-Domain maritime simulator, to run the full RobotX team.
+
+      1) Full-Team, Hardware-Fidelity Simulation:
+      Real autopilot firmware. Each vehicle runs its own ArduPilot Software-In-The-Loop (SITL) instance, which reproduces the actual autopilot firmware and its sensor fusion.
+      Realistic sensors and physics. Unity renders realistic scenes, generates camera, LiDAR, GNSS, IMU and DVL data, and models drag and added mass from the hull mesh.
+
+      2) Identical Code in Simulation and Deployment: The autonomy stack above the drivers is the same code in simulation and on the vehicles, and one configuration flag switches between them. Full cross-vehicle missions can therefore be rehearsed end to end before any water or air time.`,
       bullets: subsystem.highlights,
-      imageLayout: 'comparison'
+      imageLayout: vehicleId === 'phoenix' ? '' : 'bottom'
     },
     {
-      title: 'Perception',
-      description: `This year, our perception pipeline moves beyond basic object detection. Instead of relying on simple 2D bounding boxes with vision-based, reactive approaches, we fused depth data with semantic segmentation. By utilising 3D pose estimation of competition elements, this approach enables prior path planning and dynamic replanning, providing our vehicle with critical spatial awareness for fine-tuned manoeuvres especially required in Torpedo and Picking tasks.`,
+      title: 'Spatial Perception',
+      description: `1) Depth-Segmentation Fusion Tailored to Each Domain: Every vehicle runs YOLO11 instance segmentation on TensorRT and reads object distance only from pixels inside each mask. The depth source differs by vehicle:
+
+      USV: Camera-LiDAR Fusion. LiDAR points are projected into the camera image using the live extrinsic transform, which stays aligned as the camera tilts on its gimbal. Only the nearest return is kept at each pixel, so a buoy in the foreground is never blended with the shoreline behind it.
+      UUV and UAV: Monocular Metric Depth. LiDAR is unavailable underwater and too heavy for the aerial platform, so both vehicles estimate metric depth from a single camera with Depth Anything 3.
+
+      Both methods are plugins behind a common interface, so everything downstream is identical across the fleet.
+      
+      2) Probabilistic Multi-Object Tracking:
+      • Measurement model. Each object is tracked in the global frame by its own Square-Root Unscented Kalman Filter (SR-UKF). The filter projects the object's map position into pixel coordinates and depth, so detector noise and range noise are each modeled in their own units.
+      • Association. The Hungarian algorithm assigns detections to tracks optimally, using Mahalanobis gating and matching only objects of the same class.
+      • Confirmation. A detection must be confirmed several times before it becomes a track, which rejects false positives.
+      • Output. Every confirmed object is published as a coordinate frame named by its class. "Navigate to the green buoy" therefore becomes a standard navigation goal.`,
       bullets: subsystem.highlights,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
-      title: 'Mission Planning',
-      description: 'Similar to last year’s iterations, the Behavior Tree (BT) framework remains the core of our mission planning system. This year, we improved modularity by encapsulating complex tasks into higher-level actions, which simplifies debugging and results in a more intuitive monitoring interface.To translate these high-level mission goals into physical motion, we transitioned to the Nav2 stack. Nav2 leverages our new spatial perception data to handle dynamic path planning and obstacle avoidance, providing the vehicle with the agility required for complex, multi-objective maneuvers.',
+      title: 'Navigation and Mission Planning',
+      description: `1) One Navigation Framework Across Three Domains: Navigation3 (Nav3) is our in-house extension of Nav2 with custom 3D planners, controllers and behaviors. It was built as a hardware-independent layer for RoboSub, and RobotX 2026 is the first time it has been ported across domains. The same framework now drives a surface vessel, an underwater vehicle and an aerial vehicle.
+
+      2) Cross-Vehicle Mission Delegation:
+      • Remote missions as one node. Each vehicle's Behavior Tree (BT) executor is exposed as a ROS2 action across vehicle domains. The USV, as command center, can therefore run an entire task on the UUV or UAV as a single node in its own tree.
+      • Bounded and cancellable. Timeouts and retries bound each delegated mission, and halting the node on the USV cancels the remote mission automatically.`,
       bullets: subsystem.development,
-      imageLayout: 'comparison'
+      imageLayout: 'bottom'
     },
     {
-      title: 'Localization',
-      description: 'To achieve greater navigation precision with reduced drift, we implemented an Extended Kalman Filter (EKF) to fuse data from our DVL and a new external IMU. Real-time monitoring via Foxglove Studio during pool tests confirmed that this results in a highly stable odometry stack, even during complex movements.',
-      bullets: subsystem.development
-    },
-    {
-      title: 'Containerization to Facilitate Multi-Vehicle Deployment',
-      description: '',
-      subsections: [
-        {
-          title: 'Docker Containerization',
-          body: "To facilitate long-term development and seamless cross-platform testing, our entire software stack is containerized using Docker. This architecture abstracts dependencies away from individual host systems, ensuring a consistent environment whether code is running on a developer's laptop, a simulation machine, or the vehicle's onboard computer. Crucially, this containerized model enables simultaneous, seamless deployment across both of our physical vehicles. Because the core software stack remains completely identical, we can deploy the exact same container to either robot without modifying the underlying codebase.",
-          image: {
-            src: '/images/robosub2026/software-subsystems/docker-containerisation-dark.svg',
-            caption: 'Docker containerization keeps the same software environment across machines and vehicles.'
-          }
-        },
-        {
-          title: 'Process Optimization',
-          body: 'To maximize onboard efficiency, we utilize ROS2 Composable Nodes within our containers. By loading multiple nodes into a single process, we enable zero-copy memory sharing, which removes the CPU overhead of traditional message serialization. This reduction in computational load ensures our vehicles can run complex perception and navigation pipelines concurrently without hitting hardware bottlenecks.',
-          image: {
-            src: '/images/robosub2026/software-subsystems/ros2.png',
-            caption: 'Composable nodes reduce overhead while running perception and navigation together.'
-          }
-        }
-      ],
-      imageLayout: 'subsectionComparison',
-      bullets: []
+      title: 'Fleet Communication Architecture',
+      description: `Isolated Domains, Explicit Interfaces: 
+      • Isolation by design. Each vehicle runs in its own ROS domain, so no data crosses between vehicles unless it is explicitly whitelisted. A fault or network flood on one vehicle cannot spread to the others.
+      • Zenoh network. Vehicles connect through a chain of Zenoh routers. Moving from single-machine simulation to real hardware only means changing router addresses, not code.`,
+      bullets: subsystem.development,
+      imageLayout: 'bottom'
     }
-  ].map((section) => ({
+  ];
+
+  const krakenOnlySection = vehicleId === 'kraken'
+    ? [{
+        title: 'UUV Localization',
+        description: `GPS is unavailable underwater. Therefore we developed a custom localization filter for the UUV instead of relying solely on the autopilot's internal EKF.
+
+        1) Square-Root Unscented Kalman Filter:
+        Sensors fused: IMU delta-velocity, DVL velocity and pressure depth.
+        Chronological processing. Measurements arrive at different rates (~40, ~12 and ~10 Hz), so they are processed in timestamp order and late messages don't corrupt the estimate.
+
+        2) Autopilot Integration: The estimate goes to ArduPilot as external odometry, so the autopilot's own control loops navigate on it without GPS.`,
+        imageLayout: 'bottom',
+        images: []
+      }]
+    : [];
+
+  return [...baseSections, ...krakenOnlySection].map((section) => ({
     ...section,
-    images: featureCarouselImages[section.title]
+    images: section.images ?? getFeatureCarouselImages(vehicleId, section.title)
   }));
 }
 
 function getPoseidonMechanicalSections() {
   return [
     {
-      title: '8-Thruster Configuration',
-      description: 'Poseidon utilizes a vectored thruster configuration for comprehensive manoeuvrability. This architecture allows precise, multi-axis control yielding a stable platform capable of handling complex docking and surface mission elements.',
-      bullets: [],
+      title: 'Shared Marine Propulsion Layout',
+      description: 'Poseidon and Kraken share a four-horizontal-thruster layout, with one thruster near each corner of a square perimeter. All four are mounted at a nominal 30° angle. Carrying this geometry forward from earlier RoboSub work gives both marine platforms a common starting point for controls integration and omnidirectional thrust modelling across surface and subsea operation.',
       imageLayout: 'comparison',
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters6.png',
-          caption: 'Previous baseline design.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-kraken.png',
+          caption: 'Bottom view of Kraken (4 thrusters).'
         },
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters8.png',
-          caption: 'New vectored thruster configuration.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-usv.png',
+          caption: 'Similar thruster configuration for Poseidon.'
         }
       ]
     },
     {
-      title: 'Mass Optimization',
-      description: 'To achieve stringent mass and stability targets, structural components underwent topology optimization. Computational analysis of dynamic load paths enabled material reduction from low-stress regions while maximizing stiffness under sea conditions.',
-      bullets: [],
+      title: 'Catamaran Hull & Deck Structure',
+      description: 'Poseidon is built around two pontoon power hulls joined by crossbeams. The dual-hull layout keeps high-power batteries distributed into the hulls while preserving a central deck area for mission payloads and elevated sensing equipment.',
+      bullets: ['Separate pontoon hulls carry power storage.', 'Crossbeams connect the hulls and support the payload deck.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/mass1.jpg',
-          caption: 'Mass optimization of frame components.'
+          src: '/images/robotx2026/usv-blog/usv-pool-test-1-header.jpg',
+          caption: 'Poseidon USV during RobotX development and water testing.'
         }
       ]
     },
     {
-      title: 'Modular Frame Design',
-      description: 'The vehicle architecture emphasizes modularity to accommodate rapid, mission-specific reconfigurations. Interchangeable sensor and payload bays allow attachments to be swapped or upgraded without altering the core hull.',
-      bullets: [],
+      title: '2-DOF Water Shooter',
+      description: 'A dedicated compact pump supplies a continuous stream to the nozzle. The shooter aims independently in pan and tilt: a planetary-gear drive rotates the base in yaw, while a separate drive pitches the nozzle. This lets Poseidon correct its aim toward target buoys and bays while maintaining its station without turning the whole hull.',
+      bullets: ['Independent base pan and nozzle tilt.', 'Planetary-gear-based aiming drive.', 'Dedicated pump delivers water directly to the nozzle.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/hydraframe.png',
-          caption: 'Modular frame design.'
-        },
-      ]
-    },
-    {
-      title: 'Dropper',
-      description: 'Poseidon integrates an electromagnetic marker delivery system to ensure reliable actuation. For operational safety and power efficiency, the 12V electromagnet is kept unpowered until triggered, ensuring reliable deployment.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/dropper1.png',
-          caption: 'Dropper design iteration.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/dropper2.png',
-          caption: 'Dropper components.'
+          src: '/images/robotx2026/mechanical-subsystems/water-shooter.png',
+          caption: 'Poseidon water-shooter mock-up.'
         }
       ]
     },
     {
-      title: 'Gripper',
-      description: 'Poseidon’s gripper uses a compact mechanism with compliant gripping surfaces to retrieve and deliver competition payloads reliably.',
-      bullets: [],
+      title: 'Sensor Deck & Rigging',
+      description: 'Elevated mounting points keep the perception and navigation payloads clear of wave splash. The deck rigging supports camera gimbals, LiDAR, and dual RTK antennas while maintaining sightlines and separation above the pontoon hulls.',
+      bullets: ['Raised mounts for camera gimbals and LiDAR.', 'Dual RTK antenna mounting above the splash zone.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/gripper1.jpg',
-          caption: 'Render of the gripper mechanism.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/gripper2.png',
-          caption: 'Gripper assembly.'
+          src: '/competition/images/robotx-all-vehicles.jpg',
+          caption: 'Poseidon alongside the RobotX 2026 vehicle fleet in simulation.'
         }
       ]
     }
@@ -372,64 +346,45 @@ function getPoseidonMechanicalSections() {
 function getPhoenixMechanicalSections() {
   return [
     {
-      title: 'Airframe & Rotor Configuration',
-      description: 'Phoenix features a high-efficiency multi-rotor layout optimized for aerial stability, endurance, and quick deployment from the surface vessel.',
-      bullets: [],
-      imageLayout: 'comparison',
+      title: 'Lightweight Airframe & Mass Optimization',
+      description: 'Phoenix combines a carbon-fibre structure with low-infill 3D-printed brackets to reduce structural tare weight. Topology optimization is applied to high-stress joints, removing material where it is not needed while preserving the structural load paths.',
+      bullets: ['Carbon-fibre airframe structure.', 'Low-infill printed brackets reduce component mass.', 'Topology-optimized joints retain critical load paths.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters6.png',
-          caption: 'Rotor dynamics testing.'
+          src: '/RobotX_UAV_Mechanical/drone-real-life.png',
+          caption: 'Phoenix with assembled components.'
+        }
+      ]
+    },
+    {
+      title: 'Servo-Driven Lead-Screw Gripper',
+      description: 'A single central servo drives a linear lead screw and traveling nut connected to two pivoting gripper arms. This linkage produces synchronized, symmetrical jaw motion with a compact, low-complexity mechanism. The geometry closes on the payload before reaching mechanical dead-center, preserving useful clamping torque.',
+      bullets: ['One actuator drives both jaws.', 'Lead screw and traveling nut convert servo rotation into linear movement.', 'Linkage avoids dead-center at the gripping position.'],
+      images: [
+        {
+          src: '/images/robotx2026/uav-blog/uav-gripper-frame-open.png',
+          caption: 'Phoenix lead-screw gripper in the open position.'
         },
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters8.png',
-          caption: 'Assembled propulsion layout'
+          src: '/images/robotx2026/uav-blog/uav-gripper-frame-closed.png',
+          caption: 'Phoenix gripper jaws closed around a payload.'
         }
       ]
     },
     {
-      title: 'Mass Optimization',
-      description: 'Using carbon fiber composite materials and generative structure design, the airframe minimizes empty weight to maximize battery flight endurance and payload carrying capacity.',
-      bullets: [],
+      title: 'Compliant Fin-Ray Fingers',
+      description: 'The gripper fingers are printed in flexible TPU with an internal ribbed structure inspired by the Fin Ray effect. The fingers passively conform around cylindrical payloads, accommodating small landing misalignments and off-center hover deviations.',
+      bullets: ['Flexible TPU construction.', 'Ribbed internal structure conforms around cylindrical objects.', 'Passive compliance helps accommodate alignment error.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/mass1.jpg',
-          caption: 'Structural weight optimization.'
+          src: '/images/robotx2026/uav-blog/fin-ray-fingers.jpg',
+          caption: 'Compliant Fin-Ray finger design.'
         }
       ]
     },
     {
-      title: 'Modular Frame Design',
-      description: 'Designed with quick-release arms and swappable sensor mounts for fast maintenance and convenient transport during competition trials.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/hydraframe.png',
-          caption: 'Modular frame breakdown.'
-        },
-      ]
-    },
-    {
-      title: 'Dropper',
-      description: 'An aerial payload release mechanism engineered for precision aerial dropping onto targeted aquatic markers.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/dropper1.png',
-          caption: 'Aerial release mechanism.'
-        }
-      ]
-    },
-    {
-      title: 'Gripper',
-      description: 'Lightweight gripper and retrieval hook designed to secure lightweight objects or assist in automated tethering tasks.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/mechanical-subsystems/gripper1.jpg',
-          caption: 'Lightweight gripper design.'
-        }
-      ]
+      title: 'Protective Aerodynamic Canopy',
+      description: 'A lightweight top canopy shields the flight controller and onboard electronics from marine water splash and airborne debris. It is designed with the airframe’s mass budget in view to abide by the competition rules.',
     }
   ];
 }
@@ -437,155 +392,116 @@ function getPhoenixMechanicalSections() {
 function getKrakenMechanicalSections() {
   return [
     {
-      title: '8-Thruster Configuration',
-      description: 'Kraken transitioned from the previous 6-thruster layout to a vectored 8-thruster configuration. This vectored architecture completely decouples the vertical and horizontal axes, yielding a highly stable hydrodynamic platform capable of precise, 6-degree-of-freedom (6-DOF) manoeuvring.',
-      bullets: [],
+      title: 'Shared Marine Propulsion Layout',
+      description: 'Kraken and Poseidon share a four-horizontal-thruster layout, with one thruster near each corner of a square perimeter. All four are mounted at a nominal 30° angle. Reusing this geometry builds on earlier RoboSub experience and gives controls integration and omnidirectional thrust modelling a common starting point across surface and subsea operation.',
       imageLayout: 'comparison',
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-render.png',
-          caption: 'Render of Kraken\'s 8-thrusters.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-kraken.png',
+          caption: 'Bottom view of Kraken with four thrusters.'
         },
         {
-          src: '/images/robosub2026/mechanical-subsystems/thrusters-config.png',
-          caption: 'Kraken 8-thrusters layout.'
+          src: '/images/robotx2026/mechanical-subsystems/bottom-view-usv.png',
+          caption: 'Bottom view of Poseidon (also with four thrusters).'
         }
       ]
     },
     {
-      title: 'Acrylic Skeletal Frame',
-      description: 'Kraken utilizes a novel, fully acrylic skeletal frame to provide primary structural integrity. Compared to previous 3D-printed load-bearing structures, this CNC machined acrylic chassis offers superior structural integrity while being easily modifiable in-house for highly cost-effective and rapid prototyping cycles. To optimize hydrodynamic performance, this skeletal frame is enveloped by a streamlined, 3D-printed shell for improved hydrodynamic movement.',
-      bullets: [],
+      title: 'Modular Aluminum Frame',
+      description: 'Kraken’s modular aluminum frame provides universal mounting points for thrusters, ballast weights, and acoustic or vision sensors. Components can be repositioned to tune hydro-trim or accommodate new payloads without redesigning the chassis.',
+      bullets: ['Reconfigurable mounting points for propulsion, ballast, and sensors.', 'Supports hydro-trim adjustment and payload changes.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/aframe2.jpg',
-          caption: 'Mechanical members assembling the acrylic skeletal frame.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/aframe1.jpg',
-          caption: 'Waterproof testing with the frame.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/aframe3.jpg',
-          caption: 'Acrylic frame assembled!'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-aluminium-frame.jpg',
+          caption: 'Kraken modular frame design.'
         }
       ]
     },
     {
-      title: 'Hydrodynamics Optimization',
-      description: 'The vehicle\'s lateral wings are explicitly modeled after aircraft airfoils to delay flow separation and minimize wake. Computational fluid dynamics (CFD) analysis validates this design, demonstrating a 32% reduction in total drag when the shells are fully integrated. Additionally, the frame is engineered with a detachable front nose cone to facilitate rapid internal access and streamline assembly during deployments.',
-      bullets: [],
-      imageLayout: 'comparison',
+      title: 'Rectangular Electronics Enclosure',
+      description: 'Kraken replaces a conventional cylindrical hull with a rectangular aluminum electronics enclosure and transparent top plate. The shape improves clearance for PCB installation and wiring harnesses. Its aluminum body also conducts heat from the electronics toward the surrounding water.',
+      bullets: ['Rectangular interior provides room for boards and harnesses.', 'Transparent top plate allows visual inspection.', 'Aluminum enclosure conducts heat into the water.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-before.png',
-          caption: 'CFD simulation without shell.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-after.jpg',
-          caption: 'CFD simulation with shell.'
-        },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/cfd-results.png',
-          caption: 'CFD results table.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-electronics-enclosure.jpg',
+          caption: 'Rectangular aluminum electronics enclosure.'
         }
       ]
     },
     {
-      title: 'CNC Aluminum Electronics Enclosure Box',
-      description: 'The transition from a cylindrical main hull for key  systems to a custom machined aluminum electrical enclosure maximized space efficiency, modularity and ease of maintenance. This reduced the weight of our vehicle by reducing buoyancy from the large volumetric displacement of a traditional cylindrical hull, thereby decreasing the mass needed to maintain neutral buoyancy. This also built the foundation of a new electrical system layout that is easy to modify and maintain, by creating swappable mounting plates that can be freely removed and worked on without space constraints.',
-      bullets: [],
+      title: 'Twin Underside Battery Cylinders',
+      description: 'Two battery cylinders mount beneath the port and starboard sides of the frame. Their balanced placement lowers the center of gravity and supports passive hydro-stability while keeping the power sources accessible as separate modules.',
+      bullets: ['Port and starboard battery cylinders balance the vehicle.', 'Underside placement lowers the center of gravity.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/electbox1.png',
-          caption: 'Isometric view of Kraken electrical enclosure.'
+          src: '/images/robotx2026/mechanical-subsystems/kraken-current-design.jpg',
+          caption: 'Kraken with underside battery integration.'
         },
-        {
-          src: '/images/robosub2026/mechanical-subsystems/electbox2.jpg',
-          caption: 'Real-life image of custom machined aluminum box.'
-        }
       ]
     },
     {
-      title: 'Torpedo',
-      description: 'The previous friction-fit design was prone to wear-and-tear, occasionally resulting in premature launching before torpedo activation. Our new design uses a positive mechanical locking mechanism by fixing a T8 nut directly onto the propeller and a T8 lead screw onto the launcher. Upon activation, the propeller’s rotation should unscrew the nut from the stationary lead screw. This mechanism ensures a secure hold during the pre-launch phase followed by a seamless transition to forward flight once the threads are fully disengaged.',
-      bullets: [],
+      title: 'Spring-Loaded Magnetic Probe',
+      description: 'The probe places a central linear guide shaft inside a compression-spring assembly. The spring absorbs impact when the vehicle approaches the pipeline switch off-axis, reducing lateral buckling and shear loads on the probe. A replaceable elastic rubber boot press-fits around the magnet to seal and retain it without adhesive or threads, allowing tool-less field swaps for different switch sensitivities.',
+      bullets: ['Guide shaft and compression spring absorb collision shock.', 'Compliant travel helps protect against non-perpendicular impacts.', 'Press-fit rubber boot supports tool-less magnet replacement.'],
       images: [
         {
-          src: '/images/robosub2026/mechanical-subsystems/torpedo1.png',
-          caption: 'Kraken\'s torpedo render.'
+          src: '/images/robotx2026/mechanical-subsystems/magnetic-probe-edited.jpg',
+          caption: 'Kraken\'s magnetic probe for Task 2.'
         }
       ]
     }
   ];
 }
 
-function getSharedElectricalSections() {
+function getSharedElectricalSections(vehicleId) {
   return [
     {
-      title: 'Battery Management System (BMS)',
-      description: 'ReRoute is a custom BMS engineered with a multi‑layer, hardware‑first safety architecture to keep the battery permanently within its safe operating zone. It combines a physical fuse for catastrophic fault protection with a resettable soft fuse using precision current sensing and comparator‑based cutoff. Dedicated hardware overvoltage and undervoltage protection, including undervoltage lockout, continuously monitors battery limits and enforces immediate disconnection when thresholds are exceeded. All critical protections are implemented in analog hardware, delivering fast, deterministic, and fail‑safe battery protection for high‑reliability applications.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/bms1.png',
-          caption: 'Render of ReRoute BMS PCB.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/bms2.png',
-          caption: 'Testing of ReRoute BMS PCB.'
-        },
+      title: 'Fleet-Wide Electrical Architecture',
+      description: 'The fleet separates computing and sensing loads from actuation loads so each power path can be designed for its own operating profile. The Compute Electrical Subsystem (CESS) supplies sensors, single-board computers, and compute nodes with continuous, low-current power (approximately 8 A). The Actuation Electrical Subsystem (AESS) supplies thrusters, servos, pumps, and motors, and is designed for short, high-current transients (approximately 40 A).',
+      bullets: [
+        'Separate CESS and AESS power paths help contain actuator noise and keep compute power predictable.',
+        'Shared electrical principles are adapted to each vehicle’s power, mass, thermal, and mission constraints.'
       ]
     },
     {
-      title: 'Power Distribution Unit (PDU)',
-      description: 'The PDUC is a modular power distribution board is designed for high‑power applications where scalability, visibility, and flexibility are critical. Supporting a higher overall power budget, it features an expandable architecture that allows power channels to be added or tailored to system needs, while integrated monitoring provides real‑time insight into system performance and health. The board can be configured for both Actuator Electrical Subsystem (AESS) and Compute Electrical Subsystem (CESS) architectures, making it adaptable across different energy storage and system designs. Built for reliability and control, it delivers a robust foundation for demanding power distribution environments.',
-      bullets: [],
-      imageLayout: 'comparison',
+      title: 'Safety, Protection & Modular Electronics',
+      description: 'Custom battery management systems combine hardware and software protection to help keep cells within safe operating limits. Protections include over-current protection (OCP), over-voltage protection (OVP), and under-voltage lockout (UVLO). A dual-failsafe kill system combines an onboard mechanical E-Stop with a wireless remote. The remote sends heartbeats to an onboard microcontroller; a lost heartbeat, detected fault, or switch press drives the buffer-enable line LOW so the Load Switch PCB isolates actuator power.',
+      bullets: [
+        'Standardized PDU, Load Switch, Safety System, and BMS boards use modular footprints.',
+        'Boards are tested to their rated currents and mounted on modular trays for maintenance and field swapping.'
+      ],
       images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/pduc-archi.png',
-          caption: 'PDUC overall architecture.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/cess-render.png',
-          caption: 'Render of CESS PDUC.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/aess-render.png',
-          caption: 'Render of AESS PDUC.'
-        },
+        { src: '/images/robotx2026/electrical-subsystems/load-switch.png', caption: 'Load switch diagram.' },
       ]
     },
-    {
-      title: 'Actuator Board',
-      description: 'The Actuator Board manages high-load task mechanisms including marker droppers, torpedo launchers, and robotic grippers with precision timing and isolated power switching.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/bms2.png',
-          caption: 'Actuator testing.'
-        }
+    ...(vehicleId === 'poseidon' ? [{
+      title: 'USV Power & Payloads',
+      description: 'Poseidon uses Power System Architecture A, with independent battery paths for CESS and AESS to extend compute runtime and isolate high-current propulsion noise. A dedicated 6S 12,500 mAh solid-state battery powers CESS, providing approximately twice the compute endurance of a standard 4S LiPo alternative. Power and electronics are distributed across two modular side hulls and a central aluminum enclosure; each side hull carries a 6S LiPo battery and custom BMS for propulsion.',
+      bullets: [
+        'High-current switching and drive logic support the 2-DOF water-shooter pump and planetary-gear actuation.',
+        'Conditioned and filtered sensor rails serve the dual-antenna RTK-GPS, Ouster LiDAR, and camera gimbal systems.'
       ]
-    },
-    {
-      title: 'Acoustics',
-      description: 'Hydrophone signal processing and acoustic pinger tracking module delivering robust bearing and range estimates in reflective aquatic environments.',
-      bullets: [],
-      images: [
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics1.jpg',
-          caption: 'Hydrophone array bench test.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics2.png',
-          caption: 'Hydrophone mounting setup.'
-        },
-        {
-          src: '/images/robosub2026/electrical-subsystems/acoustics3.png',
-          caption: 'Acoustics software architecture.'
-        }
+    }] : []),
+    ...(vehicleId === 'kraken' ? [{
+      title: 'UUV Power & Subsea Integration',
+      description: 'Kraken uses Power System Architecture B, with an ideal-diode OR-ing stage between its battery sources. Identical battery cylinders sit beneath the port and starboard sides to balance the center of gravity and hydro-trim. The OR-ing arrangement allows a battery to be exchanged while compute remains powered. Electrical components are packaged in a custom rectangular aluminum enclosure; the aluminum hull transfers heat from high-power boards to the surrounding water.',
+      bullets: [
+        'Dedicated power rails help isolate the DVL, pressure-depth sensors, and IMU from thruster transient spikes.',
+        'Symmetric battery placement supports vehicle balance while enabling rapid turnaround between runs.'
       ]
+    }] : []),
+    ...(vehicleId === 'phoenix' ? [{
+      title: 'UAV Power & Flight Safety',
+      description: 'Phoenix prioritizes low mass and uninterrupted flight actuation. Its compact PDU uses small SMD components and integrated solid-copper busbars to carry peak current while reducing board mass and footprint. Because cutting motor power during flight could cause a fall, Phoenix AESS bypasses the Load Switch, OCP, OVP, and UVLO paths so motors can remain powered through voltage sag; CESS retains OCP protection.',
+      bullets: [
+        'Dedicated regulated rails and servo drivers power the linear lead-screw Fin-Ray gripper.',
+        'Filtered power supports dual-antenna RTK navigation for precise heading during airborne surveillance and payload deployment.'
+      ]
+    }] : []),
+    {
+      title: 'Shore Infrastructure',
+      description: 'The shore-side UPS uses an 8S battery topology to power the Operator Control Station (OCS), PoE switch, Power Line Communication (PLC), and telemetry. Its higher input rail lets efficient buck regulators step down power for ground equipment, reducing heat and helping keep switching noise away from communications channels.',
+      bullets: []
     }
   ];
 }
@@ -600,15 +516,15 @@ function getContentSections(vehicle, subsystem, vehicleId, subsystemId) {
   } else if (subsystemId === 'mechanical') {
     sections = getPoseidonMechanicalSections();
   } else if (subsystemId === 'electrical') {
-    sections = getSharedElectricalSections();
+    sections = getSharedElectricalSections(vehicleId);
   } else {
-    sections = getSharedSoftwareSections(subsystem);
+    sections = getSharedSoftwareSections(subsystem, vehicleId);
   }
 
   return sections.map((section) => ({
     ...section,
     bullets: section.bullets ?? [],
-    images: section.images ?? featureCarouselImages[section.title] ?? vehicle.carouselImages
+    images: section.images
   }));
 }
 
@@ -709,6 +625,8 @@ function MediaPreview({ media }) {
 }
 
 function ComparisonCaptionImages({ images, onMediaClick }) {
+  if (!images?.length) return null;
+
   const gridClass = images.length >= 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
 
   return (
@@ -782,7 +700,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
           {navItems.map((item) => (
             <Link
               key={item}
-              to={`/${vehicleId}/${item}`}
+              to={vehicleId === 'kraken' ? `/robotx/kraken/${item}` : `/${vehicleId}/${item}`}
               className={`px-5 py-2 rounded-lg border text-sm sm:text-base font-semibold transition-all duration-200 ${
                 item === subsystemId
                   ? 'bg-orange-500 border-orange-400 text-white'
@@ -808,7 +726,7 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-6">
                       {section.title}
                     </h2>
-                    <p className="text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
+                    <p className="whitespace-pre-line text-justify text-base sm:text-lg text-gray-200 leading-relaxed">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (
@@ -845,13 +763,52 @@ export default function RobotX2026SubsystemPage({ vehicleId: propVehicleId, subs
                     ))}
                   </div>
                 </div>
+              ) : section.imageLayout === 'bottom' ? (
+                <div className="mx-auto max-w-4xl">
+                  <h2 className="text-center text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
+                    {section.title}
+                  </h2>
+                  <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+                    {section.description}
+                  </p>
+                  {section.bullets.length > 0 && (
+                    <ul className="mb-6 list-disc space-y-2 pl-5 text-left text-sm sm:text-base text-gray-200">
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.images && section.images.length > 0 && (
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-white/15 bg-black/40">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedMedia(section.images[0])}
+                          className="block h-full w-full cursor-zoom-in"
+                          aria-label={`Open ${section.images[0].caption ?? section.title}`}
+                        >
+                          <img
+                            src={section.images[0].src}
+                            alt={section.images[0].caption ?? section.title}
+                            className="h-auto w-full object-cover"
+                          />
+                        </button>
+                        {section.images[0].caption && (
+                          <p className="bg-black/60 p-3 text-xs sm:text-sm text-gray-300 text-center">
+                            {section.images[0].caption}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ) : (
                 <div className="flex flex-col lg:flex-row gap-8 items-center">
                   <div className="flex-1">
                     <h2 className="text-2xl sm:text-3xl font-bold text-orange-500 mb-4">
                       {section.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
+                    <p className="whitespace-pre-line text-base sm:text-lg text-gray-200 leading-relaxed mb-4">
                       {section.description}
                     </p>
                     {section.bullets.length > 0 && (

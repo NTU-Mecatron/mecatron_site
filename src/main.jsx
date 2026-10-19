@@ -9,6 +9,8 @@ const KevinPage = lazy(() => import('./KevinPage.jsx'));
 const HydraPage = lazy(() => import('./HydraPage.jsx'));
 const KrakenPage = lazy(() => import('./KrakenPage.jsx'));
 const LucyPage = lazy(() => import('./LucyPage.jsx'));
+const PhoenixPage = lazy(() => import('./PhoenixPage.jsx'));
+const PoseidonPage = lazy(() => import('./PoseidonPage.jsx'));
 const VehiclesPage = lazy(() => import('./VehiclesPage.jsx'));
 const GamePage = lazy(() => import('./GamePage.jsx'));
 
@@ -57,6 +59,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="sponsors" element={<SponsorsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="lucy" element={<LucyPage />} />
+          <Route path="phoenix" element={<PhoenixPage />} />
+          <Route path="poseidon" element={<PoseidonPage />} />
           {/* <Route path="focus" element={<FocusPage />} /> */}
           <Route path="robosub2025" element={<Robosub2025Page />} />
           <Route path="robosub2026" element={<Robosub2026Page />} />
@@ -74,6 +78,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="phoenix/mechanical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="mechanical" />} />
           <Route path="phoenix/electrical" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="electrical" />} />
           <Route path="phoenix/software" element={<RobotX2026SubsystemPage vehicleId="phoenix" subsystemId="software" />} />
+          <Route path="robotx/kraken/mechanical" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="mechanical" />} />
+          <Route path="robotx/kraken/electrical" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="electrical" />} />
+          <Route path="robotx/kraken/software" element={<RobotX2026SubsystemPage vehicleId="kraken" subsystemId="software" />} />
           <Route path="sauvc2025" element={<Sauvc2025Page />} />
           <Route path="sauvc2026" element={<Sauvc2026Page />} />
           <Route path="materov2024" element={<Materov2024Page />} />
