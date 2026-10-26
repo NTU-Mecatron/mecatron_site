@@ -11,7 +11,7 @@ const sponsorProfiles = {
     text: 'text-black',
     imageClass: 'max-w-3xl rounded-xl object-contain',
     description: [
-      "RobotX Sponsor of Mecatron"
+      "We are extremely grateful to GPS Lands for their resources and support in our technical development. As a Singapore-based company leading in the Mapping & Surveying and Geomatics Engineering sectors, GPS Lands has provided Mecatron with access to advanced equipment that have strengthened our sensing and navigation capabilities. Their contributions have greatly supported the development and performance of our robotic systems as we prepare to represent Singapore at international robotics competitions."
     ]
   },
   ouster: {
@@ -23,7 +23,7 @@ const sponsorProfiles = {
     text: 'text-black',
     imageClass: 'max-w-3xl rounded-xl object-contain',
     description: [
-      "RobotX Sponsor of Mecatron"
+      "We would like to express our sincere gratitude to Ouster for their generous support and trust in Mecatron. As a leading developer of high-resolution digital lidar sensors and sensing solutions for robotics and autonomous systems, Ouster has provided Mecatron with advanced equipment that will significantly strengthen our team’s sensing, perception, and navigation capabilities. Their strong support has also provided a solid foundation for our continued technical development and future endeavours."
     ]
   },
   fstd: {
