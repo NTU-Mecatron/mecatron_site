@@ -596,6 +596,15 @@ const teamData = {
         github: "https://github.com/lucvt001",  
       },
       {
+        name: "Wong Wei Ming",
+        role: "Team Lead",
+        image: "/website_member_photos/weiming-2.jpeg",
+        backImage: "/website_member_photos/weiming-1.webp",
+        schoolYear: "Year 3 Computer Engineering Student",
+        linkedin: "https://www.linkedin.com/in/wong-wei-ming-091523203/",
+        github: "https://github.com/Alvin0523",  
+      },
+      {
         name: "Scott Cheng",
         role: "CRO, Electrical Lead",
         image: "/website_member_photos/scott-1.jpg",
@@ -798,16 +807,6 @@ const teamData = {
         },
       ],
       software : [
-        {
-        name: "Wong Wei Ming",
-        role: "Software Division",
-        image: "/website_member_photos/weiming-2.jpeg",
-        backImage: "/website_member_photos/weiming-1.webp",
-        schoolYear: "Year 3 Computer Engineering Student",
-        linkedin: "https://www.linkedin.com/in/wongweiming/",
-        github: "https://github.com/Alvin0523",  
-
-      },
       {
         name: "Luc Vu Tien",
         role: "CTO, Software Division",
@@ -816,6 +815,16 @@ const teamData = {
         schoolYear: "Year 4 Mechanical Engineering Student",
         linkedin: "https://www.linkedin.com/in/luc-vu-tien-601138131/",
         github: "https://github.com/lucvt001",  
+      },
+      {
+        name: "Wong Wei Ming",
+        role: "Software Lead",
+        image: "/website_member_photos/weiming-2.jpeg",
+        backImage: "/website_member_photos/weiming-1.webp",
+        schoolYear: "Year 3 Computer Engineering Student",
+        linkedin: "https://www.linkedin.com/in/wongweiming/",
+        github: "https://github.com/Alvin0523",  
+
       },
         {
         name: "Bui Gia Bao",
@@ -1242,10 +1251,18 @@ const teamData = {
       ],
       advisors : [
       {
+        name: "New Tze How, Daniel",
+        role: "Team Advisor",
+        image: "/ay2627-members/advisor/prof-daniel-new.png",
+        backImage: "/ay2627-members/advisor/prof-daniel-new.png",
+        schoolYear: "Assistant Professor, School of Mechanical & Aerospace Engineering",
+        linkedin: "https://sg.linkedin.com/in/daniel-t-h-new-79872030",
+      },
+      {
         name: "Zach Low",
         role: "AY24/25 Lead",
         image: "/website_member_photos/zac-1.jpg",
-        backImage: "/website_member_photos/zac-2.jpg",
+        backImage: "/website_member_photos/zac-1.jpg",
         schoolYear: "Mechanical Engineering Graduate",
         linkedin: "https://www.linkedin.com/in/zach-low/",
       },
@@ -1513,6 +1530,14 @@ const teamData = {
         schoolYear: "Year 4 Aerospace Engineering & Economics Student",
         linkedin: "https://www.linkedin.com/in/minh-nhan01/",
       },
+      {
+        name: "Wong Wei Ming",
+        role: "Advisor of Robotics Software",
+        image: "/ay2627-members/robosw/wei_ming.jpg",
+        schoolYear: "Year 4 Computer Engineering Student",
+        linkedin: "https://www.linkedin.com/in/wong-wei-ming-091523203/",
+        github: "https://github.com/Alvin0523",  
+      },
       { name: "Bui Gia Bao", role: "Advisor of Robotics Software", image: "/ay2627-members/robosw/bao.jpg", schoolYear: "Year 4 Electrical and Electronic Engineering Student", linkedin: "https://www.linkedin.com/in/gia-bao-bui-562883281/" },
       { name: "Moolya Baba Purandara", role: "Robotics Software Team Member", image: "/ay2627-members/robosw/baba.jpg", schoolYear: "Year 3 Mechanical Engineering Student", linkedin: "https://www.linkedin.com/in/placeholder", github: "https://github.com/placeholder" },
       { name: "Yu Cheng Yee", role: "Robotics Software Team Member", image: "/ay2627-members/robosw/cheng_yee.jpg", schoolYear: "Year 2 Robotics Student", linkedin: "https://www.linkedin.com/in/placeholder", github: "https://github.com/placeholder" },
@@ -1554,7 +1579,16 @@ const teamData = {
       { name: "Quek Yun Tai", role: "Digital Software Team Member", image: "/ay2627-members/digisw/yun_tai_1.png", schoolYear: "Year 2 Robotics Student", github: "https://github.com/kr4lll" },
       { name: "Eu Zhuo Li", role: "Digital Software Team Member", image: "/ay2627-members/digisw/zhuo_li_1.jpg", schoolYear: "Year 1 Data Science and Artificial Intelligence Student", github: "https://github.com/euzhuoli" },
     ],
-    advisors: [],
+    advisors: [
+      {
+        name: "New Tze How, Daniel",
+        role: "Team Advisor",
+        image: "/ay2627-members/advisor/prof-daniel-new.png",
+        backImage: "/ay2627-members/advisor/prof-daniel-new.png",
+        schoolYear: "Assistant Professor, School of Mechanical & Aerospace Engineering",
+        linkedin: "https://sg.linkedin.com/in/daniel-t-h-new-79872030",
+      },
+    ],
   }
 };
 
