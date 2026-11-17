@@ -818,7 +818,7 @@ const teamData = {
       },
       {
         name: "Wong Wei Ming",
-        role: "Software Lead",
+        role: "Perception Lead",
         image: "/website_member_photos/weiming-2.jpeg",
         backImage: "/website_member_photos/weiming-1.webp",
         schoolYear: "Year 3 Computer Engineering Student",
